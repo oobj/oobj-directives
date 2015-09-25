@@ -1,0 +1,19 @@
+{
+  "name": "oobj-directives",
+  "version": "1.0.0",
+  "homepage": "https://github.com/oobj/oobj-directives",
+  "authors": [
+    "ATILLA <atilla8huno@gmail.com>",
+    "LEONARDO <leonardocostaborges@gmail.com>"
+  ],
+  "description": "Directivas AngularJS Oobj",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
