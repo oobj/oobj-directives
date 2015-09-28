@@ -12,7 +12,6 @@
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-directives/oobjInputText/oobjInputText.html',
-            replace: true,
             transclude: false,
             scope: {
                 id: '@',
