@@ -1,21 +1,23 @@
-<div ng-class="colspan" class="form-group">
-    <label class="control-label" ng-show="showLabel && label != undefined" for="{{id}}">
-        <span ng-bind="label"></span>
-        <span style="color: red;" ng-show="ngRequired">*</span>
-    </label>
-    <input id="{{id}}"
-           type="{{type}}"
-           class="form-control"
-           ng-model="ngModel"
-           ng-disabled="ngDisabled"
-           ng-required="ngRequired"
-           ng-change="onChange($event)"
-           ng-blur="onBlur($event)"
-           ng-keyup="onKeyup($event)"
-           ng-keydown="onKeydown($event)"
-           ng-readonly="ngReadonly"
-           placeholder="{{placeholder}}"
-           maxlength="{{maxlength}}"
-           max="{{max}}"
-           min="{{min}}"/>
-</div>
+<script type="text/ng-template" id="oobjInputText.html">
+    <div ng-class="colspan" class="form-group">
+        <label class="control-label" ng-show="showLabel && label != undefined" for="{{id}}">
+            <span ng-bind="label"></span>
+            <span style="color: red;" ng-show="ngRequired">*</span>
+        </label>
+        <input id="{{id}}"
+               type="{{type}}"
+               class="form-control"
+               ng-model="ngModel"
+               ng-disabled="ngDisabled"
+               ng-required="ngRequired"
+               ng-change="onChange($event)"
+               ng-blur="onBlur($event)"
+               ng-keyup="onKeyup($event)"
+               ng-keydown="onKeydown($event)"
+               ng-readonly="ngReadonly"
+               placeholder="{{placeholder}}"
+               maxlength="{{maxlength}}"
+               max="{{max}}"
+               min="{{min}}"/>
+    </div>
+</script>

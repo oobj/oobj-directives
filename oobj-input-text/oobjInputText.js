@@ -2,16 +2,15 @@
     'use strict';
 
     angular.module('oobjDirectives')
-        .directive('oobjInputText', oobjInputText);
+            .directive('oobjInputText', oobjInputText);
 
-    oobjInputText.$inject = [];
+    oobjInputText.$inject = ['$templateCache'];
 
-    function oobjInputText() {
-
+    function oobjInputText($templateCache) {
         var directive = {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-directives/oobjInputText/oobjInputText.html',
+            templateUrl: $templateCache.get('oobjInputText.html'),
             transclude: false,
             scope: {
                 id: '@',

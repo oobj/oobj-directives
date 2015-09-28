@@ -4,5 +4,5 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives', ['ui.bootstrap']);
+    var oobjDirectives = angular.module('oobjDirectives', ['ui.bootstrap']);
 })();
