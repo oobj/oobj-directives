@@ -1,1 +1,1 @@
-!function(){"use strict";function a(){var a={templateUrl:"scripts/directives/oobj-timeline/oobj-timeline.html",restrict:"E",replace:!0,scope:{provider:"=",colspan:"@"}};return a}angular.module("painel").directive("oobjTimeline",a),a.$inject=[]}();
+!function(){"use strict";function a(){var a={templateUrl:"scripts/directives/oobj-timeline/oobj-timeline.html",restrict:"E",replace:!0,scope:{provider:"=",colspan:"@"}};return a}angular.module("oobjDirectives").directive("oobjTimeline",a),a.$inject=[]}();
