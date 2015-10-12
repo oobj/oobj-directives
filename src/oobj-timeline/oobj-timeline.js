@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 
-    angular.module('painel')
+    angular.module('oobjDirectives')
         .directive('oobjTimeline', oobjTimeline);
 
     oobjTimeline.$inject = [];
