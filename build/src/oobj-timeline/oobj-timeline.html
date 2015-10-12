@@ -1,16 +1,1 @@
-<div class="panel-body" ng-class="colspan">
-    <ul class="timeline">
-        <li ng-repeat="item in provider track by $index" ng-class="$even ? '' : 'timeline-inverted'">
-            <div ng-if="item.badge" class="timeline-badge" ng-class="item.timelineStyle"><i class="fa {{ item.badge }}"></i></div>
-            <div class="timeline-panel">
-                <div class="timeline-heading">
-                    <h4 class="timeline-title" ng-bind="item.title"></h4>
-                    <p><small class="text-muted"><i class="fa fa-clock-o"></i>&nbsp;<span ng-bind="item.date | date:'dd/MM/yyyy hh:mm:ss'"></span></small></p>
-                </div>
-                <div class="timeline-body" ng-if="item.description">
-                    <p ng-bind="item.description"></p>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+<div class="panel-body" ng-class="colspan"><ul class="timeline"><li ng-repeat="item in provider track by $index" ng-class="$even ? '' : 'timeline-inverted'"><div ng-if="item.badge" class="timeline-badge" ng-class="item.timelineStyle"><i class="fa {{ item.badge }}"></i></div><div class="timeline-panel"><div class="timeline-heading"><h4 class="timeline-title" ng-bind="item.title"></h4><p><small class="text-muted"><i class="fa fa-clock-o"></i>&nbsp;<span ng-bind="item.date | date:'dd/MM/yyyy hh:mm:ss'"></span></small></p></div><div class="timeline-body" ng-if="item.description"><p ng-bind="item.description"></p></div></div></li></ul></div>

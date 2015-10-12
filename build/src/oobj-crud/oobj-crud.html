@@ -1,25 +1,4 @@
-<oobj-container title="{{title}}">
-    <form role="form" novalidate>
-        <oobj-panel colspan="col-lg-12">
-            <div class="row" ng-if="showBtnOnTop" style="padding-bottom: 15px;">
-                <ng-include src="'formActions'"></ng-include>
-            </div>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div ng-transclude></div>
-                </div>
-            </div>
-
-            <div class="row" ng-if="showBtnOnBottom">
-                <ng-include src="'formActions'"></ng-include>
-            </div>
-        </oobj-panel>
-    </form>
-</oobj-container>
-
-<script type="text/ng-template" id="formActions">
-    <div class="row">
+<oobj-container title="{{title}}"><form role="form" novalidate><oobj-panel colspan="col-lg-12"><div class="row" ng-if="showBtnOnTop" style="padding-bottom: 15px"><ng-include src="'formActions'"></ng-include></div><div class="container-fluid"><div class="row"><div ng-transclude></div></div></div><div class="row" ng-if="showBtnOnBottom"><ng-include src="'formActions'"></ng-include></div></oobj-panel></form></oobj-container><script type="text/ng-template" id="formActions"><div class="row">
         <div class="col-md-12">
             <oobj-button label="Salvar" class="pull-right" style="padding-right: 15px;" btn-class="btn-primary"
                          icon="fa-floppy-o" ng-click="vm.salvar()" ng-if="showBtnSalvar">
@@ -33,5 +12,4 @@
                          icon="fa-eraser" ng-click="vm.limpar()" ng-if="showBtnLimpar">
             </oobj-button>
         </div>
-    </div>
-</script>
+    </div></script>
