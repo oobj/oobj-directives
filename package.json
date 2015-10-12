@@ -28,6 +28,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^0.2.1",
     "grunt-google-cdn": "^0.4.0",
+    "grunt-html2js": "^0.3.5",
     "grunt-karma": "^0.12.1",
     "grunt-newer": "^0.7.0",
     "grunt-ng-annotate": "^0.10.0",
