@@ -4,5 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives', ['ui.bootstrap']);
+    angular.module('oobjDirectives',
+            ['ui.bootstrap',
+            'ngAnimate',
+            'ui.router',
+            'ui.grid',
+            'ui.bootstrap',
+            'toastr',
+            'angular-loading-bar',
+            'daterangepicker']);
 })();
