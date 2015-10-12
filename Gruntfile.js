@@ -99,7 +99,17 @@ module.exports = function(grunt) {
                 ]
             }
         },
+
+        html2js: {
+            options: {
+                // custom options, see below
+            },
+            main: {
+                src: ['src/**/*.html'],
+                dest: 'src/templates.js'
+            },
+        },
     });
 
-    grunt.registerTask('build', ['clean', 'copy', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
+    grunt.registerTask('build', ['clean', 'html2js', 'copy', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
 };
