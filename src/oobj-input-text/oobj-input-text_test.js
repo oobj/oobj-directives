@@ -15,7 +15,7 @@ describe('Teste de Directiva: oobjInputText - ', function() {
 
     beforeEach(function() {
         // carregando modulo q ira ser testado
-        module('painel');
+        module('oobjDirectives');
         // carregando templates
         angular.mock.module('templates');
     });
