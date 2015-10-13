@@ -106,7 +106,20 @@ module.exports = function(grunt) {
 
         html2js: {
             options: {
-                // custom options, see below
+                base: 'src',
+                module: 'oobjDirectives.templates',
+                singleModule: true,
+                useStrict: true,
+                htmlmin: {
+                    collapseBooleanAttributes: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true,
+                    removeComments: true,
+                    removeEmptyAttributes: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true
+                }
             },
             main: {
                 src: ['src/**/*.html'],

@@ -7,11 +7,11 @@
     angular.module('oobjDirectives',
             ['ui.bootstrap',
             'ngAnimate',
+            'oobjDirectives.templates',
             'ui.router',
             'ui.grid',
             'ui.bootstrap',
             'toastr',
             'angular-loading-bar',
-            'daterangepicker',
-            'templates-main']);
+            'daterangepicker']);
 })();
