@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjSidebar', oobjSidebar);
 
     oobjSidebar.$inject = [];

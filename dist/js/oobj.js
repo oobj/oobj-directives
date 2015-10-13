@@ -21,7 +21,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjAutocomplete', oobjAutocomplete);
 
     oobjAutocomplete.$inject = [];
@@ -70,7 +70,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjButton', oobjButton);
 
     oobjButton.$inject = [];
@@ -122,7 +122,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjChartBar', oobjChartBar);
 
     oobjChartBar.$inject = [];
@@ -156,7 +156,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjChartDoughnut', oobjChartDoughnut);
 
     oobjChartDoughnut.$inject = [];
@@ -184,7 +184,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjChartLine', oobjChartLine);
 
     oobjChartLine.$inject = [];
@@ -211,7 +211,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjChartPie', oobjChartPie);
 
     oobjChartPie.$inject = [];
@@ -243,7 +243,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjChartRadar', oobjChartRadar);
 
     oobjChartRadar.$inject = [];
@@ -271,7 +271,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjCheckbox', oobjCheckbox);
 
     oobjCheckbox.$inject = [];
@@ -316,7 +316,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
             .directive('oobjContainer', oobjContainer);
 
     oobjContainer.$inject = [];
@@ -347,7 +347,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjCrud', oobjCrud);
 
     oobjCrud.$inject = [];
@@ -401,7 +401,7 @@
 (function () {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjDatePicker', oobjDatePicker);
 
     oobjDatePicker.$inject = [];
@@ -490,7 +490,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjFooter', oobjFooter);
 
     oobjFooter.$inject = [];
@@ -521,7 +521,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjGrid', oobjGrid);
 
     oobjGrid.$inject = ['$interval', 'uiGridConstants'];
@@ -585,7 +585,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjInputContainer', oobjInputContainer);
 
     oobjInputContainer.$inject = [];
@@ -617,7 +617,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
             .directive('oobjInputText', oobjInputText);
 
     oobjInputText.$inject = [];
@@ -675,7 +675,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
             .directive('oobjPanel', oobjPanel);
 
     oobjPanel.$inject = [];
@@ -713,7 +713,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjPesquisa', oobjPesquisa);
 
     oobjPesquisa.$inject = [];
@@ -761,7 +761,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjRadio', oobjRadio);
 
     function oobjRadio() {
@@ -809,7 +809,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
     oobjSelect.$inject = [];
@@ -862,7 +862,7 @@
 (function () {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjSidebar', oobjSidebar);
 
     oobjSidebar.$inject = [];
@@ -994,7 +994,7 @@
 (function () {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjTimeline', oobjTimeline);
 
     oobjTimeline.$inject = [];

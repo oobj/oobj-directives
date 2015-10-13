@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives')
+    angular.module('oobj-directives')
         .directive('oobjInputContainer', oobjInputContainer);
 
     oobjInputContainer.$inject = [];

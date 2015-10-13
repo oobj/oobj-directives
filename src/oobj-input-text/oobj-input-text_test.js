@@ -16,7 +16,7 @@
 
         beforeEach(function() {
             // carregando modulo q ira ser testado
-            module('oobjDirectives');
+            module('oobj-directives');
             // carregando templates
             angular.mock.module('templates');
         });
