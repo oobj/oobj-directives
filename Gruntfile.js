@@ -115,5 +115,5 @@ module.exports = function(grunt) {
         },
     });
 
-    grunt.registerTask('build', ['clean', 'html2js', 'copy', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
+    grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
 };
