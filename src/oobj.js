@@ -4,10 +4,10 @@
 (function() {
     'use strict';
 
-    angular.module('oobjDirectives',
+    angular.module('oobj-directives',
             ['ui.bootstrap',
             'ngAnimate',
-            'oobjDirectives.templates',
+            'oobj-directives.templates',
             'ui.router',
             'ui.grid',
             'ui.bootstrap',

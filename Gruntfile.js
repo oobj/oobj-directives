@@ -107,7 +107,7 @@ module.exports = function(grunt) {
         html2js: {
             options: {
                 base: 'src',
-                module: 'oobjDirectives.templates',
+                module: 'oobj-directives.templates',
                 singleModule: true,
                 useStrict: true,
                 htmlmin: {
