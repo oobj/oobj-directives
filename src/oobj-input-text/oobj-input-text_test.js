@@ -80,7 +80,7 @@
 
         function getCompiledElement(){
 
-            var $element = angular.element('<oobj-input-text show-label="showLabel" ng-model="ngModel" ng-required="ngRequired" ng-disabled="ngDisabled" ng-readonly="ngReadonly" remove-mask="removeMask" autofocus="autofocus" currency="currency" to-upper="toUpper" to-lower="toLower" ng-change="ngChange()" ng-keyup="ngKeyup()" ng-keydown="ngKeydown()" ng-blur="ngBlur()"></oobj-input-text>');
+            var $element = angular.element('<oobj-input-text show-label="showLabel" ng-model="ngModel" ng-required="ngRequired" ng-disabled="ngDisabled" ng-readonly="ngReadonly" remove-mask="removeMask" autofocus="autofocus" currency="currency" to-upper="toUpper" to-lower="toLower" input-size="inputSize" ng-change="ngChange()" ng-keyup="ngKeyup()" ng-keydown="ngKeydown()" ng-blur="ngBlur()"></oobj-input-text>');
 
             var compiledElement = $compile($element)(scope);
             scope.$digest();
@@ -212,6 +212,15 @@
             isolatedScope.ngBlur();
             expect(scope.ngBlur).toHaveBeenCalled();
 
+        });
+
+        it('Deve limpar o conteudo ngModel - Teste funcao limpar', function () {
+            isolatedScope.ngModel.prop = "valorIsoladoScope";
+            expect(scope.ngModel.prop).toEqual('valorIsoladoScope');
+            var button = element.find('button');
+            button.triggerHandler('click');
+            scope.$digest();
+            expect(scope.ngModel).toBeNull;
         });
     });
 })();
