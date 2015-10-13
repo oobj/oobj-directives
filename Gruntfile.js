@@ -38,11 +38,11 @@ module.exports = function(grunt) {
 
         concat: {
             principal: {
-                src: ['src/**/*.js'],
+                src: ['src/oobj.js', 'src/**/*.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.js'
             },
             minificado: {
-                src: ['src/**/*.js'],
+                src: ['src/oobj.js', 'src/**/*.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.min.js'
             }
         },
