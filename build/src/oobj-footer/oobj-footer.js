@@ -1,1 +1,0 @@
-!function(){"use strict";function a(){function a(a,b,c,d){a.version="0.0.1",a.generatedData=new Date,a.year=new Date}return{restrict:"EA",templateUrl:"scripts/directives/oobj-footer/oobj-footer.html",scope:{version:"@?",generatedData:"@?",year:"@"},link:a}}angular.module("oobjDirectives").directive("oobjFooter",a),a.$inject=[]}();

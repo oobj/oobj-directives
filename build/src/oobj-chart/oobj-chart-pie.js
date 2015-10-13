@@ -1,1 +1,0 @@
-!function(){"use strict";function a(){function a(a,b,c,d){}var b={require:"ngModel",restrict:"EA",templateUrl:"scripts/directives/oobj-chart/oobj-chart-pie.html",scope:{id:"@",ngModel:"=?",colspan:"@",title:"@"},link:a};return b}angular.module("oobjDirectives").directive("oobjChartPie",a),a.$inject=[]}();

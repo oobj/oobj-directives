@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
     // Configurable paths for the application
     var appConfig = {
-        app: require('./bower.json').appPath || 'app',
+        app: require('./bower.json').appPath || 'src',
         dist: 'dist'
     };
 
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         src: ['src/**'],
-                        dest: 'build/'
+                        dest: 'dist/'
                     }
                 ]
             }
@@ -39,13 +39,17 @@ module.exports = function(grunt) {
         concat: {
             principal: {
                 src: ['src/**/*.js'],
-                dest: 'build/js/oobj.js'
+                dest: 'dist/js/oobj.js'
+            },
+            minificado: {
+                src: ['src/**/*.js'],
+                dest: 'dist/js/oobj.min.js'
             }
         },
 
         clean: {
             build: {
-                src: ['build']
+                src: ['dist']
             }
         },
 
@@ -57,7 +61,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['build/**/*.js']
+                        src: ['dist/**/*.js']
                     }
                 ]
             }
@@ -68,7 +72,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['build/**/*.js']
+                        src: ['dist/**/*.min.js']
                     }
                 ]
             }
@@ -79,7 +83,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['build/**/*.css']
+                        src: ['dist/**/*.min.css']
                     }
                 ]
             }
@@ -94,7 +98,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['build/**/*.html']
+                        src: ['dist/**/*.html']
                     }
                 ]
             }
@@ -106,7 +110,7 @@ module.exports = function(grunt) {
             },
             main: {
                 src: ['src/**/*.html'],
-                dest: 'src/templates.js'
+                dest: 'src/oobj-tpls.js'
             },
         },
     });

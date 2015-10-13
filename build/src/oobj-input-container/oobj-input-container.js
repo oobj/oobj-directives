@@ -1,1 +1,0 @@
-!function(){"use strict";function a(){function a(a,b,c,d){}var b={restrict:"EA",templateUrl:"scripts/directives/oobj-input-container/oobj-input-container.html",transclude:!0,scope:{colspan:"@",label:"@",showLabel:"=?"},link:a};return b}angular.module("oobjDirectives").directive("oobjInputContainer",a),a.$inject=[]}();

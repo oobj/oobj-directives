@@ -1,1 +1,0 @@
-!function(){"use strict";function a(){return{require:"ngModel",restrict:"EA",templateUrl:"scripts/directives/oobj-chart/oobj-chart-radar.html",scope:{id:"@",ngModel:"=?",colspan:"@",title:"@",chartId:"@"}}}angular.module("oobjDirectives").directive("oobjChartRadar",a),a.$inject=[]}();
