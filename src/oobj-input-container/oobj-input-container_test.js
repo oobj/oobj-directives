@@ -46,7 +46,7 @@
             scope.$digest();
 
             return compiledElement;
-        };
+        }
 
         it('deve ter a classe oobj-input-container', function () {
             var elementTemp = angular.element("<p class='oobj-input-container'></p>");
@@ -83,6 +83,11 @@
             isolatedScope.showLabel.prop = "valorIsoladoScope";
             expect(scope.showLabel.prop).toEqual('valorIsoladoScope');
 
+        });
+
+        it('Deve ter ng-transclude', function () {
+            var transclude  = element.find('div[ng-transclude]');
+            expect(transclude.length).toBe(1);
         });
 
     });

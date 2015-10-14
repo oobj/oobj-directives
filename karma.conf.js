@@ -6,6 +6,7 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
 
         files: [
+            'node_modules/jquery/dist/jquery.js',
             'bower_components/angular/angular.js',
             'node_modules/angular-route/angular-route.js',
             'node_modules/angular-mocks/angular-mocks.js',
@@ -19,7 +20,6 @@ module.exports = function (config) {
             'bower_components/angular-daterangepicker/js/angular-daterangepicker.js',
             'src/oobj.js',
             'src/oobj-tpls.js',
-            'app/js/app.js',
             'src/**/*.js',
             'src/**/*.html'
         ],
@@ -84,4 +84,4 @@ module.exports = function (config) {
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: false
     })
-}
+};
