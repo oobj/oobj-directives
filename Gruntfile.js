@@ -36,6 +36,26 @@ module.exports = function(grunt) {
             }
         },
 
+        coveralls: {
+            options: {
+                debug: true,
+                coverageDir: 'results/',
+                force: true
+            }
+        },
+		
+		karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                singleRun: true
+            },
+            continuous: {
+                configFile: 'karma.conf.js',
+                singleRun: true,
+                browsers: ['PhantomJS']
+            }
+        },
+
         concat: {
             principal: {
                 src: ['src/oobj.js', 'src/**/*.js', '!src/**/*_test.js'],
@@ -125,4 +145,5 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
+	grunt.registerTask('continuous', ['clean', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin', 'coveralls']);	
 };
