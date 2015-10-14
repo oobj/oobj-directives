@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    describe('Teste de Directiva: oobjInputText - ', function() {
+    describe('Teste de Directiva: oobjInputText', function() {
 
         // variaveis globais
         var $rootScope,
@@ -86,7 +86,14 @@
             scope.$digest();
 
             return compiledElement;
-        }
+        };
+
+        it('deve ter a classe oobj-input-text', function () {
+            var elementTemp = angular.element("<p class='oobj-input-text'></p>");
+            $compile(elementTemp);
+            scope.$digest();
+            expect(elementTemp.hasClass('oobj-input-text')).toBeTruthy();
+        });
 
         it('Teste input text. Divs presentes', function(){
             expect(element.find('div').length).toEqual(3);

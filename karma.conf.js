@@ -20,7 +20,7 @@ module.exports = function (config) {
             'src/oobj.js',
             'src/oobj-tpls.js',
             'app/js/app.js',
-            'src/oobj-input-text/*.js',
+            'src/**/*.js',
             'src/**/*.html'
         ],
 
