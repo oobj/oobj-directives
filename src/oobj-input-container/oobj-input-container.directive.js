@@ -1,21 +1,22 @@
 /**
- * Created by ATILLA on 30/09/2015.
+ * Created by ATILLA on 05/10/2015.
  */
 (function() {
     'use strict';
 
     angular.module('oobj-directives')
-            .directive('oobjContainer', oobjContainer);
+        .directive('oobjInputContainer', oobjInputContainer);
 
-    oobjContainer.$inject = [];
-
-    function oobjContainer() {
+    /* @ngInject */
+    function oobjInputContainer() {
         var directive = {
             restrict: 'EA',
-            templateUrl: 'oobj-container/oobj-container.html',
+            templateUrl: 'oobj-input-container/oobj-input-container.html',
             transclude: true,
             scope: {
-                title: '@'
+                colspan: '@',
+                label: '@',
+                showLabel: '=?'
             },
             link: link
         };
@@ -27,4 +28,3 @@
         }
     }
 })();
-

@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
             .directive('oobjPanel', oobjPanel);
 
-    oobjPanel.$inject = [];
-
+    /* @ngInject */
     function oobjPanel() {
         var directive = {
             restrict: 'EA',

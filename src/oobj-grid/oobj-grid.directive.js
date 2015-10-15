@@ -7,9 +7,8 @@
     angular.module('oobj-directives')
         .directive('oobjGrid', oobjGrid);
 
-    oobjGrid.$inject = ['$interval', 'uiGridConstants'];
-
-    function oobjGrid($interval, uiGridConstants) {
+    /* @ngInject */
+    function oobjGrid() {
 
         var directive = {
             restrict: 'EA',

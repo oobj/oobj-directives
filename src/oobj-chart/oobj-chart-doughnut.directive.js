@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartDoughnut', oobjChartDoughnut);
 
-    oobjChartDoughnut.$inject = [];
-
+    /* @ngInject */
     function oobjChartDoughnut() {
 
         return {
