@@ -20,7 +20,8 @@
                 showBtnOpen: '=',
                 showBtnClose: '=',
                 labelBtnOpen: '@',
-                labelBtnClose: '@'
+                labelBtnClose: '@',
+                classBtnOpen: '@'
             },
             link: link,
             compile: compile
