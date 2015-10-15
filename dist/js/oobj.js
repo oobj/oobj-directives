@@ -24,8 +24,7 @@
     angular.module('oobj-directives')
         .directive('oobjAutocomplete', oobjAutocomplete);
 
-    oobjAutocomplete.$inject = [];
-
+    /* @ngInject */
     function oobjAutocomplete() {
         var directive = {
             require: 'ngModel',
@@ -73,8 +72,7 @@
     angular.module('oobj-directives')
         .directive('oobjButton', oobjButton);
 
-    oobjButton.$inject = [];
-
+    /* @ngInject */
     function oobjButton() {
         var directive = {
             restrict: 'EA',
@@ -125,8 +123,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartBar', oobjChartBar);
 
-    oobjChartBar.$inject = [];
-
+    /* @ngInject */
     function oobjChartBar() {
         var directive = {
             require: 'ngModel',
@@ -159,8 +156,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartDoughnut', oobjChartDoughnut);
 
-    oobjChartDoughnut.$inject = [];
-
+    /* @ngInject */
     function oobjChartDoughnut() {
 
         return {
@@ -187,8 +183,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartLine', oobjChartLine);
 
-    oobjChartLine.$inject = [];
-
+    /* @ngInject */
     function oobjChartLine() {
 
         return {
@@ -214,8 +209,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartPie', oobjChartPie);
 
-    oobjChartPie.$inject = [];
-
+    /* @ngInject */
     function oobjChartPie() {
         var directive = {
             require: 'ngModel',
@@ -246,8 +240,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartRadar', oobjChartRadar);
 
-    oobjChartRadar.$inject = [];
-
+    /* @ngInject */
     function oobjChartRadar() {
 
         return {
@@ -274,8 +267,7 @@
     angular.module('oobj-directives')
         .directive('oobjCheckbox', oobjCheckbox);
 
-    oobjCheckbox.$inject = [];
-
+    /* @ngInject */
     function oobjCheckbox() {
         var directive = {
             require: 'ngModel',
@@ -319,8 +311,7 @@
     angular.module('oobj-directives')
             .directive('oobjContainer', oobjContainer);
 
-    oobjContainer.$inject = [];
-
+    /* @ngInject */
     function oobjContainer() {
         var directive = {
             restrict: 'EA',
@@ -350,8 +341,7 @@
     angular.module('oobj-directives')
         .directive('oobjCrud', oobjCrud);
 
-    oobjCrud.$inject = [];
-
+    /* @ngInject */
     function oobjCrud() {
         var directive = {
             restrict: 'EA',
@@ -404,8 +394,7 @@
     angular.module('oobj-directives')
         .directive('oobjDatePicker', oobjDatePicker);
 
-    oobjDatePicker.$inject = [];
-
+    /* @ngInject */
     function oobjDatePicker() {
 
         var directive = {
@@ -493,8 +482,7 @@
     angular.module('oobj-directives')
         .directive('oobjFooter', oobjFooter);
 
-    oobjFooter.$inject = [];
-
+    /* @ngInject */
     function oobjFooter() {
         return {
             restrict: 'EA',
@@ -524,9 +512,8 @@
     angular.module('oobj-directives')
         .directive('oobjGrid', oobjGrid);
 
-    oobjGrid.$inject = ['$interval', 'uiGridConstants'];
-
-    function oobjGrid($interval, uiGridConstants) {
+    /* @ngInject */
+    function oobjGrid(uiGridConstants) {
 
         var directive = {
             restrict: 'EA',
@@ -576,6 +563,7 @@
             }
         }
     }
+    oobjGrid.$inject = ['uiGridConstants'];
 })();
 
 
@@ -588,8 +576,7 @@
     angular.module('oobj-directives')
         .directive('oobjInputContainer', oobjInputContainer);
 
-    oobjInputContainer.$inject = [];
-
+    /* @ngInject */
     function oobjInputContainer() {
         var directive = {
             restrict: 'EA',
@@ -620,8 +607,7 @@
     angular.module('oobj-directives')
             .directive('oobjInputText', oobjInputText);
 
-    oobjInputText.$inject = [];
-
+    /* @ngInject */
     function oobjInputText() {
 
         var directive = {
@@ -678,8 +664,7 @@
     angular.module('oobj-directives')
         .directive('oobjModal', oobjModal);
 
-    oobjModal.$inject = [];
-
+    /* @ngInject */
     function oobjModal() {
         var directive = {
             restrict: 'EA',
@@ -691,7 +676,8 @@
                 showBtnOpen: '=',
                 showBtnClose: '=',
                 labelBtnOpen: '@',
-                labelBtnClose: '@'
+                labelBtnClose: '@',
+                classBtnOpen: '@'
             },
             link: link,
             compile: compile
@@ -736,8 +722,7 @@
     angular.module('oobj-directives')
             .directive('oobjPanel', oobjPanel);
 
-    oobjPanel.$inject = [];
-
+    /* @ngInject */
     function oobjPanel() {
         var directive = {
             restrict: 'EA',
@@ -774,8 +759,7 @@
     angular.module('oobj-directives')
         .directive('oobjPesquisa', oobjPesquisa);
 
-    oobjPesquisa.$inject = [];
-
+    /* @ngInject */
     function oobjPesquisa() {
         var directive = {
             restrict: 'EA',
@@ -822,6 +806,7 @@
     angular.module('oobj-directives')
         .directive('oobjRadio', oobjRadio);
 
+    /* @ngInject */
     function oobjRadio() {
 
         var directive = {
@@ -870,8 +855,7 @@
     angular.module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
-    oobjSelect.$inject = [];
-
+    /* @ngInject */
     function oobjSelect() {
         var directive = {
             require: 'ngModel',
@@ -923,8 +907,7 @@
     angular.module('oobj-directives')
         .directive('oobjSidebar', oobjSidebar);
 
-    oobjSidebar.$inject = [];
-
+    /* @ngInject */
     function oobjSidebar() {
         var directive = {
             templateUrl: 'oobj-sidebar/oobj-sidebar.html',
@@ -1050,25 +1033,28 @@
     'use strict';
 
     angular.module('oobj-directives')
-        .directive('oobjStats', function () {
-            var directive = {
-                templateUrl: 'oobj-stats/oobj-stats.html',
-                restrict: 'E',
-                replace: true,
-                scope: {
-                    'model': '=',
-                    'comments': '@',
-                    'number': '@',
-                    'name': '@',
-                    'colour': '@',
-                    'details': '@',
-                    'type': '@',
-                    'goto': '@'
-                }
-            };
+        .directive('oobjStats', oobjStats);
 
-            return directive;
-        });
+    /* @ngInject */
+    function oobjStats () {
+        var directive = {
+            templateUrl: 'oobj-stats/oobj-stats.html',
+            restrict: 'E',
+            replace: true,
+            scope: {
+                'model': '=',
+                'comments': '@',
+                'number': '@',
+                'name': '@',
+                'colour': '@',
+                'details': '@',
+                'type': '@',
+                'goto': '@'
+            }
+        };
+
+        return directive;
+    }
 })();
 
 /**
@@ -1080,8 +1066,7 @@
     angular.module('oobj-directives')
         .directive('oobjTimeline', oobjTimeline);
 
-    oobjTimeline.$inject = [];
-
+    /* @ngInject */
     function oobjTimeline() {
 
         var directive = {
@@ -1095,7 +1080,6 @@
         };
 
         return directive;
-
     }
 
 })();
@@ -1152,7 +1136,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-input-text/oobj-input-text.html",
     "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} type={{type}} class=form-control ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly placeholder={{placeholder}} maxlength={{maxlength}} max={{max}} min=\"{{min}}\"><div class=input-group-btn><button type=button ng-click=limpar() style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\" class=\"btn btn-default btn-{{inputSize}}\"><i class=\"fa fa-times\"></i></button></div></div></div>");
   $templateCache.put("oobj-modal/oobj-modal.html",
-    "<div style=\"padding-top: 15px; padding-left: 15px\"><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjModal ng-show=showBtnOpen label={{labelBtnOpen}}></oobj-button><div id=oobjModal class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title ng-show=\"title != undefined\"><span ng-bind=title></span></h4></div><div class=modal-body style=\"min-height: 120px\"><div ng-transclude></div></div><div class=modal-footer ng-show=showBtnClose><oobj-button data-dismiss=modal label={{labelBtnClose}} colspan=col-md-2></oobj-button></div></div></div></div></div>");
+    "<div style=\"padding-top: 15px; padding-left: 15px\"><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjModal ng-show=showBtnOpen label={{labelBtnOpen}} icon=fa-info btn-class=\"{{ classBtnOpen }}\"></oobj-button><div id=oobjModal class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title ng-show=\"title != undefined\"><span ng-bind=title></span></h4></div><div class=modal-body style=\"min-height: 120px\"><div ng-transclude></div></div><div class=modal-footer ng-show=showBtnClose><oobj-button data-dismiss=modal label={{labelBtnClose}} colspan=col-md-2></oobj-button></div></div></div></div></div>");
   $templateCache.put("oobj-panel/oobj-panel.html",
     "<div ng-class=colspan><div class=panel ng-class=panelClass style=\"margin-bottom: 0px\"><div class=panel-heading ng-if=\"title != undefined\"><span ng-bind=title></span></div><div class=panel-body><div class=container-fluid><div class=row><div ng-transclude></div></div></div></div><div class=panel-footer ng-if=\"footer != undefined\"><span ng-bind=footer></span></div></div></div>");
   $templateCache.put("oobj-pesquisa/oobj-pesquisa.html",

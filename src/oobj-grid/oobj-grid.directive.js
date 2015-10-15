@@ -8,7 +8,7 @@
         .directive('oobjGrid', oobjGrid);
 
     /* @ngInject */
-    function oobjGrid(uiGridConstants) {
+    function oobjGrid() {
 
         var directive = {
             restrict: 'EA',
