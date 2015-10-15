@@ -31,17 +31,9 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(attrs.width)) {
-                        attrs.width = '150px';
-                    }
-
                     if (angular.isUndefined(scope.btnClass)) {
                         scope.btnClass = 'btn-default';
                     }
-
-                    scope.btnStyle = {};
-                    scope.btnStyle.height = attrs.height;
-                    scope.btnStyle.width = attrs.width;
                 }
             }
         }
