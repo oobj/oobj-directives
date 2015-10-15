@@ -81,10 +81,10 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['dist/**/*.js']
+                        src: ['dist/**/*.js', 'src/**/*.js']
                     }
                 ]
-            }
+            },
         },
 
         uglify: {
