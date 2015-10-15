@@ -4,8 +4,7 @@
     angular.module('oobj-directives')
         .directive('oobjSidebar', oobjSidebar);
 
-    oobjSidebar.$inject = [];
-
+    /* @ngInject */
     function oobjSidebar() {
         var directive = {
             templateUrl: 'oobj-sidebar/oobj-sidebar.html',

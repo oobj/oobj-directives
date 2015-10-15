@@ -7,6 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjRadio', oobjRadio);
 
+    /* @ngInject */
     function oobjRadio() {
 
         var directive = {

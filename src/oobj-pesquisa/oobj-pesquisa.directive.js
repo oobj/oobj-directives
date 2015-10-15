@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjPesquisa', oobjPesquisa);
 
-    oobjPesquisa.$inject = [];
-
+    /* @ngInject */
     function oobjPesquisa() {
         var directive = {
             restrict: 'EA',

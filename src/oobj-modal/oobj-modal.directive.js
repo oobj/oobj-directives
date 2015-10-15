@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjModal', oobjModal);
 
-    oobjModal.$inject = [];
-
+    /* @ngInject */
     function oobjModal() {
         var directive = {
             restrict: 'EA',
@@ -20,7 +19,8 @@
                 showBtnOpen: '=',
                 showBtnClose: '=',
                 labelBtnOpen: '@',
-                labelBtnClose: '@'
+                labelBtnClose: '@',
+                classBtnOpen: '@'
             },
             link: link,
             compile: compile
@@ -35,6 +35,10 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
+                    if (angular.isUndefined(scope.classBtnOpen)) {
+                        scope.classBtnOpen = 'btn-default';
+                    }
+
                     if (angular.isUndefined(scope.labelBtnOpen)) {
                         scope.labelBtnOpen = 'Abrir Modal';
                     }

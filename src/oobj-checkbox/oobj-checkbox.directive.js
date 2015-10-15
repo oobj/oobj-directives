@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjCheckbox', oobjCheckbox);
 
-    oobjCheckbox.$inject = [];
-
+    /* @ngInject */
     function oobjCheckbox() {
         var directive = {
             require: 'ngModel',

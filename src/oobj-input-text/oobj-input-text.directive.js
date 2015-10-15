@@ -1,35 +1,41 @@
 /**
- * Created by ATILLA on 06/10/2015.
+ * Created by ATILLA on 25/09/2015.
  */
 (function() {
     'use strict';
 
     angular.module('oobj-directives')
-        .directive('oobjAutocomplete', oobjAutocomplete);
+            .directive('oobjInputText', oobjInputText);
 
-    oobjAutocomplete.$inject = [];
+    /* @ngInject */
+    function oobjInputText() {
 
-    function oobjAutocomplete() {
         var directive = {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-autocomplete/oobj-autocomplete.html',
+            templateUrl: 'oobj-input-text/oobj-input-text.html',
             scope: {
                 id: '@',
                 ngModel: '=?',
                 colspan: '@',
-                getItems: '&',
-                itemLabel: '@',
-                itemValue: '@',
+                type: '@',
                 label: '@',
                 showLabel: '=?',
                 ngRequired: '=?',
                 ngChange: '&',
+                ngKeyup: '&',
+                ngKeydown: '&',
                 ngBlur: '&',
                 ngDisabled: '=?',
                 ngReadonly: '=?',
                 maxlength: '@',
+                max: '@',
+                min: '@',
+                mask: '@',
+                removeMask: '=?',
                 placeholder: '@',
+                autofocus: '=?',
+                currency: '=?',
                 toUpper: '=?',
                 toLower: '=?',
                 inputSize: '@' // options: lg (large), md (medium), sm (small)
@@ -47,3 +53,4 @@
 
     }
 })();
+

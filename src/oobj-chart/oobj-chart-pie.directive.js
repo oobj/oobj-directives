@@ -5,22 +5,19 @@
     'use strict';
 
     angular.module('oobj-directives')
-        .directive('oobjChartBar', oobjChartBar);
+        .directive('oobjChartPie', oobjChartPie);
 
-    oobjChartBar.$inject = [];
-
-    function oobjChartBar() {
+    /* @ngInject */
+    function oobjChartPie() {
         var directive = {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-chart/oobj-chart-bar.html',
+            templateUrl: 'oobj-chart/oobj-chart-pie.html',
             scope: {
                 id: '@',
-                chartId: '@',
                 ngModel: '=?',
                 colspan: '@',
-                title: '@',
-                type: '@'
+                title: '@'
             },
             link: link
         };

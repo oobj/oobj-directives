@@ -16,13 +16,14 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        jshint: {
-            options: {
-                reporter: 'jshint',
-                reporterOutput: 'jshint.xml'
-            },
-            target: ['src/*']
-        },
+		jshint: {
+		  options: {
+			reporter: require('jshint-html-reporter'),
+			reporterOutput: 'jshint-report.html',
+			force: true
+		  },
+		  target: ['src/*']
+		},
 
         copy: {
             indexes: {
@@ -81,10 +82,10 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['dist/**/*.js']
+                        src: ['dist/**/*.js', 'src/**/*.js']
                     }
                 ]
-            }
+            },
         },
 
         uglify: {
@@ -145,5 +146,5 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
-	grunt.registerTask('continuous', ['clean', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin', 'coveralls']);	
+	grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin', 'coveralls']);	
 };

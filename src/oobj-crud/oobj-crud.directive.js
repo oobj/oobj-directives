@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjCrud', oobjCrud);
 
-    oobjCrud.$inject = [];
-
+    /* @ngInject */
     function oobjCrud() {
         var directive = {
             restrict: 'EA',

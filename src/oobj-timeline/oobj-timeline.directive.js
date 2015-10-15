@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjTimeline', oobjTimeline);
 
-    oobjTimeline.$inject = [];
-
+    /* @ngInject */
     function oobjTimeline() {
 
         var directive = {
@@ -22,7 +21,6 @@
         };
 
         return directive;
-
     }
 
 })();
