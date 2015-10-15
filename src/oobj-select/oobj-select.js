@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
-    oobjSelect.$inject = [];
-
+    /* @ngInject */
     function oobjSelect() {
         var directive = {
             require: 'ngModel',

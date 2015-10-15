@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartRadar', oobjChartRadar);
 
-    oobjChartRadar.$inject = [];
-
+    /* @ngInject */
     function oobjChartRadar() {
 
         return {

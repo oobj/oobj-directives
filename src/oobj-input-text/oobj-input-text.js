@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
             .directive('oobjInputText', oobjInputText);
 
-    oobjInputText.$inject = [];
-
+    /* @ngInject */
     function oobjInputText() {
 
         var directive = {

@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjDatePicker', oobjDatePicker);
 
-    oobjDatePicker.$inject = [];
-
+    /* @ngInject */
     function oobjDatePicker() {
 
         var directive = {

@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjFooter', oobjFooter);
 
-    oobjFooter.$inject = [];
-
+    /* @ngInject */
     function oobjFooter() {
         return {
             restrict: 'EA',

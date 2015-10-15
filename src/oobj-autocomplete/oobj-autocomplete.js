@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjAutocomplete', oobjAutocomplete);
 
-    oobjAutocomplete.$inject = [];
-
+    /* @ngInject */
     function oobjAutocomplete() {
         var directive = {
             require: 'ngModel',

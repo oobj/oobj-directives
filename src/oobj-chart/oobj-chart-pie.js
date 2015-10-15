@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartPie', oobjChartPie);
 
-    oobjChartPie.$inject = [];
-
+    /* @ngInject */
     function oobjChartPie() {
         var directive = {
             require: 'ngModel',

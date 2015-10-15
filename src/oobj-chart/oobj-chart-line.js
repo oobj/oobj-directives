@@ -7,8 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjChartLine', oobjChartLine);
 
-    oobjChartLine.$inject = [];
-
+    /* @ngInject */
     function oobjChartLine() {
 
         return {
