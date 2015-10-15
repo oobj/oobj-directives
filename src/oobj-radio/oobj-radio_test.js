@@ -73,6 +73,12 @@
             expect(isolatedScope.ngModel).toBeDefined();
         });
 
+        it('deve falhar se ngModel nao especificado', function () {
+            expect(function(){
+                getCompiledElement('<input type="text" oobj-radio="" />');
+            }).toThrow();
+        });
+
         it('Teste atributos com scope isolado - one way binding ("@").', function(){
 
             //mesmo modificando o isolateScope ainda permanece o valor atribuido
