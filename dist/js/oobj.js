@@ -513,7 +513,7 @@
         .directive('oobjGrid', oobjGrid);
 
     /* @ngInject */
-    function oobjGrid(uiGridConstants) {
+    function oobjGrid() {
 
         var directive = {
             restrict: 'EA',
@@ -563,7 +563,6 @@
             }
         }
     }
-    oobjGrid.$inject = ['uiGridConstants'];
 })();
 
 
@@ -692,6 +691,10 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
+                    if (angular.isUndefined(scope.classBtnOpen)) {
+                        scope.classBtnOpen = 'btn-default';
+                    }
+
                     if (angular.isUndefined(scope.labelBtnOpen)) {
                         scope.labelBtnOpen = 'Abrir Modal';
                     }
