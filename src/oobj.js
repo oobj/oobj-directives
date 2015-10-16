@@ -5,13 +5,9 @@
     'use strict';
 
     angular.module('oobj-directives',
-            ['ui.bootstrap',
-            'ngAnimate',
-            'oobj-directives.templates',
-            'ui.router',
-            'ui.grid',
-            'ui.bootstrap',
-            'toastr',
-            'angular-loading-bar',
-            'daterangepicker']);
+            ['oobj-directives.templates',
+                'ui.bootstrap',
+                'ui.grid',
+                'ui.bootstrap',
+                'daterangepicker']);
 })();
