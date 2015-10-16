@@ -24,7 +24,8 @@
                 onOpen: '&',
                 provider: '=',
                 itemLabel: '@',
-                itemValue: '@'
+                itemValue: '@',
+                showEmptyOption: '@'
             },
             link: link,
             compile: compile
@@ -40,6 +41,10 @@
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
+
+                    if (angular.isUndefined(scope.showEmptyOption)) {
+                        scope.emptyOption = false;
+                    }
 
                     if (angular.isDefined(attrs.width)) {
                         scope.selectStyle.width = attrs.width;

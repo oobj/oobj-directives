@@ -1,7 +1,7 @@
 <div ng-class="colspan" class="form-group">
     <label class="control-label" ng-if="showLabel != false && label != undefined">
-        <span style="font-weight: bold;" ng-bind="label"></span>
-        <span style="color: red;" ng-show="ngRequired">*</span>
+        <strong><span ng-bind="label"></span></strong>
+        <span class="text-danger" ng-show="ngRequired">*</span>
     </label>
     <div ng-transclude></div>
 </div>

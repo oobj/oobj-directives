@@ -1,13 +1,13 @@
 <div ng-class="colspan" class="form-group" ng-style="selectStyle">
     <label class="control-label" ng-show="showLabel != false && label != undefined">
-        <span style="font-weight: bold;" ng-bind="label"></span>
-        <span style="color: red;" ng-show="ngRequired">*</span>
+        <strong><span ng-bind="label"></span></strong>
+        <span class="text-danger" ng-show="ngRequired">*</span>
     </label>
 
     <div class="input-group">
-        <select name="select" class="form-control" required="{{ngRequired}}" ng-model="ngModel" style="min-width: 200px;"
+        <select name="select" class="form-control" required="{{ngRequired}}" ng-model="ngModel"
                 ng-options="item as item[itemLabel] for item in provider">
-            <option value="">Selecione uma opção...</option>
+            <option ng-if="showEmptyOption" value="">Selecione uma opção...</option>
         </select>
     </div>
 </div>
