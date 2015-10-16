@@ -36,11 +36,11 @@
                         "itens": [
                             {
                                 "label": "NF-e Emitidas",
-                                "sref": "dashboard.panels-wells"
+                                "sref": "dashboard.nfe-emissao"
                             },
                             {
                                 "label": "NFC-e Emitidas",
-                                "sref": "dashboard.buttons"
+                                "sref": "dashboard.nfce-emissao"
                             },
                             {
                                 "label": "CT-e Emitidos",
@@ -62,47 +62,47 @@
                             },
                             {
                                 "label": "NFC-e Recebidas",
-                                "sref": "dashboard.buttons"
+                                "sref": "dashboard.nfce-recebimento"
                             },
                             {
                                 "label": "CT-e Recebidos",
-                                "sref": "dashboard.notifications"
+                                "sref": "dashboard.cte-recebimento"
                             },
                             {
                                 "label": "MDF-e Recebidos",
-                                "sref": "dashboard.typography"
+                                "sref": "dashboard.mdfe-recebimento"
                             }
                         ]
                     },
                     {
                         "icon": "fa-share-alt fa-fw",
                         "label": "Integração",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.integracao"
                     },
                     {
                         "icon": "fa-map-signs fa-fw",
                         "label": "Portaria",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.portaria"
                     },
                     {
                         "icon": "fa-cog fa-fw",
                         "label": "Ferramentas",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.ferramentas"
                     },
                     {
                         "icon": "fa-file-pdf-o fa-fw",
                         "label": "Relatórios",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.relatorios"
                     },
                     {
                         "icon": "fa-briefcase fa-fw",
                         "label": "Administração",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.administracao"
                     },
                     {
                         "icon": "fa-pencil-square-o fa-fw",
                         "label": "Customizações",
-                        "sref": "dashboard.home"
+                        "sref": "dashboard.customizacao"
                     }
                 ];
             }
