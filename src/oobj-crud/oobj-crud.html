@@ -1,18 +1,22 @@
 <oobj-container title="{{title}}">
     <form role="form" novalidate>
         <oobj-panel colspan="col-lg-12">
-            <div class="row" ng-if="showBtnOnTop">
-                <ng-include src="'formActions'"></ng-include>
-            </div>
+            <div class="form-group">
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div ng-transclude></div>
+                <div class="row" ng-if="showBtnOnTop">
+                    <ng-include src="'formActions'"></ng-include>
                 </div>
-            </div>
 
-            <div class="row" ng-if="showBtnOnBottom">
-                <ng-include src="'formActions'"></ng-include>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div ng-transclude></div>
+                    </div>
+                </div>
+
+                <div class="row" ng-if="showBtnOnBottom">
+                    <ng-include src="'formActions'"></ng-include>
+                </div>
+
             </div>
         </oobj-panel>
     </form>
@@ -21,19 +25,17 @@
 <script type="text/ng-template" id="formActions">
     <div class="row">
         <div class="col-md-12">
-            <p>
-                <oobj-button label="Salvar" class="pull-right" btn-class="btn-primary"
-                             icon="fa-floppy-o" ng-click="vm.salvar()" ng-if="showBtnSalvar">
-                </oobj-button>
+            <oobj-button label="Salvar" class="pull-right" btn-class="btn-primary"
+                         icon="fa-floppy-o" ng-click="vm.salvar()" ng-if="showBtnSalvar">
+            </oobj-button>
 
-                <oobj-button label="Excluir" class="pull-right" btn-class="btn-danger"
-                             icon="fa-trash-o" ng-click="vm.excluir()" ng-if="showBtnExcluir">
-                </oobj-button>
+            <oobj-button label="Excluir" class="pull-right" btn-class="btn-danger"
+                         icon="fa-trash-o" ng-click="vm.excluir()" ng-if="showBtnExcluir">
+            </oobj-button>
 
-                <oobj-button label="Limpar" class="pull-right" btn-class="btn-default"
-                             icon="fa-eraser" ng-click="vm.limpar()" ng-if="showBtnLimpar">
-                </oobj-button>
-            </p>
+            <oobj-button label="Limpar" class="pull-right" btn-class="btn-default"
+                         icon="fa-eraser" ng-click="vm.limpar()" ng-if="showBtnLimpar">
+            </oobj-button>
         </div>
     </div>
 </script>

@@ -2,20 +2,25 @@
     <oobj-panel colspan="col-lg-12">
         <div class="container-fluid">
             <div class="row">
-                <div ng-transclude></div>
+                <div class="form-group">
 
-                <div class="row">
-                    <oobj-button label="Pesquisar" class="pull-right" btn-class="btn-primary" icon="fa-search"
-                                 ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
-                    </oobj-button>
+                    <div ng-transclude></div>
 
-                    <oobj-button label="Limpar" class="pull-right" btn-class="btn-success" icon="fa-eraser"
-                                 ng-click="vm.limpar()" ng-if="showBtnLimpar">
-                    </oobj-button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <oobj-button label="Pesquisar" class="pull-right" btn-class="btn-primary" icon="fa-search"
+                                         ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
+                            </oobj-button>
 
-                    <oobj-button label="Pesq. Avançada" class="pull-right" btn-class="btn-default" icon="fa-search-plus"
-                                 ng-click="vm.pesquisaAvancada()" ng-if="showBtnPesquisaAvancada">
-                    </oobj-button>
+                            <oobj-button label="Limpar" class="pull-right" btn-class="btn-success" icon="fa-eraser"
+                                         ng-click="vm.limpar()" ng-if="showBtnLimpar">
+                            </oobj-button>
+
+                            <oobj-button label="Pesq. Avançada" class="pull-right" btn-class="btn-default" icon="fa-search-plus"
+                                         ng-click="vm.pesquisaAvancada()" ng-if="showBtnPesquisaAvancada">
+                            </oobj-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -684,6 +684,10 @@
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm'
+            }
+
             scope.limpar = function() {
                 scope.ngModel = null;
             }
@@ -915,22 +919,22 @@
                 provider: '=',
                 itemLabel: '@',
                 itemValue: '@',
-                showEmptyOption: '@'
+                showEmptyOption: '@',
+                inputSize: '@'
             },
-            link: link,
             compile: compile
         };
 
         return directive;
 
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
-
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
+
+                    if (angular.isUndefined(scope.inputSize)) {
+                        scope.inputSize = 'sm';
+                    }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {
                         scope.emptyOption = false;
@@ -1153,21 +1157,19 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-container/oobj-container.html",
     "<div><div class=row ng-if=\"title != undefined\"><div class=col-lg-12><h5 class=page-header><span ng-bind=title></span></h5></div></div><div class=row><div ng-transclude></div></div></div>");
   $templateCache.put("oobj-crud/oobj-crud.html",
-    "<oobj-container title={{title}}><form role=form novalidate><oobj-panel colspan=col-lg-12><div class=row ng-if=showBtnOnTop><ng-include src=\"'formActions'\"></ng-include></div><div class=container-fluid><div class=row><div ng-transclude></div></div></div><div class=row ng-if=showBtnOnBottom><ng-include src=\"'formActions'\"></ng-include></div></oobj-panel></form></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "<oobj-container title={{title}}><form role=form novalidate><oobj-panel colspan=col-lg-12><div class=form-group><div class=row ng-if=showBtnOnTop><ng-include src=\"'formActions'\"></ng-include></div><div class=container-fluid><div class=row><div ng-transclude></div></div></div><div class=row ng-if=showBtnOnBottom><ng-include src=\"'formActions'\"></ng-include></div></div></oobj-panel></form></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12\">\n" +
-    "            <p>\n" +
-    "                <oobj-button label=\"Salvar\" class=\"pull-right\" btn-class=\"btn-primary\"\n" +
-    "                             icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
-    "                </oobj-button>\n" +
+    "            <oobj-button label=\"Salvar\" class=\"pull-right\" btn-class=\"btn-primary\"\n" +
+    "                         icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
+    "            </oobj-button>\n" +
     "\n" +
-    "                <oobj-button label=\"Excluir\" class=\"pull-right\" btn-class=\"btn-danger\"\n" +
-    "                             icon=\"fa-trash-o\" ng-click=\"vm.excluir()\" ng-if=\"showBtnExcluir\">\n" +
-    "                </oobj-button>\n" +
+    "            <oobj-button label=\"Excluir\" class=\"pull-right\" btn-class=\"btn-danger\"\n" +
+    "                         icon=\"fa-trash-o\" ng-click=\"vm.excluir()\" ng-if=\"showBtnExcluir\">\n" +
+    "            </oobj-button>\n" +
     "\n" +
-    "                <oobj-button label=\"Limpar\" class=\"pull-right\" btn-class=\"btn-default\"\n" +
-    "                             icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
-    "                </oobj-button>\n" +
-    "            </p>\n" +
+    "            <oobj-button label=\"Limpar\" class=\"pull-right\" btn-class=\"btn-default\"\n" +
+    "                         icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
+    "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");
   $templateCache.put("oobj-date-picker/oobj-date-picker.html",
@@ -1191,11 +1193,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-panel/oobj-panel.html",
     "<div ng-class=colspan><div class=panel ng-class=panelClass><div class=panel-heading ng-if=\"title != undefined\"><span ng-bind=title></span></div><div class=panel-body><div class=container-fluid><div class=row><div ng-transclude></div></div></div></div><div class=panel-footer ng-if=\"footer != undefined\"><span ng-bind=footer></span></div></div></div>");
   $templateCache.put("oobj-pesquisa/oobj-pesquisa.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row><div ng-transclude></div><div class=row><oobj-button label=Pesquisar class=pull-right btn-class=btn-primary icon=fa-search ng-click=vm.pesquisar() ng-if=showBtnPesquisar></oobj-button><oobj-button label=Limpar class=pull-right btn-class=btn-success icon=fa-eraser ng-click=vm.limpar() ng-if=showBtnLimpar></oobj-button><oobj-button label=\"Pesq. Avançada\" class=pull-right btn-class=btn-default icon=fa-search-plus ng-click=vm.pesquisaAvancada() ng-if=showBtnPesquisaAvancada></oobj-button></div></div></div><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container>");
+    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row><div class=form-group><div ng-transclude></div><div class=row><div class=col-md-12><oobj-button label=Pesquisar class=pull-right btn-class=btn-primary icon=fa-search ng-click=vm.pesquisar() ng-if=showBtnPesquisar></oobj-button><oobj-button label=Limpar class=pull-right btn-class=btn-success icon=fa-eraser ng-click=vm.limpar() ng-if=showBtnLimpar></oobj-button><oobj-button label=\"Pesq. Avançada\" class=pull-right btn-class=btn-default icon=fa-search-plus ng-click=vm.pesquisaAvancada() ng-if=showBtnPesquisaAvancada></oobj-button></div></div></div></div></div><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container>");
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-select/oobj-select.html",
-    "<div ng-class=colspan class=form-group ng-style=selectStyle><label class=control-label ng-show=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel ng-options=\"item as item[itemLabel] for item in provider\"><option ng-if=showEmptyOption value=\"\">Selecione uma opção...</option></select></div></div>");
+    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\" ng-style=selectStyle><label class=control-label ng-show=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel ng-options=\"item as item[itemLabel] for item in provider\"><option ng-if=showEmptyOption value=\"\">Selecione uma opção...</option></select></div></div>");
   $templateCache.put("oobj-sidebar/oobj-sidebar.html",
     "<div class=\"navbar-default sidebar\" role=navigation><div class=\"sidebar-nav navbar-collapse\"><ul class=\"nav in\" id=side-menu><li ng-class=\"{active: collapseVar == $index}\" ng-repeat=\"categoria in provider track by $index\"><a href=\"\" ng-click=check($index) ng-if=\"categoria.itens != undefined\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa arrow\" ng-if=\"categoria.itens != undefined\"></span></a> <a href=\"\" ng-click=check($index) ng-if=\"categoria.itens == undefined\" ui-sref=\"{{ categoria.sref }}\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa arrow\" ng-if=\"categoria.itens != undefined\"></span></a><ul class=\"nav nav-second-level\" collapse=\"collapseVar != $index\" ng-if=\"categoria.itens != undefined\"><li ui-sref-active=active ng-repeat=\"item in categoria.itens track by $index\"><a ui-sref=\"{{ item.sref }}\"><span ng-class=item.icon ng-if=\"item.icon != undefined\"></span> <span ng-bind=item.label></span></a></li></ul><!-- /.nav-second-level --></li></ul></div><!-- /.sidebar-collapse --></div>");
   $templateCache.put("oobj-stats/oobj-stats.html",
