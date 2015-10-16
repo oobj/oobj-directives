@@ -102,7 +102,7 @@
                     {
                         "icon": "fa-pencil-square-o fa-fw",
                         "label": "Customizações",
-                        "sref": "dashboard.customizacao"
+                        "sref": "dashboard.customizacoes"
                     }
                 ];
             }
