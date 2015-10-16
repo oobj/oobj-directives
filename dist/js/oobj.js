@@ -96,17 +96,9 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(attrs.width)) {
-                        attrs.width = '150px';
-                    }
-
                     if (angular.isUndefined(scope.btnClass)) {
                         scope.btnClass = 'btn-default';
                     }
-
-                    scope.btnStyle = {};
-                    scope.btnStyle.height = attrs.height;
-                    scope.btnStyle.width = attrs.width;
                 }
             }
         }
@@ -321,10 +313,10 @@
                 title: '@',
                 labelBtnYes: '@',
                 labelBtnNo: '@',
-                labelBtnConfirm: '@',
+                label: '@',
                 classBtnYes: '@',
                 classBtnNo: '@',
-                classBtnConfirm: '@',
+                btnClass: '@',
                 onClickBtnYes: '&',
                 onClickBtnNo: '&',
                 icon: '@',
@@ -1142,7 +1134,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-autocomplete/oobj-autocomplete.html",
     "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} class=form-control ng-model=ngModel placeholder={{placeholder}} typeahead=\"item as item[itemLabel] for item in getItems()($viewValue)\" typeahead-loading=loadingItems typeahead-no-results=noResults ng-disabled=ngDisabled ng-readonly=ngReadonly ng-change=onChange($event) ng-blur=onBlur($event) maxlength={{maxlength}}><div class=input-group-btn><button type=button ng-click=limpar() class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-times\"></i></button></div></div><div class=help-block><i ng-show=loadingItems class=\"fa fa-refresh\"></i><div ng-show=noResults><i class=\"fa fa-times\"></i> Nenhum resultado encontrado</div></div></div>");
   $templateCache.put("oobj-button/oobj-button.html",
-    "<button type=button class=btn ng-class=btnClass ng-style=btnStyle ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
+    "<button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
   $templateCache.put("oobj-chart/oobj-chart-bar.html",
     "<div class=\"{{ colspan }}\" id=\"{{ chartId }}\"><div class=\"panel panel-default\"><div class=panel-heading>{{ title }}</div><div class=panel-body><canvas class=\"chart chart-bar chart-xl\" chart-data=ngModel.data chart-labels=ngModel.labels chart-legend=true chart-click=ngModel.onClick chart-series=ngModel.series></canvas></div></div></div>");
   $templateCache.put("oobj-chart/oobj-chart-doughnut.html",
@@ -1156,7 +1148,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-checkbox/oobj-checkbox.html",
     "<div class=\"checkbox c-checkbox\" ng-class=checkboxClass ng-style=checkboxStyle><label><input type=checkbox id={{id}} ng-model=\"ngModel\"> <span class=\"fa fa-check\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-confirm-button/oobj-confirm-button.html",
-    "<div class={{colspan}} style=\"padding-top: 15px; padding-left: 15px\"><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjConfirm label={{labelBtnConfirm}} icon={{icon}} btn-class={{classBtnConfirm}}></oobj-button><div id=oobjConfirm class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title><span ng-bind=\"title || 'Confirmação'\"></span></h4></div><div class=modal-body><p><span ng-bind=msg ng-style=msgStyle></span></p></div><div class=modal-footer><oobj-button data-dismiss=modal label=\"{{labelBtnYes || 'Sim'}}\" ng-click=onClickBtnYes() icon=fa-check btn-class=\"{{classBtnYes  || 'col-md-1 btn-primary'}}\"></oobj-button><oobj-button data-dismiss=modal label=\"{{labelBtnNo || 'Não'}}\" ng-click=onClickBtnNo() icon=fa-times btn-class=\"{{classBtnNo || 'col-md-1 btn-default'}}\"></oobj-button></div></div></div></div></div>");
+    "<div class={{colspan}}><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjConfirm label={{label}} icon={{icon}} btn-class={{btnClass}}></oobj-button><div id=oobjConfirm class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title><span ng-bind=\"title || 'Confirmação'\"></span></h4></div><div class=modal-body><p><span ng-bind=msg ng-style=msgStyle></span></p></div><div class=modal-footer><oobj-button data-dismiss=modal label=\"{{labelBtnYes || 'Sim'}}\" ng-click=onClickBtnYes() icon=fa-check btn-class=\"{{classBtnYes  || 'col-md-1 btn-primary'}}\"></oobj-button><oobj-button data-dismiss=modal label=\"{{labelBtnNo || 'Não'}}\" ng-click=onClickBtnNo() icon=fa-times btn-class=\"{{classBtnNo || 'col-md-1 btn-default'}}\"></oobj-button></div></div></div></div></div>");
   $templateCache.put("oobj-container/oobj-container.html",
     "<div><div class=row ng-if=\"title != undefined\"><div class=col-lg-12><h5 class=page-header><span ng-bind=title></span></h5></div></div><div class=row><div ng-transclude></div></div></div>");
   $templateCache.put("oobj-crud/oobj-crud.html",
@@ -1178,13 +1170,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-date-picker/oobj-date-picker.html",
     "<div class=\"form-group form-group-{{inputSize}}\" ng-class=colspan><label ng-show=\"showLabel || label != undefined\"><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input date-range-picker options=opts name={{name}} ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly class=\"form-control date-picker\"><div class=input-group-btn><button type=button class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-calendar\"></i></button></div></div></div>");
   $templateCache.put("oobj-footer/oobj-footer.html",
-    "<footer style=\"background: #2196F3;\n" +
+    "<footer style=\"background: #6F6F6F;\n" +
     "                  color: #fff;\n" +
-    "                  border-color: #000066;\n" +
+    "                  border-color: #000;\n" +
     "                  height: 100%;\n" +
     "                  text-align: right;\n" +
     "                  font-size: x-small;\n" +
-    "                  padding-right: 15px\">&copy;{{ year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{version}} [{{generatedData | date:'dd-MM-yyyy'}}]</footer>");
+    "                  padding-right: 30px\">&copy;{{ year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{version}} [{{generatedData | date:'dd-MM-yyyy'}}]</footer>");
   $templateCache.put("oobj-grid/oobj-grid.html",
     "<div style=\"padding-top: 15px\" class={{colspan}}><div ui-grid=gridOptions ui-grid-selection ng-style=gridStyle class=table ng-cloak><div style=\"position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000\" ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div>");
   $templateCache.put("oobj-input-container/oobj-input-container.html",
