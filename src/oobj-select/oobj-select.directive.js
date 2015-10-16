@@ -25,22 +25,22 @@
                 provider: '=',
                 itemLabel: '@',
                 itemValue: '@',
-                showEmptyOption: '@'
+                showEmptyOption: '@',
+                inputSize: '@'
             },
-            link: link,
             compile: compile
         };
 
         return directive;
 
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
-
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
+
+                    if (angular.isUndefined(scope.inputSize)) {
+                        scope.inputSize = 'sm';
+                    }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {
                         scope.emptyOption = false;
