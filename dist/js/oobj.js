@@ -5,15 +5,11 @@
     'use strict';
 
     angular.module('oobj-directives',
-            ['ui.bootstrap',
-            'ngAnimate',
-            'oobj-directives.templates',
-            'ui.router',
-            'ui.grid',
-            'ui.bootstrap',
-            'toastr',
-            'angular-loading-bar',
-            'daterangepicker']);
+            ['oobj-directives.templates',
+                'ui.bootstrap',
+                'ui.grid',
+                'ui.bootstrap',
+                'daterangepicker']);
 })();
 /**
  * Created by ATILLA on 06/10/2015.
@@ -1132,7 +1128,7 @@
 angular.module('oobj-directives.templates', []).run(['$templateCache', function($templateCache) {
   "use strict";
   $templateCache.put("oobj-autocomplete/oobj-autocomplete.html",
-    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} class=form-control ng-model=ngModel placeholder={{placeholder}} typeahead=\"item as item[itemLabel] for item in getItems()($viewValue)\" typeahead-loading=loadingItems typeahead-no-results=noResults ng-disabled=ngDisabled ng-readonly=ngReadonly ng-change=onChange($event) ng-blur=onBlur($event) maxlength={{maxlength}}><div class=input-group-btn><button type=button ng-click=limpar() class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-times\"></i></button></div></div><div class=help-block><i ng-show=loadingItems class=\"fa fa-refresh\"></i><div ng-show=noResults><i class=\"fa fa-times\"></i> Nenhum resultado encontrado</div></div></div>");
+    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span style=\"font-weight: bold\" ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} class=form-control ng-model=ngModel placeholder={{placeholder}} typeahead=\"item as item[itemLabel] for item in getItems()($viewValue)\" typeahead-loading=loadingItems typeahead-no-results=noResults ng-disabled=ngDisabled ng-readonly=ngReadonly ng-change=onChange($event) ng-blur=onBlur($event) maxlength={{maxlength}}><div class=input-group-btn><button type=button ng-click=limpar() class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-times\"></i></button></div></div><div class=help-block><i ng-show=loadingItems class=\"fa fa-refresh\"></i><div ng-show=noResults><i class=\"fa fa-times\"></i> Nenhum resultado encontrado</div></div></div>");
   $templateCache.put("oobj-button/oobj-button.html",
     "<button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
   $templateCache.put("oobj-chart/oobj-chart-bar.html",
@@ -1168,7 +1164,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "        </div>\n" +
     "    </div></script>");
   $templateCache.put("oobj-date-picker/oobj-date-picker.html",
-    "<div class=\"form-group form-group-{{inputSize}}\" ng-class=colspan><label ng-show=\"showLabel || label != undefined\"><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input date-range-picker options=opts name={{name}} ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly class=\"form-control date-picker\"><div class=input-group-btn><button type=button class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-calendar\"></i></button></div></div></div>");
+    "<div class=\"form-group form-group-{{inputSize}}\" ng-class=colspan><label ng-show=\"showLabel || label != undefined\"><span style=\"font-weight: bold\" ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input date-range-picker options=opts name={{name}} ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly class=\"form-control date-picker\"><div class=input-group-btn><button type=button class=\"btn btn-default btn-{{inputSize}}\" style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\"><i class=\"fa fa-calendar\"></i></button></div></div></div>");
   $templateCache.put("oobj-footer/oobj-footer.html",
     "<footer style=\"background: #6F6F6F;\n" +
     "                  color: #fff;\n" +
@@ -1180,9 +1176,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-grid/oobj-grid.html",
     "<div style=\"padding-top: 15px\" class={{colspan}}><div ui-grid=gridOptions ui-grid-selection ng-style=gridStyle class=table ng-cloak><div style=\"position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000\" ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div>");
   $templateCache.put("oobj-input-container/oobj-input-container.html",
-    "<div ng-class=colspan class=form-group><label class=control-label ng-if=\"showLabel != false && label != undefined\"><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div ng-transclude></div></div>");
+    "<div ng-class=colspan class=form-group><label class=control-label ng-if=\"showLabel != false && label != undefined\"><span style=\"font-weight: bold\" ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div ng-transclude></div></div>");
   $templateCache.put("oobj-input-text/oobj-input-text.html",
-    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} type={{type}} class=form-control ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly placeholder={{placeholder}} maxlength={{maxlength}} max={{max}} min=\"{{min}}\"><div class=input-group-btn><button type=button ng-click=limpar() style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\" class=\"btn btn-default btn-{{inputSize}}\"><i class=\"fa fa-times\"></i></button></div></div></div>");
+    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><span style=\"font-weight: bold\" ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} type={{type}} class=form-control ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly placeholder={{placeholder}} maxlength={{maxlength}} max={{max}} min=\"{{min}}\"><div class=input-group-btn><button type=button ng-click=limpar() style=\"box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6)\" class=\"btn btn-default btn-{{inputSize}}\"><i class=\"fa fa-times\"></i></button></div></div></div>");
   $templateCache.put("oobj-modal/oobj-modal.html",
     "<div style=\"padding-top: 15px; padding-left: 15px\"><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjModal ng-show=showBtnOpen label={{labelBtnOpen}} icon=fa-info btn-class=\"{{ classBtnOpen }}\"></oobj-button><div id=oobjModal class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title ng-show=\"title != undefined\"><span ng-bind=title></span></h4></div><div class=modal-body style=\"min-height: 120px\"><div ng-transclude></div></div><div class=modal-footer ng-show=showBtnClose><oobj-button data-dismiss=modal label={{labelBtnClose}} colspan=col-md-2></oobj-button></div></div></div></div></div>");
   $templateCache.put("oobj-panel/oobj-panel.html",
@@ -1192,7 +1188,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-select/oobj-select.html",
-    "<div ng-class=colspan class=form-group ng-style=selectStyle><label class=control-label ng-show=\"showLabel != false && label != undefined\"><span ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel style=\"min-width: 200px\" ng-options=\"item as item[itemLabel] for item in provider\"><option value=\"\">Selecione uma opção...</option></select></div></div>");
+    "<div ng-class=colspan class=form-group ng-style=selectStyle><label class=control-label ng-show=\"showLabel != false && label != undefined\"><span style=\"font-weight: bold\" ng-bind=label></span> <span style=\"color: red\" ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel style=\"min-width: 200px\" ng-options=\"item as item[itemLabel] for item in provider\"><option value=\"\">Selecione uma opção...</option></select></div></div>");
   $templateCache.put("oobj-sidebar/oobj-sidebar.html",
     "<div class=\"navbar-default sidebar\" role=navigation><div class=\"sidebar-nav navbar-collapse\"><ul class=\"nav in\" id=side-menu style=\"background-color: white\"><li ng-class=\"{active: collapseVar == $index}\" ng-repeat=\"categoria in provider track by $index\"><a href=\"\" ng-click=check($index) ng-if=\"categoria.itens != undefined\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa arrow\" ng-if=\"categoria.itens != undefined\"></span></a> <a href=\"\" ng-click=check($index) ng-if=\"categoria.itens == undefined\" ui-sref=\"{{ categoria.sref }}\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa arrow\" ng-if=\"categoria.itens != undefined\"></span></a><ul class=\"nav nav-second-level\" collapse=\"collapseVar != $index\" ng-if=\"categoria.itens != undefined\"><li ui-sref-active=active ng-repeat=\"item in categoria.itens track by $index\"><a ui-sref=\"{{ item.sref }}\"><span ng-class=item.icon ng-if=\"item.icon != undefined\"></span> <span ng-bind=item.label></span></a></li></ul><!-- /.nav-second-level --></li></ul></div><!-- /.sidebar-collapse --></div>");
   $templateCache.put("oobj-stats/oobj-stats.html",
