@@ -88,6 +88,11 @@
             expect(classng.length).toBe(2);
             expect(classng.hasClass('panel-teste')).toBeTruthy();
         });
+
+        it('Deve ter ng-transclude', function () {
+            var transclude  = element.find('div[ng-transclude]');
+            expect(transclude.length).toBe(1);
+        });
     });
 
 })();
