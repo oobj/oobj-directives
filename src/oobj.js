@@ -8,6 +8,5 @@
             ['oobj-directives.templates',
                 'ui.bootstrap',
                 'ui.grid',
-                'ui.bootstrap',
                 'daterangepicker']);
 })();
