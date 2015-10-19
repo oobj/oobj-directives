@@ -86,7 +86,7 @@
             scope.$digest();
 
             return compiledElement;
-        };
+        }
 
         it('deve ter a classe oobj-input-text', function () {
             var elementTemp = angular.element("<p class='oobj-input-text'></p>");
