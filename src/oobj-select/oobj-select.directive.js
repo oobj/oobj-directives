@@ -25,7 +25,7 @@
                 provider: '=',
                 itemLabel: '@',
                 itemValue: '@',
-                showEmptyOption: '@',
+                showEmptyOption: '=',
                 inputSize: '@'
             },
             compile: compile
