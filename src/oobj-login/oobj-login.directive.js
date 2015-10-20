@@ -20,7 +20,9 @@
                 msgForgotPassword: '@',
                 msgNewUser: '@',
                 forgotPassword: '&',
-                newUser: '&'
+                newUser: '&',
+                username: '=',
+                password: '='
             }
         };
         return directive;

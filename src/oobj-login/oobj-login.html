@@ -2,8 +2,8 @@
     <div class="card card-container">
         <img id="logo-img" class="logo-img" ng-src="logo" />
         <form class="form-signin" role="form">
-            <input type="text" id="inputUsername" class="form-control" placeholder="Usuário" required autofocus>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+            <input type="text" id="inputUsername" ng-model="username" class="form-control" placeholder="Usuário" required autofocus>
+            <input type="password" id="inputPassword" ng-model="password" class="form-control" placeholder="Senha" required>
             <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="login()">{{labelBtnLogin || 'Login'}}</button>
         </form><!-- /form -->
         <div class="signin-help">
