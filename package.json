@@ -51,7 +51,6 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "load-grunt-tasks": "^3.3.0",
     "lodash": "^3.10.1",
-    "oclazyload": "^1.0.6",
     "postcss": "~5.0.8",
     "send": "~0.13.0",
     "through2": "~2.0.0",
