@@ -786,6 +786,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         var directive = {
             link: link,
             restrict: 'EA',
+            templateUrl: 'oobj-login/oobj-login.html',
             scope: {
                 logo: '@',
                 labelBtnLogin: '@',
@@ -798,6 +799,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 password: '='
             }
         };
+
         return directive;
 
         function link(scope, element, attrs) {

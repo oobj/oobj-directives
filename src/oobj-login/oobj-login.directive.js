@@ -13,6 +13,7 @@
         var directive = {
             link: link,
             restrict: 'EA',
+            templateUrl: 'oobj-login/oobj-login.html',
             scope: {
                 logo: '@',
                 labelBtnLogin: '@',
@@ -25,6 +26,7 @@
                 password: '='
             }
         };
+
         return directive;
 
         function link(scope, element, attrs) {
