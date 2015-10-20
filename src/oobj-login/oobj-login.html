@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="logo-img" class="logo-img" ng-src="logo" />
+        <form class="form-signin" role="form">
+            <input type="text" id="inputUsername" class="form-control" placeholder="Usuário" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="login()">{{labelBtnLogin || 'Login'}}</button>
+        </form><!-- /form -->
+        <div class="signin-help">
+            <p>{{msgForgotPassword || 'Esqueceu sua senha?'}}&nbsp;
+                <button class="btn btn-link" ng-click="forgotPassword()">clique aqui</button>
+            </p>
+            <p>{{msgNewUser || 'Ainda não tem uma conta?'}}&nbsp;
+                <button class="btn btn-link" ng-click="newUser()">criar nova conta</button>
+            </p>
+        </div>
+    </div>
+</div>
