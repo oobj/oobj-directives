@@ -23,7 +23,7 @@
             scope.collapseVar = 0;
             scope.multiCollapseVar = 0;
 
-            if (angular.isUndefined(scope.provider)) {
+            /*if (angular.isUndefined(scope.provider)) {
                 scope.provider = [
                     {
                         "icon": "fa-tachometer fa-fw",
@@ -105,7 +105,7 @@
                         "sref": "dashboard.customizacoes"
                     }
                 ];
-            }
+            }*/
 
             scope.check = function (x) {
                 if (x == scope.collapseVar) {
