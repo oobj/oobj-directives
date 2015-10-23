@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    describe('Teste de Directiva: oobjRadio', function() {
+    describe('Teste de Directiva: oobjButton', function() {
 
         // variaveis globais
         var $rootScope,
