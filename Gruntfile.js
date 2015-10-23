@@ -100,15 +100,13 @@ module.exports = function (grunt) {
         },
 
         less: {
-            options: {
-                paths: ['dist/css']
-            },
-            src: {
-                expand: true,
-                cwd: "src",
-                src: ["**/*.less"],
-                dest: "dist/css/",
-                ext: ".css"
+            development: {
+                options: {
+                    optimization: 2
+                },
+                files: {
+                    "dist/css/oobj.css": "src/**/*.less"
+                }
             },
             production: {
                 options: {
@@ -117,7 +115,7 @@ module.exports = function (grunt) {
                     optimization: 2
                 },
                 files: {
-                    "dist/css/bundle.min.css": "src/**/*.less"
+                    "dist/css/oobj.min.css": "src/**/*.less"
                 }
             }
         },
@@ -157,6 +155,6 @@ module.exports = function (grunt) {
         },
     });
 
-    grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less', 'htmlmin']);
-    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
+    grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less:development', 'less:production', 'htmlmin']);
+    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less:development', 'less:production', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
 };
