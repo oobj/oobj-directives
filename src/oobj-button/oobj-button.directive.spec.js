@@ -50,7 +50,7 @@
             return compiledElement;
         }
 
-        it('deve ter a classe oobj-radio', function () {
+        it('deve ter a classe oobj-button', function () {
             var elementTemp = angular.element("<p class='oobj-button'></p>");
             $compile(elementTemp);
             scope.$digest();
