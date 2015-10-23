@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt, {
@@ -16,14 +16,14 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-		jshint: {
-		  options: {
-			reporter: require('jshint-html-reporter'),
-			reporterOutput: 'jshint-report.html',
-			force: true
-		  },
-		  target: ['src/*']
-		},
+        jshint: {
+            options: {
+                reporter: require('jshint-html-reporter'),
+                reporterOutput: 'jshint-report.html',
+                force: true
+            },
+            target: ['src/*']
+        },
 
         copy: {
             indexes: {
@@ -44,8 +44,8 @@ module.exports = function(grunt) {
                 force: true
             }
         },
-		
-		karma: {
+
+        karma: {
             unit: {
                 configFile: 'karma.conf.js',
                 singleRun: true
@@ -99,14 +99,26 @@ module.exports = function(grunt) {
             }
         },
 
-        cssmin: {
-            build: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['dist/**/*.min.css']
-                    }
-                ]
+        less: {
+            options: {
+                paths: ['dist/css']
+            },
+            src: {
+                expand: true,
+                cwd: "src",
+                src: ["**/*.less"],
+                dest: "dist/css/",
+                ext: ".css"
+            },
+            production: {
+                options: {
+                    compress: true,
+                    yuicompress: true,
+                    optimization: 2
+                },
+                files: {
+                    "dist/css/bundle.min.css": "src/**/*.less"
+                }
             }
         },
 
@@ -145,6 +157,6 @@ module.exports = function(grunt) {
         },
     });
 
-    grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
-	grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin', 'coveralls']);	
+    grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less', 'htmlmin']);
+    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
 };
