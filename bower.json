@@ -7,7 +7,10 @@
     "LEONARDO <leonardocostaborges@gmail.com>"
   ],
   "description": "Directivas AngularJS Oobj",
-  "main": "oobj.js",
+  "main": [
+    "./dist/js/oobj.min.js",
+    "./dist/css/bundle.min.css"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",

@@ -158,5 +158,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less', 'htmlmin']);
-    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
+    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
 };
