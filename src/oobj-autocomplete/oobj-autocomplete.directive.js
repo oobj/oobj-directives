@@ -39,16 +39,9 @@
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
-
             scope.limpar = function() {
                 scope.ngModel = null;
             }
-
-            if (angular.isUndefined(scope.inputSize)) {
-                scope.inputSize = 'sm';
-            }
-
         }
-
     }
 })();
