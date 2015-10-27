@@ -43,13 +43,9 @@
             isolatedScope = element.isolateScope();
         }));
 
-        function getCompiledElement(xml) {
+        function getCompiledElement() {
             var $element;
-            if (xml == null) {
-                $element = angular.element('<oobj-confirm-button on-click-btn-yes="onClickBtnYes()" on-click-btn-no="onClickBtnNo()"></oobj-confirm-button>');
-            } else {
-                $element = angular.element(xml);
-            }
+            $element = angular.element('<oobj-confirm-button on-click-btn-yes="onClickBtnYes()" on-click-btn-no="onClickBtnNo()"></oobj-confirm-button>');
             var compiledElement = $compile($element)(scope);
             scope.$digest();
 
@@ -134,7 +130,6 @@
 
         it('Deve carregar botao Sim', function () {
             var classng = element.find('button');
-            console.log(classng[2]);
             expect(classng[2].innerText).toContain('Sim');
         });
 
@@ -145,7 +140,6 @@
 
         it('Deve carregar modal de Confirmacao', function () {
             var classng = element.find('span');
-            console.log(classng[0]);
             expect(classng[0].innerText).toContain('Confirmação');
         });
 
