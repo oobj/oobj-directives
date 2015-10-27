@@ -2,8 +2,7 @@
     <oobj-panel colspan="col-lg-12">
         <form role="form" novalidate>
             <div class="form-group">
-
-                <ng-include src="'formActions'"></ng-include>
+                <ng-include src="'formActions'" ng-if="showBtnOnTop"></ng-include>
 
                 <div class="container-fluid">
                     <div class="row">
@@ -11,8 +10,7 @@
                     </div>
                 </div>
 
-                <ng-include src="'formActions'"></ng-include>
-
+                <ng-include src="'formActions'" ng-if="showBtnOnBottom"></ng-include>
             </div>
         </form>
     </oobj-panel>
