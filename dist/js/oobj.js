@@ -477,7 +477,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 scope.showBtnLimpar = true;
             }
 
-            if (angular.isUndefined(scope.showBtnLimpar)) {
+            if (angular.isUndefined(scope.showBtnExcluir)) {
                 scope.showBtnExcluir = false;
             }
 

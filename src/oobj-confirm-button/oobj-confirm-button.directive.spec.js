@@ -140,7 +140,7 @@
 
         it('Deve carregar modal de Confirmacao', function () {
             var classng = element.find('span');
-            expect(classng[0].innerText).toContain('Confirmação');
+            expect(classng[1].innerText).toContain('Confirmação');
         });
 
     });
