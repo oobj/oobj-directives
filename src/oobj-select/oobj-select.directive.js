@@ -38,10 +38,6 @@
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
 
-                    if (angular.isUndefined(scope.inputSize)) {
-                        scope.inputSize = 'sm';
-                    }
-
                     if (angular.isUndefined(scope.showEmptyOption)) {
                         scope.emptyOption = false;
                     }
