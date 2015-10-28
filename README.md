@@ -9,5 +9,11 @@ Oobj's AngularJS Directives
 - How to install?
 *bower install oobj-directives*
 
-- How to import?
+- How to import the module?
 *angular.module('myApp', ['oobj-directives']);*
+
+- How to import the required JS file?
+*\<script src="bower_components/oobj-directives/dist/js/oobj.min.js">\</script>*
+
+- How to import the CSS file?
+*\<link rel="stylesheet" href="bower_components/oobj-directives/dist/css/oobj.min.css" />*
