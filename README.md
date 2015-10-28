@@ -10,8 +10,4 @@ Directivas AngularJS Oobj
 bower install oobj-directives
 
 - How to import?
-(function () {
-    'use strict';
-
-    angular.module('myApp', ['oobj-directives']);
-})();
+angular.module('myApp', ['oobj-directives']);
