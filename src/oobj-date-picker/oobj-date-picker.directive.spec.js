@@ -78,7 +78,6 @@
             var elementTemp = angular.element("<p class='oobj-date-picker'></p>");
             $compile(elementTemp);
             scope.$digest();
-            console.log(elementTemp);
             expect(elementTemp.hasClass('oobj-date-picker')).toBeTruthy();
         });
 
