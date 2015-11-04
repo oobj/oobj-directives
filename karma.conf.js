@@ -11,6 +11,7 @@ module.exports = function (config) {
             'node_modules/angular-mocks/angular-mocks.js',
             'bower_components/angular-ui-grid/ui-grid.js',
             'bower_components/angular-bootstrap/ui-bootstrap.js',
+            'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
             "bower_components/moment/moment.js",
             "bower_components/bootstrap-daterangepicker/daterangepicker.js",
             'bower_components/angular-daterangepicker/js/angular-daterangepicker.js',
