@@ -658,10 +658,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                         scope.gridStyle.height = attrs.height;
                     }
 
-                    if (!scope.data.length) {
-                        scope.gridStyle.height = '60px';
-                    }
-
                     if (angular.isDefined(scope.data)) {
                         scope.gridOptions.data = scope.data;
                     }
