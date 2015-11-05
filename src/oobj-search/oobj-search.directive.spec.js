@@ -53,10 +53,14 @@
             isolatedScope = element.isolateScope();
         }));
 
-        function getCompiledElement(){
+        function getCompiledElement(xml){
 
-            var $element = angular.element('<oobj-pesquisa vm="vm" grid-options="true"></oobj-pesquisa>');
-
+            var $element;
+            if (xml == null) {
+                $element = angular.element('<oobj-pesquisa vm="vm" grid-options="true"></oobj-pesquisa>');
+            } else {
+                $element = angular.element(xml);
+            }
             var compiledElement = $compile($element)(scope);
             scope.$digest();
 
@@ -99,6 +103,45 @@
             var transclude  = element.find('div[ng-transclude]');
             expect(transclude.length).toBe(3);
         });
+
+
+        it('Deve ter showBtnPesquisaAvancada e showBtnPesquisar true por default e showBtnLimpar false', function () {
+            element = getCompiledElement();
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.showBtnPesquisaAvancada).toBe(true);
+            expect(isolatedScope.showBtnPesquisar).toBe(true);
+            expect(isolatedScope.showBtnLimpar).toBe(false);
+            var button = element.find('oobj-button');
+            expect(button.length).toBe(2);
+            expect(button[0].innerText).toBe(' Pesquisar');
+            expect(button[1].innerText).toBe(' Pesq. Avançada');
+        });
+
+        it('Deve mostrar todos botoes pesquisa - pesquisa avancada - limpar', function () {
+            element = getCompiledElement('<oobj-pesquisa vm="vm" grid-options="true" show-btn-limpar="true"></oobj-pesquisa>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.showBtnPesquisaAvancada).toBe(true);
+            expect(isolatedScope.showBtnPesquisar).toBe(true);
+            expect(isolatedScope.showBtnLimpar).toBe(true);
+            var button = element.find('oobj-button');
+            expect(button.length).toBe(3);
+            expect(button[0].innerText).toBe(' Pesquisar');
+            expect(button[1].innerText).toBe(' Limpar');
+            expect(button[2].innerText).toBe(' Pesq. Avançada');
+        });
+
+        it('Deve carregar apenas botao limpar', function () {
+            element = getCompiledElement('<oobj-pesquisa vm="vm" grid-options="true" show-btn-limpar="true" show-btn-pesquisar="false"  show-btn-pesquisa-avancada="false"></oobj-pesquisa>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.showBtnPesquisaAvancada).toBe(false);
+            expect(isolatedScope.showBtnPesquisar).toBe(false);
+            expect(isolatedScope.showBtnLimpar).toBe(true);
+            var button = element.find('oobj-button');
+            expect(button.length).toBe(1);
+            expect(button[0].innerText).toBe(' Limpar');
+        });
+
+
 
     });
 })();

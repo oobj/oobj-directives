@@ -138,15 +138,31 @@
 
         it('Deve possuir selectStyle', function() {
             element = getCompiledElement('<oobj-select ng-model="ngModel"></oobj-select>');
-            var classng  = element.find('div[ng-style]');
-            expect(classng.length).toBe(1);
+            var div  = element.find('div[ng-style]');
+            expect(div.length).toBe(1);
         });
 
         it('Deve configurar selectStyle width e height conforme atributo', function() {
             element = getCompiledElement('<oobj-select ng-model="ngModel" width="10" height="5"></oobj-select>');
-            var classng  = element.find('div[ng-style]');
-            expect(classng[0].style['width']).toEqual('10px');
-            expect(classng[0].style['height']).toEqual('5px')
+            var div  = element.find('div[ng-style]');
+            expect(div[0].style['width']).toEqual('10px');
+            expect(div[0].style['height']).toEqual('5px');
+        });
+
+        it('Nao deve mostrar emptyOption - false por default', function() {
+            expect(isolatedScope.emptyOption).toBe(false);
+            var option  = element.find('option');
+            expect(option.length).toBe(2);
+            expect(option[0].innerText).toBe('undefined');
+        });
+
+        it('Deve mostrar emptyOption configurar false por default', function() {
+            element = getCompiledElement('<oobj-select ng-model="ngModel" show-empty-option="true"></oobj-select>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.emptyOption).not.toBeDefined();
+            var option  = element.find('option');
+            expect(option[0].innerText).toBe('Selecione uma opção...');
+            expect(option.length).toBe(1);
         });
     });
 })();

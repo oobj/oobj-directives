@@ -109,5 +109,11 @@
             expect(classng.length).toBe(1);
             expect(classng.hasClass('col')).toBeTruthy();
         });
+
+        it('Deve concatenar  classes scope.checkboxClass - Teste funcao ng-class - checkboxclass definido com inLine ativo.', function() {
+            element = getCompiledElement('<oobj-checkbox ng-model="ngModel" inline="true" colspan="col"></oobj-checkbox>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.checkboxClass).toBe('col checkbox-inline');
+        });
     });
 })();

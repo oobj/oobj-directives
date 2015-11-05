@@ -121,6 +121,38 @@
             expect(scope.range.prop).toEqual('valorIsoladoScope');
 
         });
+
+        it('Deve scope.opts.singleDatePicker false para range definido.', function(){
+
+            expect(isolatedScope.opts.singleDatePicker).toBe(false);
+
+        });
+
+        it('Deve scope.opts.singleDatePicker true para range indefinido.', function(){
+            element = getCompiledElement('<oobj-date-picker ng-model="ngModel"></oobj-date-picker>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.opts.singleDatePicker).toBeTruthy();
+
+        });
+
+        it('Deve respeitar valores padroes de locale.', function() {
+            expect(isolatedScope.opts.locale.format).toBe('DD/MM/YYYY');
+            expect(isolatedScope.opts.locale.applyLabel).toBe('OK');
+            expect(isolatedScope.opts.locale.cancelLabel).toBe('Limpar');
+            expect(isolatedScope.opts.locale.fromLabel).toBe('Entre');
+            expect(isolatedScope.opts.locale.toLabel).toBe('E');
+            expect(isolatedScope.opts.locale.customRangeLabel).toBe('Customizar');
+            expect(isolatedScope.opts.locale.daysOfWeek).toEqual([ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ]);
+            expect(isolatedScope.opts.locale.monthNames).toEqual([ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+                'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]);
+            expect(isolatedScope.opts.locale.firstDay).toBe(1);
+        });
+
+        it('Deve respeitar valores padroes de linkedCalendars: false, opens: "left",cancelClass: "btn-danger".', function() {
+            expect(isolatedScope.opts.linkedCalendars).toBe(false);
+            expect(isolatedScope.opts.opens).toBe('left');
+            expect(isolatedScope.opts.cancelClass).toBe('btn-danger');
+        });
     });
 
 })();
