@@ -4,4 +4,5 @@ languages:
   PHP: false
   Python: false
 exclude_paths:
-  dist/*
+- "dist/js/oobj.js"
+- "dist/js/oobj.min.js"
