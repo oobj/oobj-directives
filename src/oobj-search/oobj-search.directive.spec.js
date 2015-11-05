@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    describe('Teste de Directiva: oobjPesquisa', function(){
+    describe('Teste de Directiva: oobjSearch', function(){
         // variaveis globais
         var $rootScope,
             $compile,
@@ -57,7 +57,7 @@
 
             var $element;
             if (xml == null) {
-                $element = angular.element('<oobj-pesquisa vm="vm" grid-options="true"></oobj-pesquisa>');
+                $element = angular.element('<oobj-search vm="vm" grid-options="true"></oobj-search>');
             } else {
                 $element = angular.element(xml);
             }
@@ -67,11 +67,11 @@
             return compiledElement;
         }
 
-        it('deve ter a classe oobj-pesquisa', function () {
-            var elementTemp = angular.element("<p class='oobj-pesquisa'></p>");
+        it('deve ter a classe oobj-search', function () {
+            var elementTemp = angular.element("<p class='oobj-search'></p>");
             $compile(elementTemp);
             scope.$digest();
-            expect(elementTemp.hasClass('oobj-pesquisa')).toBeTruthy();
+            expect(elementTemp.hasClass('oobj-search')).toBeTruthy();
         });
 
 
@@ -118,7 +118,7 @@
         });
 
         it('Deve mostrar todos botoes pesquisa - pesquisa avancada - limpar', function () {
-            element = getCompiledElement('<oobj-pesquisa vm="vm" grid-options="true" show-btn-limpar="true"></oobj-pesquisa>');
+            element = getCompiledElement('<oobj-search vm="vm" grid-options="true" show-btn-limpar="true"></oobj-search>');
             isolatedScope = element.isolateScope();
             expect(isolatedScope.showBtnPesquisaAvancada).toBe(true);
             expect(isolatedScope.showBtnPesquisar).toBe(true);
@@ -131,7 +131,7 @@
         });
 
         it('Deve carregar apenas botao limpar', function () {
-            element = getCompiledElement('<oobj-pesquisa vm="vm" grid-options="true" show-btn-limpar="true" show-btn-pesquisar="false"  show-btn-pesquisa-avancada="false"></oobj-pesquisa>');
+            element = getCompiledElement('<oobj-search vm="vm" grid-options="true" show-btn-limpar="true" show-btn-pesquisar="false"  show-btn-pesquisa-avancada="false"></oobj-search>');
             isolatedScope = element.isolateScope();
             expect(isolatedScope.showBtnPesquisaAvancada).toBe(false);
             expect(isolatedScope.showBtnPesquisar).toBe(false);
