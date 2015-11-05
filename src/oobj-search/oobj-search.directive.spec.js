@@ -125,8 +125,8 @@
             expect(isolatedScope.showBtnLimpar).toBe(true);
             var button = element.find('oobj-button');
             expect(button.length).toBe(3);
-            expect(button[0].innerText).toBe(' Pesquisar');
-            expect(button[1].innerText).toBe(' Limpar');
+            expect(button[0].innerText).toBe(' Limpar');
+            expect(button[1].innerText).toBe(' Pesquisar');
             expect(button[2].innerText).toBe(' Pesq. Avançada');
         });
 
