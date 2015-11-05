@@ -110,7 +110,6 @@
             expect(style[0].style['width']).toBe('1px');
             expect(style[0].style['height']).toBe('1px');
         });
-
     });
 
 })();

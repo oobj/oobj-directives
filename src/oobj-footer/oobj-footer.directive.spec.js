@@ -34,13 +34,8 @@
             isolatedScope = element.isolateScope();
         }));
 
-        function getCompiledElement(xml) {
-            var $element;
-            if (xml == null) {
-                $element = angular.element('<oobj-footer></oobj-footer>');
-            } else {
-                $element = angular.element(xml);
-            }
+        function getCompiledElement() {
+            var $element = angular.element('<oobj-footer></oobj-footer>');
             var compiledElement = $compile($element)(scope);
             scope.$digest();
 
@@ -75,7 +70,7 @@
             var version = isolatedScope.version;
             var generatedData = $filter('date')(new Date(), 'dd-MM-yyyy');
             var year = $filter('date')(new Date(), 'yyyy');
-            expect(element[0].innerText).toBe('©' + year + ' Painel de Gestão'+ '\n' + 'Powered by Oobj - v' + version + ' [' + generatedData + ']');
+            expect(element[0].innerText).toBe('©' + year + ' Painel de Gestão' + '\n' + 'Powered by Oobj - v' + version + ' [' + generatedData + ']');
         });
 
     });

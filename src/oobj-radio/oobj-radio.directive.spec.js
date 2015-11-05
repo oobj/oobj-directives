@@ -119,5 +119,11 @@
             expect(classng.length).toBe(1);
             expect(classng.hasClass('col')).toBeTruthy();
         });
+
+        it('Deve concatenar colspan com default(radio-inline) - inline true e colspan definido.', function() {
+            element = getCompiledElement('<oobj-radio ng-model="ngModel" inline="true" colspan="col"></oobj-radio>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.radioClass).toBe('col radio-inline');
+        });
     });
 })();
