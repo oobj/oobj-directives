@@ -4,6 +4,5 @@ languages:
   PHP: false
   Python: false
 exclude_paths:
-- "dist/js/oobj.js"
-- "dist/js/oobj.min.js"
+- "dist/**/*.js"
 - "src/**/*.spec.js"
