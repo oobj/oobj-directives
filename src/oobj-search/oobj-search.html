@@ -1,0 +1,42 @@
+<oobj-container title="{{title}}">
+    <oobj-panel colspan="col-lg-12">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-group">
+
+                    <ng-include src="'formActions'" ng-if="showBtnOnTop"></ng-include>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div ng-transclude></div>
+                        </div>
+                    </div>
+
+                    <ng-include src="'formActions'" ng-if="showBtnOnBottom"></ng-include>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-if="vm.data">
+            <oobj-grid colspan="col-md-12" data="vm.data" grid-options="gridOptions"></oobj-grid>
+        </div>
+    </oobj-panel>
+</oobj-container>
+
+<script type="text/ng-template" id="formActions">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <oobj-button label="Limpar" btn-class="btn-success" icon="fa-eraser"
+                         ng-click="vm.limpar()" ng-if="showBtnLimpar">
+            </oobj-button>
+
+            <oobj-button label="Pesquisar" btn-class="btn-primary" icon="fa-search"
+                         ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
+            </oobj-button>
+
+            <oobj-button label="Pesq. Avançada" btn-class="btn-default" icon="fa-search-plus"
+                         ng-click="vm.pesquisaAvancada()" ng-if="showBtnPesquisaAvancada">
+            </oobj-button>
+        </div>
+    </div>
+</script>

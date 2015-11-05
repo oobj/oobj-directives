@@ -72,10 +72,24 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "<span><oobj-button colspan={{colspan}} data-toggle=modal data-target=#oobjModal ng-show=showBtnOpen label={{labelBtnOpen}} icon=fa-info btn-class=\"{{ classBtnOpen }}\"></oobj-button><div id=oobjModal class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title ng-show=\"title != undefined\"><span ng-bind=title></span></h4></div><div class=modal-body><div ng-transclude></div></div><div class=modal-footer ng-show=showBtnClose><oobj-button data-dismiss=modal label={{labelBtnClose}}></oobj-button></div></div></div></div></span>");
   $templateCache.put("oobj-panel/oobj-panel.html",
     "<div ng-class=colspan><div class=panel ng-class=panelClass><div class=panel-heading ng-if=\"title != undefined\"><span ng-bind=title></span></div><div class=panel-body><div class=container-fluid><div class=row><div ng-transclude></div></div></div></div><div class=panel-footer ng-if=\"footer != undefined\"><span ng-bind=footer></span></div></div></div>");
-  $templateCache.put("oobj-pesquisa/oobj-pesquisa.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row><div class=form-group><div ng-transclude></div><div class=row><div class=\"col-md-12 text-right\"><oobj-button label=Pesquisar btn-class=btn-primary icon=fa-search ng-click=vm.pesquisar() ng-if=showBtnPesquisar></oobj-button><oobj-button label=Limpar btn-class=btn-success icon=fa-eraser ng-click=vm.limpar() ng-if=showBtnLimpar></oobj-button><oobj-button label=\"Pesq. Avançada\" btn-class=btn-default icon=fa-search-plus ng-click=vm.pesquisaAvancada() ng-if=showBtnPesquisaAvancada></oobj-button></div></div></div></div></div><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container>");
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
+  $templateCache.put("oobj-search/oobj-search.html",
+    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "        <div class=\"col-md-12 text-right\">\n" +
+    "            <oobj-button label=\"Limpar\" btn-class=\"btn-success\" icon=\"fa-eraser\"\n" +
+    "                         ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
+    "            </oobj-button>\n" +
+    "\n" +
+    "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\"\n" +
+    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
+    "            </oobj-button>\n" +
+    "\n" +
+    "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"fa-search-plus\"\n" +
+    "                         ng-click=\"vm.pesquisaAvancada()\" ng-if=\"showBtnPesquisaAvancada\">\n" +
+    "            </oobj-button>\n" +
+    "        </div>\n" +
+    "    </div></script>");
   $templateCache.put("oobj-select/oobj-select.html",
     "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\" ng-style=selectStyle><label class=control-label ng-show=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel ng-options=\"item as item[itemLabel] for item in provider\"><option ng-if=showEmptyOption value=\"\">Selecione uma opção...</option></select></div></div>");
   $templateCache.put("oobj-sidebar/oobj-sidebar.html",
@@ -939,53 +953,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
 
 /**
- * Created by ATILLA on 08/10/2015.
- */
-(function() {
-    'use strict';
-
-    angular.module('oobj-directives')
-        .directive('oobjPesquisa', oobjPesquisa);
-
-    /* @ngInject */
-    function oobjPesquisa() {
-        var directive = {
-            restrict: 'EA',
-            templateUrl: 'oobj-pesquisa/oobj-pesquisa.html',
-            transclude: true,
-            scope: {
-                title: '@',
-                vm: '=',
-                footer: '@',
-                showBtnPesquisaAvancada: '=',
-                showBtnLimpar: '=',
-                showBtnPesquisar: '=',
-                gridOptions: '='
-            },
-            link: link
-        };
-
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
-                scope.showBtnPesquisaAvancada = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnPesquisar)) {
-                scope.showBtnPesquisar = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnLimpar)) {
-                scope.showBtnLimpar = false;
-            }
-        }
-    }
-})();
-
-
-/**
  * Created by Leonardo on 10/5/2015.
  */
 (function() {
@@ -1034,6 +1001,64 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     }
 
 })();
+/**
+ * Created by ATILLA on 08/10/2015.
+ */
+(function() {
+    'use strict';
+
+    angular
+        .module('oobj-directives')
+        .directive('oobjSearch', oobjSearch);
+
+    /** @ngInject */
+    function oobjSearch() {
+        var directive = {
+            restrict: 'EA',
+            templateUrl: 'oobj-search/oobj-search.html',
+            transclude: true,
+            scope: {
+                title: '@',
+                vm: '=',
+                footer: '@',
+                showBtnPesquisaAvancada: '=',
+                showBtnLimpar: '=',
+                showBtnPesquisar: '=',
+                gridOptions: '=',
+                showBtnOnBottom: '=',
+                showBtnOnTop: '='
+            },
+            link: link
+        };
+
+        return directive;
+
+        function link(scope, element, attrs, ngModelCtrl) {
+
+            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
+                scope.showBtnPesquisaAvancada = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnPesquisar)) {
+                scope.showBtnPesquisar = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnLimpar)) {
+                scope.showBtnLimpar = false;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
+                scope.showBtnOnBottom = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnTop)) {
+                scope.showBtnOnTop = false;
+            }
+        }
+    }
+})();
+
+
 /**
  * Created by ATILLA on 05/10/2015.
  */

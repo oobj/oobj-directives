@@ -4,14 +4,15 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-        .directive('oobjPesquisa', oobjPesquisa);
+    angular
+        .module('oobj-directives')
+        .directive('oobjSearch', oobjSearch);
 
-    /* @ngInject */
-    function oobjPesquisa() {
+    /** @ngInject */
+    function oobjSearch() {
         var directive = {
             restrict: 'EA',
-            templateUrl: 'oobj-pesquisa/oobj-pesquisa.html',
+            templateUrl: 'oobj-search/oobj-search.html',
             transclude: true,
             scope: {
                 title: '@',
@@ -20,7 +21,9 @@
                 showBtnPesquisaAvancada: '=',
                 showBtnLimpar: '=',
                 showBtnPesquisar: '=',
-                gridOptions: '='
+                gridOptions: '=',
+                showBtnOnBottom: '=',
+                showBtnOnTop: '='
             },
             link: link
         };
@@ -39,6 +42,14 @@
 
             if (angular.isUndefined(scope.showBtnLimpar)) {
                 scope.showBtnLimpar = false;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
+                scope.showBtnOnBottom = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnTop)) {
+                scope.showBtnOnTop = false;
             }
         }
     }
