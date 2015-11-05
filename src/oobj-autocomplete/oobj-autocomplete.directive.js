@@ -7,7 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjAutocomplete', oobjAutocomplete);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjAutocomplete() {
         var directive = {
             require: 'ngModel',
@@ -39,6 +39,10 @@
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm';
+            }
+
             scope.limpar = function() {
                 scope.ngModel = null;
             }

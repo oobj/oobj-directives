@@ -7,7 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjDatePicker', oobjDatePicker);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjDatePicker() {
 
         var directive = {
@@ -75,6 +75,10 @@
                 opens: "left",
                 cancelClass: "btn-danger"
             };
+
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm';
+            }
 
             if (angular.isDefined(scope.range)) {
                 scope.opts.singleDatePicker = false;

@@ -7,7 +7,7 @@
     angular.module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjSelect() {
         var directive = {
             require: 'ngModel',
@@ -37,6 +37,10 @@
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
+
+                    if (angular.isUndefined(scope.inputSize)) {
+                        scope.inputSize = 'sm';
+                    }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {
                         scope.emptyOption = false;
