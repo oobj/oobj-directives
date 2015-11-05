@@ -6,3 +6,4 @@ languages:
 exclude_paths:
 - "dist/js/oobj.js"
 - "dist/js/oobj.min.js"
+- "src/**/*.spec.js"
