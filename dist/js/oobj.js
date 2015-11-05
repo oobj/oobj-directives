@@ -95,7 +95,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     angular.module('oobj-directives')
         .directive('oobjAutocomplete', oobjAutocomplete);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjAutocomplete() {
         var directive = {
             require: 'ngModel',
@@ -127,6 +127,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm';
+            }
+
             scope.limpar = function() {
                 scope.ngModel = null;
             }
@@ -502,7 +506,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     angular.module('oobj-directives')
         .directive('oobjDatePicker', oobjDatePicker);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjDatePicker() {
 
         var directive = {
@@ -570,6 +574,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 opens: "left",
                 cancelClass: "btn-danger"
             };
+
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm';
+            }
 
             if (angular.isDefined(scope.range)) {
                 scope.opts.singleDatePicker = false;
@@ -782,6 +790,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
+            if (angular.isUndefined(scope.inputSize)) {
+                scope.inputSize = 'sm';
+            }
+
             scope.limpar = function() {
                 scope.ngModel = null;
             }
@@ -1031,7 +1043,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     angular.module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjSelect() {
         var directive = {
             require: 'ngModel',
@@ -1061,6 +1073,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.selectStyle = {};
+
+                    if (angular.isUndefined(scope.inputSize)) {
+                        scope.inputSize = 'sm';
+                    }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {
                         scope.emptyOption = false;
