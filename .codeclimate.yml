@@ -4,5 +4,5 @@ languages:
   PHP: false
   Python: false
 exclude_paths:
-- "src/**/*.spec.js"
-- "dist/*"
+- src/**/*.spec.js
+- dist/*
