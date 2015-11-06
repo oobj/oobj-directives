@@ -89,49 +89,44 @@
             expect(typeof(isolatedScope.newUser)).toEqual('function');
         });
 
-        it('Deve ter 2 campo input', function () {
+        it('Deve ter 3 campo input', function () {
             var input  = element.find('input');
-            expect(input.length).toBe(2);
+            expect(input.length).toBe(3);
         });
 
-        it('Deve ter 3 campo button', function () {
-            var button  = element.find('button');
-            expect(button.length).toBe(3);
-        });
-
-        it('Deve ter botao de login com parametro label-btn-login="labelLogin"', function () {
-            var button  = element.find('button');
-            expect(button[0].innerText).toBe('labelLogin');
+        it('Deve ter 2 links', function () {
+            var button  = element.find('a');
+            expect(button.length).toBe(2);
         });
 
         it('Deve ter botao de login sem parametro label-btn-login', function () {
             element = getCompiledElement('<oobj-login></oobj-login>');
-            var button  = element.find('button');
-            expect(button[0].innerText).toBe('Login');
+            var button  = element.find('input');
+            expect(button[2].getAttribute('value')).toBe('Entrar');
         });
 
-        it('Deve ter botao Esqueceu sua senha?', function () {
+        it('Deve ter link Esqueci minha Senha!', function () {
             element = getCompiledElement('<oobj-login></oobj-login>');
-            var button  = element.find('button');
-            expect(button[1].innerText).toBe('clique aqui');
+            var link  = element.find('a');
+            expect(link[0].innerText).toBe('Esqueci minha Senha!');
         });
 
-        it('Deve ter botao Não tem conta?', function () {
+        it('Deve ter link Cadastre-se', function () {
             element = getCompiledElement('<oobj-login></oobj-login>');
-            var button  = element.find('button');
-            expect(button[2].innerText).toBe('criar conta');
+            var link  = element.find('a');
+            expect(link[1].innerText).toBe('Cadastre-se');
         });
 
         it('Deve ter msgForgotPassword Esqueceu sua senha?', function () {
-            element = getCompiledElement('<oobj-login></oobj-login>');
-            var span  = element.find('span');
-            expect(span[0].innerText).toBe('Esqueceu sua senha?');
+            element = getCompiledElement('<oobj-login label-forgot-password="teste"></oobj-login>');
+            var span  = element.find('a');
+            expect(span[0].innerText).toBe('teste');
         });
 
-        it('Deve ter msgNewUser Não tem conta?', function () {
-            element = getCompiledElement('<oobj-login></oobj-login>');
-            var span  = element.find('span');
-            expect(span[1].innerText).toBe('Não tem conta?');
+        it('Deve ter msgNewUser Cadastre-se', function () {
+            element = getCompiledElement('<oobj-login label-new-user="teste"></oobj-login>');
+            var span  = element.find('a');
+            expect(span[1].innerText).toBe('teste');
         });
     });
 })();
