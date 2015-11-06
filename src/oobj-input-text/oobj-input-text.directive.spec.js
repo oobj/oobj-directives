@@ -78,9 +78,13 @@
             isolatedScope = element.isolateScope();
         }));
 
-        function getCompiledElement(){
-
-            var $element = angular.element('<oobj-input-text show-label="showLabel" ng-model="ngModel" ng-required="ngRequired" ng-disabled="ngDisabled" ng-readonly="ngReadonly" remove-mask="removeMask" autofocus="autofocus" currency="currency" to-upper="toUpper" to-lower="toLower" input-size="inputSize" ng-change="ngChange()" ng-keyup="ngKeyup()" ng-keydown="ngKeydown()" ng-blur="ngBlur()"></oobj-input-text>');
+        function getCompiledElement(xml){
+            var $element;
+            if (xml == null) {
+                $element = angular.element('<oobj-input-text show-label="showLabel" ng-model="ngModel" ng-required="ngRequired" ng-disabled="ngDisabled" ng-readonly="ngReadonly" remove-mask="removeMask" autofocus="autofocus" currency="currency" to-upper="toUpper" to-lower="toLower" input-size="inputSize" ng-change="ngChange()" ng-keyup="ngKeyup()" ng-keydown="ngKeydown()" ng-blur="ngBlur()"></oobj-input-text>');
+            } else {
+                $element = angular.element(xml);
+            }
 
             var compiledElement = $compile($element)(scope);
             scope.$digest();
@@ -228,6 +232,12 @@
             button.triggerHandler('click');
             scope.$digest();
             expect(scope.ngModel).toBeNull;
+        });
+
+        it('Deve inputSize definir valor default sm', function () {
+            element = getCompiledElement('<oobj-input-text ng-model="ngM"></oobj-input-text>');
+            isolatedScope = element.isolateScope();
+            expect(isolatedScope.inputSize).toBe('sm');
         });
     });
 })();

@@ -36,13 +36,8 @@
             isolatedScope = element.isolateScope();
         }));
 
-        function getCompiledElement(xml) {
-            var $element;
-            if (xml == null) {
-                $element = angular.element('<oobj-fieldset></oobj-fieldset>');
-            } else {
-                $element = angular.element(xml);
-            }
+        function getCompiledElement() {
+            var $element = angular.element('<oobj-fieldset></oobj-fieldset>');
             var compiledElement = $compile($element)(scope);
             scope.$digest();
 
