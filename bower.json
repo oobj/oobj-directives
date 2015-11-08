@@ -1,15 +1,16 @@
 {
   "name": "oobj-directives",
-  "version": "1.0.0",
+  "version": "v1.0.35",
   "homepage": "https://github.com/oobj/oobj-directives",
   "authors": [
     "ATILLA <atilla8huno@gmail.com>",
-    "LEONARDO <leonardocostaborges@gmail.com>"
+    "LEONARDO <leonardocostaborges@gmail.com>",
+    "DIOGO <diogo@oobj.com.br>"
   ],
   "description": "Directivas AngularJS Oobj",
   "main": [
-    "./dist/js/oobj.min.js",
-    "./dist/css/bundle.min.css"
+    "dist/js/oobj.min.js",
+    "dist/css/oobj.min.css"
   ],
   "license": "MIT",
   "ignore": [
