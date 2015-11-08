@@ -22,7 +22,7 @@ angular.module('myApp', ['oobj-directives']);
 
 ## How to import the CSS file?
 ```html
-<link rel="stylesheet" href="bower_components/oobj-directives/dist/css/oobj.min.css" />
+<link rel="stylesheet" href="bower_components/oobj-directives/dist/css/oobj.min.css">
 ```
 
 ## See the live demo
