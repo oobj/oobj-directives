@@ -9,8 +9,8 @@
   ],
   "description": "Directivas AngularJS Oobj",
   "main": [
-    "dist/js/oobj.min.js",
-    "dist/css/oobj.min.css"
+    "dist/js/oobj.js",
+    "dist/css/oobj.css"
   ],
   "license": "MIT",
   "ignore": [
