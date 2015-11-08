@@ -12,7 +12,7 @@ bower install oobj-directives
 
 ## How to use the module?
 ```js
-angular.module('myApp', ['oobj-directives']);
+var app = angular.module('myApp', ['oobj-directives']);
 ```
 
 ## How to import the required JS file?
