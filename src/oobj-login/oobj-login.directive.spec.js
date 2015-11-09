@@ -105,10 +105,10 @@
             expect(button[2].getAttribute('value')).toBe('Entrar');
         });
 
-        it('Deve ter link Esqueci minha Senha!', function () {
+        it('Deve ter link Esqueci minha senha!', function () {
             element = getCompiledElement('<oobj-login></oobj-login>');
             var link  = element.find('a');
-            expect(link[0].innerText).toBe('Esqueci minha Senha!');
+            expect(link[0].innerText).toBe('Esqueci minha senha!');
         });
 
         it('Deve ter link Cadastre-se', function () {
