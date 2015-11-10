@@ -16,7 +16,7 @@
                     <span class="fa arrow" ng-if="categoria.itens != undefined"></span>
                 </a>
 
-                <ul class="nav nav-second-level" collapse="collapseVar != $index" ng-if="categoria.itens != undefined">
+                <ul class="nav nav-second-level" uib-collapse="collapseVar != $index" ng-if="categoria.itens != undefined">
                     <li ui-sref-active="active" ng-repeat="item in categoria.itens track by $index">
 
                         <a ui-sref="{{ item.sref }}">
