@@ -7,13 +7,13 @@
                 <a href="" ng-click="check($index)" ng-if="categoria.itens != undefined">
                     <i class="fa" ng-class="categoria.icon"></i>
                     <span ng-bind="categoria.label"></span>
-                    <span class="fa arrow" ng-if="categoria.itens != undefined"></span>
+                    <span class="fa plus" ng-if="categoria.itens != undefined"></span>
                 </a>
 
                 <a href="" ng-click="check($index)" ng-if="categoria.itens == undefined" ui-sref="{{ categoria.sref }}">
                     <i class="fa" ng-class="categoria.icon"></i>
                     <span ng-bind="categoria.label"></span>
-                    <span class="fa arrow" ng-if="categoria.itens != undefined"></span>
+                    <span class="fa plus" ng-if="categoria.itens != undefined"></span>
                 </a>
 
                 <ul class="nav nav-second-level" uib-collapse="collapseVar != $index" ng-if="categoria.itens != undefined">
