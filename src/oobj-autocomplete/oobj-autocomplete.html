@@ -10,7 +10,7 @@
                class="form-control"
                ng-model="ngModel"
                placeholder="{{placeholder}}"
-               typeahead="item as item[itemLabel] for item in getItems()($viewValue)"
+               uib-typeahead="item as item[itemLabel] for item in getItems()($viewValue)"
                typeahead-loading="loadingItems"
                typeahead-no-results="noResults"
                ng-disabled="ngDisabled"

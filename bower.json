@@ -24,16 +24,15 @@
     "angular": "~1.4.7",
     "json3": "~3.3.2",
     "angular-animate": "~1.4.7",
-    "angular-bootstrap": "~0.13.4",
     "font-awesome": "~4.4.0",
     "metisMenu": "~2.2.0",
     "angular-chart.js": "~0.8.4",
     "bootstrap": "~3.3.5",
     "angular-daterangepicker": "~0.1.17",
-    "angular-ui-grid": "~3.0.6"
+    "angular-ui-grid": "~3.0.6",
+    "angular-bootstrap": "~0.14.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "resolutions": {
     "bootstrap": "~3.3.5",
     "angular": "~1.4.7"
