@@ -26,6 +26,8 @@ sub commitarVersao {
 	my ($versao) = @_;
 	my $apiKey = "4f432841febbad919d9fbb825fc82d4458c8efd4";
 	my $repoUrl = "https://$apiKey\@github.com/oobj/oobj-directives";
+	`git config --global user.name "oobj-ci"`
+	`git config --global user.email "cd\@oobj.com.br"`
 	`git tag $versao -a -m "Gerando versão $versao para publicação no bower."`;
 	`git push --tags $repoUrl`;
 }
