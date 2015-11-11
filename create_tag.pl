@@ -24,7 +24,6 @@ if($json =~/"value": ?"v(.*)"/) {
 
 sub commitarVersao {
 	my ($versao) = @_;
-	my $apiKey = "ae012ae5ac7e12ee025ed8e1e34e24a576fab531";
 	my $repoUrl = "https://\$GITHUB_TOKEN\@github.com/oobj/oobj-directives";
 	`git config --global user.name "oobj-ci"`;
 	`git config --global user.email "cd\@oobj.com.br"`;
