@@ -9,4 +9,8 @@ before_script:
   - npm install -g bower
   - bower install
 
-script: grunt continuous 
+script: 
+  - grunt continuous
+
+after_success:
+  - perl create_tag.pl 
