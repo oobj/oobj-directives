@@ -76,14 +76,14 @@
 
         });
 
-        it('Teste style sem panelStyle definido.', function () {
+        it('Teste style sem panelClass definido.', function () {
             var classng = element.find('div[ng-class]');
             expect(classng.length).toBe(2);
             expect(classng.hasClass('panel-default')).toBeTruthy();
         });
 
-        it('Teste style com panelStyle definido.', function () {
-            element = getCompiledElement('<oobj-panel panel-style="teste"></oobj-panel>');
+        it('Teste style com panelClass definido.', function () {
+            element = getCompiledElement('<oobj-panel panel-class="panel-teste"></oobj-panel>');
             var classng = element.find('div[ng-class]');
             expect(classng.length).toBe(2);
             expect(classng.hasClass('panel-teste')).toBeTruthy();

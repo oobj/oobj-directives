@@ -4,10 +4,11 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-            .directive('oobjPanel', oobjPanel);
+    angular
+        .module('oobj-directives')
+        .directive('oobjPanel', oobjPanel);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjPanel() {
         var directive = {
             restrict: 'EA',
@@ -17,6 +18,7 @@
                 title: '@',
                 footer: '@',
                 colspan: '@',
+                panelClass: '@',
                 panelStyle: '@'
             },
             link: link
@@ -25,12 +27,9 @@
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
-            scope.panelClass = 'panel-default';
-
-            if (angular.isDefined(scope.panelClass)) {
-                scope.panelClass = 'panel-' + scope.panelClass;
+            if (angular.isUndefined(scope.panelClass)) {
+                scope.panelClass = 'panel-default';
             }
         }
     }
 })();
-
