@@ -30,10 +30,6 @@
             if (angular.isDefined(scope.panelClass)) {
                 scope.panelClass = 'panel-' + scope.panelClass;
             }
-
-            if (angular.isUndefined(scope.panelStyle)) {
-                scope.panelStyle = 'border: 1px solid #778485; border-radius: 0;';
-            }
         }
     }
 })();
