@@ -12,9 +12,9 @@ before_script:
 script: 
   - grunt continuous
 
-after_success:
-  - perl create_tag.pl 
+#after_success:
+#  - perl create_tag.pl
 
-branches:
-  except:
-    - /v.*/
+#branches:
+#  except:
+#    - /v.*/
