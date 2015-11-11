@@ -30,10 +30,10 @@
   float: right;
 }
 .sidebar .fa.plus:before {
-  content: "\f067";
+  content: "+";
 }
 .sidebar .active > a > .fa.plus:before {
-  content: "\f068";
+  content: "-";
 }
 .sidebar .nav-second-level li,
 .sidebar .nav-third-level li {
