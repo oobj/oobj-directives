@@ -39,7 +39,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-date-picker/oobj-date-picker.html",
     "<div class=\"form-group form-group-{{inputSize}}\" ng-class=colspan><label ng-show=\"showLabel || label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><input date-range-picker options=opts name={{name}} ng-model=ngModel ng-disabled=ngDisabled ng-required=ngRequired ng-change=onChange($event) ng-blur=onBlur($event) ng-keyup=onKeyup($event) ng-keydown=onKeydown($event) ng-readonly=ngReadonly class=\"form-control date-picker\"><div class=input-group-btn><button type=button class=\"btn btn-default btn-{{inputSize}} oobj-group-input-btn\"><i class=\"fa fa-calendar\"></i></button></div></div></div>");
   $templateCache.put("oobj-fieldset/oobj-fieldset.html",
-    "<fieldset ng-class=colspan ng-style=fieldsetStyle><legend style={{titleStyle}}><span ng-bind=title></span></legend><div ng-transclude></div></fieldset>");
+    "<fieldset ng-class=colspan style={{fieldsetStyle}}><legend style={{titleStyle}}><span ng-bind=title></span></legend><div ng-transclude></div></fieldset>");
   $templateCache.put("oobj-footer/oobj-footer.html",
     "<footer style=\"background: #6F6F6F;\n" +
     "                  color: #fff;\n" +
