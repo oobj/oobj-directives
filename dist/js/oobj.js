@@ -35,16 +35,16 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-crud/oobj-crud.html",
     "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><form role=form novalidate><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></form></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
-    "            <oobj-button label=\"Salvar\" btn-class=\"btn-primary\"\n" +
-    "                         icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
+    "            <oobj-button label=\"Limpar\" btn-class=\"btn-default\"\n" +
+    "                         icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
     "            <oobj-button label=\"Excluir\" btn-class=\"btn-danger\"\n" +
     "                         icon=\"fa-trash-o\" ng-click=\"vm.excluir()\" ng-if=\"showBtnExcluir\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Limpar\" btn-class=\"btn-default\"\n" +
-    "                         icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
+    "            <oobj-button label=\"Salvar\" btn-class=\"btn-primary\"\n" +
+    "                         icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
     "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");
@@ -81,12 +81,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "                         ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\"\n" +
-    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
-    "            </oobj-button>\n" +
-    "\n" +
     "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"fa-search-plus\"\n" +
     "                         ng-click=\"vm.pesquisaAvancada()\" ng-if=\"showBtnPesquisaAvancada\">\n" +
+    "            </oobj-button>\n" +
+    "\n" +
+    "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\"\n" +
+    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
     "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");

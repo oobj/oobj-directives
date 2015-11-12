@@ -113,8 +113,8 @@
             expect(isolatedScope.showBtnLimpar).toBe(false);
             var button = element.find('oobj-button');
             expect(button.length).toBe(2);
-            expect(button[0].innerText).toBe(' Pesquisar');
-            expect(button[1].innerText).toBe(' Pesq. Avançada');
+            expect(button[0].innerText).toBe(' Pesq. Avançada');
+            expect(button[1].innerText).toBe(' Pesquisar');
         });
 
         it('Deve mostrar todos botoes pesquisa - pesquisa avancada - limpar', function () {
@@ -126,8 +126,8 @@
             var button = element.find('oobj-button');
             expect(button.length).toBe(3);
             expect(button[0].innerText).toBe(' Limpar');
-            expect(button[1].innerText).toBe(' Pesquisar');
-            expect(button[2].innerText).toBe(' Pesq. Avançada');
+            expect(button[1].innerText).toBe(' Pesq. Avançada');
+            expect(button[2].innerText).toBe(' Pesquisar');
         });
 
         it('Deve carregar apenas botao limpar', function () {
