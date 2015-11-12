@@ -138,13 +138,13 @@
 
         it('Deve possuir selectStyle', function() {
             element = getCompiledElement('<oobj-select ng-model="ngModel"></oobj-select>');
-            var div  = element.find('div[ng-style]');
+            var div  = element.find('select[ng-style]');
             expect(div.length).toBe(1);
         });
 
         it('Deve configurar selectStyle width e height conforme atributo', function() {
             element = getCompiledElement('<oobj-select ng-model="ngModel" width="10" height="5"></oobj-select>');
-            var div  = element.find('div[ng-style]');
+            var div  = element.find('select[ng-style]');
             expect(div[0].style['width']).toEqual('10px');
             expect(div[0].style['height']).toEqual('5px');
         });
