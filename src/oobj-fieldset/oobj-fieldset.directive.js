@@ -12,6 +12,7 @@
     function oobjFieldset() {
         var directive = {
             link: link,
+            compile: compile,
             restrict: 'EA',
             transclude: true,
             templateUrl: 'oobj-fieldset/oobj-fieldset.html',
@@ -19,7 +20,8 @@
                 id: '@',
                 colspan: '@',
                 title: '@',
-                titleStyle: '@'
+                titleStyle: '@',
+                fieldsetStyle: '@'
             }
         };
 
@@ -27,6 +29,16 @@
 
         function link(scope, element, attrs) {
 
+        }
+
+        function compile(tElement, tAttrs) {
+            return {
+                pre: function preLink(scope, element, attrs) {
+                    if (angular.isUndefined(scope.fieldsetStyle)) {
+                        scope.fieldsetStyle = 'font-size: 11px; font-style: italic; color: #999;';
+                    }
+                }
+            }
         }
     }
 })();
