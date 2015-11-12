@@ -138,7 +138,7 @@
 
         it('Deve possuir selectStyle', function() {
             element = getCompiledElement('<oobj-select ng-model="ngModel"></oobj-select>');
-            var div  = element.find('select[ng-style]');
+            var div  = element.find('select[style]');
             expect(div.length).toBe(1);
         });
 

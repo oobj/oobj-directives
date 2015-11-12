@@ -6,7 +6,7 @@
 
     <div class="input-group">
         <select name="select" class="form-control" required="{{ngRequired}}" ng-model="ngModel"
-                ng-options="item as item[itemLabel] for item in provider" ng-style="selectStyle">
+                ng-options="item as item[itemLabel] for item in provider" style="{{selectStyle}}" ng-style="selectStyle">
             <option ng-if="showEmptyOption" value="">Selecione uma opção...</option>
         </select>
     </div>
