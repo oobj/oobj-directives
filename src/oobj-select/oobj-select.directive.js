@@ -26,7 +26,8 @@
                 itemLabel: '@',
                 itemValue: '@',
                 showEmptyOption: '=',
-                inputSize: '@'
+                inputSize: '@',
+                selectStyle: '@'
             },
             compile: compile
         };

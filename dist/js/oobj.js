@@ -1103,7 +1103,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 itemLabel: '@',
                 itemValue: '@',
                 showEmptyOption: '=',
-                inputSize: '@'
+                inputSize: '@',
+                selectStyle: '@'
             },
             compile: compile
         };
