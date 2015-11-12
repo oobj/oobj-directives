@@ -20,7 +20,8 @@
                 showBtnClose: '=',
                 labelBtnOpen: '@',
                 labelBtnClose: '@',
-                classBtnOpen: '@'
+                classBtnOpen: '@',
+                timeline: '='
             },
             link: link,
             compile: compile
@@ -53,6 +54,10 @@
 
                     if (angular.isUndefined(scope.showBtnClose)) {
                         scope.showBtnClose = true;
+                    }
+
+                    if (angular.isUndefined(scope.timeline)) {
+                        scope.timeline = false;
                     }
                 }
             }

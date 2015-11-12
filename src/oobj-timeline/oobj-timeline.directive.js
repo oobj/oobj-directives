@@ -16,8 +16,9 @@
             replace: true,
             scope: {
                 provider: '=',
-                colspan: '@'
-            }
+                colspan: '@',
+            },
+            
         };
 
         return directive;
