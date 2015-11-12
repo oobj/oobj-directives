@@ -21,7 +21,7 @@
                 labelBtnOpen: '@',
                 labelBtnClose: '@',
                 classBtnOpen: '@',
-                timeline: '='
+                size: '@'
             },
             link: link,
             compile: compile
@@ -56,8 +56,8 @@
                         scope.showBtnClose = true;
                     }
 
-                    if (angular.isUndefined(scope.timeline)) {
-                        scope.timeline = false;
+                    if (angular.isUndefined(scope.size)) {
+                        scope.size = '';
                     }
                 }
             }
