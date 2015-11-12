@@ -34,8 +34,8 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.fieldsetStyle)) {
-                        scope.fieldsetStyle = 'font-size: 11px; font-style: italic; color: #999;';
+                    if (angular.isUndefined(scope.titleStyle)) {
+                        scope.titleStyle = 'font-size: 11px; font-style: italic; color: #999;';
                     }
                 }
             }
