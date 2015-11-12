@@ -101,7 +101,7 @@
 
         it('Deve ter ng-transclude', function () {
             var transclude  = element.find('div[ng-transclude]');
-            expect(transclude.length).toBe(3);
+            expect(transclude.length).toBe(4);
         });
 
 
