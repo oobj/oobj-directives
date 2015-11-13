@@ -17,13 +17,11 @@
                 id: '@',
                 ngModel: '=',
                 colspan: '@',
-                theme: '@',
                 label: '@',
                 showLabel: '=?',
                 ngRequired: '=',
                 placeholder: '@',
                 onOpen: '&',
-                ngDisabled: '=?',
                 provider: '=',
                 itemLabel: '@',
                 itemValue: '@',
@@ -51,10 +49,6 @@
 
                     if (angular.isUndefined(scope.inputSize)) {
                         scope.inputSize = 'sm';
-                    }
-
-                    if (angular.isUndefined(scope.theme)) {
-                        scope.theme = 'select2';
                     }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {

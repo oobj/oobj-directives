@@ -5,11 +5,9 @@
     </label>
 
     <div class="input-group">
-        <ui-select name="select" ng-model="ngModel" theme="select2" ng-disabled="ngDisabled" style="{{selectStyle}}">
-            <ui-select-match placeholder="{{placeholder}}">{{$select.selected[itemLabel]}}</ui-select-match>
-            <ui-select-choices repeat="item in (provider | filter: $select.search) track by $index">
-                <span ng-bind="item[itemLabel] | highlight: $select.search"></span>
-            </ui-select-choices>
-        </ui-select>
+        <select name="select" class="form-control" required="{{ngRequired}}" ng-model="ngModel"
+                ng-options="item as item[itemLabel] for item in provider" style="{{selectStyle}}" ng-style="selectStyle">
+            <option ng-if="showEmptyOption" value="">Selecione uma opção...</option>
+        </select>
     </div>
 </div>
