@@ -10,5 +10,6 @@
                 'ui.bootstrap',
                 'ui.grid',
                 'ui.select',
+                'ngSanitize',
                 'daterangepicker']);
 })();
