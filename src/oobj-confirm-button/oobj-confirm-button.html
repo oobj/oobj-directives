@@ -24,13 +24,17 @@
                 </div>
 
                 <div class="modal-footer">
-                    <oobj-button data-dismiss="modal" label="{{labelBtnYes || 'Sim'}}" ng-click="onClickBtnYes()" icon="fa-check"
-                                 btn-class="{{classBtnYes  || 'btn-primary'}}">
-                    </oobj-button>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <oobj-button data-dismiss="modal" label="{{labelBtnYes || 'Sim'}}" ng-click="onClickBtnYes()"
+                                         icon="fa-check" btn-class="{{classBtnYes  || 'btn-primary'}}">
+                            </oobj-button>
 
-                    <oobj-button data-dismiss="modal" label="{{labelBtnNo || 'Não'}}" ng-click="onClickBtnNo()" icon="fa-times"
-                                 btn-class="{{classBtnNo || 'btn-default'}}">
-                    </oobj-button>
+                            <oobj-button data-dismiss="modal" label="{{labelBtnNo || 'Não'}}" ng-click="onClickBtnNo()"
+                                         icon="fa-times" btn-class="{{classBtnNo || 'btn-default'}}">
+                            </oobj-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
