@@ -17,11 +17,13 @@
                 id: '@',
                 ngModel: '=',
                 colspan: '@',
+                theme: '@',
                 label: '@',
                 showLabel: '=?',
                 ngRequired: '=',
                 placeholder: '@',
                 onOpen: '&',
+                ngDisabled: '=?',
                 provider: '=',
                 itemLabel: '@',
                 itemValue: '@',
@@ -40,7 +42,7 @@
                     scope.selectStyle = {};
 
                     if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione...';
+                        scope.placeholder = 'Selecione uma opção...';
                     }
 
                     if (angular.isUndefined(scope.itemLabel)) {
@@ -49,6 +51,10 @@
 
                     if (angular.isUndefined(scope.inputSize)) {
                         scope.inputSize = 'sm';
+                    }
+
+                    if (angular.isUndefined(scope.theme)) {
+                        scope.theme = 'select2';
                     }
 
                     if (angular.isUndefined(scope.showEmptyOption)) {
