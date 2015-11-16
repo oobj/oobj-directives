@@ -20,15 +20,10 @@
                 footer: '@',
                 gridOptions: '='
             },
-            link: link,
             compile: compile
         };
 
         return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
 
         function compile(tElement, tAttrs) {
             return {

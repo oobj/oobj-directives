@@ -4,9 +4,14 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives',
-            ['oobj-directives.templates',
-                'ui.bootstrap',
-                'ui.grid',
-                'daterangepicker']);
+    angular.module('oobj-directives', [
+        'oobj-directives.templates',
+        'ui.bootstrap',
+        'ngAnimate',
+        'ngTouch',
+        'ui.grid',
+        'ui.grid.selection',
+        'ui.grid.pagination',
+        'daterangepicker'
+    ]);
 })();
