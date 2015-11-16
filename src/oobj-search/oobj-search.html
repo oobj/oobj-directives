@@ -18,7 +18,7 @@
     </oobj-panel>
 
     <oobj-panel colspan="col-lg-12">
-        <ng-include src="'additionalContent'"></ng-include>
+        <ng-include src="'additionalContent'" ng-if="additionalContent"></ng-include>
 
         <div class="row" ng-if="vm.data">
             <oobj-grid colspan="col-md-12" data="vm.data" grid-options="gridOptions"></oobj-grid>

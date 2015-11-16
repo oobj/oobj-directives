@@ -140,8 +140,5 @@
             expect(button.length).toBe(1);
             expect(button[0].innerText).toBe(' Limpar');
         });
-
-
-
     });
 })();

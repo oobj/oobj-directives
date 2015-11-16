@@ -79,7 +79,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-search/oobj-search.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row style=\"margin-bottom: -15px\"><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div></oobj-panel><oobj-panel colspan=col-lg-12><ng-include src=\"'additionalContent'\"></ng-include><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row style=\"margin-bottom: -15px\"><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div></oobj-panel><oobj-panel colspan=col-lg-12><ng-include src=\"'additionalContent'\" ng-if=additionalContent></ng-include><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
     "            <oobj-button label=\"Limpar\" btn-class=\"btn-success\" icon=\"fa-eraser\"\n" +
     "                         ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
@@ -1076,8 +1076,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .module('oobj-directives')
         .directive('oobjSearch', oobjSearch);
 
+    oobjSearch.$inject = ['$templateCache'];
+
     /** @ngInject */
-    function oobjSearch() {
+    function oobjSearch($templateCache) {
         var directive = {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
@@ -1093,13 +1095,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 showBtnOnBottom: '=',
                 showBtnOnTop: '='
             },
-            link: link
+            link: link,
+            compile: compile
         };
 
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
-
             if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
                 scope.showBtnPesquisaAvancada = true;
             }
@@ -1118,6 +1120,18 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
             if (angular.isUndefined(scope.showBtnOnTop)) {
                 scope.showBtnOnTop = false;
+            }
+        }
+
+        function compile(tElement, tAttrs) {
+            return {
+                pre: function preLink(scope, element, attrs) {
+                    scope.additionalContent = false;
+
+                    if ($templateCache.get('additionalContent')) {
+                        scope.additionalContent = true;
+                    }
+                }
             }
         }
     }
