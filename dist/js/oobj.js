@@ -16,6 +16,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   "use strict";
   $templateCache.put("oobj-autocomplete/oobj-autocomplete.html",
     "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} class=form-control ng-model=ngModel placeholder={{placeholder}} uib-typeahead=\"item as item[itemLabel] for item in getItems()($viewValue)\" typeahead-loading=loadingItems typeahead-no-results=noResults ng-disabled=ngDisabled ng-readonly=ngReadonly ng-change=onChange($event) ng-blur=onBlur($event) maxlength={{maxlength}}><div class=input-group-btn><button type=button ng-click=limpar() class=\"btn btn-default btn-{{inputSize}} oobj-group-input-btn\"><i class=\"fa fa-times\"></i></button></div></div><div class=help-block><i ng-show=loadingItems class=\"fa fa-refresh\"></i><div ng-show=noResults><i class=\"fa fa-times\"></i> Nenhum resultado encontrado</div></div></div>");
+  $templateCache.put("oobj-button-dropdown/oobj-button-dropdown.html",
+    "<div class=btn-group uib-dropdown><button id=single-button type=button class=btn ng-class=btnClass uib-dropdown-toggle ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span> <i class=\"fa fa-angle-down\"></i></button><ul class=uib-dropdown-menu role=menu aria-labelledby=single-button><li role=menuitem ng-repeat=\"item in provider track by $index\"><a href=javascript:; ng-click=item.action()>{{item.label}}</a></li></ul></div>");
   $templateCache.put("oobj-button/oobj-button.html",
     "<button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
   $templateCache.put("oobj-chart/oobj-chart-bar.html",
@@ -153,6 +155,51 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         }
     }
 })();
+/**
+ * Created by ATILLA on 02/10/2015.
+ */
+(function() {
+    'use strict';
+
+    angular
+        .module('oobj-directives')
+        .directive('oobjButtonDropdown', oobjButtonDropdown);
+
+    /** @ngInject */
+    function oobjButtonDropdown() {
+        var directive = {
+            restrict: 'EA',
+            templateUrl: 'oobj-button-dropdown/oobj-button-dropdown.html',
+            scope: {
+                label: '@',
+                btnClass: '@',
+                icon: '@',
+                colspan: '@',
+                provider: '='
+            },
+            link: link,
+            compile: compile
+        };
+
+        return directive;
+
+        function link(scope, element, attrs, ngModelCtrl) {
+
+        }
+
+        function compile(tElement, tAttrs) {
+            return {
+                pre: function preLink(scope, element, attrs) {
+                    if (angular.isUndefined(scope.btnClass)) {
+                        scope.btnClass = 'btn-default';
+                    }
+                }
+            }
+        }
+    }
+})();
+
+
 /**
  * Created by ATILLA on 02/10/2015.
  */
