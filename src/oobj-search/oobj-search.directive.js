@@ -27,8 +27,7 @@
                 showBtnOnBottom: '=',
                 showBtnOnTop: '='
             },
-            link: link,
-            compile: compile
+            link: link
         };
 
         return directive;
@@ -52,18 +51,6 @@
 
             if (angular.isUndefined(scope.showBtnOnTop)) {
                 scope.showBtnOnTop = false;
-            }
-        }
-
-        function compile(tElement, tAttrs) {
-            return {
-                pre: function preLink(scope, element, attrs) {
-                    scope.additionalContent = false;
-
-                    if ($templateCache.get('additionalContent')) {
-                        scope.additionalContent = true;
-                    }
-                }
             }
         }
     }
