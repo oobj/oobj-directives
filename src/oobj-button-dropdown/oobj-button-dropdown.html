@@ -1,0 +1,12 @@
+<div class="btn-group" uib-dropdown>
+    <button id="single-button" type="button" class="btn" ng-class="btnClass" uib-dropdown-toggle ng-disabled="ngDisabled">
+        <i class="fa" ng-class="icon"></i>
+        <span ng-bind="label"></span>
+        <i class="fa fa-angle-down"></i>
+    </button>
+    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+        <li role="menuitem" ng-repeat="item in provider track by $index">
+            <a href="javascript:;" ng-click="item.action()">{{item.label}}</a>
+        </li>
+    </ul>
+</div>

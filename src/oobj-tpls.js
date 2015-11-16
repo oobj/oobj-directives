@@ -2,6 +2,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   "use strict";
   $templateCache.put("oobj-autocomplete/oobj-autocomplete.html",
     "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-if=\"showLabel != false && label != undefined\" for={{id}}><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><input id={{id}} class=form-control ng-model=ngModel placeholder={{placeholder}} uib-typeahead=\"item as item[itemLabel] for item in getItems()($viewValue)\" typeahead-loading=loadingItems typeahead-no-results=noResults ng-disabled=ngDisabled ng-readonly=ngReadonly ng-change=onChange($event) ng-blur=onBlur($event) maxlength={{maxlength}}><div class=input-group-btn><button type=button ng-click=limpar() class=\"btn btn-default btn-{{inputSize}} oobj-group-input-btn\"><i class=\"fa fa-times\"></i></button></div></div><div class=help-block><i ng-show=loadingItems class=\"fa fa-refresh\"></i><div ng-show=noResults><i class=\"fa fa-times\"></i> Nenhum resultado encontrado</div></div></div>");
+  $templateCache.put("oobj-button-dropdown/oobj-button-dropdown.html",
+    "<div class=btn-group uib-dropdown><button id=single-button type=button class=btn ng-class=btnClass uib-dropdown-toggle ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span> <i class=\"fa fa-angle-down\"></i></button><ul class=uib-dropdown-menu role=menu aria-labelledby=single-button><li role=menuitem ng-repeat=\"item in provider track by $index\"><a href=javascript:; ng-click=item.action()>{{item.label}}</a></li></ul></div>");
   $templateCache.put("oobj-button/oobj-button.html",
     "<button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
   $templateCache.put("oobj-chart/oobj-chart-bar.html",
@@ -17,22 +19,22 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-checkbox/oobj-checkbox.html",
     "<div class=\"checkbox c-checkbox\" ng-class=checkboxClass ng-style=checkboxStyle><label><input type=checkbox id={{id}} ng-model=\"ngModel\"> <span class=\"fa fa-check\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-confirm-button/oobj-confirm-button.html",
-    "<div><oobj-button data-toggle=modal data-target=#oobjConfirm label=\"{{ label }}\" icon=\"{{ icon }}\" btn-class=\"{{ btnClass }}\"></oobj-button><div id=oobjConfirm class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title><span ng-bind=\"title || 'Confirmação'\"></span></h4></div><div class=modal-body><p><span ng-bind=msg ng-style=msgStyle></span></p></div><div class=modal-footer><oobj-button data-dismiss=modal label=\"{{labelBtnYes || 'Sim'}}\" ng-click=onClickBtnYes() icon=fa-check btn-class=\"{{classBtnYes  || 'btn-primary'}}\"></oobj-button><oobj-button data-dismiss=modal label=\"{{labelBtnNo || 'Não'}}\" ng-click=onClickBtnNo() icon=fa-times btn-class=\"{{classBtnNo || 'btn-default'}}\"></oobj-button></div></div></div></div></div>");
+    "<div><oobj-button data-toggle=modal data-target=#oobjConfirm label=\"{{ label }}\" icon=\"{{ icon }}\" btn-class=\"{{ btnClass }}\"></oobj-button><div id=oobjConfirm class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title><span ng-bind=\"title || 'Confirmação'\"></span></h4></div><div class=modal-body><p><span ng-bind=msg ng-style=msgStyle></span></p></div><div class=modal-footer><div class=row><div class=\"col-md-12 text-right\"><oobj-button data-dismiss=modal label=\"{{labelBtnYes || 'Sim'}}\" ng-click=onClickBtnYes() icon=fa-check btn-class=\"{{classBtnYes  || 'btn-primary'}}\" style=\"padding-right: 5px\"></oobj-button><oobj-button data-dismiss=modal label=\"{{labelBtnNo || 'Não'}}\" ng-click=onClickBtnNo() icon=fa-times btn-class=\"{{classBtnNo || 'btn-default'}}\"></oobj-button></div></div></div></div></div></div></div>");
   $templateCache.put("oobj-container/oobj-container.html",
     "<div><div class=row ng-if=\"title != undefined\"><div class=col-lg-12><h5 class=page-header style=\"padding-bottom: 5px; border-bottom: 0px solid\"><span ng-bind=title></span></h5></div></div><div class=row><div ng-transclude></div></div></div>");
   $templateCache.put("oobj-crud/oobj-crud.html",
     "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><form role=form novalidate><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></form></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
-    "            <oobj-button label=\"Salvar\" btn-class=\"btn-primary\"\n" +
-    "                         icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
+    "            <oobj-button label=\"Limpar\" btn-class=\"btn-default\"\n" +
+    "                         icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
     "            <oobj-button label=\"Excluir\" btn-class=\"btn-danger\"\n" +
     "                         icon=\"fa-trash-o\" ng-click=\"vm.excluir()\" ng-if=\"showBtnExcluir\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Limpar\" btn-class=\"btn-default\"\n" +
-    "                         icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
+    "            <oobj-button label=\"Salvar\" btn-class=\"btn-primary\"\n" +
+    "                         icon=\"fa-floppy-o\" ng-click=\"vm.salvar()\" ng-if=\"showBtnSalvar\">\n" +
     "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");
@@ -63,18 +65,18 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-search/oobj-search.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row style=\"margin-bottom: -15px\"><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div></oobj-panel><oobj-panel colspan=col-lg-12><ng-include src=\"'additionalContent'\" ng-if=additionalContent></ng-include><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
     "            <oobj-button label=\"Limpar\" btn-class=\"btn-success\" icon=\"fa-eraser\"\n" +
     "                         ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\"\n" +
-    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
-    "            </oobj-button>\n" +
-    "\n" +
     "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"fa-search-plus\"\n" +
     "                         ng-click=\"vm.pesquisaAvancada()\" ng-if=\"showBtnPesquisaAvancada\">\n" +
+    "            </oobj-button>\n" +
+    "\n" +
+    "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\"\n" +
+    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
     "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");

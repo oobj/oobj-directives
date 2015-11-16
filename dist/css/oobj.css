@@ -32,6 +32,7 @@
 }
 .sidebar .plus {
   float: right;
+  padding-top: 4px;
 }
 .sidebar .fa.plus:before {
   content: "+";

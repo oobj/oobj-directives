@@ -1,9 +1,8 @@
 <oobj-container title="{{title}}">
     <oobj-panel colspan="col-lg-12">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="margin-bottom: -15px;">
                 <div class="form-group">
-
                     <ng-include src="'formActions'" ng-if="showBtnOnTop"></ng-include>
 
                     <div class="container-fluid">
@@ -16,6 +15,10 @@
                 </div>
             </div>
         </div>
+    </oobj-panel>
+
+    <oobj-panel colspan="col-lg-12">
+        <ng-include src="'additionalContent'" ng-if="additionalContent"></ng-include>
 
         <div class="row" ng-if="vm.data">
             <oobj-grid colspan="col-md-12" data="vm.data" grid-options="gridOptions"></oobj-grid>
@@ -30,12 +33,12 @@
                          ng-click="vm.limpar()" ng-if="showBtnLimpar">
             </oobj-button>
 
-            <oobj-button label="Pesquisar" btn-class="btn-primary" icon="fa-search"
-                         ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
-            </oobj-button>
-
             <oobj-button label="Pesq. Avançada" btn-class="btn-default" icon="fa-search-plus"
                          ng-click="vm.pesquisaAvancada()" ng-if="showBtnPesquisaAvancada">
+            </oobj-button>
+
+            <oobj-button label="Pesquisar" btn-class="btn-primary" icon="fa-search"
+                         ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
             </oobj-button>
         </div>
     </div>

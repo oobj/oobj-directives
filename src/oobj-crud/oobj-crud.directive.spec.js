@@ -116,19 +116,19 @@
         it('Teste com showBtnSalvar valor default - ativo.', function () {
             element = getCompiledElement('<oobj-crud></oobj-crud>');
             var button = element.find('oobj-button');
-            expect(button[0].innerText).toContain('Salvar');
+            expect(button[1].innerText).toContain('Salvar');
         });
 
         it('Teste com showBtnSalvar desativado.', function () {
             element = getCompiledElement('<oobj-crud show-btn-salvar="false"></oobj-crud>');
             var button = element.find('oobj-button');
-            expect(button[0].innerText).not.toContain('Salvar');
+            expect(button[1]).toBeUndefined();
         });
 
         it('Teste com showBtnLimpar valor default - ativo.', function () {
             element = getCompiledElement('<oobj-crud></oobj-crud>');
             var button = element.find('oobj-button');
-            expect(button[1].innerText).toContain('Limpar');
+            expect(button[0].innerText).toContain('Limpar');
         });
 
         it('Teste com showBtnLimpar desativado.', function () {

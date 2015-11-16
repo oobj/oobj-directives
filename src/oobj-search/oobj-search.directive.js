@@ -8,8 +8,10 @@
         .module('oobj-directives')
         .directive('oobjSearch', oobjSearch);
 
+    oobjSearch.$inject = ['$templateCache'];
+
     /** @ngInject */
-    function oobjSearch() {
+    function oobjSearch($templateCache) {
         var directive = {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
@@ -25,13 +27,13 @@
                 showBtnOnBottom: '=',
                 showBtnOnTop: '='
             },
-            link: link
+            link: link,
+            compile: compile
         };
 
         return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
-
             if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
                 scope.showBtnPesquisaAvancada = true;
             }
@@ -52,6 +54,17 @@
                 scope.showBtnOnTop = false;
             }
         }
+
+        function compile(tElement, tAttrs) {
+            return {
+                pre: function preLink(scope, element, attrs) {
+                    scope.additionalContent = false;
+
+                    if ($templateCache.get('additionalContent')) {
+                        scope.additionalContent = true;
+                    }
+                }
+            }
+        }
     }
 })();
-

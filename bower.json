@@ -5,7 +5,8 @@
   "authors": [
     "ATILLA <atilla8huno@gmail.com>",
     "LEONARDO <leonardocostaborges@gmail.com>",
-    "DIOGO <diogo@oobj.com.br>"
+    "DIOGO <diogo@oobj.com.br>",
+    "RENATO <renato.borges@oobj.com.br>"
   ],
   "description": "Oobj's AngularJS Directives",
   "main": [
@@ -30,7 +31,8 @@
     "bootstrap": "~3.3.5",
     "angular-daterangepicker": "~0.1.17",
     "angular-ui-grid": "~3.0.6",
-    "angular-bootstrap": "~0.14.3"
+    "angular-bootstrap": "~0.14.3",
+    "ui-select": "angular-ui-select#~0.13.2"
   },
   "devDependencies": {},
   "resolutions": {
