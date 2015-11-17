@@ -25,6 +25,7 @@
     "angular": "~1.4.7",
     "json3": "~3.3.2",
     "angular-animate": "~1.4.7",
+    "angular-touch": "~1.4.7",
     "font-awesome": "~4.4.0",
     "metisMenu": "~2.2.0",
     "angular-chart.js": "~0.8.4",
