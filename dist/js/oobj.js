@@ -1164,7 +1164,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     scope.selectStyle = {};
 
                     if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione uma opção...';
+                        scope.placeholder = 'Selecione uma op��o...';
                     }
 
                     if (angular.isUndefined(scope.itemLabel)) {

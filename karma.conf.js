@@ -15,6 +15,8 @@ module.exports = function (config) {
             "bower_components/moment/moment.js",
             "bower_components/bootstrap-daterangepicker/daterangepicker.js",
             'bower_components/angular-daterangepicker/js/angular-daterangepicker.js',
+            'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-touch/angular-touch.js',
             'src/oobj.js',
             'src/**/*.js',
             'src/**/*.html'
