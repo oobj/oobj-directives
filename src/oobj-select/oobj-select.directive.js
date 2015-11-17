@@ -40,7 +40,7 @@
                     scope.selectStyle = {};
 
                     if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione uma opção...';
+                        scope.placeholder = 'Selecione uma opï¿½ï¿½o...';
                     }
 
                     if (angular.isUndefined(scope.itemLabel)) {

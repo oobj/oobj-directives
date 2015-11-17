@@ -10,6 +10,7 @@
         'ngAnimate',
         'ngTouch',
         'ui.grid',
+        'ui.grid.exporter',
         'ui.grid.selection',
         'ui.grid.pagination',
         'daterangepicker'
