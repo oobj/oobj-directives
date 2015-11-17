@@ -5,7 +5,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-button-dropdown/oobj-button-dropdown.html",
     "<div class=btn-group uib-dropdown><button id=single-button type=button class=btn ng-class=btnClass uib-dropdown-toggle ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label style=\"padding-right: 8px\"></span> <i class=\"fa fa-angle-down\"></i></button><ul class=uib-dropdown-menu role=menu aria-labelledby=single-button><li role=menuitem ng-repeat=\"item in provider track by $index\"><a href=javascript:; ng-click=item.action()>{{item.label}}</a></li></ul></div>");
   $templateCache.put("oobj-button/oobj-button.html",
-    "<button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled style={{btnStyle}}><i class=fa ng-class=icon></i> <span ng-bind=label></span></button>");
+    "<div style={{btnStyle}}><button type=button class=btn ng-class=btnClass ng-disabled=ngDisabled><i class=fa ng-class=icon></i> <span ng-bind=label></span></button></div>");
   $templateCache.put("oobj-chart/oobj-chart-bar.html",
     "<div class=\"{{ colspan }}\" id=\"{{ chartId }}\"><div class=\"panel panel-default\" style=\"border: 1px solid #e7e7e7; border-radius: 0\"><div class=panel-heading>{{ title }}</div><div class=panel-body><canvas class=\"chart chart-bar chart-xl\" chart-data=ngModel.data chart-labels=ngModel.labels chart-legend=true chart-click=ngModel.onClick chart-series=ngModel.series></canvas></div></div></div>");
   $templateCache.put("oobj-chart/oobj-chart-doughnut.html",
