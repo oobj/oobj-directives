@@ -15,24 +15,29 @@
             scope: {
                 label: '@',
                 btnClass: '@',
+                btnStyle: '@',
                 icon: '@',
-                colspan: '@'
+                colspan: '@',
+                paddingLeft: '='
             },
-            link: link,
             compile: compile
         };
 
         return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
 
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
                     if (angular.isUndefined(scope.btnClass)) {
                         scope.btnClass = 'btn-default';
+                    }
+
+                    if (angular.isUndefined(scope.btnStyle)) {
+                        scope.btnStyle = 'padding-right: 6px;';
+                    }
+
+                    if (scope.paddingLeft === true) {
+                        scope.btnStyle = 'padding-left: 6px;';
                     }
                 }
             }
