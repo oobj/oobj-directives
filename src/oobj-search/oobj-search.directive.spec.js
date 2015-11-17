@@ -10,7 +10,8 @@
             $compile,
             scope, // scope onde nossa directiva esta inserida
             element, // elemento jqlite
-            isolatedScope;
+            isolatedScope,
+            $httpBackend;
 
 
         beforeEach(function() {
@@ -21,7 +22,8 @@
         });
 
         // cria um novo scope antes de cada teste
-        beforeEach(inject(function(_$compile_, _$rootScope_){
+        beforeEach(inject(function(_$compile_, _$rootScope_, _$httpBackend_){
+            $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
             $compile = _$compile_;
@@ -48,6 +50,8 @@
             scope.gridOptions = {
                 prop: 'true'
             };
+
+            $httpBackend.whenGET("additionalContent").respond({ src: 'additionalContent' });
 
             element = getCompiledElement();
             isolatedScope = element.isolateScope();

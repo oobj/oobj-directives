@@ -8,10 +8,8 @@
         .module('oobj-directives')
         .directive('oobjSearch', oobjSearch);
 
-    oobjSearch.$inject = ['$templateCache'];
-
     /** @ngInject */
-    function oobjSearch($templateCache) {
+    function oobjSearch() {
         var directive = {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
