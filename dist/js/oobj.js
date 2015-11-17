@@ -1077,10 +1077,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .module('oobj-directives')
         .directive('oobjSearch', oobjSearch);
 
-    oobjSearch.$inject = ['$templateCache'];
-
     /** @ngInject */
-    function oobjSearch($templateCache) {
+    function oobjSearch() {
         var directive = {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
@@ -1167,7 +1165,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     scope.selectStyle = {};
 
                     if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione uma op��o...';
+                        scope.placeholder = 'Selecione uma opção...';
                     }
 
                     if (angular.isUndefined(scope.itemLabel)) {
