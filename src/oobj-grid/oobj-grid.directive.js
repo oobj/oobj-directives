@@ -28,6 +28,8 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
+                    scope.language = 'pt-br';
+
                     if (angular.isUndefined(scope.gridOptions)) {
                         scope.gridOptions = {};
                     }
