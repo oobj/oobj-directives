@@ -74,7 +74,7 @@
         });
 
         it('Teste btnClass nao definido', function() {
-            var classng  = element.find('[ng-class]');
+            var classng  = element.find('button[ng-class]');
             expect(classng.length).toBe(2);
             expect(classng.hasClass('btn-default')).toBeTruthy();
         });
@@ -82,7 +82,7 @@
         it('Teste btnClass definido.', function() {
             scope.btnClass = null;
             element = getCompiledElement('<oobj-button btn-class="teste"></oobj-button>');
-            var classng  = element.find('[ng-class]');
+            var classng  = element.find('button[ng-class]');
             expect(classng.length).toBe(2);
             expect(classng.hasClass('teste')).toBeTruthy();
         });
