@@ -19,16 +19,14 @@
 <script type="text/ng-template" id="formActions">
     <div class="row">
         <div class="col-md-12 text-right">
-            <oobj-button label="Limpar" btn-class="btn-default"
-                         icon="fa-eraser" ng-click="vm.limpar()" ng-if="showBtnLimpar">
+            <oobj-button label="Limpar" btn-class="btn-default" icon="fa-eraser" ng-click="vm.limpar()" ng-if="showBtnLimpar">
             </oobj-button>
 
-            <oobj-button label="Excluir" btn-class="btn-danger"
-                         icon="fa-trash-o" ng-click="vm.excluir()" ng-if="showBtnExcluir">
+            <oobj-button label="Excluir" btn-class="btn-danger" icon="fa-trash-o" ng-click="vm.excluir()" ng-if="showBtnExcluir">
             </oobj-button>
 
-            <oobj-button label="Salvar" btn-class="btn-primary"
-                         icon="fa-floppy-o" ng-click="vm.salvar()" ng-if="showBtnSalvar">
+            <oobj-button label="Salvar" btn-class="btn-primary" icon="fa-floppy-o" ng-click="vm.salvar()" padding-right="0px"
+                         ng-if="showBtnSalvar">
             </oobj-button>
         </div>
     </div>
