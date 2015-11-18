@@ -99,15 +99,12 @@
         });
 
         it('Teste atributos com scope isolado - two way binding ("=").', function(){
-
             isolatedScope.model.prop = "valorIsoladoScope";
             expect(scope.model.prop).toEqual('valorIsoladoScope');
-
         });
 
         it('Deve substituir elemento na directive - replace: true', function () {
             expect(element.find('oobj-stats').length).toEqual(0);
         });
-
     });
 })();
