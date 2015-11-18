@@ -1,5 +1,5 @@
 /**
- * Created by ATILLA on 02/10/2015.
+ * Created by ATILLA on 16/11/2015.
  */
 (function() {
     'use strict';
@@ -18,7 +18,9 @@
                 btnClass: '@',
                 icon: '@',
                 colspan: '@',
-                provider: '='
+                provider: '=',
+                paddingRight: '@',
+                paddingLeft: '@'
             },
             link: link,
             compile: compile
@@ -35,6 +37,16 @@
                 pre: function preLink(scope, element, attrs) {
                     if (angular.isUndefined(scope.btnClass)) {
                         scope.btnClass = 'btn-default';
+                    }
+
+                    if (angular.isUndefined(scope.paddingRight)) {
+                        element.css('padding-right', '6px');
+                    } else {
+                        element.css('padding-right', scope.paddingRight);
+                    }
+
+                    if (angular.isDefined(scope.paddingLeft)) {
+                        element.css('padding-left', scope.paddingLeft);
                     }
                 }
             }

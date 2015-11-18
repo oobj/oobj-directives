@@ -4,7 +4,8 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
     /** @ngInject */

@@ -160,7 +160,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     }
 })();
 /**
- * Created by ATILLA on 02/10/2015.
+ * Created by ATILLA on 16/11/2015.
  */
 (function() {
     'use strict';
@@ -179,7 +179,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 btnClass: '@',
                 icon: '@',
                 colspan: '@',
-                provider: '='
+                provider: '=',
+                paddingRight: '@',
+                paddingLeft: '@'
             },
             link: link,
             compile: compile
@@ -197,6 +199,16 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     if (angular.isUndefined(scope.btnClass)) {
                         scope.btnClass = 'btn-default';
                     }
+
+                    if (angular.isUndefined(scope.paddingRight)) {
+                        element.css('padding-right', '6px');
+                    } else {
+                        element.css('padding-right', scope.paddingRight);
+                    }
+
+                    if (angular.isDefined(scope.paddingLeft)) {
+                        element.css('padding-left', scope.paddingLeft);
+                    }
                 }
             }
         }
@@ -210,10 +222,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjButton', oobjButton);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjButton() {
         var directive = {
             restrict: 'EA',
@@ -221,10 +234,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             scope: {
                 label: '@',
                 btnClass: '@',
-                btnStyle: '@',
                 icon: '@',
                 colspan: '@',
-                paddingLeft: '='
+                paddingLeft: '@',
+                paddingRight: '@'
             },
             compile: compile
         };
@@ -238,19 +251,20 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                         scope.btnClass = 'btn-default';
                     }
 
-                    if (angular.isUndefined(scope.btnStyle)) {
-                        scope.btnStyle = 'padding-right: 6px;';
+                    if (angular.isUndefined(scope.paddingRight)) {
+                        element.css('padding-right', '6px');
+                    } else {
+                        element.css('padding-right', scope.paddingRight);
                     }
 
-                    if (scope.paddingLeft === true) {
-                        scope.btnStyle = 'padding-left: 6px;';
+                    if (angular.isDefined(scope.paddingLeft)) {
+                        element.css('padding-left', scope.paddingLeft);
                     }
                 }
             }
         }
     }
 })();
-
 
 /**
  * Created by Leonardo on 10/9/2015.
@@ -1134,7 +1148,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjSelect', oobjSelect);
 
     /** @ngInject */
