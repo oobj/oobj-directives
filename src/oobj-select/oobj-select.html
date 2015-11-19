@@ -4,10 +4,12 @@
         <span class="text-danger" ng-show="ngRequired">*</span>
     </label>
 
-    <div class="input-group">
-        <select name="select" class="form-control" required="{{ngRequired}}" ng-model="ngModel"
-                ng-options="item as item[itemLabel] for item in provider" style="{{selectStyle}}" ng-style="selectStyle">
-            <option ng-if="showEmptyOption" value="">Selecione uma opção...</option>
-        </select>
-    </div>
+    <ui-select ng-model="ngModel" ng-required="ngRequired">
+        <ui-select-match>
+            <span ng-bind="$select.selected[itemLabel]"></span>
+        </ui-select-match>
+        <ui-select-choices repeat="item in (provider | filter: $select.search) track by $index">
+            <span ng-bind="item[itemLabel]"></span>
+        </ui-select-choices>
+    </ui-select>
 </div>

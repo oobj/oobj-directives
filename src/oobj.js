@@ -6,9 +6,11 @@
 
     angular.module('oobj-directives', [
         'oobj-directives.templates',
-        'ui.bootstrap',
         'ngAnimate',
         'ngTouch',
+        'ngSanitize',
+        'ui.bootstrap',
+        'ui.select',
         'ui.grid',
         'ui.grid.exporter',
         'ui.grid.selection',

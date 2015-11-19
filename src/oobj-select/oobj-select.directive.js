@@ -1,5 +1,5 @@
 /**
- * Created by ATILLA on 05/10/2015.
+ * Created by ATILLA on 19/11/2015.
  */
 (function() {
     'use strict';
@@ -21,14 +21,10 @@
                 label: '@',
                 showLabel: '=?',
                 ngRequired: '=',
-                placeholder: '@',
                 onOpen: '&',
                 provider: '=',
                 itemLabel: '@',
-                itemValue: '@',
-                showEmptyOption: '=',
-                inputSize: '@',
-                selectStyle: '@'
+                inputSize: '@'
             },
             compile: compile
         };
@@ -38,30 +34,12 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
-                    scope.selectStyle = {};
-
-                    if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione uma opção...';
-                    }
-
                     if (angular.isUndefined(scope.itemLabel)) {
                         scope.itemLabel = 'descricao';
                     }
 
                     if (angular.isUndefined(scope.inputSize)) {
                         scope.inputSize = 'sm';
-                    }
-
-                    if (angular.isUndefined(scope.showEmptyOption)) {
-                        scope.emptyOption = false;
-                    }
-
-                    if (angular.isDefined(attrs.width)) {
-                        scope.selectStyle.width = attrs.width;
-                    }
-
-                    if (angular.isDefined(attrs.height)) {
-                        scope.selectStyle.height = attrs.height;
                     }
                 }
             }

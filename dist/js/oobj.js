@@ -6,9 +6,11 @@
 
     angular.module('oobj-directives', [
         'oobj-directives.templates',
-        'ui.bootstrap',
         'ngAnimate',
         'ngTouch',
+        'ngSanitize',
+        'ui.bootstrap',
+        'ui.select',
         'ui.grid',
         'ui.grid.exporter',
         'ui.grid.selection',
@@ -97,7 +99,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "        </div>\n" +
     "    </div></script>");
   $templateCache.put("oobj-select/oobj-select.html",
-    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-show=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div class=input-group><select name=select class=form-control required ng-model=ngModel ng-options=\"item as item[itemLabel] for item in provider\" style={{selectStyle}} ng-style=selectStyle><option ng-if=showEmptyOption value=\"\">Selecione uma opção...</option></select></div></div>");
+    "<div ng-class=colspan class=\"form-group form-group-{{inputSize}}\"><label class=control-label ng-show=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><ui-select ng-model=ngModel ng-required=ngRequired><ui-select-match><span ng-bind=$select.selected[itemLabel]></span></ui-select-match><ui-select-choices repeat=\"item in (provider | filter: $select.search) track by $index\"><span ng-bind=item[itemLabel]></span></ui-select-choices></ui-select></div>");
   $templateCache.put("oobj-sidebar/oobj-sidebar.html",
     "<div class=\"navbar-default sidebar\" role=navigation><div class=\"sidebar-nav navbar-collapse\"><ul class=\"nav in\" id=side-menu><li ng-class=\"{active: collapseVar == $index}\" ng-repeat=\"categoria in provider track by $index\"><a href=\"\" ng-click=check($index) ng-if=\"categoria.itens != undefined\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa plus\" ng-if=\"categoria.itens != undefined\"></span></a> <a href=\"\" ng-click=check($index) ng-if=\"categoria.itens == undefined\" ui-sref=\"{{ categoria.sref }}\"><i class=fa ng-class=categoria.icon></i> <span ng-bind=categoria.label></span> <span class=\"fa plus\" ng-if=\"categoria.itens != undefined\"></span></a><ul class=\"nav nav-second-level\" uib-collapse=\"collapseVar != $index\" ng-if=\"categoria.itens != undefined\"><li ui-sref-active=active ng-repeat=\"item in categoria.itens track by $index\"><a ui-sref=\"{{ item.sref }}\"><span ng-class=item.icon ng-if=\"item.icon != undefined\"></span> <span ng-bind=item.label></span></a></li></ul><!-- /.nav-second-level --></li></ul></div><!-- /.sidebar-collapse --></div>");
   $templateCache.put("oobj-stats/oobj-stats.html",
@@ -1141,7 +1143,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 })();
 
 /**
- * Created by ATILLA on 05/10/2015.
+ * Created by ATILLA on 19/11/2015.
  */
 (function() {
     'use strict';
@@ -1163,14 +1165,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 label: '@',
                 showLabel: '=?',
                 ngRequired: '=',
-                placeholder: '@',
                 onOpen: '&',
                 provider: '=',
                 itemLabel: '@',
-                itemValue: '@',
-                showEmptyOption: '=',
-                inputSize: '@',
-                selectStyle: '@'
+                inputSize: '@'
             },
             compile: compile
         };
@@ -1180,30 +1178,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
-                    scope.selectStyle = {};
-
-                    if (angular.isUndefined(scope.placeholder)) {
-                        scope.placeholder = 'Selecione uma opção...';
-                    }
-
                     if (angular.isUndefined(scope.itemLabel)) {
                         scope.itemLabel = 'descricao';
                     }
 
                     if (angular.isUndefined(scope.inputSize)) {
                         scope.inputSize = 'sm';
-                    }
-
-                    if (angular.isUndefined(scope.showEmptyOption)) {
-                        scope.emptyOption = false;
-                    }
-
-                    if (angular.isDefined(attrs.width)) {
-                        scope.selectStyle.width = attrs.width;
-                    }
-
-                    if (angular.isDefined(attrs.height)) {
-                        scope.selectStyle.height = attrs.height;
                     }
                 }
             }
