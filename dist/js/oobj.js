@@ -89,8 +89,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "                         ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"fa-search-plus\" ng-click=\"vm.pesquisaAvancada()\"\n" +
-    "                         ng-if=\"showBtnPesquisaAvancada\">\n" +
+    "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"{{showBtnOnTop ? 'fa-search-minus': 'fa-search-plus'}}\"\n" +
+    "                         ng-click=\"vm.pesquisaAvancada()\" ng-if=\"showBtnPesquisaAvancada\">\n" +
     "            </oobj-button>\n" +
     "\n" +
     "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\" padding-right=\"0px\"\n" +
