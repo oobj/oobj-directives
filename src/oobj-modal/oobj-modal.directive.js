@@ -14,6 +14,7 @@
             templateUrl: 'oobj-modal/oobj-modal.html',
             transclude: true,
             scope: {
+                id: '@',
                 colspan: '@',
                 title: '@',
                 showBtnOpen: '=',
@@ -36,6 +37,10 @@
         function compile(tElement, tAttrs) {
             return {
                 pre: function preLink(scope, element, attrs) {
+                    if (angular.isUndefined(scope.id)) {
+                        scope.id = '#oobjModal';
+                    }
+
                     if (angular.isUndefined(scope.classBtnOpen)) {
                         scope.classBtnOpen = 'btn-default';
                     }
