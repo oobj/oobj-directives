@@ -27,3 +27,10 @@ var app = angular.module('myApp', ['oobj-directives']);
 
 ## See the live demo
 *As soon as possible*\*
+
+
+## License
+
+Copyright (c) 2015 Oobj Tecnologia da Informação and [other contributors](https://github.com/oobj/oobj-directives/graphs/contributors)
+
+Licensed under the MIT License
