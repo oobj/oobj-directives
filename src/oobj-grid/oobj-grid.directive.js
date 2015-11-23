@@ -4,10 +4,11 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjGrid', oobjGrid);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjGrid() {
 
         var directive = {
