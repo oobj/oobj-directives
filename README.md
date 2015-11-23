@@ -31,6 +31,6 @@ var app = angular.module('myApp', ['oobj-directives']);
 
 ## License
 
-Copyright (c) 2015 Oobj Tecnologia da Informação and [other contributors](https://github.com/oobj/oobj-directives/graphs/contributors)
+Copyright (c) 2015 [Oobj](http://www.oobj.com.br/) and [other contributors](https://github.com/oobj/oobj-directives/graphs/contributors)
 
 Licensed under the MIT License
