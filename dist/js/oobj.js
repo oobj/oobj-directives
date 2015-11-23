@@ -69,7 +69,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "                  font-size: x-small;\n" +
     "                  padding-right: 30px\">&copy;{{ year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{version}} [{{generatedData | date:'dd-MM-yyyy'}}]</footer>");
   $templateCache.put("oobj-grid/oobj-grid.html",
-    "<div class={{colspan}} ui-i18n={{language}}><div class=table-responsive><div ui-grid=gridOptions ui-grid-selection ui-grid-pagination ui-grid-exporter ng-style=gridStyle class=table ng-cloak><div style=\"position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000\" ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div></div>");
+    "<div class={{colspan}} ui-i18n={{language}}><div class=table-responsive><div ui-grid=gridOptions ui-grid-selection ui-grid-pagination ui-grid-exporter ng-style=gridStyle class=table style=\"min-width: 600px\" ng-cloak><div style=\"position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000\" ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div></div>");
   $templateCache.put("oobj-input-container/oobj-input-container.html",
     "<div ng-class=colspan class=form-group><label class=control-label ng-if=\"showLabel != false && label != undefined\"><strong><span ng-bind=label></span></strong> <span class=text-danger ng-show=ngRequired>*</span></label><div ng-transclude></div></div>");
   $templateCache.put("oobj-input-text/oobj-input-text.html",
@@ -756,10 +756,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjGrid', oobjGrid);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjGrid() {
 
         var directive = {
