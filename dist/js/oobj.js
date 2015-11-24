@@ -1069,14 +1069,17 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                         scope.inputSize = 'sm';
                     }
 
+                    var select = element.find('select');
+
                     angular.forEach(scope.provider, function(value) {
-                        $('#' + scope.id)
-                            .append($('<option></option>')
-                            .attr('value', value[scope.itemId])
-                            .text(value[scope.itemLabel]));
+                        select.append(
+                            angular.element('<option></option>')
+                                .attr('value', value[scope.itemId])
+                                .text(value[scope.itemLabel])
+                        );
                     });
 
-                    $('#' + scope.id).selectpicker();
+                    select.selectpicker();
                 }
             }
         }
