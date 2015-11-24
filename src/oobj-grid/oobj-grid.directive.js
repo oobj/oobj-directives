@@ -51,8 +51,9 @@
                     }
 
                     scope.getHeight = function() {
-                        var rowHeight = 39;
-                        var headerHeight = 39;
+                        var rowHeight = 44;
+                        var headerHeight = 44;
+                        console.log(scope.gridOptions.data.length);
                         return {
                             height: (scope.gridOptions.data.length * rowHeight + headerHeight) + "px"
                         };
