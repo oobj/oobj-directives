@@ -776,8 +776,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 gridOptions: '=',
                 getHeight: '&'
             },
-            compile: compile,
-            link: link
+            compile: compile
         };
 
         return directive;
@@ -804,21 +803,19 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     if (angular.isDefined(scope.data)) {
                         scope.gridOptions.data = scope.data;
                     }
+
+                    scope.getHeight = function() {
+                        var rowHeight = 44;
+                        var headerHeight = 44;
+                        console.log(scope.gridOptions.data.length);
+                        return {
+                            height: (scope.gridOptions.data.length * rowHeight + headerHeight) + "px"
+                        };
+                    }
                 }
             }
         }
 
-        function link(scope, element, attrs, ngModelCtrl) {
-
-            scope.getHeight = function() {
-                var rowHeight = 39;
-                var headerHeight = 39;
-                return {
-                    height: (scope.gridOptions.data.length * rowHeight + headerHeight) + "px"
-                };
-            }
-
-        }
     }
 })();
 
