@@ -1036,7 +1036,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     /** @ngInject */
     function oobjMultiselect() {
         var directive = {
-            require: 'ngModel',
+            require: ['ngModel', 'id'],
             restrict: 'EA',
             templateUrl: 'oobj-multiselect/oobj-multiselect.html',
             scope: {
@@ -1073,13 +1073,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     }
 
                     angular.forEach(scope.provider, function(value) {
-                        $('.selectpicker')
+                        $('#' + scope.id)
                             .append($('<option></option>')
                             .attr('value', value[scope.itemId])
                             .text(value[scope.itemLabel]));
                     });
 
-                    $('.selectpicker').selectpicker();
+                    $('#' + scope.id).selectpicker();
                 }
             }
         }
