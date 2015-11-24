@@ -15,7 +15,6 @@
         'ui.grid.exporter',
         'ui.grid.selection',
         'ui.grid.pagination',
-        'ui.grid.autoResize',
         'daterangepicker'
     ]);
 })();
