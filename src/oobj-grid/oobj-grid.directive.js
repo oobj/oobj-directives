@@ -19,9 +19,11 @@
                 data: '=',
                 colspan: '@',
                 footer: '@',
-                gridOptions: '='
+                gridOptions: '=',
+                getHeight: '&'
             },
-            compile: compile
+            compile: compile,
+            link: link
         };
 
         return directive;
@@ -50,6 +52,18 @@
                     }
                 }
             }
+        }
+
+        function link(scope, element, attrs, ngModelCtrl) {
+
+            scope.getHeight = function() {
+                var rowHeight = 39;
+                var headerHeight = 39;
+                return {
+                    height: (scope.gridOptions.data.length * rowHeight + headerHeight) + "px"
+                };
+            }
+
         }
     }
 })();
