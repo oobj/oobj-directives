@@ -1033,7 +1033,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     /** @ngInject */
     function oobjMultiselect() {
         var directive = {
-            require: ['ngModel', 'id'],
+            require: ['^ngModel', '^id'],
             restrict: 'EA',
             templateUrl: 'oobj-multiselect/oobj-multiselect.html',
             scope: {

@@ -11,7 +11,7 @@
     /** @ngInject */
     function oobjMultiselect() {
         var directive = {
-            require: ['ngModel', 'id'],
+            require: ['^ngModel', '^id'],
             restrict: 'EA',
             templateUrl: 'oobj-multiselect/oobj-multiselect.html',
             scope: {
