@@ -805,9 +805,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     }
 
                     scope.getHeight = function() {
-                        var rowHeight = 44;
-                        var headerHeight = 44;
-                        console.log(scope.gridOptions.data.length);
+                        var rowHeight = 45;
+                        var headerHeight = 45;
                         return {
                             height: (scope.gridOptions.data.length * rowHeight + headerHeight) + "px"
                         };
