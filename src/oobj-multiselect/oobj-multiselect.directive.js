@@ -64,7 +64,7 @@
                 );
             });
 
-            if (angular.isDefined(scope.multiple)) {
+            if (scope.multiple != false) {
                 select.attr('multiple', '');
             }
 

@@ -1084,7 +1084,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 );
             });
 
-            if (angular.isDefined(scope.multiple)) {
+            if (scope.multiple != false) {
                 select.attr('multiple', '');
             }
 
