@@ -25,7 +25,8 @@
                 provider: '=',
                 itemLabel: '@',
                 itemId: '@',
-                inputSize: '@'
+                inputSize: '@',
+                multiple: '@'
             },
             compile: compile
         };
@@ -47,19 +48,30 @@
                         scope.inputSize = 'sm';
                     }
 
-                    var select = element.find('select');
-
-                    angular.forEach(scope.provider, function(value) {
-                        select.append(
-                            angular.element('<option></option>')
-                                .attr('value', value[scope.itemId])
-                                .text(value[scope.itemLabel])
-                        );
-                    });
-
-                    select.selectpicker();
+                    bindSelect(scope, element);
                 }
             }
+        }
+
+        function bindSelect(scope, element) {
+            var select = element.find('select');
+
+            angular.forEach(scope.provider, function(value) {
+                select.append(
+                    angular.element('<option></option>')
+                        .attr('value', value[scope.itemId])
+                        .text(value[scope.itemLabel])
+                );
+            });
+
+            if (angular.isDefined(scope.multiple)) {
+                select.attr('multiple', '');
+            }
+
+            select.selectpicker({
+                'title': '',
+                'data-width': 'auto'
+            });
         }
     }
 })();
