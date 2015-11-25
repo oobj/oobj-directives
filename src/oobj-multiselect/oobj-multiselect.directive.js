@@ -25,8 +25,7 @@
                 provider: '=',
                 itemLabel: '@',
                 itemId: '@',
-                inputSize: '@',
-                multiple: '@'
+                inputSize: '@'
             },
             compile: compile
         };
@@ -63,10 +62,6 @@
                         .text(value[scope.itemLabel])
                 );
             });
-
-            if (scope.multiple != false) {
-                select.attr('multiple', '');
-            }
 
             select.selectpicker();
         }
