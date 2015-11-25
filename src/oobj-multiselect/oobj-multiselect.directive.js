@@ -68,10 +68,7 @@
                 select.attr('multiple', '');
             }
 
-            select.selectpicker({
-                'title': '',
-                'data-width': 'auto'
-            });
+            select.selectpicker();
         }
     }
 })();
