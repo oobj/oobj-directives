@@ -137,11 +137,11 @@
 
         it('Deve respeitar valores padroes de locale.', function() {
             expect(isolatedScope.opts.locale.format).toBe('DD/MM/YYYY');
-            expect(isolatedScope.opts.locale.applyLabel).toBe('OK');
             expect(isolatedScope.opts.locale.cancelLabel).toBe('Limpar');
+            expect(isolatedScope.opts.locale.applyLabel).toBe('OK');
             expect(isolatedScope.opts.locale.fromLabel).toBe('Entre');
             expect(isolatedScope.opts.locale.toLabel).toBe('E');
-            expect(isolatedScope.opts.locale.customRangeLabel).toBe('Customizar');
+            expect(isolatedScope.opts.locale.customRangeLabel).toBe('Personalizar');
             expect(isolatedScope.opts.locale.daysOfWeek).toEqual([ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ]);
             expect(isolatedScope.opts.locale.monthNames).toEqual([ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
                 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ]);
