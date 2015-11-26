@@ -620,11 +620,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 locale: {
                     format: "DD/MM/YYYY",
                     separator: " - ",
-                    applyLabel: "OK",
                     cancelLabel: "Limpar",
+                    applyLabel: "OK",
                     fromLabel: "Entre",
                     toLabel: "E",
-                    customRangeLabel: "Customizar",
+                    customRangeLabel: "Personalizar",
                     daysOfWeek: [
                         "Dom",
                         "Seg",
@@ -660,7 +660,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 },
                 linkedCalendars: false,
                 opens: "left",
-                cancelClass: "btn-danger"
+                cancelClass: "btn-danger",
             };
 
             if (angular.isUndefined(scope.inputSize)) {
