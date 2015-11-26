@@ -6,6 +6,7 @@
 .daterangepicker .ranges li:hover {
   background: #3498DB;
   color: #fff;
+  border: 1px solid #3498DB;
 }
 .daterangepicker .ranges li {
   font-size: 13px;
@@ -16,6 +17,8 @@
   -moz-border-radius: 5px;
   border-radius: 2px;
   cursor: pointer;
+  background: white;
+  border: 1px solid white;
 }
 .daterangepicker .ranges .input-mini {
   border: 1px solid #ccc;
