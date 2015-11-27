@@ -747,7 +747,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             var formatted = value + '';
 
             formatted = formatted.replace(/\D/g, '');
-            formatted = formatted.replace(/^(\d{2})(\d{3})(\d)/, "$1.$2-$3");
+            formatted = formatted.replace(/^(\d{2})(\d{3})(\d)/, '$1.$2-$3');
 
             return formatted;
         }
@@ -810,9 +810,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             var formatted = value + '';
 
             formatted = formatted.replace(/\D/g, '');
-            formatted = formatted.replace(/(\d{3})(\d)/, "$1.$2");
-            formatted = formatted.replace(/(\d{3})(\d)/, "$1.$2");
-            formatted = formatted.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            formatted = formatted.replace(/(\d{3})(\d)/, '$1.$2');
+            formatted = formatted.replace(/(\d{3})(\d)/, '$1.$2');
+            formatted = formatted.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
             return formatted;
         }
