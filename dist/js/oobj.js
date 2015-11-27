@@ -807,8 +807,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .module('oobj-filters')
         .filter('cpfCnpj', cpfCnpj);
 
+    cpfCnpj.$inject = ['$filter'];
+
     /** @ngInject */
-    function cpfCnpj() {
+    function cpfCnpj($filter) {
 
         var cpfCnpj = function (value) {
             return angular.isUndefined(value) ? value : formattedCPFCNPJ(value);
@@ -821,14 +823,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             formatted = formatted.replace(/\D/g, '');
 
             if (formatted.length == 11) {
-                formatted = formatted.replace(/(\d{3})(\d)/, '$1.$2');
-                formatted = formatted.replace(/(\d{3})(\d)/, '$1.$2');
-                formatted = formatted.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                formatted = $filter('cpf')(value);
             } else {
-                formatted = formatted.replace(/^(\d{2})(\d)/, '$1.$2');
-                formatted = formatted.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-                formatted = formatted.replace(/\.(\d{3})(\d)/, '.$1/$2');
-                formatted = formatted.replace(/(\d{4})(\d)/, '$1-$2');
+                formatted = $filter('cnpj')(value);;
             }
 
             return formatted;
