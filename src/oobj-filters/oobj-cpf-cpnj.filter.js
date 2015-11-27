@@ -23,7 +23,7 @@
             var formatted = value + '';
             formatted = formatted.replace(/\D/g, '');
 
-            if (formatted.length == 11) {
+            if (formatted.length <= 11) {
                 formatted = $filter('cpf')(value);
             } else {
                 formatted = $filter('cnpj')(value);;
