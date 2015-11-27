@@ -21,7 +21,8 @@ module.exports = function (config) {
             'bower_components/angular-animate/angular-animate.js',
             'bower_components/angular-touch/angular-touch.js',
             'bower_components/ui-select/dist/select.min.js',
-            'src/oobj.js',
+            'src/oobj-filters/oobj-filters.module.js',
+            'src/oobj.module.js',
             'src/**/*.js',
             'src/**/*.html'
         ],
