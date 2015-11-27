@@ -73,6 +73,10 @@
   width: 900px;
 }
 
+.icon-info-medium {
+  font-size: medium;
+}
+
 .sidebar .sidebar-nav.navbar-collapse {
   padding-right: 0;
   padding-left: 0;
