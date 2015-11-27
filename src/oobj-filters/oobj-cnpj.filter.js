@@ -18,15 +18,15 @@
         return cnpj;
 
         function formattedCNPJ(value) {
-            var str = value + '';
+            var formatted = value + '';
 
-            str = str.replace(/\D/g, '');
-            str = str.replace(/^(\d{2})(\d)/, '$1.$2');
-            str = str.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-            str = str.replace(/\.(\d{3})(\d)/, '.$1/$2');
-            str = str.replace(/(\d{4})(\d)/, '$1-$2');
+            formatted = formatted.replace(/\D/g, '');
+            formatted = formatted.replace(/^(\d{2})(\d)/, '$1.$2');
+            formatted = formatted.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+            formatted = formatted.replace(/\.(\d{3})(\d)/, '.$1/$2');
+            formatted = formatted.replace(/(\d{4})(\d)/, '$1-$2');
 
-            return str;
+            return formatted;
         }
     }
 })();
