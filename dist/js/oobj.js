@@ -904,7 +904,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .factory('oobjColumn', oobjColumn);
 
     /** @ngInject */
-    function oobjColumn() {
+    function oobjColumn($filter) {
 
         var oobjColumn = function (columnName, field, width) {
             this.columnName = angular.isDefined(columnName) ? columnName : '';
@@ -914,9 +914,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         return oobjColumn;
 
         function mask(value, pattern) {
-            return value;
+            return $filter(pattern)(value);
         }
     }
+    oobjColumn.$inject = ['$filter'];
 })();
 
 /**

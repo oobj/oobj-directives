@@ -9,7 +9,7 @@
         .factory('oobjColumn', oobjColumn);
 
     /** @ngInject */
-    function oobjColumn() {
+    function oobjColumn($filter) {
 
         var oobjColumn = function (columnName, field, width) {
             this.columnName = angular.isDefined(columnName) ? columnName : '';
@@ -19,7 +19,8 @@
         return oobjColumn;
 
         function mask(value, pattern) {
-            return value;
+            return $filter(pattern)(value);
         }
     }
+    oobjColumn.$inject = ['$filter'];
 })();
