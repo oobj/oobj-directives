@@ -20,6 +20,16 @@
     ]);
 })();
 
+/**
+ * Created by ATILLA on 27/11/2015.
+ */
+(function() {
+    'use strict';
+
+    angular
+        .module('oobj-filters', []);
+})();
+
 angular.module('oobj-directives.templates', []).run(['$templateCache', function($templateCache) {
   "use strict";
   $templateCache.put("oobj-autocomplete/oobj-autocomplete.html",
@@ -111,16 +121,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-timeline/oobj-timeline.html",
     "<div class=panel-body ng-class=colspan><ul class=timeline><li ng-repeat=\"item in provider track by $index\" ng-class=\"$even ? '' : 'timeline-inverted'\"><div ng-if=item.badge class=timeline-badge ng-class=item.timelineStyle><i class=\"fa {{ item.badge }}\"></i></div><div class=timeline-panel><div class=timeline-heading><h5 class=timeline-title ng-bind=item.title></h5><p class=\"timeline-date text-muted\"><i class=\"fa fa-clock-o\"></i>&nbsp;<span ng-bind=\"item.date | date:'dd/MM/yyyy hh:mm:ss'\"></span></p></div><div class=timeline-body ng-if=item.description><p class=timeline-description ng-bind=item.description></p></div></div></li></ul></div>");
 }]);
-
-/**
- * Created by ATILLA on 27/11/2015.
- */
-(function() {
-    'use strict';
-
-    angular
-        .module('oobj-filters', []);
-})();
 
 /**
  * Created by ATILLA on 06/10/2015.
