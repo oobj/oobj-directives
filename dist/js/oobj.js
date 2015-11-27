@@ -113,6 +113,16 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 }]);
 
 /**
+ * Created by ATILLA on 27/11/2015.
+ */
+(function() {
+    'use strict';
+
+    angular
+        .module('oobj-filters', []);
+})();
+
+/**
  * Created by ATILLA on 06/10/2015.
  */
 (function() {
@@ -817,16 +827,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             return formatted;
         }
     }
-})();
-
-/**
- * Created by ATILLA on 27/11/2015.
- */
-(function() {
-    'use strict';
-
-    angular
-        .module('oobj-filters', []);
 })();
 
 /**

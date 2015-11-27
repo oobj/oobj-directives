@@ -59,11 +59,13 @@ module.exports = function (grunt) {
 
         concat: {
             principal: {
-                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/**/*.js', '!src/**/*.spec.js', '!src/**/*_test.js'],
+                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/oobj-filters/oobj-filters.module.js', 'src/**/*.js',
+                      '!src/**/*.spec.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.js'
             },
             minificado: {
-                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/**/*.js', '!src/**/*.spec.js', '!src/**/*_test.js'],
+                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/oobj-filters/oobj-filters.module.js', 'src/**/*.js',
+                      '!src/**/*.spec.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.min.js'
             }
         },
