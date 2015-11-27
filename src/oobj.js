@@ -6,6 +6,7 @@
 
     angular.module('oobj-directives', [
         'oobj-directives.templates',
+        'oobj-filters',
         'ngAnimate',
         'ngTouch',
         'ngSanitize',
