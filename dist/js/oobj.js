@@ -903,6 +903,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .module('oobj-directives')
         .factory('oobjColumn', oobjColumn);
 
+    oobjColumn.$inject = ['$filter'];
+
     /** @ngInject */
     function oobjColumn($filter) {
 
@@ -917,7 +919,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             return $filter(pattern)(value);
         }
     }
-    oobjColumn.$inject = ['$filter'];
 })();
 
 /**

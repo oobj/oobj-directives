@@ -8,6 +8,8 @@
         .module('oobj-directives')
         .factory('oobjColumn', oobjColumn);
 
+    oobjColumn.$inject = ['$filter'];
+
     /** @ngInject */
     function oobjColumn($filter) {
 
@@ -22,5 +24,4 @@
             return $filter(pattern)(value);
         }
     }
-    oobjColumn.$inject = ['$filter'];
 })();
