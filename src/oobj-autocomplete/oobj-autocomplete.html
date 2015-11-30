@@ -1,26 +1,26 @@
-<div ng-class="colspan" class="form-group form-group-{{inputSize}}">
-    <label class="control-label" ng-if="showLabel != false && label != undefined" for="{{id}}">
-        <strong><span ng-bind="label"></span></strong>
-        <span class="text-danger" ng-show="ngRequired">*</span>
+<div ng-class="::colspan" class="form-group form-group-{{::inputSize}}">
+    <label class="control-label" ng-if="::(showLabel != false && label != undefined)" for="{{::id}}">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>
 
     <div class="input-group">
-        <input id="{{id}}"
+        <input id="{{::id}}"
                type="text"
                class="form-control"
                ng-model="ngModel"
-               placeholder="{{placeholder}}"
+               placeholder="{{::placeholder}}"
                uib-typeahead="item as item[itemLabel] for item in getItems()($viewValue)"
                typeahead-loading="loadingItems"
                typeahead-no-results="noResults"
-               ng-disabled="ngDisabled"
-               ng-readonly="ngReadonly"
-               ng-change="onChange($event)"
-               ng-blur="onBlur($event)"
-               maxlength="{{maxlength}}">
+               ng-disabled="::ngDisabled"
+               ng-readonly="::ngReadonly"
+               ng-change="::onChange($event)"
+               ng-blur="::onBlur($event)"
+               maxlength="{{::maxlength}}">
 
         <div class="input-group-btn">
-            <button type="button" ng-click="limpar()" class="btn btn-default btn-{{inputSize}} oobj-group-input-btn">
+            <button type="button" ng-click="::limpar()" class="btn btn-default btn-{{::inputSize}} oobj-group-input-btn">
                 <i class="fa fa-times"></i>
             </button>
         </div>
