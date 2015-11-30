@@ -2,6 +2,10 @@
   padding-right: 8px;
 }
 
+.oobj-confirm-button-btn-yes {
+  padding-right: 5px;
+}
+
 .daterangepicker_start_input {
   float: left;
   padding-left: 11px;
