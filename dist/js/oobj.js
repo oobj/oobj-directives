@@ -81,18 +81,19 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=::radioClass><label><input type=radio id={{::id}} ng-value=::optionValue name={{::optionName}} ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{::label}}</label></div>");
   $templateCache.put("oobj-search/oobj-search.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=row style=\"margin-bottom: -15px\"><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div></oobj-panel><oobj-panel colspan=col-lg-12><ng-include src=\"'additionalContent'\"></ng-include><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "<oobj-container title={{::title}}><oobj-panel colspan=col-lg-12><div class=container-fluid><div class=\"row oobj-search-container\"><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></div></div></oobj-panel><oobj-panel colspan=col-lg-12><ng-include src=\"'additionalContent'\"></ng-include><div class=row ng-if=vm.data><oobj-grid colspan=col-md-12 data=vm.data grid-options=gridOptions></oobj-grid></div></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
-    "            <oobj-button label=\"Limpar\" btn-class=\"btn-success\" icon=\"fa-eraser\" ng-click=\"vm.limpar()\"\n" +
-    "                         ng-if=\"showBtnLimpar\">\n" +
+    "            <oobj-button label=\"Limpar\" btn-class=\"btn-success\" icon=\"fa-eraser\" ng-click=\"::vm.limpar()\"\n" +
+    "                         ng-if=\"::showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
     "\n" +
-    "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" icon=\"{{showBtnOnTop ? 'fa-search-minus': 'fa-search-plus'}}\"\n" +
-    "                         ng-click=\"vm.pesquisaAvancada()\" ng-if=\"showBtnPesquisaAvancada\">\n" +
+    "            <oobj-button label=\"Pesq. Avançada\" btn-class=\"btn-default\" ng-click=\"::vm.pesquisaAvancada()\"\n" +
+    "                         icon=\"{{::(showBtnOnTop ? 'fa-search-minus': 'fa-search-plus')}}\"\n" +
+    "                         ng-if=\"::showBtnPesquisaAvancada\">\n" +
     "            </oobj-button>\n" +
     "\n" +
     "            <oobj-button label=\"Pesquisar\" btn-class=\"btn-primary\" icon=\"fa-search\" padding-right=\"0px\"\n" +
-    "                         ng-click=\"vm.pesquisar()\" ng-if=\"showBtnPesquisar\">\n" +
+    "                         ng-click=\"::vm.pesquisar()\" ng-if=\"::showBtnPesquisar\">\n" +
     "            </oobj-button>\n" +
     "        </div>\n" +
     "    </div></script>");
