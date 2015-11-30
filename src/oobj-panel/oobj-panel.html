@@ -1,7 +1,7 @@
-<div ng-class="colspan">
-    <div class="panel" ng-class="panelClass" style="border: 1px solid #e7e7e7; border-radius: 0;" ng-style="panelStyle">
-        <div class="panel-heading" ng-if="title != undefined">
-            <span ng-bind="title"></span>
+<div ng-class="::colspan">
+    <div class="panel oobj-panel" ng-class="::panelClass">
+        <div class="panel-heading" ng-if="::(title != undefined)">
+            <span ng-bind="::title"></span>
         </div>
 
         <div class="panel-body">
@@ -12,8 +12,8 @@
             </div>
         </div>
 
-        <div class="panel-footer" ng-if="footer != undefined">
-            <span ng-bind="footer"></span>
+        <div class="panel-footer" ng-if="::(footer != undefined)">
+            <span ng-bind="::footer"></span>
         </div>
     </div>
 </div>

@@ -77,7 +77,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-multiselect/oobj-multiselect.html",
     "<div ng-class=::colspan class=\"form-group form-group-{{::inputSize}}\"><label class=control-label ng-show=\"::(showLabel != false && label != undefined)\"><strong><span ng-bind=::label></span></strong> <span class=text-danger ng-show=::ngRequired>*</span></label><div class=input-group><select id={{::id}} class=\"selectpicker form-control\" ng-model=ngModel ng-required=ngRequired data-width=auto title=\"\" multiple ng-cloak></select></div></div>");
   $templateCache.put("oobj-panel/oobj-panel.html",
-    "<div ng-class=colspan><div class=panel ng-class=panelClass style=\"border: 1px solid #e7e7e7; border-radius: 0\" ng-style=panelStyle><div class=panel-heading ng-if=\"title != undefined\"><span ng-bind=title></span></div><div class=panel-body><div class=container-fluid><div class=row><div ng-transclude></div></div></div></div><div class=panel-footer ng-if=\"footer != undefined\"><span ng-bind=footer></span></div></div></div>");
+    "<div ng-class=::colspan><div class=\"panel oobj-panel\" ng-class=::panelClass><div class=panel-heading ng-if=\"::(title != undefined)\"><span ng-bind=::title></span></div><div class=panel-body><div class=container-fluid><div class=row><div ng-transclude></div></div></div></div><div class=panel-footer ng-if=\"::(footer != undefined)\"><span ng-bind=::footer></span></div></div></div>");
   $templateCache.put("oobj-radio/oobj-radio.html",
     "<div class=\"radio c-radio c-radio-nofont\" ng-class=radioClass ng-style=radioStyle><label><input type=radio id=\"{{ id }}\" ng-value=optionValue name=\"{{ optionName }}\" ng-model=\"ngModel\"> <span class=\"fa fa-circle\"></span> {{ label }}</label></div>");
   $templateCache.put("oobj-search/oobj-search.html",
@@ -1116,8 +1116,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 title: '@',
                 footer: '@',
                 colspan: '@',
-                panelClass: '@',
-                panelStyle: '@'
+                panelClass: '@'
             },
             link: link
         };

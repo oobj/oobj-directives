@@ -121,6 +121,10 @@
 .icon-info-medium {
   font-size: small;
 }
+.oobj-panel {
+  border: 1px solid #e7e7e7;
+  border-radius: 0;
+}
 
 .sidebar .sidebar-nav.navbar-collapse {
   padding-right: 0;
