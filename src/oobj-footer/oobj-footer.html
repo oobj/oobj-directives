@@ -1,12 +1,5 @@
-<footer
-        style="background: #6F6F6F;
-                  color: #fff;
-                  border-color: #000;
-                  height: 100%;
-                  text-align: right;
-                  font-size: x-small;
-                  padding-right: 30px;">
-    &copy;{{ year | date:'yyyy'}} Painel de Gest&atilde;o
+<footer class="oobj-footer">
+    &copy;{{::year | date:'yyyy'}} Painel de Gest&atilde;o
     <br>
-    Powered by Oobj - v{{version}} [{{generatedData | date:'dd-MM-yyyy'}}]
+    Powered by Oobj - v{{::version}} [{{::generatedData | date:'dd-MM-yyyy'}}]
 </footer>

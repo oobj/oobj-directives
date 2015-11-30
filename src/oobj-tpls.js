@@ -41,13 +41,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-fieldset/oobj-fieldset.html",
     "<fieldset ng-class=::colspan><legend class=oobj-fieldset-title><span ng-bind=::title></span></legend><div ng-transclude></div></fieldset>");
   $templateCache.put("oobj-footer/oobj-footer.html",
-    "<footer style=\"background: #6F6F6F;\n" +
-    "                  color: #fff;\n" +
-    "                  border-color: #000;\n" +
-    "                  height: 100%;\n" +
-    "                  text-align: right;\n" +
-    "                  font-size: x-small;\n" +
-    "                  padding-right: 30px\">&copy;{{ year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{version}} [{{generatedData | date:'dd-MM-yyyy'}}]</footer>");
+    "<footer class=oobj-footer>&copy;{{::year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{::version}} [{{::generatedData | date:'dd-MM-yyyy'}}]</footer>");
   $templateCache.put("oobj-grid/oobj-grid.html",
     "<div class={{colspan}} ui-i18n={{language}}><div class=table-responsive><div ui-grid=gridOptions ui-grid-exporter ui-grid-selection ui-grid-pagination ng-style=getHeight() class=table style=\"min-width: 600px\" ng-cloak><div style=\"position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000\" ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div></div>");
   $templateCache.put("oobj-input-container/oobj-input-container.html",
