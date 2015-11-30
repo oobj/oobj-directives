@@ -83,6 +83,19 @@
   padding-right: 30px;
 }
 
+.oobj-grid-options {
+  min-width: 600px;
+}
+.oobj-grid-noresult {
+  position: absolute;
+  top: 0px;
+  opacity: 0.25;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
 .profile-img {
   width: 270px;
   height: 96px;
