@@ -158,5 +158,6 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less:development', 'less:production', 'htmlmin']);
-    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less:development', 'less:production', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
+    grunt.registerTask('continuous', ['test']);
+    grunt.registerTask('test', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less:development', 'less:production', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
 };
