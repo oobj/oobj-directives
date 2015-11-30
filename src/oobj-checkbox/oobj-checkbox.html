@@ -1,7 +1,7 @@
-<div class="checkbox c-checkbox" ng-class="checkboxClass" ng-style="checkboxStyle">
+<div class="checkbox c-checkbox" ng-class="::checkboxClass" ng-style="::checkboxStyle">
     <label>
-        <input type="checkbox" id="{{id}}" ng-model="ngModel" />
+        <input type="checkbox" id="{{::id}}" ng-model="ngModel" />
         <span class="fa fa-check"></span>
-        {{ label }}
+        {{::label}}
     </label>
 </div>

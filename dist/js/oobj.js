@@ -39,7 +39,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-chart/oobj-chart-radar.html",
     "<div class=\"{{ colspan }}\" id=\"{{ chartId }}\"><div class=\"panel panel-default\" style=\"border: 1px solid #e7e7e7; border-radius: 0\"><div class=panel-heading>{{ title }}</div><div class=panel-body><canvas class=\"chart chart-radar\" chart-data=ngModel.data chart-labels=ngModel.labels chart-legend=true chart-click=ngModel.onClick chart-series=ngModel.series></canvas></div></div></div>");
   $templateCache.put("oobj-checkbox/oobj-checkbox.html",
-    "<div class=\"checkbox c-checkbox\" ng-class=checkboxClass ng-style=checkboxStyle><label><input type=checkbox id={{id}} ng-model=\"ngModel\"> <span class=\"fa fa-check\"></span> {{ label }}</label></div>");
+    "<div class=\"checkbox c-checkbox\" ng-class=::checkboxClass ng-style=::checkboxStyle><label><input type=checkbox id={{::id}} ng-model=\"ngModel\"> <span class=\"fa fa-check\"></span> {{::label}}</label></div>");
   $templateCache.put("oobj-confirm-button/oobj-confirm-button.html",
     "<div><oobj-button data-toggle=modal data-target=#oobjConfirm label=\"{{ label }}\" icon=\"{{ icon }}\" btn-class=\"{{ btnClass }}\"></oobj-button><div id=oobjConfirm class=\"modal fade\" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal>&times;</button><h4 class=modal-title><span ng-bind=\"title || 'Confirmação'\"></span></h4></div><div class=modal-body><p><span ng-bind=msg ng-style=msgStyle></span></p></div><div class=modal-footer><div class=row><div class=\"col-md-12 text-right\"><oobj-button data-dismiss=modal label=\"{{labelBtnYes || 'Sim'}}\" ng-click=onClickBtnYes() icon=fa-check btn-class=\"{{classBtnYes  || 'btn-primary'}}\" style=\"padding-right: 5px\"></oobj-button><oobj-button data-dismiss=modal label=\"{{labelBtnNo || 'Não'}}\" ng-click=onClickBtnNo() icon=fa-times btn-class=\"{{classBtnNo || 'btn-default'}}\"></oobj-button></div></div></div></div></div></div></div>");
   $templateCache.put("oobj-container/oobj-container.html",
@@ -420,10 +420,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjCheckbox', oobjCheckbox);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjCheckbox() {
         var directive = {
             require: 'ngModel',

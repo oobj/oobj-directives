@@ -4,10 +4,11 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjCheckbox', oobjCheckbox);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjCheckbox() {
         var directive = {
             require: 'ngModel',
