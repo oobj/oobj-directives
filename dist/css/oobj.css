@@ -6,6 +6,11 @@
   padding-right: 5px;
 }
 
+.oobj-container-title {
+  padding-bottom: 5px;
+  border-bottom: 0px solid;
+}
+
 .daterangepicker_start_input {
   float: left;
   padding-left: 11px;
