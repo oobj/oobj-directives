@@ -67,6 +67,12 @@
   color: #fff;
 }
 
+.oobj-fieldset-title {
+  font-size: 11px;
+  font-style: italic;
+  color: #999;
+}
+
 .profile-img {
   width: 270px;
   height: 96px;
