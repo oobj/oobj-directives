@@ -1,7 +1,7 @@
-<div ng-class="colspan" class="form-group form-group-{{inputSize}}">
-    <label class="control-label" ng-show="showLabel != false && label != undefined">
-        <strong><span ng-bind="label"></span></strong>
-        <span class="text-danger" ng-show="ngRequired">*</span>
+<div ng-class="::colspan" class="form-group form-group-{{::inputSize}}">
+    <label class="control-label" ng-show="::(showLabel != false && label != undefined)">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>
 
     <ui-select ng-model="ngModel" ng-required="ngRequired">
