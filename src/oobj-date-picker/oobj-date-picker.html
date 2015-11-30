@@ -1,25 +1,26 @@
-<div class="form-group form-group-{{inputSize}}" ng-class="colspan">
-    <label ng-show="showLabel || label != undefined">
-        <strong><span ng-bind="label"></span></strong>
-        <span class="text-danger" ng-show="ngRequired">*</span>
+<div class="form-group form-group-{{::inputSize}}" ng-class="::colspan">
+    <label ng-show="::(showLabel || label != undefined)">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>
+
     <div class="input-group">
         <input date-range-picker
                options="opts"
-               name="{{name}}"
+               name="{{::name}}"
                ng-model="ngModel"
                ng-disabled="ngDisabled"
-               ng-required="ngRequired"
-               ng-change="onChange($event)"
-               ng-blur="onBlur($event)"
-               ng-keyup="onKeyup($event)"
-               ng-keydown="onKeydown($event)"
-               ng-readonly="ngReadonly"
+               ng-required="::ngRequired"
+               ng-change="::onChange($event)"
+               ng-blur="::onBlur($event)"
+               ng-keyup="::onKeyup($event)"
+               ng-keydown="::onKeydown($event)"
+               ng-readonly="::ngReadonly"
                class="form-control date-picker"
                type="text"/>
 
         <div class="input-group-btn">
-            <button type="button" class="btn btn-default btn-{{inputSize}} oobj-group-input-btn">
+            <button type="button" class="btn btn-default btn-{{::inputSize}} oobj-group-input-btn">
                 <i class="fa fa-calendar"></i>
             </button>
         </div>
