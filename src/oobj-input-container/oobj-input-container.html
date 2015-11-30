@@ -1,7 +1,8 @@
-<div ng-class="colspan" class="form-group">
-    <label class="control-label" ng-if="showLabel != false && label != undefined">
-        <strong><span ng-bind="label"></span></strong>
-        <span class="text-danger" ng-show="ngRequired">*</span>
+<div ng-class="::colspan" class="form-group">
+    <label class="control-label" ng-if="::(showLabel != false && label != undefined)">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>
+
     <div ng-transclude></div>
 </div>
