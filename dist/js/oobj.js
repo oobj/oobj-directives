@@ -45,7 +45,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-container/oobj-container.html",
     "<div><div class=row ng-if=\"::(title != undefined)\"><div class=col-lg-12><h5 class=\"page-header oobj-container-title\"><span ng-bind=::title></span> <i class=\"fa fa-info-circle icon-info-medium\"></i></h5></div></div><div class=row><div ng-transclude></div></div></div>");
   $templateCache.put("oobj-crud/oobj-crud.html",
-    "<oobj-container title={{title}}><oobj-panel colspan=col-lg-12><form role=form novalidate><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></form></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
+    "<oobj-container title={{::title}}><oobj-panel colspan=col-lg-12><form role=form novalidate><div class=form-group><ng-include src=\"'formActions'\" ng-if=showBtnOnTop></ng-include><div class=container-fluid><div class=row><div ng-transclude></div></div></div><ng-include src=\"'formActions'\" ng-if=showBtnOnBottom></ng-include></div></form></oobj-panel></oobj-container><script type=text/ng-template id=formActions><div class=\"row\">\n" +
     "        <div class=\"col-md-12 text-right\">\n" +
     "            <oobj-button label=\"Limpar\" btn-class=\"btn-default\" icon=\"fa-eraser\" ng-click=\"vm.limpar()\" ng-if=\"showBtnLimpar\">\n" +
     "            </oobj-button>\n" +
