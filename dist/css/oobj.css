@@ -110,6 +110,9 @@
 .login-btn {
   background-color: #3498DB;
 }
+.oobj-login {
+  margin-top: 40px;
+}
 
 .modal-timeline {
   width: 900px;
