@@ -24,9 +24,9 @@
 
             scope.colspan = "testecolspan";
 
-            scope.provider = {
+            scope.provider = [{
                 prop: 'provider'
-            };
+            }];
 
             element = getCompiledElement();
             isolatedScope = element.isolateScope();
