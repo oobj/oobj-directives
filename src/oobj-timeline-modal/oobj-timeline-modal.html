@@ -1,0 +1,101 @@
+<oobj-modal title="Ciclo de Vida da NFe"
+                label-btn-open="Open modal"
+                size="lg"
+                show-btn-close="false"
+                show-btn-open="false">
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Número - Série</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.numero + '-' + dfe.serie"></span>
+                </p>
+            </div>
+
+            <div class="col-md-8">
+                <p class="timeline-text">
+                    <span class="text-muted">Chave de Acesso</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.chaveAcesso"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Emitente</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.emit.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.emit.cnpj">
+                    </span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Destinatário</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.dest.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.dest.cnpj">
+                    </span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Transportador</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.transp.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.transp.cnpj">
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="row">
+			<div class="form-group col-md-12">
+				<label class="control-label"><strong>Exibir</strong></label>
+				<br/>
+				<oobj-radio inline="true" label="Todos" colspan="4" ng-model="type" option-name="type" option-value="todos">
+                </oobj-radio>
+                <oobj-radio inline="true" label="Eventos" colspan="4" ng-model="type" option-name="type" option-value="evento">
+                </oobj-radio>
+                <oobj-radio inline="true" label="Ocorrências" colspan="4" ng-model="type" option-name="type" option-value="ocorrencia">
+                </oobj-radio>
+            </div>
+        </div>
+        
+        <oobj-timeline provider="timelineItems" filter-by="type"></oobj-timeline>
+        
+<!--         <div class="row" ng-show="showControlBtns"> -->
+<!--             <div class="col-md-12 form-group"> -->
+<!--                 <oobj-button label="Baixar XML" icon="fa-download" btn-class="btn-primary"> -->
+<!--                 </oobj-button> -->
+
+<!--                 <oobj-button label="Baixar DANFE" icon="fa-download" btn-class="btn-primary"> -->
+<!--                 </oobj-button> -->
+
+<!--                 <oobj-button label="Manifestar" icon="fa-bullhorn" btn-class="btn-primary"> -->
+<!--                 </oobj-button> -->
+
+<!--                 <oobj-button label="Reconsultar" icon="fa-refresh" btn-class="btn-primary"> -->
+<!--                 </oobj-button> -->
+
+<!--                 <oobj-button-dropdown label="Entrada" icon="fa-map-signs" btn-class="btn-primary" -->
+<!--                                       provider="vm.itensEntrada"> -->
+<!--                 </oobj-button-dropdown> -->
+
+<!--                 <oobj-button-dropdown label="Mais Ações" icon="fa-th-large" btn-class="btn-primary" -->
+<!--                                       provider="vm.dropdownItems"> -->
+<!--                 </oobj-button-dropdown> -->
+<!--             </div> -->
+<!--         </div> -->
+
+</oobj-modal>

@@ -18,8 +18,7 @@
                 title: '@',
                 footer: '@',
                 colspan: '@',
-                panelClass: '@',
-                panelStyle: '@'
+                panelClass: '@'
             },
             link: link
         };

@@ -1,3 +1,16 @@
+.oobj-button-dropdown-label {
+  padding-right: 8px;
+}
+
+.oobj-confirm-button-btn-yes {
+  padding-right: 5px;
+}
+
+.oobj-container-title {
+  padding-bottom: 5px;
+  border-bottom: 0px solid;
+}
+
 .daterangepicker_start_input {
   float: left;
   padding-left: 11px;
@@ -54,6 +67,35 @@
   color: #fff;
 }
 
+.oobj-fieldset-title {
+  font-size: 11px;
+  font-style: italic;
+  color: #999;
+}
+
+.oobj-footer {
+  background: #6F6F6F;
+  color: #fff;
+  border-color: #000;
+  height: 100%;
+  text-align: right;
+  font-size: x-small;
+  padding-right: 30px;
+}
+
+.oobj-grid-options {
+  min-width: 600px;
+}
+.oobj-grid-noresult {
+  position: absolute;
+  top: 0px;
+  opacity: 0.25;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
 .profile-img {
   width: 270px;
   height: 96px;
@@ -68,6 +110,9 @@
 .login-btn {
   background-color: #3498DB;
 }
+.oobj-login {
+  margin-top: 40px;
+}
 
 .modal-timeline {
   width: 900px;
@@ -75,6 +120,14 @@
 
 .icon-info-medium {
   font-size: small;
+}
+.oobj-panel {
+  border: 1px solid #e7e7e7;
+  border-radius: 0;
+}
+
+.oobj-search-container {
+  margin-bottom: -15px;
 }
 
 .sidebar .sidebar-nav.navbar-collapse {

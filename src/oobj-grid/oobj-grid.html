@@ -1,13 +1,12 @@
-<div class="{{colspan}}" ui-i18n="{{language}}">
+<div class="{{::colspan}}" ui-i18n="{{::language}}">
     <div class="table-responsive">
         <div ui-grid="gridOptions"
              ui-grid-exporter
              ui-grid-selection
              ui-grid-pagination
-             ng-style="getHeight()" class="table"
-             style="min-width: 600px;" ng-cloak>
-            <div style="position: absolute; top : 0px; opacity: 0.25; font-size: 2em; width: 100%; text-align: center; z-index: 1000;"
-                ng-show="!gridOptions.data.length">
+             ng-style="getHeight()"
+             class="table oobj-grid-options" ng-cloak>
+            <div class="oobj-grid-noresult" ng-show="!gridOptions.data.length">
                 Nenhum resultado encontrado
             </div>
         </div>

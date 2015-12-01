@@ -1,7 +1,7 @@
-<oobj-container title="{{title}}">
+<oobj-container title="{{::title}}">
     <oobj-panel colspan="col-lg-12">
         <div class="container-fluid">
-            <div class="row" style="margin-bottom: -15px;">
+            <div class="row oobj-search-container">
                 <div class="form-group">
                     <ng-include src="'formActions'" ng-if="showBtnOnTop"></ng-include>
 
@@ -29,16 +29,17 @@
 <script type="text/ng-template" id="formActions">
     <div class="row">
         <div class="col-md-12 text-right">
-            <oobj-button label="Limpar" btn-class="btn-success" icon="fa-eraser" ng-click="vm.limpar()"
-                         ng-if="showBtnLimpar">
+            <oobj-button label="Limpar" btn-class="btn-success" icon="fa-eraser" ng-click="::vm.limpar()"
+                         ng-if="::showBtnLimpar">
             </oobj-button>
 
-            <oobj-button label="Pesq. Avançada" btn-class="btn-default" icon="{{showBtnOnTop ? 'fa-search-minus': 'fa-search-plus'}}"
-                         ng-click="vm.pesquisaAvancada()" ng-if="showBtnPesquisaAvancada">
+            <oobj-button label="Pesq. Avançada" btn-class="btn-default" ng-click="::vm.pesquisaAvancada()"
+                         icon="{{::(showBtnOnTop ? 'fa-search-minus': 'fa-search-plus')}}"
+                         ng-if="::showBtnPesquisaAvancada">
             </oobj-button>
 
             <oobj-button label="Pesquisar" btn-class="btn-primary" icon="fa-search" padding-right="0px"
-                         ng-click="vm.pesquisar()" ng-if="showBtnPesquisar">
+                         ng-click="::vm.pesquisar()" ng-if="::showBtnPesquisar">
             </oobj-button>
         </div>
     </div>

@@ -4,10 +4,11 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjRadio', oobjRadio);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjRadio() {
 
         var directive = {
@@ -43,7 +44,5 @@
                 scope.radioClass = classes;
             }
         }
-
     }
-
 })();

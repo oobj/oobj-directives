@@ -59,12 +59,12 @@ module.exports = function (grunt) {
 
         concat: {
             principal: {
-                src: ['src/oobj.module.js', 'src/oobj-filters/oobj-filters.module.js', 'src/oobj-tpls.js', 'src/**/*.js',
+                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/**/*.js',
                       '!src/**/*.spec.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.js'
             },
             minificado: {
-                src: ['src/oobj.module.js', 'src/oobj-filters/oobj-filters.module.js', 'src/oobj-tpls.js', 'src/**/*.js',
+                src: ['src/oobj.module.js', 'src/oobj-tpls.js', 'src/**/*.js',
                       '!src/**/*.spec.js', '!src/**/*_test.js'],
                 dest: 'dist/js/oobj.min.js'
             }
@@ -158,5 +158,6 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', ['clean', 'html2js', 'concat', 'ngAnnotate', 'uglify', 'less:development', 'less:production', 'htmlmin']);
-    grunt.registerTask('continuous', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less:development', 'less:production', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
+    grunt.registerTask('continuous', ['test']);
+    grunt.registerTask('test', ['clean', 'jshint', 'karma:continuous', 'html2js', 'less:development', 'less:production', 'concat', 'ngAnnotate', 'uglify', 'htmlmin', 'coveralls']);
 };

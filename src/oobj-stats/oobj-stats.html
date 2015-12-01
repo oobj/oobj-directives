@@ -1,21 +1,21 @@
 <div class="col-lg-3 col-md-6">
-    <div class="panel panel-{{colour}}">
+    <div class="panel panel-{{::colour}}">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-3">
-                    <i class="fa fa-{{type}} fa-5x"></i>
+                    <i class="fa fa-{{::type}} fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">{{number}}</div>
+                    <div class="huge">{{::number}}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 text-right">
-                    <div>{{comments}}</div>
+                    <div>{{::comments}}</div>
                 </div>
             </div>
         </div>
-        <a ui-sref="{{goto === undefined ? '#' : goto}}">
+        <a ui-sref="{{::(goto === undefined ? '#' : goto)}}">
             <div class="panel-footer">
                 <span class="pull-right">Ver detalhes</span>
                 <div class="clearfix"></div>
