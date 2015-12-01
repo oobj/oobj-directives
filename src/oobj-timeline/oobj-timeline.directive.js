@@ -17,11 +17,18 @@
             scope: {
                 provider: '=',
                 colspan: '@',
+                type: '=filterBy',
             },
-            
+            link: link
         };
 
         return directive;
+        
+        function link(scope, element, attrs) {
+        	if (angular.isUndefined(scope.type) || scope.type == 'todos') {
+        		scope.type = '';
+        	}
+        }
     }
 
 })();
