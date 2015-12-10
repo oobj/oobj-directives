@@ -1,6 +1,6 @@
 <div class="panel-body" ng-class="::colspan">
     <ul class="timeline">
-        <li ng-repeat="item in ::provider | filter:type track by $index" ng-class="::($even ? '' : 'timeline-inverted')">
+        <li ng-repeat="item in items" ng-class="::($even ? '' : 'timeline-inverted')">
             <div ng-if="::item.badge" class="timeline-badge" ng-class="::item.timelineStyle">
                 <i class="fa {{::item.badge}}"></i>
             </div>

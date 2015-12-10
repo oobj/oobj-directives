@@ -104,9 +104,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-stats/oobj-stats.html",
     "<div class=\"col-lg-3 col-md-6\"><div class=\"panel panel-{{::colour}}\"><div class=panel-heading><div class=row><div class=col-xs-3><i class=\"fa fa-{{::type}} fa-5x\"></i></div><div class=\"col-xs-9 text-right\"><div class=huge>{{::number}}</div></div></div><div class=row><div class=\"col-xs-12 text-right\"><div>{{::comments}}</div></div></div></div><a ui-sref=\"{{::(goto === undefined ? '#' : goto)}}\"><div class=panel-footer><span class=pull-right>Ver detalhes</span><div class=clearfix></div></div></a></div></div>");
   $templateCache.put("oobj-timeline-modal/oobj-timeline-modal.html",
-    "<oobj-modal title=\"Ciclo de Vida da NFe\" label-btn-open=\"Open modal\" size=lg show-btn-close=false show-btn-open=false><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Número - Série</span><br><span class=text-primary ng-bind=\"dfe.numero + '-' + dfe.serie\"></span></p></div><div class=col-md-8><p class=timeline-text><span class=text-muted>Chave de Acesso</span><br><span class=text-primary ng-bind=dfe.chaveAcesso></span></p></div></div><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Emitente</span><br><span class=text-primary ng-bind=dfe.emit.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.emit.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Destinatário</span><br><span class=text-primary ng-bind=dfe.dest.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.dest.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Transportador</span><br><span class=text-primary ng-bind=dfe.transp.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.transp.cnpj></span></p></div></div><hr><div class=row><div class=\"form-group col-md-12\"><label class=control-label><strong>Exibir</strong></label><br><oobj-radio inline=true label=Todos colspan=4 ng-model=type option-name=type option-value=todos></oobj-radio><oobj-radio inline=true label=Eventos colspan=4 ng-model=type option-name=type option-value=evento></oobj-radio><oobj-radio inline=true label=Ocorrências colspan=4 ng-model=type option-name=type option-value=ocorrencia></oobj-radio></div></div><oobj-timeline provider=timelineItems filter-by=type></oobj-timeline><!--         <div class=\"row\" ng-show=\"showControlBtns\"> --><!--             <div class=\"col-md-12 form-group\"> --><!--                 <oobj-button label=\"Baixar XML\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Baixar DANFE\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Manifestar\" icon=\"fa-bullhorn\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Reconsultar\" icon=\"fa-refresh\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button-dropdown label=\"Entrada\" icon=\"fa-map-signs\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.itensEntrada\"> --><!--                 </oobj-button-dropdown> --><!--                 <oobj-button-dropdown label=\"Mais Ações\" icon=\"fa-th-large\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.dropdownItems\"> --><!--                 </oobj-button-dropdown> --><!--             </div> --><!--         </div> --></oobj-modal>");
+    "<oobj-modal title=\"Ciclo de Vida da NFe\" label-btn-open=\"Open modal\" size=lg show-btn-close=false show-btn-open=false><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Número - Série</span><br><span class=text-primary ng-bind=\"dfe.numero + '-' + dfe.serie\"></span></p></div><div class=col-md-8><p class=timeline-text><span class=text-muted>Chave de Acesso</span><br><span class=text-primary ng-bind=dfe.chaveAcesso></span></p></div></div><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Emitente</span><br><span class=text-primary ng-bind=dfe.emit.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.emit.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Destinatário</span><br><span class=text-primary ng-bind=dfe.dest.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.dest.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Transportador</span><br><span class=text-primary ng-bind=dfe.transp.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.transp.cnpj></span></p></div></div><hr><div class=row><div class=\"form-group col-md-12\"><label class=control-label><strong>Exibir</strong></label><br><oobj-radio inline=true label=Todos colspan=4 ng-model=type option-name=type option-value=todos></oobj-radio><oobj-radio inline=true label=Eventos colspan=4 ng-model=type option-name=type option-value=evento></oobj-radio><oobj-radio inline=true label=Ocorrências colspan=4 ng-model=type option-name=type option-value=ocorrencia></oobj-radio></div></div><oobj-timeline provider=items filter-by=type></oobj-timeline><!--         <div class=\"row\" ng-show=\"showControlBtns\"> --><!--             <div class=\"col-md-12 form-group\"> --><!--                 <oobj-button label=\"Baixar XML\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Baixar DANFE\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Manifestar\" icon=\"fa-bullhorn\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Reconsultar\" icon=\"fa-refresh\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button-dropdown label=\"Entrada\" icon=\"fa-map-signs\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.itensEntrada\"> --><!--                 </oobj-button-dropdown> --><!--                 <oobj-button-dropdown label=\"Mais Ações\" icon=\"fa-th-large\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.dropdownItems\"> --><!--                 </oobj-button-dropdown> --><!--             </div> --><!--         </div> --></oobj-modal>");
   $templateCache.put("oobj-timeline/oobj-timeline.html",
-    "<div class=panel-body ng-class=::colspan><ul class=timeline><li ng-repeat=\"item in ::provider | filter:type track by $index\" ng-class=\"::($even ? '' : 'timeline-inverted')\"><div ng-if=::item.badge class=timeline-badge ng-class=::item.timelineStyle><i class=\"fa {{::item.badge}}\"></i></div><div class=timeline-panel><div class=timeline-heading><h5 class=timeline-title ng-bind=::item.title></h5><p class=\"timeline-date text-muted\"><i class=\"fa fa-clock-o\"></i>&nbsp; <span ng-bind=\"::item.date | date:'dd/MM/yyyy hh:mm:ss'\"></span></p></div><div class=timeline-body ng-if=::item.description><p class=timeline-description ng-bind=::item.description></p></div></div></li></ul></div>");
+    "<div class=panel-body ng-class=::colspan><ul class=timeline><li ng-repeat=\"item in items\" ng-class=\"::($even ? '' : 'timeline-inverted')\"><div ng-if=::item.badge class=timeline-badge ng-class=::item.timelineStyle><i class=\"fa {{::item.badge}}\"></i></div><div class=timeline-panel><div class=timeline-heading><h5 class=timeline-title ng-bind=::item.title></h5><p class=\"timeline-date text-muted\"><i class=\"fa fa-clock-o\"></i>&nbsp; <span ng-bind=\"::item.date | date:'dd/MM/yyyy hh:mm:ss'\"></span></p></div><div class=timeline-body ng-if=::item.description><p class=timeline-description ng-bind=::item.description></p></div></div></li></ul></div>");
 }]);
 
 /**
@@ -1461,7 +1461,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
             scope: {
                 dfe: '=',
-                timelineItems: '=items'
+                items: '='
             },
             link: link
         };
@@ -1471,7 +1471,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         function link(scope, element, attrs) {
         	scope.type = 'todos';
         }
+        
     }
+    
 })();
 /**
  * Created by Leonardo on 08/10/2015.
@@ -1479,11 +1481,14 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function () {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+    	.module('oobj-directives')
         .directive('oobjTimeline', oobjTimeline);
 
+    oobjTimeline.$inject = ['filterFilter'];
+    
     /* @ngInject */
-    function oobjTimeline() {
+    function oobjTimeline(filterFilter) {
 
         var directive = {
             templateUrl: 'oobj-timeline/oobj-timeline.html',
@@ -1492,17 +1497,28 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             scope: {
                 provider: '=',
                 colspan: '@',
-                type: '=filterBy',
+                type: '=filterBy'
             },
             link: link
         };
 
         return directive;
         
-        function link(scope, element, attrs) {
-        	if (angular.isUndefined(scope.type) || scope.type == 'todos') {
-        		scope.type = '';
-        	}
+        function link(scope, element, attr) {
+        	
+        	// filter elements of the timeline by type whenever it changes
+        	scope.$watch('type', function(newType) {
+        		
+        		scope.items = filterFilter(scope.provider, function(item) {
+            		if (newType === 'todos') {
+            			return true;
+            		} else {
+            			return newType === item.type;
+            		}
+            	});
+        		
+        	});
+        	
         }
     }
 

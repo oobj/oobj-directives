@@ -16,7 +16,7 @@
             templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
             scope: {
                 dfe: '=',
-                timelineItems: '=items'
+                items: '='
             },
             link: link
         };
@@ -26,5 +26,7 @@
         function link(scope, element, attrs) {
         	scope.type = 'todos';
         }
+        
     }
+    
 })();
