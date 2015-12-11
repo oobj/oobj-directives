@@ -20,7 +20,7 @@
             scope: {
                 provider: '=',
                 colspan: '@',
-                type: '=filterBy'
+                filter: '=filterBy'
             },
             link: link
         };
@@ -30,7 +30,7 @@
         function link(scope, element, attr) {
         	
         	// filter elements of the timeline by type whenever it changes
-        	scope.$watch('type', function(newType) {
+        	scope.$watch('filter', function(newType) {
         		
         		scope.items = filterFilter(scope.provider, function(item) {
             		if (newType === 'todos') {

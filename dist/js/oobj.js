@@ -60,6 +60,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "    </div></script>");
   $templateCache.put("oobj-date-picker/oobj-date-picker.html",
     "<div class=\"form-group form-group-{{::inputSize}}\" ng-class=::colspan><label ng-show=\"::(showLabel || label != undefined)\"><strong><span ng-bind=::label></span></strong> <span class=text-danger ng-show=::ngRequired>*</span></label><div class=input-group><input date-range-picker options=opts name={{::name}} ng-model=ngModel ng-disabled=ngDisabled ng-required=::ngRequired ng-change=::onChange($event) ng-blur=::onBlur($event) ng-keyup=::onKeyup($event) ng-keydown=::onKeydown($event) ng-readonly=::ngReadonly class=\"form-control date-picker\"><div class=input-group-btn><button type=button class=\"btn btn-default btn-{{::inputSize}} oobj-group-input-btn\"><i class=\"fa fa-calendar\"></i></button></div></div></div>");
+  $templateCache.put("oobj-dfe-actions/oobj-dfe-actions.html",
+    "<div class=form-group><oobj-button ng-click=downloadXml() ng-hide=hideDownloadXml label=\"Baixar XML\" icon=fa-download btn-class=btn-primary></oobj-button><oobj-button ng-click=downloadDanfe() ng-hide=hideDownloadDanfe label=\"Baixar DANFE\" icon=fa-download btn-class=btn-primary></oobj-button><oobj-button ng-click=manifestar() ng-hide=hideManifestar label=Manifestar icon=fa-bullhorn btn-class=btn-primary></oobj-button><oobj-button ng-click=reconsultar() ng-hide=hideReconsultar label=Reconsultar icon=fa-refresh btn-class=btn-primary></oobj-button><oobj-button-dropdown label=Entrada ng-hide=hideEntrada icon=fa-map-signs btn-class=btn-primary provider=itensEntrada></oobj-button-dropdown><oobj-button-dropdown label=\"Mais Ações\" ng-hide=hideMaisAcoes icon=fa-th-large btn-class=btn-primary provider=dropdownItems></oobj-button-dropdown></div>");
   $templateCache.put("oobj-fieldset/oobj-fieldset.html",
     "<fieldset ng-class=::colspan><legend class=oobj-fieldset-title><span ng-bind=::title></span></legend><div ng-transclude></div></fieldset>");
   $templateCache.put("oobj-footer/oobj-footer.html",
@@ -104,9 +106,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
   $templateCache.put("oobj-stats/oobj-stats.html",
     "<div class=\"col-lg-3 col-md-6\"><div class=\"panel panel-{{::colour}}\"><div class=panel-heading><div class=row><div class=col-xs-3><i class=\"fa fa-{{::type}} fa-5x\"></i></div><div class=\"col-xs-9 text-right\"><div class=huge>{{::number}}</div></div></div><div class=row><div class=\"col-xs-12 text-right\"><div>{{::comments}}</div></div></div></div><a ui-sref=\"{{::(goto === undefined ? '#' : goto)}}\"><div class=panel-footer><span class=pull-right>Ver detalhes</span><div class=clearfix></div></div></a></div></div>");
   $templateCache.put("oobj-timeline-modal/oobj-timeline-modal.html",
-    "<oobj-modal title=\"Ciclo de Vida da NFe\" label-btn-open=\"Open modal\" size=lg show-btn-close=false show-btn-open=false><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Número - Série</span><br><span class=text-primary ng-bind=\"dfe.numero + '-' + dfe.serie\"></span></p></div><div class=col-md-8><p class=timeline-text><span class=text-muted>Chave de Acesso</span><br><span class=text-primary ng-bind=dfe.chaveAcesso></span></p></div></div><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Emitente</span><br><span class=text-primary ng-bind=dfe.emit.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.emit.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Destinatário</span><br><span class=text-primary ng-bind=dfe.dest.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.dest.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Transportador</span><br><span class=text-primary ng-bind=dfe.transp.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.transp.cnpj></span></p></div></div><hr><div class=row><div class=\"form-group col-md-12\"><label class=control-label><strong>Exibir</strong></label><br><oobj-radio inline=true label=Todos colspan=4 ng-model=type option-name=type option-value=todos></oobj-radio><oobj-radio inline=true label=Eventos colspan=4 ng-model=type option-name=type option-value=evento></oobj-radio><oobj-radio inline=true label=Ocorrências colspan=4 ng-model=type option-name=type option-value=ocorrencia></oobj-radio></div></div><oobj-timeline provider=items filter-by=type></oobj-timeline><!--         <div class=\"row\" ng-show=\"showControlBtns\"> --><!--             <div class=\"col-md-12 form-group\"> --><!--                 <oobj-button label=\"Baixar XML\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Baixar DANFE\" icon=\"fa-download\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Manifestar\" icon=\"fa-bullhorn\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button label=\"Reconsultar\" icon=\"fa-refresh\" btn-class=\"btn-primary\"> --><!--                 </oobj-button> --><!--                 <oobj-button-dropdown label=\"Entrada\" icon=\"fa-map-signs\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.itensEntrada\"> --><!--                 </oobj-button-dropdown> --><!--                 <oobj-button-dropdown label=\"Mais Ações\" icon=\"fa-th-large\" btn-class=\"btn-primary\" --><!--                                       provider=\"vm.dropdownItems\"> --><!--                 </oobj-button-dropdown> --><!--             </div> --><!--         </div> --></oobj-modal>");
+    "<oobj-modal title=\"Ciclo de Vida da NFe\" label-btn-open=\"Open modal\" size=lg show-btn-close=false show-btn-open=false><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Número - Série</span><br><span class=text-primary ng-bind=\"dfe.numero + '-' + dfe.serie\"></span></p></div><div class=col-md-8><p class=timeline-text><span class=text-muted>Chave de Acesso</span><br><span class=text-primary ng-bind=dfe.chaveAcesso></span></p></div></div><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Emitente</span><br><span class=text-primary ng-bind=dfe.emit.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.emit.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Destinatário</span><br><span class=text-primary ng-bind=dfe.dest.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.dest.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Transportador</span><br><span class=text-primary ng-bind=dfe.transp.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.transp.cnpj></span></p></div></div><hr><div class=row><div class=\"form-group col-md-12\"><label class=control-label><strong>Exibir</strong></label><br><oobj-radio inline=true label=Todos colspan=4 ng-model=type option-name=type option-value=todos></oobj-radio><oobj-radio inline=true label=Eventos colspan=4 ng-model=type option-name=type option-value=evento></oobj-radio><oobj-radio inline=true label=Ocorrências colspan=4 ng-model=type option-name=type option-value=ocorrencia></oobj-radio></div></div><oobj-timeline provider=items filter-by=type></oobj-timeline><oobj-dfe-actions></oobj-dfe-actions></oobj-modal>");
   $templateCache.put("oobj-timeline/oobj-timeline.html",
-    "<div class=panel-body ng-class=::colspan><ul class=timeline><li ng-repeat=\"item in items\" ng-class=\"::($even ? '' : 'timeline-inverted')\"><div ng-if=::item.badge class=timeline-badge ng-class=::item.timelineStyle><i class=\"fa {{::item.badge}}\"></i></div><div class=timeline-panel><div class=timeline-heading><h5 class=timeline-title ng-bind=::item.title></h5><p class=\"timeline-date text-muted\"><i class=\"fa fa-clock-o\"></i>&nbsp; <span ng-bind=\"::item.date | date:'dd/MM/yyyy hh:mm:ss'\"></span></p></div><div class=timeline-body ng-if=::item.description><p class=timeline-description ng-bind=::item.description></p></div></div></li></ul></div>");
+    "<div class=panel-body ng-class=::colspan><ul class=timeline><li ng-repeat=\"item in items\" ng-class=\"$even ? '' : 'timeline-inverted'\"><div ng-if=::item.badge class=timeline-badge ng-class=::item.timelineStyle><i class=\"fa {{::item.badge}}\"></i></div><div class=timeline-panel><div class=timeline-heading><h5 class=timeline-title ng-bind=::item.title></h5><p class=\"timeline-date text-muted\"><i class=\"fa fa-clock-o\"></i>&nbsp; <span ng-bind=\"::item.date | date:'dd/MM/yyyy hh:mm:ss'\"></span></p></div><div class=timeline-body ng-if=::item.description><p class=timeline-description ng-bind=::item.description></p></div></div></li></ul></div>");
 }]);
 
 /**
@@ -677,6 +679,172 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
         return directive;
     }
+})();
+/**
+ * Created by Renato Borges on 11/12/2015.
+ */
+(function() {
+	'use strict';
+	
+	angular
+		.module('oobj-directives')
+		.directive('oobjDfeActions', OobjDfeActions);
+	
+	OobjDfeActions.$inject = ['MsgUtil'];
+	
+	function OobjDfeActions(MsgUtil) {
+		
+		var directive = {
+			restrict: 'AE',
+			templateUrl: 'oobj-dfe-actions/oobj-dfe-actions.html',
+			scope: {
+				dfe: '=',
+				
+				// allow to override default functions
+				downloadXml: '&',
+				downloadDanfe: '&',
+				manifestar: '&',
+				reconsultar: '&',
+				downloadDacce: '&',
+				revalidarXml: '&',
+				diagnosticoFiscal: '&',
+				reconhecerDocumentos: '&',
+				reentregarDocumentos: '&',
+				registrarEntrada: '&',
+				desfazerEntrada: '&',
+				
+				// choose which buttons to display
+				hideDownloadXml: '@',
+				hideDownloadDanfe: '@',
+				hideManifestar: '@',
+				hideReconsultar: '@',
+				hideMaisAcoes: '@',
+				hideEntrada: '@'
+			},
+			link: link
+		}
+		
+		return directive;
+		
+		function link($scope, $elem, $attr) {
+			
+	        if (angular.isUndefined($attr.downloadXml)) {
+	        	$scope.downloadXml = function() {
+		            MsgUtil.msg('Download de XML');
+		        };
+	        }
+	        
+	        if (angular.isUndefined($attr.downloadDanfe)) {
+		        $scope.downloadDanfe = function() {
+		            MsgUtil.msg('Download de DANFe');
+		        };
+	        }
+	        
+	        if (angular.isUndefined($attr.manifestar)) {
+		        $scope.manifestar = function() {
+		            MsgUtil.msg('Manifesto do Destinatário');
+		        };
+	        }
+	        
+	        if (angular.isUndefined($attr.reconsultar)) {
+		        $scope.reconsultar = function() {
+		            MsgUtil.msg('Reconsultar NFe');
+		        };
+	        }
+	        
+	        function downloadDacceDefault() {
+	            MsgUtil.msg('Download de DACCe');
+	        }
+			
+			if (angular.isUndefined($attr.downloadDacce)) {
+		        $scope.downloadDacce = downloadDacceDefault;
+	        }
+
+			function revalidarXmlDefault() {
+				MsgUtil.msg('Revalidar Arquivo XML');
+			}
+			
+	        if (angular.isUndefined($attr.revalidarXml)) {
+		        $scope.revalidarXml = revalidarXmlDefault;
+	        }
+
+	        function diagnosticoFiscalDefault() {
+	        	MsgUtil.msg('Diagnóstico Fiscal');
+	        }
+	        
+	        if (angular.isUndefined($attr.diagnosticoFiscal)) {
+		        $scope.diagnosticoFiscal = diagnosticoFiscalDefault;
+	        }
+
+	        function reconhecerDocumentosDefault() {
+	        	MsgUtil.msg('Reconhecer Documento(s)');
+	        }
+	        
+	        if (angular.isUndefined($attr.reconhecerDocumentos)) {
+		        $scope.reconhecerDocumentos = reconhecerDocumentosDefault;
+	        }
+
+	        function reentregarDocumentosDefault() {
+	        	MsgUtil.msg('Reentregar Documento(s)');
+	        }
+	        
+	        if (angular.isUndefined($attr.reentregarDocumentos)) {
+		        $scope.reentregarDocumentos = reentregarDocumentosDefault;
+	        }
+
+	        function registrarEntradaDefault() {
+	        	MsgUtil.msg('Registrar Entrada');
+	        }
+	        
+	        if (angular.isUndefined($attr.registrarEntrada)) {
+		        $scope.registrarEntrada = registrarEntradaDefault;
+	        }
+
+	        function desfazerEntradaDefault() {
+	        	MsgUtil.msg('Defazer Entrada');
+	        }
+	        
+	        if (angular.isUndefined($attr.desfazerEntrada)) {
+		        $scope.desfazerEntrada = desfazerEntradaDefault;
+	        }
+	        
+	        $scope.dropdownItems = {
+				downloadDACCe: {
+					label: 'Download de DACCe',
+	                action: $scope.downloadDacce
+	            },
+	            revalidarXML: {
+	                label: 'Revalidar Arquivo XML',
+	                action: $scope.revalidarXml
+	            },
+	            diagnosticoFiscal: {
+	                label: 'Diagnóstico Fiscal',
+	                action: $scope.diagnosticoFiscal
+	            },
+	            reconhecerDocumentos: {
+	                label: 'Reconhecer Documento(s)',
+	                action: $scope.reconhecerDocumentos
+	            },
+	            reentregarDocumentos: {
+	                label: 'Reentregar Documento(s)',
+	                action: $scope.reentregarDocumentos
+	            }
+	        };
+
+	        $scope.itensEntrada = {
+	            registrarEntrada: {
+	                label: 'Registrar Entrada',
+	                action: $scope.registrarEntrada
+	            },
+	            desfazerEntrada: {
+	                label: 'Desfazer Entrada',
+	                action: $scope.desfazerEntrada
+	            }
+	        };
+	        
+		}
+	}
+	
 })();
 /**
  * Created by ATILLA on 05/11/2015.
@@ -1456,7 +1624,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     /* @ngInject */
     function oobjTimelineModal() {
         var directive = {
-            restrict: 'EA',
+            restrict: 'AE',
             transclude: true,
             templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
             scope: {
@@ -1468,7 +1636,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
         return directive;
         
-        function link(scope, element, attrs) {
+        function link(scope, elem, attr) {
         	scope.type = 'todos';
         }
         
@@ -1497,7 +1665,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             scope: {
                 provider: '=',
                 colspan: '@',
-                type: '=filterBy'
+                filter: '=filterBy'
             },
             link: link
         };
@@ -1507,7 +1675,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         function link(scope, element, attr) {
         	
         	// filter elements of the timeline by type whenever it changes
-        	scope.$watch('type', function(newType) {
+        	scope.$watch('filter', function(newType) {
         		
         		scope.items = filterFilter(scope.provider, function(item) {
             		if (newType === 'todos') {

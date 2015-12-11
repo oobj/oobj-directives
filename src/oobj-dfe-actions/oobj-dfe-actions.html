@@ -1,0 +1,43 @@
+<div class="form-group">
+	<oobj-button ng-click="downloadXml()"
+				 ng-hide="hideDownloadXml"
+				 label="Baixar XML"
+				 icon="fa-download"
+				 btn-class="btn-primary">
+	</oobj-button>
+
+	<oobj-button ng-click="downloadDanfe()"
+				 ng-hide="hideDownloadDanfe"
+				 label="Baixar DANFE"
+				 icon="fa-download"
+				 btn-class="btn-primary">
+	</oobj-button>
+
+	<oobj-button ng-click="manifestar()"
+				 ng-hide="hideManifestar"
+				 label="Manifestar"
+				 icon="fa-bullhorn"
+				 btn-class="btn-primary">
+	</oobj-button>
+
+	<oobj-button ng-click="reconsultar()"
+				 ng-hide="hideReconsultar"
+				 label="Reconsultar"
+				 icon="fa-refresh"
+				 btn-class="btn-primary">
+	</oobj-button>
+
+	<oobj-button-dropdown label="Entrada"
+				 		  ng-hide="hideEntrada"
+						  icon="fa-map-signs"
+						  btn-class="btn-primary"
+						  provider="itensEntrada">
+	</oobj-button-dropdown>
+
+	<oobj-button-dropdown label="Mais Ações"
+			 			  ng-hide="hideMaisAcoes"
+						  icon="fa-th-large"
+						  btn-class="btn-primary"
+						  provider="dropdownItems">
+	</oobj-button-dropdown>
+</div>
