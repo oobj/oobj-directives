@@ -94,5 +94,29 @@
             expect(classng.length).toBe(2);
             expect(classng.hasClass('teste')).toBeTruthy();
         });
+
+        it('Teste paddingRight valor default.', function() {
+            scope.btnClass = null;
+            element = getCompiledElement('<oobj-button-dropdown></oobj-button-dropdown>');
+            expect(element[0].style['padding-right']).toEqual('6px');
+        });
+
+        it('Teste paddingRight valor definido.', function() {
+            scope.btnClass = null;
+            element = getCompiledElement('<oobj-button-dropdown padding-right="154px"></oobj-button-dropdown>');
+            expect(element[0].style['padding-right']).toEqual('154px');
+        });
+
+        it('Teste paddingLeft nao definido.', function() {
+            scope.btnClass = null;
+            element = getCompiledElement('<oobj-button-dropdown></oobj-button-dropdown>');
+            expect(element[0].style['padding-left']).toEqual('');
+        });
+
+        it('Teste paddingLeft definido.', function() {
+            scope.btnClass = null;
+            element = getCompiledElement('<oobj-button-dropdown padding-left="10px"></oobj-button-dropdown>');
+            expect(element[0].style['padding-left']).toEqual('10px');
+        });
     });
 })();
