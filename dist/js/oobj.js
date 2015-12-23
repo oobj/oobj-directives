@@ -68,6 +68,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     "<footer class=oobj-footer>&copy;{{::year | date:'yyyy'}} Painel de Gest&atilde;o<br>Powered by Oobj - v{{::version}} [{{::generatedData | date:'dd-MM-yyyy'}}]</footer>");
   $templateCache.put("oobj-grid/oobj-grid.html",
     "<div class={{::colspan}} ui-i18n={{::language}}><div class=table-responsive><div ui-grid=gridOptions ui-grid-exporter ui-grid-selection ui-grid-pagination ng-style=getHeight() class=\"table oobj-grid-options\" ng-cloak><div class=oobj-grid-noresult ng-show=!gridOptions.data.length>Nenhum resultado encontrado</div></div></div></div>");
+  $templateCache.put("oobj-hist-entrega-modal/oobj-hist-entrega-modal.html",
+    "<oobj-modal title=\"Histórico de entrega da NF-e\" label-btn-open=\"Open modal\" size=lg show-btn-close=false show-btn-open=false id-modal=oobjModalHistEntrega><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Número - Série</span><br><span class=text-primary ng-bind=\"dfe.numero + ' - ' + dfe.serie\"></span></p></div><div class=col-md-8><p class=timeline-text><span class=text-muted>Chave de Acesso</span><br><span class=text-primary ng-bind=dfe.chaveAcesso></span></p></div></div><div class=row><div class=col-md-4><p class=timeline-text><span class=text-muted>Emitente</span><br><span class=text-primary ng-bind=dfe.emit.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.emit.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Destinatário</span><br><span class=text-primary ng-bind=dfe.dest.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.dest.cnpj></span></p></div><div class=col-md-4><p class=timeline-text><span class=text-muted>Transportador</span><br><span class=text-primary ng-bind=dfe.transp.razaoSocial.toUpperCase()></span> <span class=text-primary ng-bind=dfe.transp.cnpj></span></p></div></div><hr><div class=row><oobj-grid colspan=col-md-12 grid-options=gridOptions></oobj-grid></div></oobj-modal>");
   $templateCache.put("oobj-input-container/oobj-input-container.html",
     "<div ng-class=::colspan class=form-group><label class=control-label ng-if=\"::(showLabel != false && label != undefined)\"><strong><span ng-bind=::label></span></strong> <span class=text-danger ng-show=::ngRequired>*</span></label><div ng-transclude></div></div>");
   $templateCache.put("oobj-input-text/oobj-input-text.html",
@@ -997,6 +999,57 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 })();
 
 
+(function() {
+	'use strict';
+	
+	angular
+		.module('oobj-directives')
+		.directive('oobjHistEntregaModal', oobjHistEntregaModal);
+	
+	function oobjHistEntregaModal() {
+		
+		var directive = {
+			restrice: 'AE',
+			transclude: true,
+			templateUrl: 'oobj-hist-entrega-modal/oobj-hist-entrega-modal.html',
+			scope: {
+				dfe: '=',
+				data: '='
+			},
+			link: link
+		};
+		
+		return directive;
+		
+		function link(scope, element, attr) {
+			scope.gridOptions = {};
+			scope.gridOptions.enableFiltering = false;
+			scope.gridOptions.enableSorting = false;
+			scope.gridOptions.enablePaginationControls = false;
+			scope.gridOptions.enableRowHeaderSelection = false;
+			scope.gridOptions.enableHorizontalScrollbar = 0;
+			scope.gridOptions.enableVerticalScrollbar = 0;
+			scope.gridOptions.columnDefs = [
+			    { name: "dataHora", displayName: "Data/Hora", enableColumnMenu: false },
+			    { name: "entregador", enableColumnMenu: false },
+			    { name: "usuario", displayName: "Usuário", enableColumnMenu: false },
+			    { name: "origem", enableColumnMenu: false },
+			    { name: "status", enableColumnMenu: false,
+			      cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
+			          if (grid.getCellValue(row, col) === 'Sucesso') {
+			        	  return 'green';
+			          } else {
+			        	  return 'red';
+			          }
+			      }
+			    }
+			];
+			scope.gridOptions.data = scope.data;
+		}
+		
+	}
+	
+})();
 /**
  * Created by ATILLA on 05/10/2015.
  */

@@ -1,0 +1,67 @@
+<oobj-modal title="Histórico de entrega da NF-e"
+            label-btn-open="Open modal"
+            size="lg"
+            show-btn-close="false"
+            show-btn-open="false"
+            id-modal="oobjModalHistEntrega">
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Número - Série</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.numero + ' - ' + dfe.serie"></span>
+                </p>
+            </div>
+
+            <div class="col-md-8">
+                <p class="timeline-text">
+                    <span class="text-muted">Chave de Acesso</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.chaveAcesso"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Emitente</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.emit.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.emit.cnpj">
+                    </span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Destinatário</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.dest.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.dest.cnpj">
+                    </span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="text-muted">Transportador</span>
+                    <br/>
+                    <span class="text-primary" ng-bind="dfe.transp.razaoSocial.toUpperCase()">
+                    </span>
+                    <span class="text-primary" ng-bind="dfe.transp.cnpj">
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <hr/>
+        
+        <div class="row">
+           	<oobj-grid colspan="col-md-12" grid-options="gridOptions"></oobj-grid>
+        </div>
+        
+</oobj-modal>
