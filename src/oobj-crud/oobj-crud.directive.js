@@ -28,23 +28,23 @@
         };
 
         function link(scope) {
-            if (!scope.showBtnSalvar) {
+            if (angular.isUndefined(scope.showBtnSalvar)) {
                 scope.showBtnSalvar = true;
             }
 
-            if (!scope.showBtnLimpar) {
+            if (angular.isUndefined(scope.showBtnLimpar)) {
                 scope.showBtnLimpar = true;
             }
 
-            if (!scope.showBtnExcluir) {
+            if (angular.isUndefined(scope.showBtnExcluir)) {
                 scope.showBtnExcluir = false;
             }
 
-            if (!scope.showBtnOnBottom) {
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
                 scope.showBtnOnBottom = true;
             }
 
-            if (!scope.showBtnOnTop) {
+            if (angular.isUndefined(scope.showBtnOnTop)) {
                 scope.showBtnOnTop = false;
             }
         }

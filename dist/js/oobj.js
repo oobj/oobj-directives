@@ -550,28 +550,29 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         };
 
         function link(scope) {
-            if (!scope.showBtnSalvar) {
+            if (angular.isUndefined(scope.showBtnSalvar)) {
                 scope.showBtnSalvar = true;
             }
 
-            if (!scope.showBtnLimpar) {
+            if (angular.isUndefined(scope.showBtnLimpar)) {
                 scope.showBtnLimpar = true;
             }
 
-            if (!scope.showBtnExcluir) {
+            if (angular.isUndefined(scope.showBtnExcluir)) {
                 scope.showBtnExcluir = false;
             }
 
-            if (!scope.showBtnOnBottom) {
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
                 scope.showBtnOnBottom = true;
             }
 
-            if (!scope.showBtnOnTop) {
+            if (angular.isUndefined(scope.showBtnOnTop)) {
                 scope.showBtnOnTop = false;
             }
         }
     }
 })();
+
 /**
  * Created by Leonardo on 10/1/2015.
  */
@@ -1118,9 +1119,15 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
                     scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
                     scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
-                    scope.showBtnOpen = scope.showBtnOpen || true;
-                    scope.showBtnClose = scope.showBtnClose || true;
                     scope.size = scope.size || '';
+
+                    if (angular.isUndefined(scope.showBtnOpen)) {
+                        scope.showBtnOpen = true;
+                    }
+
+                    if (angular.isUndefined(scope.showBtnClose)) {
+                        scope.showBtnClose = true;
+                    }
                 }
             };
         }
@@ -1295,11 +1302,25 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         };
 
         function link(scope) {
-            scope.showBtnPesquisaAvancada = scope.showBtnPesquisaAvancada || true;
-            scope.showBtnPesquisar = scope.showBtnPesquisar || true;
-            scope.showBtnLimpar = scope.showBtnLimpar || false;
-            scope.showBtnOnBottom = scope.showBtnOnBottom || true;
-            scope.showBtnOnTop = scope.showBtnOnTop || false;
+            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
+                scope.showBtnPesquisaAvancada = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnPesquisar)) {
+                scope.showBtnPesquisar = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnLimpar)) {
+                scope.showBtnLimpar = false;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
+                scope.showBtnOnBottom = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnTop)) {
+                scope.showBtnOnTop = false;
+            }
         }
     }
 })();

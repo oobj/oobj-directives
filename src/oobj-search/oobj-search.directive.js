@@ -29,11 +29,25 @@
         };
 
         function link(scope) {
-            scope.showBtnPesquisaAvancada = scope.showBtnPesquisaAvancada || true;
-            scope.showBtnPesquisar = scope.showBtnPesquisar || true;
-            scope.showBtnLimpar = scope.showBtnLimpar || false;
-            scope.showBtnOnBottom = scope.showBtnOnBottom || true;
-            scope.showBtnOnTop = scope.showBtnOnTop || false;
+            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
+                scope.showBtnPesquisaAvancada = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnPesquisar)) {
+                scope.showBtnPesquisar = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnLimpar)) {
+                scope.showBtnLimpar = false;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnBottom)) {
+                scope.showBtnOnBottom = true;
+            }
+
+            if (angular.isUndefined(scope.showBtnOnTop)) {
+                scope.showBtnOnTop = false;
+            }
         }
     }
 })();

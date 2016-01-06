@@ -40,9 +40,15 @@
                     scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
                     scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
                     scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
-                    scope.showBtnOpen = scope.showBtnOpen || true;
-                    scope.showBtnClose = scope.showBtnClose || true;
                     scope.size = scope.size || '';
+
+                    if (angular.isUndefined(scope.showBtnOpen)) {
+                        scope.showBtnOpen = true;
+                    }
+
+                    if (angular.isUndefined(scope.showBtnClose)) {
+                        scope.showBtnClose = true;
+                    }
                 }
             };
         }
