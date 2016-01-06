@@ -1,12 +1,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjStats', oobjStats);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjStats () {
-        var directive = {
+        return {
             templateUrl: 'oobj-stats/oobj-stats.html',
             restrict: 'E',
             replace: true,
@@ -21,7 +22,5 @@
                 'goto': '@'
             }
         };
-
-        return directive;
     }
 })();

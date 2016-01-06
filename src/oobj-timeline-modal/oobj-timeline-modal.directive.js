@@ -8,9 +8,9 @@
     	.module('oobj-directives')
         .directive('oobjTimelineModal', oobjTimelineModal);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjTimelineModal() {
-        var directive = {
+        return {
             restrict: 'AE',
             transclude: true,
             templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
@@ -21,12 +21,8 @@
             link: link
         };
 
-        return directive;
-        
-        function link(scope, elem, attr) {
+        function link(scope) {
         	scope.type = 'todos';
         }
-        
     }
-    
 })();

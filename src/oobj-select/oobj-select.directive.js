@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjSelect() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-select/oobj-select.html',
@@ -29,20 +29,13 @@
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.itemLabel)) {
-                        scope.itemLabel = 'descricao';
-                    }
-
-                    if (angular.isUndefined(scope.inputSize)) {
-                        scope.inputSize = 'sm';
-                    }
+                pre: function preLink(scope) {
+                    scope.itemLabel = scope.itemLabel || 'descricao';
+                    scope.inputSize = scope.inputSize || 'sm';
                 }
-            }
+            };
         }
     }
 })();

@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjPanel() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-panel/oobj-panel.html',
             transclude: true,
@@ -23,12 +23,8 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.panelClass)) {
-                scope.panelClass = 'panel-default';
-            }
+        function link(scope) {
+            scope.panelClass = scope.panelClass || 'panel-default';
         }
     }
 })();

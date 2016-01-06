@@ -10,8 +10,7 @@
 
     /** @ngInject */
     function oobjRadio() {
-
-        var directive = {
+         return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-radio/oobj-radio.html',
@@ -27,17 +26,15 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (scope.inline == true) {
+        function link(scope) {
+            if (scope.inline === true) {
                 scope.radioClass = 'radio-inline';
             }
 
-            if (angular.isDefined(scope.colspan)) {
+            if (scope.colspan) {
                 var classes = scope.colspan;
 
-                if (angular.isDefined(scope.radioClass)) {
+                if (scope.radioClass) {
                     classes = classes + ' ' + scope.radioClass;
                 }
 

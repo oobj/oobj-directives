@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjMultiselect() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-multiselect/oobj-multiselect.html',
@@ -30,26 +30,16 @@
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.itemLabel)) {
-                        scope.itemLabel = 'descricao';
-                    }
-
-                    if (angular.isUndefined(scope.itemId)) {
-                        scope.itemId = 'id';
-                    }
-
-                    if (angular.isUndefined(scope.inputSize)) {
-                        scope.inputSize = 'sm';
-                    }
+                pre: function preLink(scope, element) {
+                    scope.itemLabel = scope.itemLabel || 'descricao';
+                    scope.itemId = scope.itemId || 'id';
+                    scope.inputSize = scope.inputSize || 'sm';
 
                     bindSelect(scope, element);
                 }
-            }
+            };
         }
 
         function bindSelect(scope, element) {

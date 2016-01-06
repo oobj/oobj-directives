@@ -12,13 +12,12 @@
 
     /** @ngInject */
     function oobjColumn($filter) {
-
-        var oobjColumn = function (columnName, field, width) {
-            this.columnName = angular.isDefined(columnName) ? columnName : '';
+        return function(columnName, field, width) {
+            this.columnName = columnName || '';
+            this.field = field || '';
+            this.width = width || '45';
             this.mask = mask;
         };
-
-        return oobjColumn;
 
         function mask(value, pattern) {
             return $filter(pattern)(value);

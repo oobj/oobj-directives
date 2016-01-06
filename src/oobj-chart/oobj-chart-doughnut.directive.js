@@ -4,12 +4,12 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartDoughnut', oobjChartDoughnut);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartDoughnut() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -22,6 +22,5 @@
                 chartId: '@'
             }
         };
-
     }
 })();

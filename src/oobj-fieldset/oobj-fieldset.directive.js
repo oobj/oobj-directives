@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjFieldset() {
-        var directive = {
+        return {
             restrict: 'EA',
             transclude: true,
             templateUrl: 'oobj-fieldset/oobj-fieldset.html',
@@ -20,7 +20,5 @@
                 title: '@'
             }
         };
-
-        return directive;
     }
 })();

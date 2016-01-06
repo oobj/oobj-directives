@@ -124,7 +124,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjAutocomplete() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-autocomplete/oobj-autocomplete.html',
@@ -151,16 +151,14 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.inputSize)) {
+        function link(scope) {
+            if (!scope.inputSize) {
                 scope.inputSize = 'sm';
             }
 
             scope.limpar = function() {
                 scope.ngModel = null;
-            }
+            };
         }
     }
 })();
@@ -176,7 +174,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjButtonDropdown() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-button-dropdown/oobj-button-dropdown.html',
             scope: {
@@ -192,30 +190,28 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
 
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.btnClass)) {
+                pre: function preLink(scope, element) {
+                    if (!scope.btnClass) {
                         scope.btnClass = 'btn-default';
                     }
 
-                    if (angular.isUndefined(scope.paddingRight)) {
+                    if (!scope.paddingRight) {
                         element.css('padding-right', '6px');
                     } else {
                         element.css('padding-right', scope.paddingRight);
                     }
 
-                    if (angular.isDefined(scope.paddingLeft)) {
+                    if (scope.paddingLeft) {
                         element.css('padding-left', scope.paddingLeft);
                     }
                 }
-            }
+            };
         }
     }
 })();
@@ -233,7 +229,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjButton() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-button/oobj-button.html',
             scope: {
@@ -247,26 +243,24 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.btnClass)) {
+                pre: function preLink(scope, element) {
+                    if (!scope.btnClass) {
                         scope.btnClass = 'btn-default';
                     }
 
-                    if (angular.isUndefined(scope.paddingRight)) {
+                    if (!scope.paddingRight) {
                         element.css('padding-right', '6px');
                     } else {
                         element.css('padding-right', scope.paddingRight);
                     }
 
-                    if (angular.isDefined(scope.paddingLeft)) {
+                    if (scope.paddingLeft) {
                         element.css('padding-left', scope.paddingLeft);
                     }
                 }
-            }
+            };
         }
     }
 })();
@@ -277,12 +271,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartBar', oobjChartBar);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartBar() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-chart/oobj-chart-bar.html',
@@ -297,8 +292,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
@@ -310,12 +303,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartDoughnut', oobjChartDoughnut);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartDoughnut() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -328,7 +321,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 chartId: '@'
             }
         };
-
     }
 })();
 /**
@@ -337,12 +329,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartLine', oobjChartLine);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartLine() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -354,7 +346,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 title: '@'
             }
         };
-
     }
 })();
 /**
@@ -363,12 +354,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartPie', oobjChartPie);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartPie() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-chart/oobj-chart-pie.html',
@@ -381,8 +373,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
@@ -394,12 +384,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartRadar', oobjChartRadar);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartRadar() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -412,7 +402,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 chartId: '@'
             }
         };
-
     }
 })();
 /**
@@ -427,7 +416,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjCheckbox() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-checkbox/oobj-checkbox.html',
@@ -441,17 +430,15 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (scope.inline == true) {
+        function link(scope) {
+            if (scope.inline === true) {
                 scope.checkboxClass = 'checkbox-inline';
             }
 
-            if (angular.isDefined(scope.colspan)) {
+            if (scope.colspan) {
                 var classes = scope.colspan;
 
-                if (angular.isDefined(scope.checkboxClass)) {
+                if (scope.checkboxClass) {
                     classes = classes + ' ' + scope.checkboxClass;
                 }
 
@@ -466,12 +453,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjConfirmButton', oobjConfirmButton);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjConfirmButton() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-confirm-button/oobj-confirm-button.html',
             scope: {
@@ -492,16 +480,14 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.classBtnConfirm)) {
+                pre: function preLink(scope) {
+                    if (!scope.classBtnConfirm) {
                         scope.classBtnConfirm = 'btn-default';
                     }
                 }
-            }
+            };
         }
     }
 })();
@@ -512,12 +498,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-            .directive('oobjContainer', oobjContainer);
+    angular
+        .module('oobj-directives')
+        .directive('oobjContainer', oobjContainer);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjContainer() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-container/oobj-container.html',
             transclude: true,
@@ -527,14 +514,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
     }
 })();
-
 
 /**
  * Created by ATILLA on 09/10/2015.
@@ -542,12 +526,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjCrud', oobjCrud);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjCrud() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-crud/oobj-crud.html',
             transclude: true,
@@ -564,26 +549,24 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.showBtnSalvar)) {
+        function link(scope) {
+            if (!scope.showBtnSalvar) {
                 scope.showBtnSalvar = true;
             }
 
-            if (angular.isUndefined(scope.showBtnLimpar)) {
+            if (!scope.showBtnLimpar) {
                 scope.showBtnLimpar = true;
             }
 
-            if (angular.isUndefined(scope.showBtnExcluir)) {
+            if (!scope.showBtnExcluir) {
                 scope.showBtnExcluir = false;
             }
 
-            if (angular.isUndefined(scope.showBtnOnBottom)) {
+            if (!scope.showBtnOnBottom) {
                 scope.showBtnOnBottom = true;
             }
 
-            if (angular.isUndefined(scope.showBtnOnTop)) {
+            if (!scope.showBtnOnTop) {
                 scope.showBtnOnTop = false;
             }
         }
@@ -601,8 +584,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjDatePicker() {
-
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-date-picker/oobj-date-picker.html',
@@ -620,38 +602,38 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        function link(scope, elements, attr, ngModelCtrl) {
+        function link(scope) {
             scope.opts = {
                 locale: {
-                    format: "DD/MM/YYYY",
-                    separator: " - ",
-                    cancelLabel: "Limpar",
-                    applyLabel: "OK",
-                    fromLabel: "Entre",
-                    toLabel: "E",
-                    customRangeLabel: "Personalizar",
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    cancelLabel: 'Limpar',
+                    applyLabel: 'OK',
+                    fromLabel: 'Entre',
+                    toLabel: 'E',
+                    customRangeLabel: 'Personalizar',
                     daysOfWeek: [
-                        "Dom",
-                        "Seg",
-                        "Ter",
-                        "Qua",
-                        "Qui",
-                        "Sex",
-                        "Sáb"
+                        'Dom',
+                        'Seg',
+                        'Ter',
+                        'Qua',
+                        'Qui',
+                        'Sex',
+                        'Sáb'
                     ],
                     monthNames: [
-                        "Janeiro",
-                        "Fevereiro",
-                        "Março",
-                        "Abril",
-                        "Maio",
-                        "Junho",
-                        "Julho",
-                        "Agosto",
-                        "Setembro",
-                        "Outubro",
-                        "Novembro",
-                        "Dezembro"
+                        'Janeiro',
+                        'Fevereiro',
+                        'Março',
+                        'Abril',
+                        'Maio',
+                        'Junho',
+                        'Julho',
+                        'Agosto',
+                        'Setembro',
+                        'Outubro',
+                        'Novembro',
+                        'Dezembro'
                     ],
                     firstDay: 1
                 },
@@ -661,25 +643,20 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                     'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
                     'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
                     'Este Mês': [moment().startOf('month'), moment().endOf('month')],
-                    'Mês Passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'Mês Passado': [moment().subtract(1, 'month').startOf('month'),
+                        moment().subtract(1, 'month').endOf('month')]
                 },
                 linkedCalendars: false,
-                opens: "left",
-                cancelClass: "btn-danger",
+                opens: 'left',
+                cancelClass: 'btn-danger'
             };
 
-            if (angular.isUndefined(scope.inputSize)) {
+            scope.opts.singleDatePicker = scope.range ? false : true;
+
+            if (!scope.inputSize) {
                 scope.inputSize = 'sm';
             }
-
-            if (angular.isDefined(scope.range)) {
-                scope.opts.singleDatePicker = false;
-            } else {
-                scope.opts.singleDatePicker = true;
-            }
         }
-
-        return directive;
     }
 })();
 /**
@@ -690,13 +667,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 	
 	angular
 		.module('oobj-directives')
-		.directive('oobjDfeActions', OobjDfeActions);
+		.directive('oobjDfeActions', oobjDfeActions);
 	
-	OobjDfeActions.$inject = ['MsgUtil'];
-	
-	function OobjDfeActions(MsgUtil) {
-		
-		var directive = {
+	oobjDfeActions.$inject = ['MsgUtil'];
+
+	/** @ngInject */
+	function oobjDfeActions(MsgUtil) {
+		return {
 			restrict: 'AE',
 			templateUrl: 'oobj-dfe-actions/oobj-dfe-actions.html',
 			scope: {
@@ -724,130 +701,68 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 				hideEntrada: '@'
 			},
 			link: link
-		}
+		};
 		
-		return directive;
-		
-		function link($scope, $elem, $attr) {
-			
-	        if (angular.isUndefined($attr.downloadXml)) {
-	        	$scope.downloadXml = function() {
-		            MsgUtil.msg('Download de XML');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.downloadDanfe)) {
-		        $scope.downloadDanfe = function() {
-		            MsgUtil.msg('Download de DANFe');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.manifestar)) {
-		        $scope.manifestar = function() {
-		            MsgUtil.msg('Manifesto do Destinatário');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.reconsultar)) {
-		        $scope.reconsultar = function() {
-		            MsgUtil.msg('Reconsultar NFe');
-		        };
-	        }
-	        
-	        function downloadDacceDefault() {
-	            MsgUtil.msg('Download de DACCe');
-	        }
-			
-			if (angular.isUndefined($attr.downloadDacce)) {
-		        $scope.downloadDacce = downloadDacceDefault;
-	        }
+		function link(scope, elem, attr) {
+			getDefaults(scope, attr);
 
-			function revalidarXmlDefault() {
-				MsgUtil.msg('Revalidar Arquivo XML');
-			}
-			
-	        if (angular.isUndefined($attr.revalidarXml)) {
-		        $scope.revalidarXml = revalidarXmlDefault;
-	        }
-
-	        function diagnosticoFiscalDefault() {
-	        	MsgUtil.msg('Diagnóstico Fiscal');
-	        }
-	        
-	        if (angular.isUndefined($attr.diagnosticoFiscal)) {
-		        $scope.diagnosticoFiscal = diagnosticoFiscalDefault;
-	        }
-
-	        function reconhecerDocumentosDefault() {
-	        	MsgUtil.msg('Reconhecer Documento(s)');
-	        }
-	        
-	        if (angular.isUndefined($attr.reconhecerDocumentos)) {
-		        $scope.reconhecerDocumentos = reconhecerDocumentosDefault;
-	        }
-
-	        function reentregarDocumentosDefault() {
-	        	MsgUtil.msg('Reentregar Documento(s)');
-	        }
-	        
-	        if (angular.isUndefined($attr.reentregarDocumentos)) {
-		        $scope.reentregarDocumentos = reentregarDocumentosDefault;
-	        }
-
-	        function registrarEntradaDefault() {
-	        	MsgUtil.msg('Registrar Entrada');
-	        }
-	        
-	        if (angular.isUndefined($attr.registrarEntrada)) {
-		        $scope.registrarEntrada = registrarEntradaDefault;
-	        }
-
-	        function desfazerEntradaDefault() {
-	        	MsgUtil.msg('Defazer Entrada');
-	        }
-	        
-	        if (angular.isUndefined($attr.desfazerEntrada)) {
-		        $scope.desfazerEntrada = desfazerEntradaDefault;
-	        }
-	        
-	        $scope.dropdownItems = {
+	        scope.dropdownItems = {
 				downloadDACCe: {
 					label: 'Download de DACCe',
-	                action: $scope.downloadDacce
+	                action: scope.downloadDacce
 	            },
 	            revalidarXML: {
 	                label: 'Revalidar Arquivo XML',
-	                action: $scope.revalidarXml
+	                action: scope.revalidarXml
 	            },
 	            diagnosticoFiscal: {
 	                label: 'Diagnóstico Fiscal',
-	                action: $scope.diagnosticoFiscal
+	                action: scope.diagnosticoFiscal
 	            },
 	            reconhecerDocumentos: {
 	                label: 'Reconhecer Documento(s)',
-	                action: $scope.reconhecerDocumentos
+	                action: scope.reconhecerDocumentos
 	            },
 	            reentregarDocumentos: {
 	                label: 'Reentregar Documento(s)',
-	                action: $scope.reentregarDocumentos
+	                action: scope.reentregarDocumentos
 	            }
 	        };
 
-	        $scope.itensEntrada = {
+	        scope.itensEntrada = {
 	            registrarEntrada: {
 	                label: 'Registrar Entrada',
-	                action: $scope.registrarEntrada
+	                action: scope.registrarEntrada
 	            },
 	            desfazerEntrada: {
 	                label: 'Desfazer Entrada',
-	                action: $scope.desfazerEntrada
+	                action: scope.desfazerEntrada
 	            }
 	        };
-	        
+		}
+
+		function getDefaults(scope, attr) {
+			scope.downloadXml = getFunctionMsg(attr.downloadXml, 'Download de XML');
+			scope.downloadDanfe = getFunctionMsg(attr.downloadDanfe, 'Download de DANFe');
+			scope.manifestar = getFunctionMsg(attr.manifestar, 'Manifesto do Destinatário');
+			scope.reconsultar = getFunctionMsg(attr.reconsultar, 'Reconsultar NFe');
+			scope.downloadDacce = getFunctionMsg(attr.downloadDacce, 'Download de DACCe');
+			scope.revalidarXml = getFunctionMsg(attr.revalidarXml, 'Revalidar Arquivo XML');
+			scope.diagnosticoFiscal = getFunctionMsg(attr.diagnosticoFiscal, 'Diagnóstico Fiscal');
+			scope.reconhecerDocumentos = getFunctionMsg(attr.reconhecerDocumentos, 'Reconhecer Documento(s)');
+			scope.reentregarDocumentos = getFunctionMsg(attr.reentregarDocumentos, 'Reentregar Documento(s)');
+			scope.registrarEntrada = getFunctionMsg(attr.registrarEntrada, 'Registrar Entrada');
+			scope.desfazerEntrada = getFunctionMsg(attr.desfazerEntrada, 'Defazer Entrada');
+		}
+
+		function getFunctionMsg(value, msg) {
+			return value || function() {
+				MsgUtil.msg(msg);
+			};
 		}
 	}
-	
 })();
+
 /**
  * Created by ATILLA on 05/11/2015.
  */
@@ -860,7 +775,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjFieldset() {
-        var directive = {
+        return {
             restrict: 'EA',
             transclude: true,
             templateUrl: 'oobj-fieldset/oobj-fieldset.html',
@@ -870,8 +785,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 title: '@'
             }
         };
-
-        return directive;
     }
 })();
 
@@ -881,10 +794,11 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjFooter', oobjFooter);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjFooter() {
         return {
             restrict: 'EA',
@@ -897,13 +811,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        function link(scope, elements, attr, ngModelCtrl) {
+        function link(scope) {
             scope.version = '0.0.1';
             scope.generatedData = new Date();
             scope.year = new Date();
         }
     }
-
 })();
 /**
  * Created by ATILLA on 27/11/2015.
@@ -919,13 +832,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjColumn($filter) {
-
-        var oobjColumn = function (columnName, field, width) {
-            this.columnName = angular.isDefined(columnName) ? columnName : '';
+        return function(columnName, field, width) {
+            this.columnName = columnName || '';
+            this.field = field || '';
+            this.width = width || '45';
             this.mask = mask;
         };
-
-        return oobjColumn;
 
         function mask(value, pattern) {
             return $filter(pattern)(value);
@@ -945,8 +857,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjGrid() {
-
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-grid/oobj-grid.html',
             scope: {
@@ -960,44 +871,40 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
                 pre: function preLink(scope, element, attrs) {
                     scope.language = 'pt-br';
 
-                    if (angular.isUndefined(scope.gridOptions)) {
+                    if (!scope.gridOptions) {
                         scope.gridOptions = {};
                     }
 
                     scope.gridStyle = {};
 
-                    if (angular.isDefined(attrs.width)) {
+                    if (attrs.width) {
                         scope.gridStyle.width = attrs.width;
                     }
 
-                    if (angular.isDefined(attrs.height)) {
+                    if (attrs.height) {
                         scope.gridStyle.height = attrs.height;
                     }
 
-                    if (angular.isDefined(scope.data)) {
+                    if (scope.data) {
                         scope.gridOptions.data = scope.data;
                     }
 
                     scope.getHeight = function() {
                         var rowHeight = 45;
                         return {
-                            height: (scope.gridOptions.data.length * rowHeight) + "px"
+                            height: (scope.gridOptions.data.length * rowHeight) + 'px'
                         };
-                    }
+                    };
                 }
-            }
+            };
         }
-
     }
 })();
-
 
 (function() {
 	'use strict';
@@ -1005,10 +912,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 	angular
 		.module('oobj-directives')
 		.directive('oobjHistEntregaModal', oobjHistEntregaModal);
-	
+
+	/** @ngInject */
 	function oobjHistEntregaModal() {
-		
-		var directive = {
+		return {
 			restrice: 'AE',
 			transclude: true,
 			templateUrl: 'oobj-hist-entrega-modal/oobj-hist-entrega-modal.html',
@@ -1019,9 +926,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 			link: link
 		};
 		
-		return directive;
-		
-		function link(scope, element, attr) {
+		function link(scope) {
 			scope.gridOptions = {};
 			scope.gridOptions.enableFiltering = false;
 			scope.gridOptions.enableSorting = false;
@@ -1030,12 +935,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 			scope.gridOptions.enableHorizontalScrollbar = 0;
 			scope.gridOptions.enableVerticalScrollbar = 0;
 			scope.gridOptions.columnDefs = [
-			    { name: "dataHora", displayName: "Data/Hora", enableColumnMenu: false },
-			    { name: "entregador", enableColumnMenu: false },
-			    { name: "usuario", displayName: "Usuário", enableColumnMenu: false },
-			    { name: "origem", enableColumnMenu: false },
-			    { name: "status", enableColumnMenu: false,
-			      cellClass: function(grid, row, col, rowRenderIndex, colRenderIndex) {
+			    { name: 'dataHora', displayName: 'Data/Hora', enableColumnMenu: false },
+			    { name: 'entregador', enableColumnMenu: false },
+			    { name: 'usuario', displayName: 'Usuário', enableColumnMenu: false },
+			    { name: 'origem', enableColumnMenu: false },
+			    { name: 'status', enableColumnMenu: false,
+			      cellClass: function(grid, row, col) {
 			          if (grid.getCellValue(row, col) === 'Sucesso') {
 			        	  return 'green';
 			          } else {
@@ -1044,11 +949,10 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 			      }
 			    }
 			];
+			
 			scope.gridOptions.data = scope.data;
 		}
-		
 	}
-	
 })();
 /**
  * Created by ATILLA on 05/10/2015.
@@ -1056,12 +960,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjInputContainer', oobjInputContainer);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjInputContainer() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-input-container/oobj-input-container.html',
             transclude: true,
@@ -1072,8 +977,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             },
             link: link
         };
-
-        return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
 
@@ -1087,13 +990,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-            .directive('oobjInputText', oobjInputText);
+    angular
+        .module('oobj-directives')
+        .directive('oobjInputText', oobjInputText);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjInputText() {
-
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-input-text/oobj-input-text.html',
@@ -1126,21 +1029,17 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.inputSize)) {
+        function link(scope) {
+            if (!scope.inputSize) {
                 scope.inputSize = 'sm';
             }
 
             scope.limpar = function() {
                 scope.ngModel = null;
-            }
+            };
         }
-
     }
 })();
-
 
 /**
  * Created by ATILLA on 20/10/2015.
@@ -1152,9 +1051,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
         .module('oobj-directives')
         .directive('oobjLogin', oobjLogin);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjLogin() {
-        var directive = {
+        return {
             link: link,
             restrict: 'EA',
             templateUrl: 'oobj-login/oobj-login.html',
@@ -1171,9 +1070,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             }
         };
 
-        return directive;
-
         function link(scope, element, attrs) {
+
         }
     }
 })();
@@ -1184,12 +1082,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjModal', oobjModal);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjModal() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-modal/oobj-modal.html',
             transclude: true,
@@ -1208,44 +1107,22 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
 
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.idModal)) {
-                        scope.idModal = '#oobjModal';
-                    }
-
-                    if (angular.isUndefined(scope.classBtnOpen)) {
-                        scope.classBtnOpen = 'btn-default';
-                    }
-
-                    if (angular.isUndefined(scope.labelBtnOpen)) {
-                        scope.labelBtnOpen = 'Abrir Modal';
-                    }
-
-                    if (angular.isUndefined(scope.labelBtnClose)) {
-                        scope.labelBtnClose = 'Fechar';
-                    }
-
-                    if (angular.isUndefined(scope.showBtnOpen)) {
-                        scope.showBtnOpen = true;
-                    }
-
-                    if (angular.isUndefined(scope.showBtnClose)) {
-                        scope.showBtnClose = true;
-                    }
-
-                    if (angular.isUndefined(scope.size)) {
-                        scope.size = '';
-                    }
+                pre: function preLink(scope) {
+                    scope.idModal = scope.idModal || '#oobjModal';
+                    scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
+                    scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
+                    scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
+                    scope.showBtnOpen = scope.showBtnOpen || true;
+                    scope.showBtnClose = scope.showBtnClose || true;
+                    scope.size = scope.size || '';
                 }
-            }
+            };
         }
     }
 })();
@@ -1262,7 +1139,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjMultiselect() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-multiselect/oobj-multiselect.html',
@@ -1282,26 +1159,16 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.itemLabel)) {
-                        scope.itemLabel = 'descricao';
-                    }
-
-                    if (angular.isUndefined(scope.itemId)) {
-                        scope.itemId = 'id';
-                    }
-
-                    if (angular.isUndefined(scope.inputSize)) {
-                        scope.inputSize = 'sm';
-                    }
+                pre: function preLink(scope, element) {
+                    scope.itemLabel = scope.itemLabel || 'descricao';
+                    scope.itemId = scope.itemId || 'id';
+                    scope.inputSize = scope.inputSize || 'sm';
 
                     bindSelect(scope, element);
                 }
-            }
+            };
         }
 
         function bindSelect(scope, element) {
@@ -1332,7 +1199,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjPanel() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-panel/oobj-panel.html',
             transclude: true,
@@ -1345,12 +1212,8 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.panelClass)) {
-                scope.panelClass = 'panel-default';
-            }
+        function link(scope) {
+            scope.panelClass = scope.panelClass || 'panel-default';
         }
     }
 })();
@@ -1367,8 +1230,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjRadio() {
-
-        var directive = {
+         return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-radio/oobj-radio.html',
@@ -1384,17 +1246,15 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (scope.inline == true) {
+        function link(scope) {
+            if (scope.inline === true) {
                 scope.radioClass = 'radio-inline';
             }
 
-            if (angular.isDefined(scope.colspan)) {
+            if (scope.colspan) {
                 var classes = scope.colspan;
 
-                if (angular.isDefined(scope.radioClass)) {
+                if (scope.radioClass) {
                     classes = classes + ' ' + scope.radioClass;
                 }
 
@@ -1416,7 +1276,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjSearch() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
             transclude: true,
@@ -1434,28 +1294,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
-                scope.showBtnPesquisaAvancada = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnPesquisar)) {
-                scope.showBtnPesquisar = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnLimpar)) {
-                scope.showBtnLimpar = false;
-            }
-
-            if (angular.isUndefined(scope.showBtnOnBottom)) {
-                scope.showBtnOnBottom = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnOnTop)) {
-                scope.showBtnOnTop = false;
-            }
+        function link(scope) {
+            scope.showBtnPesquisaAvancada = scope.showBtnPesquisaAvancada || true;
+            scope.showBtnPesquisar = scope.showBtnPesquisar || true;
+            scope.showBtnLimpar = scope.showBtnLimpar || false;
+            scope.showBtnOnBottom = scope.showBtnOnBottom || true;
+            scope.showBtnOnTop = scope.showBtnOnTop || false;
         }
     }
 })();
@@ -1472,7 +1316,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     /** @ngInject */
     function oobjSelect() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-select/oobj-select.html',
@@ -1491,32 +1335,26 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.itemLabel)) {
-                        scope.itemLabel = 'descricao';
-                    }
-
-                    if (angular.isUndefined(scope.inputSize)) {
-                        scope.inputSize = 'sm';
-                    }
+                pre: function preLink(scope) {
+                    scope.itemLabel = scope.itemLabel || 'descricao';
+                    scope.inputSize = scope.inputSize || 'sm';
                 }
-            }
+            };
         }
     }
 })();
 (function () {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjSidebar', oobjSidebar);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjSidebar() {
-        var directive = {
+        return {
             templateUrl: 'oobj-sidebar/oobj-sidebar.html',
             restrict: 'E',
             replace: true,
@@ -1524,101 +1362,15 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 provider: '='
             },
             link: link
-        }
+        };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
+        function link(scope) {
             scope.selectedMenu = 'dashboard';
             scope.collapseVar = 0;
             scope.multiCollapseVar = 0;
 
-            /*if (angular.isUndefined(scope.provider)) {
-                scope.provider = [
-                    {
-                        "icon": "fa-tachometer fa-fw",
-                        "label": "Dashboard",
-                        "sref": "dashboard.home"
-                    },
-                    {
-                        "icon": "fa-arrow-circle-o-right fa-fw",
-                        "label": "Emissão de DF-e",
-                        "itens": [
-                            {
-                                "label": "NF-e Emitidas",
-                                "sref": "dashboard.nfe-emissao"
-                            },
-                            {
-                                "label": "NFC-e Emitidas",
-                                "sref": "dashboard.nfce-emissao"
-                            },
-                            {
-                                "label": "CT-e Emitidos",
-                                "sref": "dashboard.cte-emissao-pesquisa"
-                            },
-                            {
-                                "label": "MDF-e Emitidos [tmp]",
-                                "sref": "dashboard.cte-emissao-cadastro"
-                            }
-                        ]
-                    },
-                    {
-                        "icon": "fa-arrow-circle-o-left fa-fw",
-                        "label": "Recebimento de DF-e",
-                        "itens": [
-                            {
-                                "label": "NF-e Recebidas",
-                                "sref": "dashboard.nfe-recebimento"
-                            },
-                            {
-                                "label": "NFC-e Recebidas",
-                                "sref": "dashboard.nfce-recebimento"
-                            },
-                            {
-                                "label": "CT-e Recebidos",
-                                "sref": "dashboard.cte-recebimento"
-                            },
-                            {
-                                "label": "MDF-e Recebidos",
-                                "sref": "dashboard.mdfe-recebimento"
-                            }
-                        ]
-                    },
-                    {
-                        "icon": "fa-share-alt fa-fw",
-                        "label": "Integração",
-                        "sref": "dashboard.integracao"
-                    },
-                    {
-                        "icon": "fa-map-signs fa-fw",
-                        "label": "Portaria",
-                        "sref": "dashboard.portaria"
-                    },
-                    {
-                        "icon": "fa-cog fa-fw",
-                        "label": "Ferramentas",
-                        "sref": "dashboard.ferramentas"
-                    },
-                    {
-                        "icon": "fa-file-pdf-o fa-fw",
-                        "label": "Relatórios",
-                        "sref": "dashboard.relatorios"
-                    },
-                    {
-                        "icon": "fa-briefcase fa-fw",
-                        "label": "Administração",
-                        "sref": "dashboard.administracao"
-                    },
-                    {
-                        "icon": "fa-pencil-square-o fa-fw",
-                        "label": "Customizações",
-                        "sref": "dashboard.customizacoes"
-                    }
-                ];
-            }*/
-
             scope.check = function (x) {
-                if (x == scope.collapseVar) {
+                if (x === scope.collapseVar) {
                     scope.collapseVar = 0;
                 } else {
                     scope.collapseVar = x;
@@ -1626,7 +1378,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             };
 
             scope.multiCheck = function (y) {
-                if (y == scope.multiCollapseVar) {
+                if (y === scope.multiCollapseVar) {
                     scope.multiCollapseVar = 0;
                 } else {
                     scope.multiCollapseVar = y;
@@ -1639,12 +1391,13 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjStats', oobjStats);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjStats () {
-        var directive = {
+        return {
             templateUrl: 'oobj-stats/oobj-stats.html',
             restrict: 'E',
             replace: true,
@@ -1659,8 +1412,6 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
                 'goto': '@'
             }
         };
-
-        return directive;
     }
 })();
 
@@ -1674,9 +1425,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
     	.module('oobj-directives')
         .directive('oobjTimelineModal', oobjTimelineModal);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjTimelineModal() {
-        var directive = {
+        return {
             restrict: 'AE',
             transclude: true,
             templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
@@ -1687,15 +1438,12 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-        
-        function link(scope, elem, attr) {
+        function link(scope) {
         	scope.type = 'todos';
         }
-        
     }
-    
 })();
+
 /**
  * Created by Leonardo on 08/10/2015.
  */
@@ -1708,10 +1456,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
 
     oobjTimeline.$inject = ['filterFilter'];
     
-    /* @ngInject */
+    /** @ngInject */
     function oobjTimeline(filterFilter) {
-
-        var directive = {
+        return {
             templateUrl: 'oobj-timeline/oobj-timeline.html',
             restrict: 'E',
             replace: true,
@@ -1723,13 +1470,9 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             link: link
         };
 
-        return directive;
-        
-        function link(scope, element, attr) {
-        	
+        function link(scope) {
         	// filter elements of the timeline by type whenever it changes
         	scope.$watch('filter', function(newType) {
-        		
         		scope.items = filterFilter(scope.provider, function(item) {
             		if (newType === 'todos') {
             			return true;
@@ -1737,10 +1480,7 @@ angular.module('oobj-directives.templates', []).run(['$templateCache', function(
             			return newType === item.type;
             		}
             	});
-        		
         	});
-        	
         }
     }
-
 })();

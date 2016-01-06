@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjButtonDropdown() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-button-dropdown/oobj-button-dropdown.html',
             scope: {
@@ -26,30 +26,28 @@
             compile: compile
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
 
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.btnClass)) {
+                pre: function preLink(scope, element) {
+                    if (!scope.btnClass) {
                         scope.btnClass = 'btn-default';
                     }
 
-                    if (angular.isUndefined(scope.paddingRight)) {
+                    if (!scope.paddingRight) {
                         element.css('padding-right', '6px');
                     } else {
                         element.css('padding-right', scope.paddingRight);
                     }
 
-                    if (angular.isDefined(scope.paddingLeft)) {
+                    if (scope.paddingLeft) {
                         element.css('padding-left', scope.paddingLeft);
                     }
                 }
-            }
+            };
         }
     }
 })();

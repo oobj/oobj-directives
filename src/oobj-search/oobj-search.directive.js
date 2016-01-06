@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjSearch() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-search/oobj-search.html',
             transclude: true,
@@ -28,28 +28,12 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.showBtnPesquisaAvancada)) {
-                scope.showBtnPesquisaAvancada = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnPesquisar)) {
-                scope.showBtnPesquisar = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnLimpar)) {
-                scope.showBtnLimpar = false;
-            }
-
-            if (angular.isUndefined(scope.showBtnOnBottom)) {
-                scope.showBtnOnBottom = true;
-            }
-
-            if (angular.isUndefined(scope.showBtnOnTop)) {
-                scope.showBtnOnTop = false;
-            }
+        function link(scope) {
+            scope.showBtnPesquisaAvancada = scope.showBtnPesquisaAvancada || true;
+            scope.showBtnPesquisar = scope.showBtnPesquisar || true;
+            scope.showBtnLimpar = scope.showBtnLimpar || false;
+            scope.showBtnOnBottom = scope.showBtnOnBottom || true;
+            scope.showBtnOnTop = scope.showBtnOnTop || false;
         }
     }
 })();

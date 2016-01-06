@@ -4,10 +4,11 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjFooter', oobjFooter);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjFooter() {
         return {
             restrict: 'EA',
@@ -20,11 +21,10 @@
             link: link
         };
 
-        function link(scope, elements, attr, ngModelCtrl) {
+        function link(scope) {
             scope.version = '0.0.1';
             scope.generatedData = new Date();
             scope.year = new Date();
         }
     }
-
 })();

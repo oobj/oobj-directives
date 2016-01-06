@@ -4,12 +4,12 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartLine', oobjChartLine);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartLine() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -21,6 +21,5 @@
                 title: '@'
             }
         };
-
     }
 })();

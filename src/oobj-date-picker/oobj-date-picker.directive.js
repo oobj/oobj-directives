@@ -10,8 +10,7 @@
 
     /** @ngInject */
     function oobjDatePicker() {
-
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-date-picker/oobj-date-picker.html',
@@ -29,38 +28,38 @@
             link: link
         };
 
-        function link(scope, elements, attr, ngModelCtrl) {
+        function link(scope) {
             scope.opts = {
                 locale: {
-                    format: "DD/MM/YYYY",
-                    separator: " - ",
-                    cancelLabel: "Limpar",
-                    applyLabel: "OK",
-                    fromLabel: "Entre",
-                    toLabel: "E",
-                    customRangeLabel: "Personalizar",
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    cancelLabel: 'Limpar',
+                    applyLabel: 'OK',
+                    fromLabel: 'Entre',
+                    toLabel: 'E',
+                    customRangeLabel: 'Personalizar',
                     daysOfWeek: [
-                        "Dom",
-                        "Seg",
-                        "Ter",
-                        "Qua",
-                        "Qui",
-                        "Sex",
-                        "Sáb"
+                        'Dom',
+                        'Seg',
+                        'Ter',
+                        'Qua',
+                        'Qui',
+                        'Sex',
+                        'Sáb'
                     ],
                     monthNames: [
-                        "Janeiro",
-                        "Fevereiro",
-                        "Março",
-                        "Abril",
-                        "Maio",
-                        "Junho",
-                        "Julho",
-                        "Agosto",
-                        "Setembro",
-                        "Outubro",
-                        "Novembro",
-                        "Dezembro"
+                        'Janeiro',
+                        'Fevereiro',
+                        'Março',
+                        'Abril',
+                        'Maio',
+                        'Junho',
+                        'Julho',
+                        'Agosto',
+                        'Setembro',
+                        'Outubro',
+                        'Novembro',
+                        'Dezembro'
                     ],
                     firstDay: 1
                 },
@@ -70,24 +69,19 @@
                     'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
                     'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
                     'Este Mês': [moment().startOf('month'), moment().endOf('month')],
-                    'Mês Passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'Mês Passado': [moment().subtract(1, 'month').startOf('month'),
+                        moment().subtract(1, 'month').endOf('month')]
                 },
                 linkedCalendars: false,
-                opens: "left",
-                cancelClass: "btn-danger",
+                opens: 'left',
+                cancelClass: 'btn-danger'
             };
 
-            if (angular.isUndefined(scope.inputSize)) {
+            scope.opts.singleDatePicker = scope.range ? false : true;
+
+            if (!scope.inputSize) {
                 scope.inputSize = 'sm';
             }
-
-            if (angular.isDefined(scope.range)) {
-                scope.opts.singleDatePicker = false;
-            } else {
-                scope.opts.singleDatePicker = true;
-            }
         }
-
-        return directive;
     }
 })();

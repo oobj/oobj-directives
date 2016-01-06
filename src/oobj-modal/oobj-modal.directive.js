@@ -4,12 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjModal', oobjModal);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjModal() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-modal/oobj-modal.html',
             transclude: true,
@@ -28,44 +29,22 @@
             compile: compile
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
 
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.idModal)) {
-                        scope.idModal = '#oobjModal';
-                    }
-
-                    if (angular.isUndefined(scope.classBtnOpen)) {
-                        scope.classBtnOpen = 'btn-default';
-                    }
-
-                    if (angular.isUndefined(scope.labelBtnOpen)) {
-                        scope.labelBtnOpen = 'Abrir Modal';
-                    }
-
-                    if (angular.isUndefined(scope.labelBtnClose)) {
-                        scope.labelBtnClose = 'Fechar';
-                    }
-
-                    if (angular.isUndefined(scope.showBtnOpen)) {
-                        scope.showBtnOpen = true;
-                    }
-
-                    if (angular.isUndefined(scope.showBtnClose)) {
-                        scope.showBtnClose = true;
-                    }
-
-                    if (angular.isUndefined(scope.size)) {
-                        scope.size = '';
-                    }
+                pre: function preLink(scope) {
+                    scope.idModal = scope.idModal || '#oobjModal';
+                    scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
+                    scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
+                    scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
+                    scope.showBtnOpen = scope.showBtnOpen || true;
+                    scope.showBtnClose = scope.showBtnClose || true;
+                    scope.size = scope.size || '';
                 }
-            }
+            };
         }
     }
 })();

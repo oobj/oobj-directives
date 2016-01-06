@@ -4,12 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjCrud', oobjCrud);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjCrud() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-crud/oobj-crud.html',
             transclude: true,
@@ -26,26 +27,24 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.showBtnSalvar)) {
+        function link(scope) {
+            if (!scope.showBtnSalvar) {
                 scope.showBtnSalvar = true;
             }
 
-            if (angular.isUndefined(scope.showBtnLimpar)) {
+            if (!scope.showBtnLimpar) {
                 scope.showBtnLimpar = true;
             }
 
-            if (angular.isUndefined(scope.showBtnExcluir)) {
+            if (!scope.showBtnExcluir) {
                 scope.showBtnExcluir = false;
             }
 
-            if (angular.isUndefined(scope.showBtnOnBottom)) {
+            if (!scope.showBtnOnBottom) {
                 scope.showBtnOnBottom = true;
             }
 
-            if (angular.isUndefined(scope.showBtnOnTop)) {
+            if (!scope.showBtnOnTop) {
                 scope.showBtnOnTop = false;
             }
         }

@@ -8,9 +8,9 @@
         .module('oobj-directives')
         .directive('oobjLogin', oobjLogin);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjLogin() {
-        var directive = {
+        return {
             link: link,
             restrict: 'EA',
             templateUrl: 'oobj-login/oobj-login.html',
@@ -27,9 +27,8 @@
             }
         };
 
-        return directive;
-
         function link(scope, element, attrs) {
+
         }
     }
 })();

@@ -4,12 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjConfirmButton', oobjConfirmButton);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjConfirmButton() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-confirm-button/oobj-confirm-button.html',
             scope: {
@@ -30,16 +31,14 @@
             compile: compile
         };
 
-        return directive;
-
-        function compile(tElement, tAttrs) {
+        function compile() {
             return {
-                pre: function preLink(scope, element, attrs) {
-                    if (angular.isUndefined(scope.classBtnConfirm)) {
+                pre: function preLink(scope) {
+                    if (!scope.classBtnConfirm) {
                         scope.classBtnConfirm = 'btn-default';
                     }
                 }
-            }
+            };
         }
     }
 })();

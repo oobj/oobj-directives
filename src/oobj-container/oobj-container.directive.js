@@ -4,12 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-            .directive('oobjContainer', oobjContainer);
+    angular
+        .module('oobj-directives')
+        .directive('oobjContainer', oobjContainer);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjContainer() {
-        var directive = {
+        return {
             restrict: 'EA',
             templateUrl: 'oobj-container/oobj-container.html',
             transclude: true,
@@ -19,11 +20,8 @@
             link: link
         };
 
-        return directive;
-
         function link(scope, element, attrs, ngModelCtrl) {
 
         }
     }
 })();
-

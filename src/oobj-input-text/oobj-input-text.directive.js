@@ -4,13 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
-            .directive('oobjInputText', oobjInputText);
+    angular
+        .module('oobj-directives')
+        .directive('oobjInputText', oobjInputText);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjInputText() {
-
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-input-text/oobj-input-text.html',
@@ -43,18 +43,14 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (angular.isUndefined(scope.inputSize)) {
+        function link(scope) {
+            if (!scope.inputSize) {
                 scope.inputSize = 'sm';
             }
 
             scope.limpar = function() {
                 scope.ngModel = null;
-            }
+            };
         }
-
     }
 })();
-

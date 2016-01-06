@@ -10,7 +10,7 @@
 
     /** @ngInject */
     function oobjCheckbox() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-checkbox/oobj-checkbox.html',
@@ -24,17 +24,15 @@
             link: link
         };
 
-        return directive;
-
-        function link(scope, element, attrs, ngModelCtrl) {
-            if (scope.inline == true) {
+        function link(scope) {
+            if (scope.inline === true) {
                 scope.checkboxClass = 'checkbox-inline';
             }
 
-            if (angular.isDefined(scope.colspan)) {
+            if (scope.colspan) {
                 var classes = scope.colspan;
 
-                if (angular.isDefined(scope.checkboxClass)) {
+                if (scope.checkboxClass) {
                     classes = classes + ' ' + scope.checkboxClass;
                 }
 

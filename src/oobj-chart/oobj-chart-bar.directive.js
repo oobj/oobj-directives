@@ -4,12 +4,13 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartBar', oobjChartBar);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartBar() {
-        var directive = {
+        return {
             require: 'ngModel',
             restrict: 'EA',
             templateUrl: 'oobj-chart/oobj-chart-bar.html',
@@ -23,8 +24,6 @@
             },
             link: link
         };
-
-        return directive;
 
         function link(scope, element, attrs, ngModelCtrl) {
 

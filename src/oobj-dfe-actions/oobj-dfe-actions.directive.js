@@ -6,13 +6,13 @@
 	
 	angular
 		.module('oobj-directives')
-		.directive('oobjDfeActions', OobjDfeActions);
+		.directive('oobjDfeActions', oobjDfeActions);
 	
-	OobjDfeActions.$inject = ['MsgUtil'];
-	
-	function OobjDfeActions(MsgUtil) {
-		
-		var directive = {
+	oobjDfeActions.$inject = ['MsgUtil'];
+
+	/** @ngInject */
+	function oobjDfeActions(MsgUtil) {
+		return {
 			restrict: 'AE',
 			templateUrl: 'oobj-dfe-actions/oobj-dfe-actions.html',
 			scope: {
@@ -40,127 +40,64 @@
 				hideEntrada: '@'
 			},
 			link: link
-		}
+		};
 		
-		return directive;
-		
-		function link($scope, $elem, $attr) {
-			
-	        if (angular.isUndefined($attr.downloadXml)) {
-	        	$scope.downloadXml = function() {
-		            MsgUtil.msg('Download de XML');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.downloadDanfe)) {
-		        $scope.downloadDanfe = function() {
-		            MsgUtil.msg('Download de DANFe');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.manifestar)) {
-		        $scope.manifestar = function() {
-		            MsgUtil.msg('Manifesto do Destinatário');
-		        };
-	        }
-	        
-	        if (angular.isUndefined($attr.reconsultar)) {
-		        $scope.reconsultar = function() {
-		            MsgUtil.msg('Reconsultar NFe');
-		        };
-	        }
-	        
-	        function downloadDacceDefault() {
-	            MsgUtil.msg('Download de DACCe');
-	        }
-			
-			if (angular.isUndefined($attr.downloadDacce)) {
-		        $scope.downloadDacce = downloadDacceDefault;
-	        }
+		function link(scope, elem, attr) {
+			getDefaults(scope, attr);
 
-			function revalidarXmlDefault() {
-				MsgUtil.msg('Revalidar Arquivo XML');
-			}
-			
-	        if (angular.isUndefined($attr.revalidarXml)) {
-		        $scope.revalidarXml = revalidarXmlDefault;
-	        }
-
-	        function diagnosticoFiscalDefault() {
-	        	MsgUtil.msg('Diagnóstico Fiscal');
-	        }
-	        
-	        if (angular.isUndefined($attr.diagnosticoFiscal)) {
-		        $scope.diagnosticoFiscal = diagnosticoFiscalDefault;
-	        }
-
-	        function reconhecerDocumentosDefault() {
-	        	MsgUtil.msg('Reconhecer Documento(s)');
-	        }
-	        
-	        if (angular.isUndefined($attr.reconhecerDocumentos)) {
-		        $scope.reconhecerDocumentos = reconhecerDocumentosDefault;
-	        }
-
-	        function reentregarDocumentosDefault() {
-	        	MsgUtil.msg('Reentregar Documento(s)');
-	        }
-	        
-	        if (angular.isUndefined($attr.reentregarDocumentos)) {
-		        $scope.reentregarDocumentos = reentregarDocumentosDefault;
-	        }
-
-	        function registrarEntradaDefault() {
-	        	MsgUtil.msg('Registrar Entrada');
-	        }
-	        
-	        if (angular.isUndefined($attr.registrarEntrada)) {
-		        $scope.registrarEntrada = registrarEntradaDefault;
-	        }
-
-	        function desfazerEntradaDefault() {
-	        	MsgUtil.msg('Defazer Entrada');
-	        }
-	        
-	        if (angular.isUndefined($attr.desfazerEntrada)) {
-		        $scope.desfazerEntrada = desfazerEntradaDefault;
-	        }
-	        
-	        $scope.dropdownItems = {
+	        scope.dropdownItems = {
 				downloadDACCe: {
 					label: 'Download de DACCe',
-	                action: $scope.downloadDacce
+	                action: scope.downloadDacce
 	            },
 	            revalidarXML: {
 	                label: 'Revalidar Arquivo XML',
-	                action: $scope.revalidarXml
+	                action: scope.revalidarXml
 	            },
 	            diagnosticoFiscal: {
 	                label: 'Diagnóstico Fiscal',
-	                action: $scope.diagnosticoFiscal
+	                action: scope.diagnosticoFiscal
 	            },
 	            reconhecerDocumentos: {
 	                label: 'Reconhecer Documento(s)',
-	                action: $scope.reconhecerDocumentos
+	                action: scope.reconhecerDocumentos
 	            },
 	            reentregarDocumentos: {
 	                label: 'Reentregar Documento(s)',
-	                action: $scope.reentregarDocumentos
+	                action: scope.reentregarDocumentos
 	            }
 	        };
 
-	        $scope.itensEntrada = {
+	        scope.itensEntrada = {
 	            registrarEntrada: {
 	                label: 'Registrar Entrada',
-	                action: $scope.registrarEntrada
+	                action: scope.registrarEntrada
 	            },
 	            desfazerEntrada: {
 	                label: 'Desfazer Entrada',
-	                action: $scope.desfazerEntrada
+	                action: scope.desfazerEntrada
 	            }
 	        };
-	        
+		}
+
+		function getDefaults(scope, attr) {
+			scope.downloadXml = getFunctionMsg(attr.downloadXml, 'Download de XML');
+			scope.downloadDanfe = getFunctionMsg(attr.downloadDanfe, 'Download de DANFe');
+			scope.manifestar = getFunctionMsg(attr.manifestar, 'Manifesto do Destinatário');
+			scope.reconsultar = getFunctionMsg(attr.reconsultar, 'Reconsultar NFe');
+			scope.downloadDacce = getFunctionMsg(attr.downloadDacce, 'Download de DACCe');
+			scope.revalidarXml = getFunctionMsg(attr.revalidarXml, 'Revalidar Arquivo XML');
+			scope.diagnosticoFiscal = getFunctionMsg(attr.diagnosticoFiscal, 'Diagnóstico Fiscal');
+			scope.reconhecerDocumentos = getFunctionMsg(attr.reconhecerDocumentos, 'Reconhecer Documento(s)');
+			scope.reentregarDocumentos = getFunctionMsg(attr.reentregarDocumentos, 'Reentregar Documento(s)');
+			scope.registrarEntrada = getFunctionMsg(attr.registrarEntrada, 'Registrar Entrada');
+			scope.desfazerEntrada = getFunctionMsg(attr.desfazerEntrada, 'Defazer Entrada');
+		}
+
+		function getFunctionMsg(value, msg) {
+			return value || function() {
+				MsgUtil.msg(msg);
+			};
 		}
 	}
-	
 })();

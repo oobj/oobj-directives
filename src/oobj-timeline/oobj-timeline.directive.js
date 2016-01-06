@@ -10,10 +10,9 @@
 
     oobjTimeline.$inject = ['filterFilter'];
     
-    /* @ngInject */
+    /** @ngInject */
     function oobjTimeline(filterFilter) {
-
-        var directive = {
+        return {
             templateUrl: 'oobj-timeline/oobj-timeline.html',
             restrict: 'E',
             replace: true,
@@ -25,13 +24,9 @@
             link: link
         };
 
-        return directive;
-        
-        function link(scope, element, attr) {
-        	
+        function link(scope) {
         	// filter elements of the timeline by type whenever it changes
         	scope.$watch('filter', function(newType) {
-        		
         		scope.items = filterFilter(scope.provider, function(item) {
             		if (newType === 'todos') {
             			return true;
@@ -39,10 +34,7 @@
             			return newType === item.type;
             		}
             	});
-        		
         	});
-        	
         }
     }
-
 })();

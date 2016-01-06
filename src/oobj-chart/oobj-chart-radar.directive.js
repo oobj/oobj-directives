@@ -4,12 +4,12 @@
 (function() {
     'use strict';
 
-    angular.module('oobj-directives')
+    angular
+        .module('oobj-directives')
         .directive('oobjChartRadar', oobjChartRadar);
 
-    /* @ngInject */
+    /** @ngInject */
     function oobjChartRadar() {
-
         return {
             require: 'ngModel',
             restrict: 'EA',
@@ -22,6 +22,5 @@
                 chartId: '@'
             }
         };
-
     }
 })();
