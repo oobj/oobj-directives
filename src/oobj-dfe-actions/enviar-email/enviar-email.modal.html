@@ -1,0 +1,129 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancelar()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-envelope oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Enviar {{::vm.modelo}} por E-mail
+                </span>
+                <i uib-tooltip="" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4><br/>
+        </div>
+
+        <div class="row">
+            <p class="col-md-2">
+                <b>Para:</b>
+            </p>
+
+            <div class="col-md-10 enviar-email-tags-padding-left">
+                <tags-input ng-model="vm.email.para" placeholder="Informe os e-mails separados por vírgula"
+                            add-on-enter="true" add-on-space="true" add-on-comma="true" add-on-blur="true"
+                            add-on-paste="true" allowed-tags-pattern="{{::vm.validEmail}}"
+                            replace-spaces-with-dashes="false"
+                            class="enviar-email-tags-padding-right enviar-email-font-family">
+
+                    <auto-complete source="::vm.getTagsDefault($query)" highlight-matched-text="false" min-length="0"
+                                   load-on-down-arrow="true" load-on-empty="true" load-on-focus="true"
+                                   select-first-match="false">
+                    </auto-complete>
+                </tags-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <p class="col-md-2">
+                <b>De:</b>
+            </p>
+
+            <div class="col-md-10 enviar-email-tags-padding-left enviar-email-margin-bottom">
+                <div class="input-group">
+                    <input type="text" class="form-control enviar-email-padding-text" ng-model="vm.email.de"
+                           placeholder="naoresponder@oobj.com.br" maxlength="60" max="60" min="1" />
+
+                    <div class="input-group-btn enviar-email-padding-right">
+                        <!-- a possible button to clear the input right here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <p class="col-md-2">
+                <b>Assunto:</b>
+            </p>
+
+            <div class="col-md-10 enviar-email-tags-padding-left">
+                <div class="input-group">
+                    <input type="text" class="form-control enviar-email-padding-text"
+                           ng-model="vm.email.assunto" placeholder="Insira o assunto"
+                           maxlength="200" max="200" min="1" />
+
+                    <div class="input-group-btn enviar-email-padding-right">
+                        <div class="btn-group" uib-dropdown>
+                            <button id="btn-drop" class="btn btn-primary oobj-group-input-btn" uib-dropdown-toggle>
+                                <i class="fa fa-plus"></i>
+                            </button>
+                            <ul class="uib-dropdown-menu pull-right" role="menu" aria-labelledby="btn-drop">
+                                <li role="menuitem" ng-repeat="assunto in vm.assuntos track by $index">
+                                    <a href="javascript:;" ng-click="::vm.addAssunto($index)">
+                                        {{::assunto.label}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <p class="col-md-2">
+                <b>Mensagem:</b>
+            </p>
+
+            <oobj-textarea rows="6" ng-model="vm.email.mensagem" textarea-class="enviar-email-textarea"
+                           colspan="col-md-10 enviar-email-textarea-padding-left enviar-email-padding-right">
+            </oobj-textarea>
+        </div><br/>
+
+        <div class="row">
+            <p class="col-md-2">
+                <b>Anexos:</b>
+            </p>
+
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-3" ng-repeat="anexo in vm.anexos track by $index">
+                        <div class="row cursor-pointer" ng-click="::vm.selecionar($index)">
+                            <div class="col-md-2 enviar-email-anexos-padding-left"
+                                 ng-class="anexo.selected ? 'text-primary' : 'text-muted'">
+                                <i class="fa fa-2x" ng-class="::anexo.icon"></i>
+                            </div>
+                            <div ng-class="anexo.selected ? 'oobj-dfe-actions-text-bold' : 'text-muted'"
+                                 class="col-md-10 enviar-email-anexos-padding-left" ng-bind="::anexo.name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <p class="text-danger" ng-show="vm.invalid">
+            <span ng-bind-html="vm.msgValidacao"></span>
+        </p>
+
+        <oobj-button ng-click="::vm.cancelar()" label="Cancelar"
+                     btn-class="oobj-dfe-actions-btn-cancelar oobj-dfe-actions-btn-width">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.enviar()" label="Enviar" btn-class="btn-primary oobj-dfe-actions-btn-width">
+        </oobj-button>
+    </div>
+</div>

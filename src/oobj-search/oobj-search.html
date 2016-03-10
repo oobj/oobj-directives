@@ -20,8 +20,9 @@
     <oobj-panel colspan="col-lg-12">
         <ng-include src="'additionalContent'"></ng-include>
 
-        <div class="row" ng-if="vm.data">
-            <oobj-grid colspan="col-md-12" data="vm.data" grid-options="gridOptions"></oobj-grid>
+        <div class="row">
+            <oobj-grid colspan="col-md-12" init-grid="vm.initGrid" pesquisar="vm.pesquisar">
+            </oobj-grid>
         </div>
     </oobj-panel>
 </oobj-container>
@@ -33,13 +34,13 @@
                          ng-if="::showBtnLimpar">
             </oobj-button>
 
-            <oobj-button label="Pesq. Avançada" btn-class="btn-default" ng-click="::vm.pesquisaAvancada()"
+            <oobj-button label="Pesquisa Avançada" btn-class="btn-default" ng-click="::vm.pesquisaAvancada()"
                          icon="{{::(showBtnOnTop ? 'fa-search-minus': 'fa-search-plus')}}"
                          ng-if="::showBtnPesquisaAvancada">
             </oobj-button>
 
             <oobj-button label="Pesquisar" btn-class="btn-primary" icon="fa-search" padding-right="0px"
-                         ng-click="::vm.pesquisar()" ng-if="::showBtnPesquisar">
+                         ng-click="::vm.gridScope.pesquisar(vm.gridScope.callbackDefault)" ng-if="::showBtnPesquisar">
             </oobj-button>
         </div>
     </div>

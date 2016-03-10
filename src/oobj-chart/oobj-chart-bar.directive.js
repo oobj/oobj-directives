@@ -8,25 +8,19 @@
         .module('oobj-directives')
         .directive('oobjChartBar', oobjChartBar);
 
-    /** @ngInject */
     function oobjChartBar() {
         return {
             require: 'ngModel',
-            restrict: 'EA',
-            templateUrl: 'oobj-chart/oobj-chart-bar.html',
+            templateUrl: 'js/directives/oobj-chart/oobj-chart-bar.html',
             scope: {
-                id: '@',
-                chartId: '@',
-                ngModel: '=?',
-                colspan: '@',
-                title: '@',
-                type: '@'
-            },
-            link: link
+                id: '@?',
+                ngModel: '=',
+                chartId: '@?',
+                colspan: '@?',
+                title: '@?',
+                type: '@?'
+            }
         };
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
     }
+
 })();

@@ -1,0 +1,153 @@
+<oobj-panel>
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Totais</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo ICMS</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vBC | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do ICMS</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vICMS | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do ICMS Desonerado</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vICMSDeson | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo ICMS ST</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vBCST | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor ICMS Substituição</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vST | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total dos Produtos</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vProd | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do Frete</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vFrete | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do Seguro</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vSeg | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Outras Despesas Acessórias</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vOutro | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total do IPI</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vIPI | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total da NF-e</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vNF | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total dos Desconstos</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vDesc | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total do II</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vII | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do PIS</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vPIS | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor da COFINS</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vCOFINS | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Aproximado dos Tributos</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vTotTrib | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total ICMS FCP</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vFCPUFDest | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-5">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total do ICMS Interestadual UF Destino</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vICMSUFDest | currency:'R$ '"></span>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total do ICMS Interestadual UF Rem</span>
+                <br>
+                <span ng-bind="::vm.dfe.tot.vICMSUFRemet | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+</oobj-panel>

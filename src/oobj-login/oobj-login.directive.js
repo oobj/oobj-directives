@@ -11,24 +11,20 @@
     /** @ngInject */
     function oobjLogin() {
         return {
-            link: link,
             restrict: 'EA',
-            templateUrl: 'oobj-login/oobj-login.html',
+            templateUrl: 'js/directives/oobj-login/oobj-login.html',
             scope: {
-                logo: '@',
-                labelBtnLogin: '@',
+                logo: '@?',
+                labelBtnLogin: '@?',
                 login: '&',
-                labelForgotPassword: '@',
-                labelNewUser: '@',
+                labelForgotPassword: '@?',
+                labelNewUser: '@?',
                 forgotPassword: '&',
                 newUser: '&',
-                username: '=',
-                password: '='
+                username: '=?',
+                password: '=?'
             }
         };
 
-        function link(scope, element, attrs) {
-
-        }
     }
 })();

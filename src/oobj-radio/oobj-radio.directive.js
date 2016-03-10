@@ -13,15 +13,16 @@
          return {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-radio/oobj-radio.html',
+            templateUrl: 'js/directives/oobj-radio/oobj-radio.html',
             scope: {
-                id: '@',
-                label: '@',
-                ngModel: '=?',
-                inline: '=',
-                optionName: '@',
-                optionValue: '@',
-                colspan: '@'
+                id: '@?',
+                label: '@?',
+                ngModel: '=',
+                inline: '=?',
+                optionName: '@?',
+                optionValue: '@?',
+                colspan: '@?',
+                labelBold: '=?'
             },
             link: link
         };

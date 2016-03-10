@@ -1,0 +1,115 @@
+<oobj-panel>
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Dados do Destinatário</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Nome / Razão Social</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.razaoSocial"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CNPJ</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.cnpj | cpfCnpj"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Endereço</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.logradouro"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Bairro</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.bairro"></span>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CEP</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.cep | cep"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                <span class="oobj-detalhes-nfe-text-bold">Município</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.municipio"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p>
+                <span class="oobj-detalhes-nfe-text-bold">Telefone</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.telefone | telefone"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">UF</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.uf"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">País</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.pais"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Indicador IE</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.indIe"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Estadual</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.ie"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição SUFRAMA</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.suframa"></span>
+            </p>
+
+            <br>
+        </div>
+    </div>
+</oobj-panel>

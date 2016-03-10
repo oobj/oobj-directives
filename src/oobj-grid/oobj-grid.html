@@ -1,13 +1,39 @@
-<div class="{{::colspan}}" ui-i18n="{{::language}}">
+<div class="{{::colspan}}">
     <div class="table-responsive">
         <div ui-grid="gridOptions"
-             ui-grid-exporter
              ui-grid-selection
              ui-grid-pagination
-             ng-style="getHeight()"
+             ui-grid-auto-resize
+             ui-grid-move-columns
              class="table oobj-grid-options" ng-cloak>
-            <div class="oobj-grid-noresult" ng-show="!gridOptions.data.length">
-                Nenhum resultado encontrado
+            <div class="grid-msg-overlay" ng-hide="!loading">
+                <div class="msg">
+                    <span class="loading">
+                        <div class="loader">
+                            <div class="loader-inner ball-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <br>
+                        Carregando...
+                    </span>
+                </div>
+            </div>
+            <div class="grid-msg-overlay" ng-hide="loading || gridOptions.data.length">
+                <div class="msg">
+                    <span class="noresult">
+                        <i class="fa fa-file-o noresult-icon"></i>
+                        <br>
+                        Nenhum item encontrado
+                    </span>
+                </div>
             </div>
         </div>
     </div>

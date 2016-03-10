@@ -1,0 +1,242 @@
+<oobj-panel>
+    <!-- Dados da NF-e -->
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Dados da NF-e</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Modelo</span>
+                <br>
+                <span ng-bind="::vm.dfe.modelo"></span>
+            </p>
+        </div>
+
+        <div class="col-md-1">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Série</span>
+                <br>
+                <span ng-bind="::vm.dfe.serie"></span>
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Número</span>
+                <br>
+                <span ng-bind="::vm.dfe.numero"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Data de Emissão</span>
+                <br>
+                <span ng-bind="::vm.dfe.dhEmi"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Data Saída/Entrada</span>
+                <br>
+                <span ng-bind="::vm.dfe.dhSaiEnt"></span>
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Total</span>
+                <br>
+                <span ng-bind="::vm.dfe.valorTotal | currency:'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Emitente -->
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Emitente</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CNPJ</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.cnpj | cpfCnpj"></span>
+            </p>
+        </div>
+
+        <div class="col-md-5">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Nome / Razão Social</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.razaoSocial"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Estadual</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.ie"></span>
+            </p>
+        </div>
+
+        <div class="col-md-1">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">UF</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.uf"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Destinatario -->
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Destinatário</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CNPJ</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.cnpj | cpfCnpj"></span>
+            </p>
+        </div>
+
+        <div class="col-md-5">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Nome / Razão Social</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.razaoSocial"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Estadual</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.ie"></span>
+            </p>
+        </div>
+
+        <div class="col-md-1">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">UF</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.uf"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Destino da Operação</span>
+                <br>
+                <span ng-bind="::vm.dfe.idDest"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Consumidor Final</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.indFinal"></span>
+            </p>
+        </div>
+
+        <div class="col-md-5">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Presença do Comprador</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.indPres"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Emissao -->
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Emissão</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Processo</span>
+                <br>
+                <span ng-bind="::vm.dfe.idDest"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Versão do Processo</span>
+                <br>
+                <span ng-bind="::vm.dfe.dest.indFinal"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Tipo de emissão</span>
+                <br>
+                <span ng-bind="::vm.dfe.tpEmis"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Finalidade</span>
+                <br>
+                <span ng-bind="::vm.dfe.finNfe"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Natureza da Operação</span>
+                <br>
+                <span ng-bind="::vm.dfe.natOp"></span>
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Tipo de Operação</span>
+                <br>
+                <span ng-bind="::vm.dfe.tpNfe"></span>
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Forma de Pagamento</span>
+                <br>
+                <span ng-bind="::vm.dfe.indPag"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Digest Value</span>
+                <br>
+                <span ng-bind="::vm.dfe.digVal"></span>
+            </p>
+        </div>
+
+    </div>
+</oobj-panel>

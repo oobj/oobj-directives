@@ -1,0 +1,124 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.fecharModal()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-upload oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Upload de XML
+                </span>
+                <i uib-tooltip="" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4>
+
+            <p class="oobj-dfe-actions-line-height">
+                Informe até <b>40</b> arquivos XML de cada vez. <br>
+                Se preferir, envie um arquivo compactado no formato <b>ZIP, RAR ou 7ZIP</b>. <br>
+                (Tamanho máximo: <b>10MB</b>)
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row center">
+            <div ng-model="vm.files"
+                 ngf-drop
+                 ngf-select
+                 ngf-multiple="true"
+                 ngf-allow-dir="true"
+                 ngf-pattern="'.7z,.xml,.rar,.zip'"
+                 ngf-max-size="10MB"
+                 ngf-drag-over-class="'dragover'"
+                 class="col-md-12 drop-box">
+
+                <p class="text-muted oobj-dfe-actions-line-height">
+                    ARRASTE E SOLTE OS ARQUIVOS AQUI <br>
+                    ou se preferir...
+                </p>
+
+                <oobj-button label="Escolha um arquivo para fazer upload" btn-class="oobj-dfe-actions-btn-gray">
+                </oobj-button>
+            </div>
+        </div>
+
+        <div class="row center" ng-if="vm.fileWrappers">
+            <p class="text-primary">
+                <span ng-bind="vm.fileWrappers.length"></span> arquivo(s) selecionado(s)
+            </p>
+
+            <table class="table table-responsive table-borderless text-left">
+                <thead>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><strong>Nome do Arquivo</strong></td>
+                        <td><strong>Tamanho</strong></td>
+                        <td><strong>Progresso</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="wrapper in vm.fileWrappers">
+                    <td>
+                        <i class="fa fa-times cursor-pointer" ng-click="::vm.remover($index)"></i>
+                    </td>
+                    <td>
+                        <div ng-bind="::wrapper.file.name" class="oobj-dfe-actions-upload-td-width"></div>
+                    </td>
+                    <td>
+                        <span ng-bind="::wrapper.file.size | bytes"></span>
+                    </td>
+                    <td>
+                        <uib-progressbar value="wrapper.file.progress || 0" class="progress-bar-td"
+                                         type="{{ wrapper.file.progress === 100 ? 'success' : 'primary' }}">
+                            <strong ng-bind="wrapper.file.progress + '%'" ng-show="wrapper.file.progress"></strong>
+                        </uib-progressbar>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <p class="text-success" ng-show="vm.allCompleted">
+            Upload concluído com sucesso!
+        </p>
+
+        <div ng-hide="vm.deveCancelar">
+            <oobj-button ng-click="::vm.cancelar()"
+                         label="Cancelar"
+                         btn-class="oobj-dfe-actions-btn-gray upload-xml-btn"
+                         ng-show="!vm.allCompleted">
+            </oobj-button>
+
+            <oobj-button ng-click="::vm.upload()"
+                         label="Fazer Upload"
+                         btn-class="btn-primary upload-xml-btn"
+                         ng-show="!vm.allCompleted">
+            </oobj-button>
+
+            <oobj-button ng-click="::vm.fecharModal()"
+                         label="Fechar"
+                         ng-show="vm.allCompleted"
+                         btn-class="oobj-dfe-actions-btn-gray upload-xml-btn">
+            </oobj-button>
+        </div>
+
+        <div ng-show="vm.deveCancelar">
+            <p class="oobj-dfe-actions-line-height">
+                <strong>Tem certeza que deseja cancelar?</strong> <br>
+                O processo de upload dos arquivos em andamento serão cancelados.
+            </p>
+
+            <oobj-button ng-click="::vm.desfazerCancelamento()"
+                         label="Não"
+                         btn-class="oobj-dfe-actions-btn-gray upload-xml-btn">
+            </oobj-button>
+
+            <oobj-button ng-click="::vm.cancelarUploads()"
+                         label="Sim"
+                         btn-class="btn-primary upload-xml-btn">
+            </oobj-button>
+        </div>
+    </div>
+</div>

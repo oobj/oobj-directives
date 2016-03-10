@@ -1,0 +1,32 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancelar()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-map-signs oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Reconsultar Status do Documento na Sefaz
+                </span>
+                <i uib-tooltip="" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row center">
+            <p>
+                Você selecionou <strong ng-bind-html="::vm.quantidadeItens"></strong> documento(s) para consultar o status na Sefaz.
+            </p>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <oobj-button ng-click="::vm.cancelar()" label="Cancelar" btn-class="oobj-dfe-actions-btn-cancelar">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.reconsultar()" label="Reconsultar" btn-class="btn-primary">
+        </oobj-button>
+    </div>
+</div>

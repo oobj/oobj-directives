@@ -1,0 +1,118 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <h4><span ng-bind="::vm.title"></span></h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <!-- inicio - Cabeçalho (Chave, numero e versão) -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <p class="timeline-text">
+                    <span class="text-primary oobj-detalhes-nfe-text-bold">Dados Gerais</span>
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+                <div class="col-md-7">
+                    <p class="timeline-text">
+                        <span class="oobj-detalhes-nfe-text-bold">Chave de Acesso</span>
+                        <br/>
+                        <span ng-bind="::vm.dfe.chaveAcesso"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <p class="timeline-text">
+                        <span class="oobj-detalhes-nfe-text-bold">Número</span>
+                        <br/>
+                        <span ng-bind="::vm.dfe.numero"></span>
+                    </p>
+
+                </div>
+
+                <div class="col-md-2">
+                    <p class="timeline-text">
+                        <span class="oobj-detalhes-nfe-text-bold">Versão XML</span>
+                        <br/>
+                        <span ng-bind="::vm.dfe.versaoXml"></span>
+                    </p>
+                </div>
+            </div>
+            <!-- fim - Cabeçalho (Chave, numero e versão) -->
+
+            <br>
+
+            <div class="col-md-12">
+                <uib-tabset>
+
+                    <!-- Aba NFe -->
+                    <uib-tab heading="NF-e">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-nfe.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Emitente -->
+                    <uib-tab heading="Emitente">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-emitente.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Destinatario -->
+                    <uib-tab heading="Destinatário">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-destinatario.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Produtos e Serviços -->
+                    <uib-tab heading="Produtos e Serviços">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-produtos-servicos.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Totais -->
+                    <uib-tab heading="Totais">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-totais.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Transporte -->
+                    <uib-tab heading="Transporte">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-transporte.htm'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Cobrança -->
+                    <uib-tab heading="Cobrança">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-cobranca.html'">
+                        </ng-include>
+                    </uib-tab>
+
+                    <!-- Aba Informações Adicionais -->
+                    <uib-tab heading="Informações Adicionais">
+                        <ng-include
+                                src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-informacoes-adicionais.html'">
+                        </ng-include>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+
+        <div class="row wrapper text-center">
+            <oobj-dfe-actions modelo-documento="::vm.modeloDocumento"></oobj-dfe-actions>
+        </div>
+    </div>
+</div>

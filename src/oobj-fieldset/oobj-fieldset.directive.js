@@ -13,11 +13,11 @@
         return {
             restrict: 'EA',
             transclude: true,
-            templateUrl: 'oobj-fieldset/oobj-fieldset.html',
+            templateUrl: 'js/directives/oobj-fieldset/oobj-fieldset.html',
             scope: {
-                id: '@',
-                colspan: '@',
-                title: '@'
+                id: '@?',
+                colspan: '@?',
+                title: '@?'
             }
         };
     }

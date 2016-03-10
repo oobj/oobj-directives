@@ -1,0 +1,74 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-print oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Imprimir
+                </span>
+                <i uib-tooltip="" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row center">
+            <p class="oobj-dfe-actions-line-height">
+                Você selecionou <strong ng-bind-html="::vm.quantidadeItens"></strong> documento(s) para a impressão.<br>
+            </p>
+        </div>
+
+        <div class="row center">
+            <oobj-input-container colspan="col-md-12">
+                <oobj-radio inline="true"
+                            label-bold="true"
+                            ng-model="vm.localizacaoImpressora"
+                            label="Impressora Padrão"
+                            option-value="padrao">
+                </oobj-radio>
+
+                <oobj-radio inline="true"
+                            label-bold="true"
+                            ng-model="vm.localizacaoImpressora"
+                            label="Impressora do Servidor"
+                            option-value="servidor">
+                </oobj-radio>
+            </oobj-input-container>
+
+            <p class="oobj-dfe-actions-line-height" ng-hide="vm.localizacaoImpressora === 'padrao'">
+                Selecione a impressora que você deseja realizar a impressão:
+            </p>
+            <p class="oobj-dfe-actions-line-height" ng-show="vm.localizacaoImpressora === 'padrao'">
+                Cada documento será enviado para a impressora configurada na impressão automática.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"
+                 ng-repeat="impressora in vm.impressoras"
+                 ng-hide="vm.localizacaoImpressora === 'padrao'">
+
+                <div class="row cursor-pointer" ng-click="::vm.selecionar($index)">
+                    <div class="col-md-2" ng-class="impressora.selected ? 'text-primary' : 'text-muted'">
+                        <i class="fa fa-2x fa-print"></i>
+                    </div>
+                    <div ng-class="impressora.selected ? 'oobj-dfe-actions-text-bold' : 'text-muted'" class="col-md-10"
+                         ng-bind="::impressora.name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <oobj-button ng-click="::vm.cancel()" label="Cancelar"
+                     btn-class="oobj-dfe-actions-btn-cancelar oobj-dfe-actions-btn-width">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.imprimir()" label="Imprimir" btn-class="btn-primary oobj-dfe-actions-btn-width">
+        </oobj-button>
+    </div>
+</div>

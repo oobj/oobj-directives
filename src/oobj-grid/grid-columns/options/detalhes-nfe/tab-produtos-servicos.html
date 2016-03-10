@@ -1,0 +1,80 @@
+<oobj-painel>
+    <br>
+
+    <div class="row">
+        <div class="col-md-7">
+            <p class="timeline-text wrapper text-center">
+                <span class="oobj-detalhes-nfe-text-bold">Descrição</span>
+            </p>
+        </div>
+
+        <div class="col-md-1">
+            <p class="timeline-text wrapper text-center">
+                <span class="oobj-detalhes-nfe-text-bold">Quantidade</span>
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <p class="timeline-text wrapper text-center">
+                <span class="oobj-detalhes-nfe-text-bold">Unidade<br>Comercial</span>
+            </p>
+        </div>
+
+        <div class="col-md-1">
+            <p class="timeline-text wrapper text-center">
+                <span class="oobj-detalhes-nfe-text-bold">Valor</span>
+            </p>
+        </div>
+    </div>
+
+    <uib-accordion close-others="false">
+        <uib-accordion-group ng-repeat="produtos in vm.dfe.resumoProdutos" is-open="status.open"
+                             ng-click="getDetalhesProduto($index)"
+                             class="panel-detalhes-produto">
+            <uib-accordion-heading >
+                <div class="col-md-2">
+                    <div class="col-md-6">
+                        <i class="glyphicon"
+                           ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="timeline-text">
+                            <span ng-bind="$index+1"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <p class="timeline-text">
+                        <span ng-bind="::produtos.descricao"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <p class="timeline-text">
+                        <span ng-bind="::produtos.quantidadeComercial"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-1">
+                    <p class="timeline-text">
+                        <span ng-bind="::produtos.unidadeComercial"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <p class="timeline-text">
+                        <span ng-bind="::produtos.valor | currency:'R$ '"></span>
+                    </p>
+                </div>
+            </uib-accordion-heading>
+
+            <div class="row">
+                <ng-include
+                    src="'js/directives/oobj-grid/grid-columns/options/detalhes-nfe/tab-detalhes-produtos-servicos.html'">
+                </ng-include>
+            </div>
+        </uib-accordion-group>
+    </uib-accordion>
+</oobj-painel>

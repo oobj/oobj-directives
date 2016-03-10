@@ -13,13 +13,13 @@
         return {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-chart/oobj-chart-radar.html',
+            templateUrl: 'js/directives/oobj-chart/oobj-chart-radar.html',
             scope: {
-                id: '@',
-                ngModel: '=?',
-                colspan: '@',
-                title: '@',
-                chartId: '@'
+                id: '@?',
+                ngModel: '=',
+                colspan: '@?',
+                title: '@?',
+                chartId: '@?'
             }
         };
     }

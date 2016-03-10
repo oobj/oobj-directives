@@ -1,0 +1,34 @@
+<div ng-class="::colspan" class="form-group">
+    <label class="control-label" ng-if="::(showLabel !== false && label !== undefined)">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
+    </label>
+
+    <div class="input-group">
+        <tags-input ng-model="ngModel" placeholder="{{::placeholder}}"
+                    add-on-enter="{{::addOnEnter}}" add-on-space="{{::addOnSpace}}" add-on-comma="{{::addOnComma}}"
+                    add-on-blur="{{::addOnBlur}}" add-on-paste="{{::addOnPaste}}"
+                    allowed-tags-pattern="{{::tagsPattern}}"
+                    replace-spaces-with-dashes="false"
+                    min-length="{{::minlength}}"
+                    max-length="{{::maxlength}}"
+                    ng-disabled="::ngDisabled"
+                    ng-readonly="::ngReadonly"
+                    ng-change="::ngChange($event)"
+                    ng-blur="::ngBlur($event)">
+
+            <auto-complete source="::getTags($query)" highlight-matched-text="false" min-length="{{::minlength}}"
+                           load-on-down-arrow="true" load-on-empty="{{::loadOnEmpty}}" load-on-focus="{{::loadOnFocus}}"
+                           select-first-match="true" ng-if="::provider">
+            </auto-complete>
+        </tags-input>
+
+        <div class="input-group-btn">
+            <button type="button"
+                    ng-click="::limpar()"
+                    class="btn btn-default oobj-group-input-btn oobj-input-tags-btn-limpar">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancelar()">&times;</button>
+
+        <div class="row center">
+            <h4>
+                <span class="oobj-options-column-title">
+                    Observações
+                </span>
+                <i uib-tooltip="" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Número - Série</span>
+                        <br/>
+                        <span class="text-primary" ng-bind-html="::(vm.dfe.numeroSerieInfo.numero +
+                                ' - ' + vm.dfe.numeroSerieInfo.serie)"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-8">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Chave de Acesso</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.chaveAcesso"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Emitente</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Destinatário</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Transportador</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <oobj-textarea ng-model="vm.observacao.comentario" rows="3" title="Observação" label="Observação"
+                               colspan="col-md-12" ng-readonly="!vm.habilitarEdicao">
+                </oobj-textarea>
+
+                <div class="col-md-12 text-muted oobj-options-column-text-12px" ng-hide="vm.habilitarEdicao">
+                    Alterado em <span ng-bind="vm.observacao.data | date: 'dd/MM/yyyy'"></span> às
+                    <span ng-bind="vm.observacao.data | date: 'HH:mm:ss'"></span> pelo usuário
+                    <i ng-bind="vm.observacao.usuario"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center modal-footer" ng-show="vm.habilitarEdicao">
+        <oobj-button ng-click="::vm.cancelarEdicao()" label="Cancelar"
+                     btn-class="oobj-options-column-btn-gray oobj-options-column-btn-100px">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.salvar()" label="Salvar" btn-class="btn-primary oobj-options-column-btn-100px">
+        </oobj-button>
+    </div>
+
+    <div class="row center modal-footer" ng-hide="vm.habilitarEdicao">
+        <p class="oobj-options-column-line-height">
+            <span ng-bind="vm.resultado" class="text-success" ng-show="vm.resultado"></span>
+        </p>
+
+        <oobj-button ng-click="::vm.cancelar()" label="Fechar"
+                     btn-class="oobj-options-column-btn-gray oobj-options-column-btn-100px">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.editar()" label="Editar" btn-class="btn-primary oobj-options-column-btn-100px"
+                     ng-hide="vm.habilitarEdicao">
+        </oobj-button>
+    </div>
+</div>

@@ -5,22 +5,13 @@
     </label>
 
     <div class="input-group">
-        <input date-range-picker
-               options="opts"
-               name="{{::name}}"
-               ng-model="ngModel"
-               ng-disabled="ngDisabled"
-               ng-required="::ngRequired"
-               ng-change="::onChange($event)"
-               ng-blur="::onBlur($event)"
-               ng-keyup="::onKeyup($event)"
-               ng-keydown="::onKeydown($event)"
-               ng-readonly="::ngReadonly"
-               class="form-control date-picker"
-               type="text"/>
+        <input date-range-picker options="opts" name="{{::name}}" ng-model="ngModel" ng-disabled="ngDisabled"
+               ng-required="::ngRequired" ng-change="::onChange($event)" ng-blur="::onBlur($event)"
+               ng-keyup="::onKeyup($event)" ng-keydown="::onKeydown($event)" ng-readonly="::ngReadonly"
+               class="form-control date-picker" type="text" ng-value="ngValue"/>
 
         <div class="input-group-btn">
-            <button type="button" class="btn btn-default btn-{{::inputSize}} oobj-group-input-btn">
+            <button class="btn btn-default btn-{{::inputSize}} oobj-group-input-btn" ng-click="::focusInput()">
                 <i class="fa fa-calendar"></i>
             </button>
         </div>

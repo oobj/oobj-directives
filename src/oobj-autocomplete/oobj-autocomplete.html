@@ -1,5 +1,5 @@
 <div ng-class="::colspan" class="form-group form-group-{{::inputSize}}">
-    <label class="control-label" ng-if="::(showLabel != false && label != undefined)" for="{{::id}}">
+    <label class="control-label" ng-if="::(showLabel !== false && label !== undefined)" for="{{::id}}">
         <strong><span ng-bind="::label"></span></strong>
         <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>

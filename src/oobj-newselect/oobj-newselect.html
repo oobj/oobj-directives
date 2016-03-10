@@ -1,0 +1,25 @@
+<div class="btn-group oobj-select newselect form-control" ng-class="{'show-tick' : multi}">
+    <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown">
+        <span class="filter-option pull-left">
+            {{valorApresentacaoSelecionados}}
+        </span>&nbsp;
+        <span class="bs-caret">
+            <span class="caret"></span>
+        </span>
+    </button>
+
+    <div class="dropdown-menu open menu" style="overflow: hidden; min-height: 0px;">
+        <div style="margin: 4px" ng-show="search">
+            <input ng-model="searchValue" class="form-control">
+        </div>
+        <ul class="dropdown-menu inner" role="menu" style="max-height: 345px; overflow-y: auto; min-height: 0px;">
+            <li ng-repeat="opcao in options | filter : {$ : searchValue} track by opcao[trackByProp] "
+                ng-class="{'selected' : isSelected(opcao), 'manualSelect' : $index === indexAtualNavegacaoTeclado}">
+                <a ng-click="selectItem(opcao)">
+                    <span class="text">{{opcao[valueProp]}}</span><span
+                        class="glyphicon glyphicon-ok check-mark"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

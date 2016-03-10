@@ -5,32 +5,18 @@
     'use strict';
 
     describe('Teste de Directiva: oobjButtonDropdown', function() {
+        var $rootScope, $compile, scope, element, isolatedScope;
 
-        // variaveis globais
-        var $rootScope,
-            $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
-            isolatedScope;
-
-
-        beforeEach(function() {
-            // carregando modulo q ira ser testado
-            module('oobj-directives');
-            // carregando templates
-            angular.mock.module('templates');
-        });
-
-        // cria um novo scope antes de cada teste
+        beforeEach(module('oobj-directives'));
         beforeEach(inject(function(_$compile_, _$rootScope_){
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.label = "testelabel";
-            scope.btnClass = "testebtnClass";
-            scope.icon = "testeicon";
-            scope.colspan = "testecolspan";
+            scope.label = 'testelabel';
+            scope.btnClass = 'testebtnClass';
+            scope.icon = 'testeicon';
+            scope.colspan = 'testecolspan';
 
             scope.provider = {
                 prop: 'true'
@@ -43,7 +29,7 @@
         function getCompiledElement(xml){
             var $element;
             if(xml == null) {
-                $element = angular.element('<oobj-button-dropdown provider="true"></oobj-button-dropdown>');
+                $element = angular.element('<oobj-button-dropdown provider="provider"></oobj-button-dropdown>');
             } else {
                 $element = angular.element(xml);
             }
@@ -54,31 +40,30 @@
         }
 
         it('Teste atributos com scope isolado - two way binding ("=").', function() {
-            isolatedScope.provider.prop = "valorIsoladoScope";
             expect(scope.provider.prop).toEqual('true');
+            isolatedScope.provider.prop = 'valorIsoladoScope';
+            expect(scope.provider.prop).toEqual('valorIsoladoScope');
         });
 
         it('deve ter a classe oobj-button', function () {
-            var elementTemp = angular.element("<p class='oobj-button-dropdown'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-button-dropdown\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-button-dropdown')).toBeTruthy();
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function(){
-
             expect(scope.btnClass).toEqual('testebtnClass');
-            isolatedScope.btnClass = "isoladobtnClass";
+            isolatedScope.btnClass = 'isoladobtnClass';
             expect(scope.btnClass).toEqual('testebtnClass');
 
             expect(scope.icon).toEqual('testeicon');
-            isolatedScope.icon = "isoladoicon";
+            isolatedScope.icon = 'isoladoicon';
             expect(scope.icon).toEqual('testeicon');
 
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
-
         });
 
         it('Teste btnClass nao definido', function() {

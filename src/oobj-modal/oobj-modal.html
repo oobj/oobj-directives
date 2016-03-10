@@ -1,10 +1,10 @@
 <span>
     <oobj-button colspan="{{::colspan}}" data-toggle="modal" data-target="#oobjModal" ng-show="showBtnOpen"
-                 label="{{::labelBtnOpen}}" icon="fa-info" btn-class="{{::classBtnOpen}}">
+                 label="{{::labelBtnOpen}}" icon="fa-info" btn-class="{{classBtnOpen}}">
     </oobj-button>
 
     <div id="{{::idModal}}" class="modal fade" role="dialog">
-        <div class="modal-dialog" ng-class="::(size == 'lg' ? 'modal-lg' : size == 'sm' ? 'modal-sm' : '')">
+        <div class="modal-dialog" ng-class="::(size === 'lg' ? 'modal-lg' : size === 'sm' ? 'modal-sm' : '')">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -17,8 +17,18 @@
                     <div ng-transclude></div>
                 </div>
 
-                <div class="modal-footer" ng-show="::showBtnClose">
-                    <oobj-button data-dismiss="modal" label="{{::labelBtnClose}}"></oobj-button>
+                <div class="row center modal-footer">
+                    <oobj-button ng-show="::showBtnClose"
+                                 data-dismiss="modal"
+                                 label="{{::labelBtnClose}}"
+                                 btn-class="{{::classBtnClose}}">
+                    </oobj-button>
+                    <oobj-button ng-show="::showBtnAction"
+                                 ng-click="::onClickBtnAction()"
+                                 data-dismiss="modal"
+                                 label="{{::labelBtnAction}}"
+                                 btn-class="{{::classBtnAction}}">
+                    </oobj-button>
                 </div>
             </div>
         </div>

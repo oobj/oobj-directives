@@ -12,16 +12,12 @@
     function oobjContainer() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-container/oobj-container.html',
+            templateUrl: 'js/directives/oobj-container/oobj-container.html',
             transclude: true,
             scope: {
-                title: '@'
-            },
-            link: link
+                title: '@?'
+            }
         };
 
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
     }
 })();

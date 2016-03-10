@@ -8,18 +8,18 @@
     /** @ngInject */
     function oobjStats () {
         return {
-            templateUrl: 'oobj-stats/oobj-stats.html',
-            restrict: 'E',
+            templateUrl: 'js/directives/oobj-stats/oobj-stats.html',
+            restrict: 'AE',
             replace: true,
             scope: {
-                'model': '=',
-                'comments': '@',
-                'number': '@',
-                'name': '@',
-                'colour': '@',
-                'details': '@',
-                'type': '@',
-                'goto': '@'
+                'model': '=?',
+                'comments': '@?',
+                'number': '@?',
+                'name': '@?',
+                'colour': '@?',
+                'details': '@?',
+                'type': '@?',
+                'goto': '@?'
             }
         };
     }

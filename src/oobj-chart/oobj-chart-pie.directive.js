@@ -13,18 +13,13 @@
         return {
             require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-chart/oobj-chart-pie.html',
+            templateUrl: 'js/directives/oobj-chart/oobj-chart-pie.html',
             scope: {
-                id: '@',
-                ngModel: '=?',
-                colspan: '@',
-                title: '@'
-            },
-            link: link
+                id: '@?',
+                ngModel: '=',
+                colspan: '@?',
+                title: '@?'
+            }
         };
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
     }
 })();

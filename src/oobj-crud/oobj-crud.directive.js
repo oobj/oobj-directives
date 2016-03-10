@@ -11,18 +11,17 @@
     /** @ngInject */
     function oobjCrud() {
         return {
-            restrict: 'EA',
-            templateUrl: 'oobj-crud/oobj-crud.html',
+            templateUrl: 'js/directives/oobj-crud/oobj-crud.html',
             transclude: true,
             scope: {
-                title: '@',
-                vm: '=',
-                footer: '@',
-                showBtnSalvar: '=',
-                showBtnLimpar: '=',
-                showBtnExcluir: '=',
-                showBtnOnBottom: '=',
-                showBtnOnTop: '='
+                vm: '=?',
+                title: '@?',
+                footer: '@?',
+                showBtnSalvar: '=?',
+                showBtnLimpar: '=?',
+                showBtnExcluir: '=?',
+                showBtnOnTop: '=?',
+                showBtnOnBottom: '=?'
             },
             link: link
         };

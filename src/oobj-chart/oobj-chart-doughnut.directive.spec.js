@@ -5,19 +5,14 @@
     'use strict';
 
     describe('Teste de Directiva: oobjChartDoughnut', function () {
-
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
-
         beforeEach(function () {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
@@ -27,10 +22,10 @@
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.id = "testeid";
-            scope.chartId = "testechartId";
-            scope.title = "testetitle";
-            scope.colspan = "testecolspan";
+            scope.id = 'testeid';
+            scope.chartId = 'testechartId';
+            scope.title = 'testetitle';
+            scope.colspan = 'testecolspan';
 
             scope.ngModel = {
                 prop: 'ngModel'
@@ -50,7 +45,7 @@
         }
 
         it('deve ter a classe oobj-chart-doughnut', function () {
-            var elementTemp = angular.element("<p class='oobj-chart-doughnut'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-chart-doughnut\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-chart-doughnut')).toBeTruthy();
@@ -61,19 +56,17 @@
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function () {
-
             expect(scope.chartId).toEqual('testechartId');
-            isolatedScope.chartId = "isoladochartId";
+            isolatedScope.chartId = 'isoladochartId';
             expect(scope.chartId).toEqual('testechartId');
 
             expect(scope.title).toEqual('testetitle');
-            isolatedScope.title = "isoladotitle";
+            isolatedScope.title = 'isoladotitle';
             expect(scope.title).toEqual('testetitle');
 
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
-
         });
 
     });

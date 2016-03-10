@@ -1,0 +1,47 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-bullhorn oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Manifestação do Destinatário
+                </span>
+            </h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row center">
+            <p>
+                Atenção! Você está prestes a registrar a manifestação(ões) para o(s) seguinte(s) documento(s):
+            </p>
+            <table class="table table-responsive table-borderless text-left">
+                <thead>
+                    <tr><td>&nbsp;</td><td><strong>Nº / Série</strong></td><td><strong>Emitente</strong></td></tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="doc in vm.docs">
+                        <td><i class="fa fa-times cursor-pointer" ng-click="::vm.remover(doc)"></i></td>
+                        <td><span ng-bind="::doc.numero"></span> - <span ng-bind="::doc.serie"></span></td>
+                        <td>
+                            <span ng-bind="::doc.emitente"></span>
+                            <br>
+                            <span ng-bind="::doc.cnpj"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <oobj-button ng-click="::vm.cancel()" label="Cancelar" btn-class="oobj-dfe-actions-btn-cancelar">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.acao()" label="Confirmar" btn-class="btn-primary">
+        </oobj-button>
+    </div>
+</div>

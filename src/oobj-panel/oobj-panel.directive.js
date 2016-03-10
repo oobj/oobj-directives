@@ -12,13 +12,13 @@
     function oobjPanel() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-panel/oobj-panel.html',
+            templateUrl: 'js/directives/oobj-panel/oobj-panel.html',
             transclude: true,
             scope: {
-                title: '@',
-                footer: '@',
-                colspan: '@',
-                panelClass: '@'
+                title: '@?',
+                footer: '@?',
+                colspan: '@?',
+                panelClass: '@?'
             },
             link: link
         };

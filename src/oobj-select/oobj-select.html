@@ -1,15 +1,10 @@
 <div ng-class="::colspan" class="form-group form-group-{{::inputSize}}">
-    <label class="control-label" ng-show="::(showLabel != false && label != undefined)">
+    <label class="control-label" ng-show="::(showLabel != false && label != undefined)" for="{{::id}}">
         <strong><span ng-bind="::label"></span></strong>
         <span class="text-danger" ng-show="::ngRequired">*</span>
     </label>
 
-    <ui-select ng-model="ngModel" ng-required="ngRequired">
-        <ui-select-match>
-            <span ng-bind="$select.selected[itemLabel]"></span>
-        </ui-select-match>
-        <ui-select-choices repeat="item in (provider | filter: $select.search) track by $index">
-            <span ng-bind="item[itemLabel]"></span>
-        </ui-select-choices>
-    </ui-select>
+    <select id="{{::id}}" class="selectpicker form-control" ng-model="ngModel" ng-required="::ngRequired"
+            title=" " data-selected-text-format="count > 3" multiple ng-cloak>
+    </select>
 </div>

@@ -5,11 +5,10 @@
     'use strict';
 
     describe('Teste de Directiva: oobj-timeline', function () {
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
         beforeEach(function () {
@@ -22,7 +21,7 @@
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.colspan = "testecolspan";
+            scope.colspan = 'testecolspan';
 
             scope.provider = [{
                 prop: 'provider'
@@ -33,7 +32,6 @@
         }));
 
         function getCompiledElement() {
-
             var $element = angular.element('<oobj-timeline provider="provider" colspan="colspan"></oobj-timeline>');
 
             var compiledElement = $compile($element)(scope);
@@ -43,7 +41,7 @@
         }
 
         it('deve ter a classe oobj-input-text', function () {
-            var elementTemp = angular.element("<p class='oobj-timeline'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-timeline\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-timeline')).toBeTruthy();
@@ -55,17 +53,15 @@
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function () {
-
             //mesmo modificando o isolateScope ainda permanece o valor atribuido
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
         });
 
         it('Teste atributos com scope isolado - two way binding ("=").', function () {
-            isolatedScope.provider.prop = "valorIsoladoScope";
+            isolatedScope.provider.prop = 'valorIsoladoScope';
             expect(scope.provider.prop).toEqual('valorIsoladoScope');
-
         });
 
         it('Deve substituir elemento na directive - replace: true', function () {

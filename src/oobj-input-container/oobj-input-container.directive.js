@@ -12,18 +12,13 @@
     function oobjInputContainer() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-input-container/oobj-input-container.html',
+            templateUrl: 'js/directives/oobj-input-container/oobj-input-container.html',
             transclude: true,
             scope: {
-                colspan: '@',
-                label: '@',
+                colspan: '@?',
+                label: '@?',
                 showLabel: '=?'
-            },
-            link: link
+            }
         };
-
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
     }
 })();

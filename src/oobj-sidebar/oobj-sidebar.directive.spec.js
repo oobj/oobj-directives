@@ -5,17 +5,14 @@
     'use strict';
 
     describe('Teste de Directiva: oobjSidebar', function () {
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta insertitlea
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
         beforeEach(function () {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
@@ -43,7 +40,7 @@
         }
 
         it('deve ter a classe oobj-sidebar', function () {
-            var elementTemp = angular.element("<p class='oobj-sidebar'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-sidebar\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-sidebar')).toBeTruthy();
@@ -51,10 +48,8 @@
 
 
         it('Teste atributos com scope isolado - two way binding ("=").', function () {
-
             expect(scope.provider).toBeDefined();
             expect(scope.provider.prop).toEqual('provider');
-
         });
 
         it('Deve configurar collapseVar na funcao check(x) diferente do valor default(0)', function () {

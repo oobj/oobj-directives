@@ -1,0 +1,152 @@
+<oobj-panel>
+    <span class="text-primary oobj-detalhes-nfe-text-bold">Dados do Emitente</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Nome / Razão Social</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.razaoSocial"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Nome Fantasia</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.nomeFantasia"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CNPJ</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.cnpj | cpfCnpj"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Endereço</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.logradouro"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Bairro</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.bairro"></span>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CEP</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.cep | cep"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                <span class="oobj-detalhes-nfe-text-bold">Município</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.municipio"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p>
+                <span class="oobj-detalhes-nfe-text-bold">Telefone</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.telefone | telefone"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">UF</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.uf"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">País</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.pais"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Estadual</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.ie"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Estadual Substituto</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.iest"></span>
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Inscrição Municipal</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.im"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Município da Ocorrência do Fato Gerador do ICMS</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.fgIcms"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CNAE Fiscal</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.cnae"></span>
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código de Regime Tributário</span>
+                <br>
+                <span ng-bind="::vm.dfe.emit.crt"></span>
+            </p>
+        </div>
+    </div>
+</oobj-panel>

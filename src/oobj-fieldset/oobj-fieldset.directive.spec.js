@@ -5,32 +5,26 @@
     'use strict';
 
     describe('Teste de Directiva: oobjFieldset', function () {
-
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
-
         beforeEach(function () {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
-        // cria um novo scope antes de cada teste
         beforeEach(inject(function (_$compile_, _$rootScope_) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.id = "testeid";
-            scope.title = "testetitle";
-            scope.titleStyle = "testetitleStyle";
-            scope.colspan = "testecolspan";
+            scope.id = 'testeid';
+            scope.title = 'testetitle';
+            scope.titleStyle = 'testetitleStyle';
+            scope.colspan = 'testecolspan';
 
             element = getCompiledElement();
             isolatedScope = element.isolateScope();
@@ -45,26 +39,24 @@
         }
 
         it('deve ter a classe oobj-fieldset', function () {
-            var elementTemp = angular.element("<p class='oobj-fieldset'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-fieldset\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-fieldset')).toBeTruthy();
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function () {
-
             expect(scope.title).toEqual('testetitle');
-            isolatedScope.title = "isoladotitle";
+            isolatedScope.title = 'isoladotitle';
             expect(scope.title).toEqual('testetitle');
 
             expect(scope.titleStyle).toEqual('testetitleStyle');
-            isolatedScope.titleStyle = "isoladotitleStyle";
+            isolatedScope.titleStyle = 'isoladotitleStyle';
             expect(scope.titleStyle).toEqual('testetitleStyle');
 
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
-
         });
 
         it('Deve ter ng-transclude', function () {

@@ -8,7 +8,7 @@
     /** @ngInject */
     function oobjSidebar() {
         return {
-            templateUrl: 'oobj-sidebar/oobj-sidebar.html',
+            templateUrl: 'js/directives/oobj-sidebar/oobj-sidebar.html',
             restrict: 'E',
             replace: true,
             scope: {

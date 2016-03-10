@@ -1,5 +1,7 @@
 /**
- * Created by ATILLA on 14/10/2015.
+ * Directiva de Modal, usando UI Bootstrap
+ *
+ * Created by ATILLA on 14/10/2015
  */
 (function() {
     'use strict';
@@ -12,45 +14,59 @@
     function oobjModal() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-modal/oobj-modal.html',
+            templateUrl: 'js/directives/oobj-modal/oobj-modal.html',
             transclude: true,
             scope: {
-                idModal: '@',
-                colspan: '@',
-                title: '@',
-                showBtnOpen: '=',
-                showBtnClose: '=',
-                labelBtnOpen: '@',
-                labelBtnClose: '@',
-                classBtnOpen: '@',
-                size: '@'
+                idModal: '@?',
+                colspan: '@?',
+                title: '@?',
+                showBtnOpen: '=?',
+                showBtnClose: '=?',
+                showBtnAction: '=?',
+                labelBtnOpen: '@?',
+                labelBtnClose: '@?',
+                labelBtnAction: '@?',
+                classBtnOpen: '@?',
+                classBtnClose: '@?',
+                classBtnAction: '@?',
+                onClickBtnAction: '&?',
+                size: '@?'
             },
-            link: link,
             compile: compile
         };
 
-        function link(scope, element, attrs, ngModelCtrl) {
-
-        }
-
         function compile() {
             return {
-                pre: function preLink(scope) {
-                    scope.idModal = scope.idModal || '#oobjModal';
-                    scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
-                    scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
-                    scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
-                    scope.size = scope.size || '';
-
-                    if (angular.isUndefined(scope.showBtnOpen)) {
-                        scope.showBtnOpen = true;
-                    }
-
-                    if (angular.isUndefined(scope.showBtnClose)) {
-                        scope.showBtnClose = true;
-                    }
-                }
+                pre: preLink
             };
+
+            function preLink(scope) {
+                getDefaults(scope);
+
+                scope.size = scope.size || '';
+
+                if (angular.isUndefined(scope.showBtnOpen)) {
+                    scope.showBtnOpen = true;
+                }
+
+                if (angular.isUndefined(scope.showBtnClose)) {
+                    scope.showBtnClose = true;
+                }
+
+                if (angular.isUndefined(scope.showBtnAction)) {
+                    scope.showBtnAction = false;
+                }
+            }
+
+            function getDefaults(scope) {
+                scope.idModal = scope.idModal || '#oobjModal';
+                scope.classBtnOpen = scope.classBtnOpen || 'btn-default';
+                scope.classBtnClose = scope.classBtnClose || 'btn-default';
+                scope.classBtnAction = scope.classBtnAction || 'btn-default';
+                scope.labelBtnOpen = scope.labelBtnOpen || 'Abrir Modal';
+                scope.labelBtnClose = scope.labelBtnClose || 'Fechar';
+                scope.labelBtnAction = scope.labelBtnAction || 'Ação';
+            }
         }
     }
 })();

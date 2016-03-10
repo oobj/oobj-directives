@@ -12,24 +12,22 @@
     function oobjButton() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-button/oobj-button.html',
+            templateUrl: 'js/directives/oobj-button/oobj-button.html',
             scope: {
-                label: '@',
-                btnClass: '@',
-                icon: '@',
-                colspan: '@',
-                paddingLeft: '@',
-                paddingRight: '@'
+                label: '@?',
+                btnClass: '@?',
+                icon: '@?',
+                colspan: '@?',
+                paddingLeft: '@?',
+                paddingRight: '@?'
             },
             compile: compile
         };
 
         function compile() {
             return {
-                pre: function preLink(scope, element) {
-                    if (!scope.btnClass) {
-                        scope.btnClass = 'btn-default';
-                    }
+                pre: function(scope, element) {
+                    scope.btnClass = scope.btnClass || 'btn-default';
 
                     if (!scope.paddingRight) {
                         element.css('padding-right', '6px');

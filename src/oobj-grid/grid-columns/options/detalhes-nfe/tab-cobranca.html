@@ -1,0 +1,75 @@
+<oobj-panel>
+    <div nf-if="vm.dfe.cobr.fat">
+        <span class="text-primary oobj-detalhes-nfe-text-bold">Fatura</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Número</span>
+                    <br>
+                    <span ng-bind="::vm.dfe.cobr.fat.nFat"></span>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor Original</span>
+                    <br>
+                    <span ng-bind="::vm.dfe.cobr.fat.vOrig | currency:'R$ '"></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor do Desconto</span>
+                    <br>
+                    <span ng-bind="::vm.dfe.cobr.fat.vDesc | currency:'R$ '"></span>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor Líquido</span>
+                    <br>
+                    <span ng-bind="::vm.dfe.cobr.fat.vLiq | currency:'R$ '"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div nf-if="::vm.dfe.cobr.dup">
+        <hr>
+
+        <span class="text-primary oobj-detalhes-nfe-text-bold">Duplicatas</span>
+
+        <br>
+
+        <div class="row" ng-repeat="duplicata in vm.dfe.cobr.dup">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Número</span>
+                    <br>
+                    <span ng-bind="::duplicata.nDup"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Vencimento</span>
+                    <br>
+                    <span ng-bind="::duplicata.dVenc"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor</span>
+                    <br>
+                    <span ng-bind="::duplicata.vDup | currency:'R$ '"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</oobj-panel>

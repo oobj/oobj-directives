@@ -1,0 +1,474 @@
+<oobj-panel>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código do Produto</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].resumoProduto.codigo"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código NCM</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].ncm"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código CEST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].cest"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código EX da TIPI</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].codExTipi"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">CFOP</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].cfop"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Outras Despesas Acessórias</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].despesasAcessorias | currency: 'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Indicador de Composição do Valor Total da NF-e</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].indTot"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código EAN Comercial</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].ean"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Unidade Comercial</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].resumoProduto.unidadeComercial"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Quantidade Comercial</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].resumoProduto.quantidadeComercial"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Código EAN Tributável</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].eanTrib"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Unidade Tributável</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].uTrib"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Quantidade Tributável</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].qTrib"></span>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor unitário de Comercialização</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].vUnCom | currency : 'R$ '"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Unitário de Tributação</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].vUnTrib | currency : 'R$ '"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor Aproximado dos Tributos</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].vTotTrib | currency : 'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Número do pedido de compra</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].xPed"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Item do pedido de compra</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].nItemPed"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Número FCI</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].nFci"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <span class="text-primary oobj-detalhes-nfe-text-bold">ICMS Normal e ST</span>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Origem da Mercadoria</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.orig"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Tributação ICMS</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.cst"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Modalidade Definição da BC ICMS NORMAL</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.modBc"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo do ICMS Normal</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.vBc | currency: 'R$ '"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Alíquota do ICMS Normal</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.pIcms"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do ICMS Normal</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.vIcms | currency: 'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo do ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.vBcSt | currency: 'R$ '"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Alíquota do ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.pIcmsSt"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Valor do ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.vIcmsSt | currency: 'R$ '"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Percentual Redução de BC do ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.pRedBcSt"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Percentual do MVA do ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.pMVASt"></span>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="timeline-text">
+                <span class="oobj-detalhes-nfe-text-bold">Modalidade Definição da BC ICMS ST</span>
+                <br>
+                <span ng-bind="::detalhesProduto[$index].icms.modBcSt"></span>
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div ng-show="::detalhesProduto[$index].ipi">
+        <span class="text-primary oobj-detalhes-nfe-text-bold">IPI</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Classe de Enquadramento</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.clEnq"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Código de Enquadramento</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.cEnq"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Código do Selo</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.cSelo"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">CNPJ do Produtor</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.cnpjProd | cpfCnpj"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Qtd. Selo</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.qSelo"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">CST</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.cst"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Qtd Total Unidade Padrão</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.qUnid"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor por Unidade</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.vUnid | currency : 'R$ '"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor IPI</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.vIpi | currency : 'R$ '"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.vBc | currency : 'R$ '"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Alíquota</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].ipi.pIpi"></span>
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
+    </div>
+
+    <div ng-show="::detalhesProduto[$index].pis">
+        <span class="text-primary oobj-detalhes-nfe-text-bold">PIS</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">CST</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].pis.cst"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].pis.vBc | currency : 'R$ '"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Alíquota</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].pis.pPis | number"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].pis.vPis | currency : 'R$ '"></span>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+
+    <div ng-show="::detalhesProduto[$index].cofins">
+        <span class="text-primary oobj-detalhes-nfe-text-bold">COFINS</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">CST</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].cofins.cst"></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Base de Cálculo</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].cofins.vBc | currency : 'R$ '"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Alíquota</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].cofins.pCofins | number"></span>
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Valor</span>
+                    <br>
+                    <span ng-bind="::detalhesProduto[$index].cofins.vCofins | currency : 'R$ '"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</oobj-panel>

@@ -1,0 +1,94 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <i class="fa fa-5x fa-bullhorn oobj-dfe-actions-header-primary"></i>
+
+            <h4>
+                <span class="oobj-dfe-actions-header-title">
+                    Manifestação do Destinatário
+                </span>
+            </h4>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row center">
+            <p>
+                Você selecionou <strong ng-bind-html="::vm.quantidadeItens"></strong> documento(s) para
+                a manifestação do destinatário.
+            </p>
+
+            <div class="row" ng-if="vm.exibirSelectDestinatario">
+                <div class="col-sm-6 col-md-5 col-lg-4 text-right"><strong>Destinatário:</strong></div>
+                <div class="col-sm-6 col-md-7 col-lg-8 text-left">
+                    <oobj-select colspan="col-sm-12 col-md-10 col-xl-8"
+                                 ng-model="vm.destinatario"
+                                 provider="vm.destinatarioOpts"
+                                 item-label="nome"
+                                 item-id="id">
+                    </oobj-select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-5 col-lg-4 text-right">
+                    <strong ng-class="vm.manifestacaoWarnMessage ? 'text-danger' : ''">Manifestação:</strong>
+                </div>
+                <div class="col-sm-6 col-md-7 col-lg-8 text-left">
+                    <oobj-select colspan="col-sm-12 col-md-10 col-xl-8"
+                                 ng-model="vm.manifestacao"
+                                 provider="vm.manifestacaoOpts"
+                                 item-label="descricao"
+                                 item-id="valor">
+                    </oobj-select>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.hasJustificativa">
+                <div class="col-sm-6 col-md-5 col-lg-4 text-right">
+                    <strong ng-class="vm.justificativaWarnMessage ? 'text-danger' : ''">Justificativa:</strong>
+                    <i class="fa fa-info-circle" uib-tooltip="{{ ::vm.tooltipJustificativa }}"></i>
+                </div>
+                <div class="col-sm-6 col-md-7 col-lg-8 text-left">
+                    <oobj-textarea
+                            ng-model="vm.justificativa"
+                            rows="3"
+                            title="Justificativa"
+                            show-filled-chars="true"
+                            placeholder="Preenchimento obrigatório. Mínimo 15 caracteres."
+                            colspan="pull-left col-sm-12 col-md-12 col-xl-12">
+                    </oobj-textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-5 col-lg-4 text-right">
+                    <strong ng-class="vm.dataWarnMessage ? 'text-danger' : ''">Data/Hora do Evento:</strong>
+                </div>
+                <div class="col-sm-6 col-md-7 col-lg-8 text-left">
+                    <oobj-calendar
+                            colspan="col-sm-12 col-md-10 col-lg-8"
+                            ng-model="vm.dataEvento"
+                            pattern="dd/MM/yyyy HH:mm">
+                    </oobj-calendar>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+        <p class="center " ng-show="vm.manifestacaoWarnMessage">
+            <strong class="text-danger" ng-bind-html="vm.manifestacaoWarnMessage"></strong>
+        </p>
+        <p class="center " ng-show="vm.justificativaWarnMessage">
+            <strong class="text-danger" ng-bind-html="vm.justificativaWarnMessage"></strong>
+        </p>
+        <p class="center " ng-show="vm.dataWarnMessage">
+            <strong class="text-danger" ng-bind-html="vm.dataWarnMessage"></strong>
+        </p>
+
+        <oobj-button ng-click="::vm.cancel()" label="Cancelar" btn-class="oobj-dfe-actions-btn-cancelar">
+        </oobj-button>
+
+        <oobj-button ng-click="::vm.manifestar()" label="{{ ::vm.btnManifestarLabel }}" btn-class="btn-primary">
+        </oobj-button>
+    </div>
+</div>

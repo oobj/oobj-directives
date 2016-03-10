@@ -11,15 +11,15 @@
     /** @ngInject */
     function oobjCheckbox() {
         return {
-            require: 'ngModel',
             restrict: 'EA',
-            templateUrl: 'oobj-checkbox/oobj-checkbox.html',
+            require: 'ngModel',
+            templateUrl: 'js/directives/oobj-checkbox/oobj-checkbox.html',
             scope: {
-                id: '@',
-                ngModel: '=?',
-                colspan: '@',
-                label: '@',
-                inline: '='
+                id: '@?',
+                ngModel: '=',
+                colspan: '@?',
+                label: '@?',
+                inline: '=?'
             },
             link: link
         };

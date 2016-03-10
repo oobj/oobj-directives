@@ -1,38 +1,20 @@
-<div>
-    <oobj-button data-toggle="modal" data-target="#oobjConfirm" label="{{::label}}" icon="{{::icon}}" btn-class="{{::btnClass}}">
+<div ng-class="::colspan">
+    <oobj-button data-toggle="modal" data-target="#{{::idModal}}" label="{{::label}}" icon="{{::icon}}"
+                 btn-class="{{::classBtnConfirm}}">
     </oobj-button>
 
-    <div id="oobjConfirm" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">
-                        <span ng-bind="::(title || 'Confirmação')"></span>
-                    </h4>
-                </div>
+    <oobj-modal id-modal="{{::idModal}}" size="md" show-btn-open="false" show-btn-action="true"
+                label-btn-close="Cancelar" label-btn-action="Sim, tenho certeza" class-btn-action="btn-warning"
+                on-click-btn-action="::onClickBtnYes()" class-btn-close="oobj-confirm-button-btn-cancelar">
 
-                <div class="modal-body">
-                    <p>
-                        <span ng-bind="::msg" ng-style="::msgStyle"></span>
-                    </p>
-                </div>
+        <div class="row center">
+            <i class="fa fa-5x fa-exclamation text-warning"></i>
 
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col-md-12 text-right">
-                            <oobj-button data-dismiss="modal" label="{{::(labelBtnYes || 'Sim')}}" ng-click="::onClickBtnYes()"
-                                         icon="fa-check" btn-class="{{::(classBtnYes  || 'btn-primary')}}"
-                                         class="oobj-confirm-button-btn-yes">
-                            </oobj-button>
+            <h3>
+                <span>Você tem certeza?</span>
+            </h3>
 
-                            <oobj-button data-dismiss="modal" label="{{::(labelBtnNo || 'Não')}}" ng-click="::onClickBtnNo()"
-                                         icon="fa-times" btn-class="{{::(classBtnNo || 'btn-default')}}">
-                            </oobj-button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p>Não será possível desfazer a ação após sua confirmação.</p>
         </div>
-    </div>
+    </oobj-modal>
 </div>

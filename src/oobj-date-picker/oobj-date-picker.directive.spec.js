@@ -5,17 +5,14 @@
     'use strict';
 
     describe('Teste de Directiva: oobjDatePicker', function () {
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta insertitlea
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
         beforeEach(function () {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
@@ -25,18 +22,22 @@
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.id = "testeId";
-            scope.name = "testename";
-            scope.label = "testelabel";
-            scope.showLabel = "testeshowLabel";
-            scope.colspan = "testecolspan";
-            scope.inputSize = "testeinputSize";
-
-            scope.title = "testetitle";
-            scope.footer = "testefooter";
+            scope.id = 'testeId';
+            scope.name = 'testename';
+            scope.value = 'testevalue';
+            scope.label = 'testelabel';
+            scope.showLabel = 'testeshowLabel';
+            scope.colspan = 'testecolspan';
+            scope.timeIncrement = 'testetimeIncrement';
+            scope.format = 'testeformat';
+            scope.inputSize = 'testeinputSize';
 
             scope.ngModel = {
                 prop: 'ngModel'
+            };
+
+            scope.ngValue = {
+                prop: 'ngValue'
             };
 
             scope.opts = {
@@ -47,6 +48,10 @@
                 prop: 'range'
             };
 
+            scope.time = {
+                prop: 'time'
+            };
+
             element = getCompiledElement();
             isolatedScope = element.isolateScope();
         }));
@@ -54,7 +59,12 @@
         function getCompiledElement(xml) {
             var $element;
             if (xml == null) {
-                $element = angular.element('<oobj-date-picker ng-model="ngModel" range="range"></oobj-date-picker>');
+                $element = angular.element('<oobj-date-picker ' +
+                    'ng-model="ngModel" ' +
+                    'ng-value="ngValue" ' +
+                    'range="range" ' +
+                    'opts="opts" ' +
+                    'time="time"></oobj-date-picker>');
             } else {
                 $element = angular.element(xml);
             }
@@ -75,7 +85,7 @@
         });
 
         it('deve ter a classe oobj-date-picker', function () {
-            var elementTemp = angular.element("<p class='oobj-date-picker'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-date-picker\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-date-picker')).toBeTruthy();
@@ -84,55 +94,81 @@
         it('Teste atributos com scope isolado - one way binding ("@").', function () {
 
             expect(scope.id).toEqual('testeId');
-            isolatedScope.id = "isoladoId";
+            isolatedScope.id = 'isoladoId';
             expect(scope.id).toEqual('testeId');
 
             expect(scope.name).toEqual('testename');
-            isolatedScope.name = "isoladoname";
+            isolatedScope.name = 'isoladoname';
             expect(scope.name).toEqual('testename');
 
+            expect(scope.value).toEqual('testevalue');
+            isolatedScope.value = 'isoladolabel';
+            expect(scope.value).toEqual('testevalue');
+
             expect(scope.label).toEqual('testelabel');
-            isolatedScope.label = "isoladolabel";
+            isolatedScope.label = 'isoladolabel';
             expect(scope.label).toEqual('testelabel');
 
             expect(scope.showLabel).toEqual('testeshowLabel');
-            isolatedScope.showLabel = "isoladoshowLabel";
+            isolatedScope.showLabel = 'isoladoshowLabel';
             expect(scope.showLabel).toEqual('testeshowLabel');
 
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
+
+            expect(scope.timeIncrement).toEqual('testetimeIncrement');
+            isolatedScope.timeIncrement = 'isoladoinputSize';
+            expect(scope.timeIncrement).toEqual('testetimeIncrement');
+
+            expect(scope.format).toEqual('testeformat');
+            isolatedScope.format = 'isoladoinputSize';
+            expect(scope.format).toEqual('testeformat');
 
             expect(scope.inputSize).toEqual('testeinputSize');
-            isolatedScope.inputSize = "isoladoinputSize";
+            isolatedScope.inputSize = 'isoladoinputSize';
             expect(scope.inputSize).toEqual('testeinputSize');
 
         });
 
         it('Teste atributos com scope isolado - two way binding ("=").', function(){
-
-            isolatedScope.ngModel.prop = "valorIsoladoScope";
+            expect(scope.ngModel.prop).toEqual('ngModel');
+            isolatedScope.ngModel.prop = 'valorIsoladoScope';
             expect(scope.ngModel.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.opts.prop = "valorIsoladoScope";
-            expect(scope.opts.prop).toEqual('opts');
+            expect(scope.ngValue.prop).toEqual('ngValue');
+            isolatedScope.ngValue.prop = 'valorIsoladoScope';
+            expect(scope.ngValue.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.range.prop = "valorIsoladoScope";
+            expect(scope.range.prop).toEqual('range');
+            isolatedScope.range.prop = 'valorIsoladoScope';
             expect(scope.range.prop).toEqual('valorIsoladoScope');
 
+            expect(scope.time.prop).toEqual('time');
+            isolatedScope.time.prop = 'valorIsoladoScope';
+            expect(scope.time.prop).toEqual('valorIsoladoScope');
+        });
+
+        it('Deve respeitar os valores default de opts' , function(){
+            expect(isolatedScope.opts.timePicker.prop).toBe('time');
+            expect(isolatedScope.opts.timePickerIncrement).toBe(1);
+            expect(isolatedScope.opts.timePicker24Hour).toBe(true);
+            expect(isolatedScope.opts.showDropdowns).toBe(true);
+            expect(isolatedScope.opts.linkedCalendars).toBe(false);
+            expect(isolatedScope.opts.opens).toBe('left');
+            expect(isolatedScope.opts.cancelClass).toBe('btn-danger');
         });
 
         it('Deve scope.opts.singleDatePicker false para range definido.', function(){
-
+            element = getCompiledElement('<oobj-date-picker ng-model="ngModel" range="true"></oobj-date-picker>');
+            isolatedScope = element.isolateScope();
             expect(isolatedScope.opts.singleDatePicker).toBe(false);
-
         });
 
         it('Deve scope.opts.singleDatePicker true para range indefinido.', function(){
             element = getCompiledElement('<oobj-date-picker ng-model="ngModel"></oobj-date-picker>');
             isolatedScope = element.isolateScope();
             expect(isolatedScope.opts.singleDatePicker).toBeTruthy();
-
         });
 
         it('Deve respeitar valores padroes de locale.', function() {
@@ -148,11 +184,6 @@
             expect(isolatedScope.opts.locale.firstDay).toBe(1);
         });
 
-        it('Deve respeitar valores padroes de linkedCalendars: false, opens: "left",cancelClass: "btn-danger".', function() {
-            expect(isolatedScope.opts.linkedCalendars).toBe(false);
-            expect(isolatedScope.opts.opens).toBe('left');
-            expect(isolatedScope.opts.cancelClass).toBe('btn-danger');
-        });
     });
 
 })();

@@ -1,0 +1,28 @@
+<div class="ui-grid-cell-contents">
+    <button class="btn btn-circle oobj-ciclo-vida-column-btn"
+            ng-click="grid.appScope.openModalIntegridadeArquivo(row)"
+            style="background-color: {{ COL_FIELD.statusArquivo.backgroundColor }}; color: {{ COL_FIELD.statusArquivo.color }};"
+            ng-show="grid.appScope.cicloVidaConfig.integridade" title=" {{COL_FIELD.statusArquivo.descricao}} ">
+        <i class="fa {{ COL_FIELD.statusArquivo.icone }}" ></i>
+    </button>
+
+    <button data-toggle="modal" class="btn btn-circle oobj-ciclo-vida-column-btn"
+            ng-click="grid.appScope.openModalSituacaoSefaz(row)"
+            style="background-color: {{ COL_FIELD.situacaoSefaz.backgroundColor }}; color: {{ COL_FIELD.situacaoSefaz.color }};"
+            ng-show="grid.appScope.cicloVidaConfig.situacaoSefaz" title=" {{COL_FIELD.situacaoSefaz.descricao}} ">
+        <i class="fa {{ COL_FIELD.situacaoSefaz.icone }}" ></i>
+    </button>
+
+    <button data-toggle="modal" class="btn btn-circle oobj-ciclo-vida-column-btn"
+            ng-click="grid.appScope.openModalEventoEmitente(row)"
+            style="background-color: {{ COL_FIELD.backgroundColorEventoEmitente }}; color: {{ COL_FIELD.colorEventoEmitente }};" ng-show="grid.appScope.cicloVidaConfig.eventoEmitente">
+        <i class="fa {{ COL_FIELD.iconeEventoEmitente }}"></i>
+    </button>
+
+    <button data-toggle="modal" class="btn btn-circle"
+            ng-click="grid.appScope.openModalEventoDestinatario(row)"
+            style="background-color: {{ COL_FIELD.backgroundColorEventoDestinatario }}; color: {{ COL_FIELD.colorEventoDestinatario }};"
+            ng-show="grid.appScope.cicloVidaConfig.eventoDestinatario">
+        <i class="fa {{ COL_FIELD.iconeEventoDestinatario }}"></i>
+    </button>
+</div>

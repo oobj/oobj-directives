@@ -5,36 +5,36 @@
     'use strict';
 
     angular
-    	.module('oobj-directives')
+        .module('oobj-directives')
         .directive('oobjTimeline', oobjTimeline);
 
     oobjTimeline.$inject = ['filterFilter'];
-    
+
     /** @ngInject */
     function oobjTimeline(filterFilter) {
         return {
-            templateUrl: 'oobj-timeline/oobj-timeline.html',
+            templateUrl: 'js/directives/oobj-timeline/oobj-timeline.html',
             restrict: 'E',
             replace: true,
             scope: {
                 provider: '=',
-                colspan: '@',
-                filter: '=filterBy'
+                colspan: '@?',
+                filter: '=?filterBy'
             },
             link: link
         };
 
         function link(scope) {
-        	// filter elements of the timeline by type whenever it changes
-        	scope.$watch('filter', function(newType) {
-        		scope.items = filterFilter(scope.provider, function(item) {
-            		if (newType === 'todos') {
-            			return true;
-            		} else {
-            			return newType === item.type;
-            		}
-            	});
-        	});
+            // filter elements of the timeline by type whenever it changes
+            scope.$watch('filter', function (newType) {
+                scope.items = filterFilter(scope.provider, function (item) {
+                    if (newType === 'todos') {
+                        return true;
+                    } else {
+                        return newType === item.type;
+                    }
+                });
+            });
         }
     }
 })();

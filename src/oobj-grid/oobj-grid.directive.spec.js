@@ -1,115 +1,132 @@
 /**
- * Created by Diogo on 29/10/2015.
+ * Teste unitário para oobj-grid.
+ *
+ * Created by Leonardo on 12/02/2016.
  */
 (function () {
     'use strict';
 
     describe('Teste de Directiva: oobjGrid', function () {
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta insertitlea
-            element, // elemento jqlite
-            isolatedScope;
+            scope,
+            is;
 
-        beforeEach(function () {
-            // carregando modulo q ira ser testado
-            module('oobj-directives');
-            // carregando templates
-            angular.mock.module('templates');
-        });
-
-        // cria um novo scope antes de cada teste
+        beforeEach(module('oobj-directives'));
         beforeEach(inject(function (_$compile_, _$rootScope_) {
-            $rootScope = _$rootScope_;
-            scope = $rootScope.$new();
             $compile = _$compile_;
+            $rootScope = _$rootScope_;
 
-            scope.title = "testetitle";
-            scope.colspan = "testecolspan";
-            scope.footer = "testefooter";
+            scope = $rootScope.$new();
 
-            scope.title = "testetitle";
-            scope.footer = "testefooter";
+            scope.gridOptions = {};
 
-            scope.data = {
-                prop: 'data'
+            // atributos mínimos para compilar a grid
+            scope.initGrid = function(gridScope) {
+                gridScope.addColumn({field: 'test', name: 'Test', width: '100%'});
             };
 
-            scope.gridOptions = {
-                prop: 'gridOptions'
-            };
+            scope.pesquisar = function() {};
 
-            element = getCompiledElement();
-            isolatedScope = element.isolateScope();
+            var element = '<oobj-grid init-grid="initGrid" pesquisar="pesquisar"></oobj-grid>';
+
+            var compiledElement = $compile(element)(scope);
+
+            scope.$digest();
+
+            is = compiledElement.isolateScope();
         }));
 
-        function getCompiledElement(xml) {
-            var $element;
-            if (xml == null) {
-                $element = angular.element('<oobj-grid data="dat"></oobj-grid>');
-            } else {
-                $element = angular.element(xml);
-            }
-            var compiledElement = $compile($element)(scope);
-            scope.$digest();
-
-            return compiledElement;
-        }
-
-        it('deve ter a classe oobj-grid', function () {
-            var elementTemp = angular.element("<p class='oobj-grid'></p>");
-            $compile(elementTemp);
-            scope.$digest();
-            expect(elementTemp.hasClass('oobj-grid')).toBeTruthy();
+        it('deve adicionar uma nova coluna no gridOptions.columnDefs', function() {
+            expect(is.gridOptions).toBeDefined();
+            expect(is.gridOptions.columnDefs.length).toEqual(1);
         });
 
-        it('Teste atributos com scope isolado - one way binding ("@").', function () {
+        it('callbackPesquisa deve preencher informações do retorno corretamente', function() {
+            expect(is.gridOptions).toBeDefined();
+            expect(is.gridOptions.totalItems).toBeDefined();
 
-            expect(scope.title).toEqual('testetitle');
-            isolatedScope.title = "isoladotitle";
-            expect(scope.title).toEqual('testetitle');
+            var items = [{id: 1, value: 'abc'}, {id: 2, value: 'def'}];
+            var data = {
+                totalElements : items.length,
+                content : items
+            };
+            is.callbackPesquisa(data);
 
-            expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
-            expect(scope.colspan).toEqual('testecolspan');
+            is.pesquisar(is.callbackPesquisa, 1, 10);
 
-            expect(scope.footer).toEqual('testefooter');
-            isolatedScope.footer = "isoladofooter";
-            expect(scope.footer).toEqual('testefooter');
-
+            expect(is.gridOptions.totalItems).toBe(2);
         });
 
-        it('Teste atributos com scope isolado - two way binding ("=").', function(){
+        it('totalItems da grid tem o valor default de 0', function() {
+            expect(is.gridOptions).toBeDefined();
+            expect(is.gridOptions.totalItems).toBeDefined();
 
-            expect(scope.data.prop).toEqual('data');
-            isolatedScope.gridOptions.prop = "valorIsoladoScope";
-            expect(scope.gridOptions).toBeDefined();
-            expect(scope.gridOptions.prop).toEqual('gridOptions');
+            var items = [{id: 1, value: 'abc'}, {id: 2, value: 'def'}];
+            var data = {content : items};
+            is.callbackPesquisa(data);
 
+            is.pesquisar(is.callbackPesquisa, 1, 10);
+
+            expect(is.gridOptions.totalItems).toBe(0);
         });
 
-        it('gridOptions nao definido.', function(){
-            expect(scope.gridOptions).toBeDefined();
-            scope.gridOptions = undefined;
-            expect(scope.gridOptions).toBeUndefined();
-            element = getCompiledElement('<oobj-grid data="dat"></oobj-grid>');
-            isolatedScope = element.isolateScope();
-            expect(isolatedScope.gridOptions).toBeDefined();
+        it('autoResize deve ter o tamanho da quantidade de items presentes na página quando nenhum ' +
+            'item vier do banco', function() {
+            scope.autoResize = function(totalItems) { return totalItems; };
 
+            expect(is.gridOptions).toBeDefined();
+            expect(is.gridOptions.totalItems).toBeDefined();
+
+            var data = {content : []};
+
+            is.pesquisar(is.callbackPesquisa, 1, 10);
+            is.callbackPesquisa(data);
         });
 
-        it('Deve configurar gridStyle width e height nao definido', function() {
-            var style  = element.find('div[ng-style]');
-            expect(style[0].style['width']).toBe('');
+        it('getSelectedRows deve retornar zero quando nenhuma linha for selecionada', function() {
+            scope.getSelectedRows = function () { };
+
+            spyOn(scope, 'getSelectedRows');
+
+            is.getSelectedRows();
+
+            expect(scope.getSelectedRows.length).toBe(0);
         });
 
-        //it('Deve configurar gridStyle width e height definido', function() {
-        //    element = getCompiledElement('<oobj-grid width="1px" height="1px"></oobj-grid>');
-        //    var style  = element.find('div[ng-style]');
-        //    expect(style[0].style['width']).toBe('1px');
-        //    expect(style[0].style['height']).toBe('1px');
-        //});
+        xit('TODO: deve executar a paginação dos resultados corretamente', function() {
+            var data = {
+                content: [
+                    {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}, {id: 9}, {id: 10},
+                    {id: 11}, {id: 12}, {id: 13}, {id: 14}, {id: 15}, {id: 16}, {id: 17}, {id: 18}, {id: 19}, {id: 20},
+                    {id: 21}, {id: 22}, {id: 23}, {id: 24}, {id: 25}, {id: 26}, {id: 27}, {id: 28}, {id: 29}, {id: 30},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1},
+                    {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}, {id: 1}
+                ],
+                totalElements: 90
+            };
+
+            scope.getSelectedRows = function () { };
+
+            spyOn(scope, 'getSelectedRows');
+            spyOn(is, 'pesquisar');
+
+            is.callbackPesquisa(data);
+            is.getSelectedRows();
+
+            expect(scope.getSelectedRows.length).toBe(0);
+
+            // não funciona como esperado... os callbacks não sortChanged e paginationChanged não são chamados
+            //noinspection JSUnresolvedVariable,JSUnresolvedFunction
+            is.gridApi.pagination.seek(2);
+            //noinspection JSUnresolvedVariable,JSUnresolvedFunction
+            is.gridApi.pagination.nextPage();
+        });
+
     });
 
 })();

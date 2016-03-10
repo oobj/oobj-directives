@@ -11,27 +11,27 @@
     function oobjAutocomplete() {
         return {
             require: 'ngModel',
-            restrict: 'EA',
-            templateUrl: 'oobj-autocomplete/oobj-autocomplete.html',
+            templateUrl: 'js/directives/oobj-autocomplete/oobj-autocomplete.html',
             scope: {
-                id: '@',
-                ngModel: '=?',
-                colspan: '@',
+                id: '@?',
+                ngModel: '=',
+                colspan: '@?',
+                ngBlur: '&',
                 getItems: '&',
-                itemLabel: '@',
-                itemValue: '@',
-                label: '@',
+                ngChange: '&',
+                itemLabel: '@?',
+                itemValue: '@?',
+                label: '@?',
                 showLabel: '=?',
                 ngRequired: '=?',
-                ngChange: '&',
-                ngBlur: '&',
                 ngDisabled: '=?',
                 ngReadonly: '=?',
-                maxlength: '@',
-                placeholder: '@',
+                maxlength: '@?',
+                placeholder: '@?',
                 toUpper: '=?',
                 toLower: '=?',
-                inputSize: '@' // options: lg (large), md (medium), sm (small)
+                // options: lg (large), md (medium), sm (small)
+                inputSize: '@?'
             },
             link: link
         };

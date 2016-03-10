@@ -1,0 +1,69 @@
+<oobj-panel>
+    <br>
+
+    <div ng-if="::vm.dfe.infAdic.infAdFisco">
+        <span class="text-primary oobj-detalhes-nfe-text-bold">Informações Adicionais de Interesse do Fisco</span>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="timeline-text">
+                    <span ng-bind="::vm.dfe.infAdic.infAdFisco"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="::vm.dfe.infAdic.infCpl">
+        <hr>
+
+        <span class="text-primary oobj-detalhes-nfe-text-bold">Informações Complementares de Interesse do Contribuinte</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="timeline-text">
+                    <span ng-bind="::vm.dfe.infAdic.infCpl"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-if="::vm.dfe.infAdic.obsCont">
+        <hr>
+
+        <span class="text-primary oobj-detalhes-nfe-text-bold">Observações do Contribuinte</span>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Campo</span>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span class="oobj-detalhes-nfe-text-bold">Texto</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="obs in vm.dfe.infAdic.obsCont">
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span ng-bind="::obs.xCampo"></span>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <p class="timeline-text">
+                    <span ng-bind="::obs.xTexto"></span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</oobj-panel>

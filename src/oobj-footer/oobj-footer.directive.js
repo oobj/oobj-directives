@@ -12,11 +12,11 @@
     function oobjFooter() {
         return {
             restrict: 'EA',
-            templateUrl: 'oobj-footer/oobj-footer.html',
+            templateUrl: 'js/directives/oobj-footer/oobj-footer.html',
             scope: {
                 version: '@?',
                 generatedData: '@?',
-                year: '@'
+                year: '@?'
             },
             link: link
         };

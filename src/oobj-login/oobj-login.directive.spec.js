@@ -5,32 +5,26 @@
     'use strict';
 
     describe('Teste de Directiva: oobjLogin', function () {
-
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
-
         beforeEach(function () {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
-        // cria um novo scope antes de cada teste
         beforeEach(inject(function (_$compile_, _$rootScope_) {
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.logo = "testelogo";
-            scope.labelBtnLogin = "testelabelBtnLogin";
-            scope.msgForgotPassword = "testemsgForgotPassword";
-            scope.msgNewUser = "testemsgNewUser";
+            scope.logo = 'testelogo';
+            scope.labelBtnLogin = 'testelabelBtnLogin';
+            scope.msgForgotPassword = 'testemsgForgotPassword';
+            scope.msgNewUser = 'testemsgNewUser';
 
             scope.login = jasmine.createSpy('login');
             scope.forgotPassword = jasmine.createSpy('forgotPassword');
@@ -50,7 +44,10 @@
         function getCompiledElement(xml) {
             var $element;
             if (xml == null) {
-                $element = angular.element('<oobj-login label-btn-login="labelLogin" username="usuario" password="senha"></oobj-login>');
+                $element = angular.element('<oobj-login ' +
+                    'label-btn-login="labelLogin" ' +
+                    'username="usuario" ' +
+                    'password="senha"></oobj-login>');
             } else {
                 $element = angular.element(xml);
             }
@@ -61,26 +58,24 @@
         }
 
         it('deve ter a classe oobj-login', function () {
-            var elementTemp = angular.element("<p class='oobj-login'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-login\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-login')).toBeTruthy();
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function () {
-
             expect(scope.labelBtnLogin).toEqual('testelabelBtnLogin');
-            isolatedScope.labelBtnLogin = "isoladolabelBtnLogin";
+            isolatedScope.labelBtnLogin = 'isoladolabelBtnLogin';
             expect(scope.labelBtnLogin).toEqual('testelabelBtnLogin');
 
             expect(scope.msgForgotPassword).toEqual('testemsgForgotPassword');
-            isolatedScope.msgForgotPassword = "isoladomsgForgotPassword";
+            isolatedScope.msgForgotPassword = 'isoladomsgForgotPassword';
             expect(scope.msgForgotPassword).toEqual('testemsgForgotPassword');
 
             expect(scope.msgNewUser).toEqual('testemsgNewUser');
-            isolatedScope.msgNewUser = "isoladomsgNewUser";
+            isolatedScope.msgNewUser = 'isoladomsgNewUser';
             expect(scope.msgNewUser).toEqual('testemsgNewUser');
-
         });
 
         it('Teste atributos - function ("&").', function(){

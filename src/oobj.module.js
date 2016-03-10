@@ -11,11 +11,15 @@
         'ngTouch',
         'ngSanitize',
         'ui.bootstrap',
-        'ui.select',
         'ui.grid',
-        'ui.grid.exporter',
+        'ngFileUpload',
         'ui.grid.selection',
         'ui.grid.pagination',
-        'daterangepicker'
+        'ui.grid.autoResize',
+        'ui.grid.moveColumns',
+        'toastr',
+        'daterangepicker',
+        'painel.environment.const',
+        'ngTagsInput'
     ]);
 })();

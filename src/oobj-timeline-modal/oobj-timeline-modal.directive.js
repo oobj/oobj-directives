@@ -1,28 +1,27 @@
 /**
  * Created by Renato Borges on 27/11/2015.
  */
-(function() {
+(function () {
     'use strict';
 
     angular
-    	.module('oobj-directives')
+        .module('oobj-directives')
         .directive('oobjTimelineModal', oobjTimelineModal);
 
     /** @ngInject */
     function oobjTimelineModal() {
         return {
-            restrict: 'AE',
             transclude: true,
-            templateUrl: 'oobj-timeline-modal/oobj-timeline-modal.html',
+            templateUrl: 'js/directives/oobj-timeline-modal/oobj-timeline-modal.html',
             scope: {
-                dfe: '=',
-                items: '='
+                dfe: '=?',
+                items: '=?'
             },
             link: link
         };
 
         function link(scope) {
-        	scope.type = 'todos';
+            scope.type = 'todos';
         }
     }
 })();

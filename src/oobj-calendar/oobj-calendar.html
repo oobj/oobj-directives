@@ -1,0 +1,29 @@
+<div class="form-group form-group-sm" ng-class="::colspan">
+    <label class="control-label" ng-if="::(showLabel !== false || label)" for="{{::id}}">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
+        <i uib-tooltip="{{tooltipMessage}}" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"
+           ng-if="tooltipMessage"></i>
+    </label>
+
+    <div class="input-group">
+        <input id="{{::id}}"
+               type="{{ ::type }}"
+               class="form-control"
+               ng-class="ngClass"
+               uib-datepicker-popup="{{ ::pattern }}"
+               datepicker-options="::dateOptions"
+               ng-model="ngModel"
+               is-open="opened"
+               on-open-focus="false"
+               close-text="Fechar"
+               clear-text="Limpar"
+               current-text="Hoje"
+               ng-click="::open()" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-sm" ng-click="::open()">
+                <i class="fa fa-calendar"></i>
+            </button>
+        </span>
+    </div>
+</div>

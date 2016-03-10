@@ -1,0 +1,82 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <h4><span ng-bind="vm.title"></span></h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Número - Série</span>
+                        <br/>
+                        <span class="text-primary" ng-bind-html="::(vm.dfe.numeroSerieInfo.numero +
+                                ' - ' + vm.dfe.numeroSerieInfo.serie)"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-8">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Chave de Acesso</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.chaveAcesso"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Emitente</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Destinatário</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Transportador</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <hr/>
+
+            <!--<div class="row">-->
+                <!--<oobj-grid colspan="col-md-12" grid-options="gridOptions"></oobj-grid>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+
+        <div class="row center">
+            <oobj-button label="REENTREGAR" btn-class="btn btn-primary"></oobj-button>
+        </div>
+
+    </div>
+</div>

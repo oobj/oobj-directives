@@ -1,0 +1,216 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="::vm.cancel()">&times;</button>
+
+        <div class="row center">
+            <h4>
+                <span class="oobj-options-column-title">
+                    Eventos Vinculados
+                </span>
+                <i uib-tooltip="" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"></i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Número - Série</span>
+                        <br/>
+                        <span class="text-primary" ng-bind-html="::(vm.dfe.numeroSerieInfo.numero +
+                                ' - ' + vm.dfe.numeroSerieInfo.serie)"></span>
+                    </p>
+                </div>
+
+                <div class="col-md-8">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Chave de Acesso</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.chaveAcesso"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Emitente</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.emitenteInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Destinatário</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.destinatarioInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="oobj-options-column-line-height">
+                        <span class="text-muted">Transportador</span>
+                        <br/>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.razaoSocial.toUpperCase()">
+                        </span>
+                        <span class="text-primary" ng-bind="::vm.dfe.transportadorInfo.cnpj">
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="row">
+                <oobj-input-container label="Exibir eventos" colspan="col-md-12">
+                    <oobj-checkbox inline="true" ng-model="vm.deveExibirEventosEmitente" label="Emitente">
+                    </oobj-checkbox>
+
+                    <oobj-checkbox inline="true" ng-model="vm.deveExibirEventosDestinatario" label="Destinatário">
+                    </oobj-checkbox>
+
+                    <oobj-checkbox inline="true" ng-model="vm.deveExibirEventosSefaz" label="Sefaz">
+                    </oobj-checkbox>
+                </oobj-input-container>
+            </div>
+
+            <hr/>
+
+            <div ng-if="vm.deveExibirEventosEmitente" ng-repeat="evento in vm.eventosEmitente track by $index">
+                <div class="row {{ evento.vigente === false ? 'text-muted' : '' }}">
+                    <div class="col-md-1">
+                        <button class="btn btn-circle pull-right" ng-class="::evento.type">
+                            <i class="fa" ng-class="::evento.icon"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height">
+                        <span ng-bind="::evento.autor" class="oobj-options-column-text-12px"></span><br/>
+                        <strong ng-bind-html="::evento.tipo" class="oobj-options-column-text-15px"></strong>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height oobj-options-column-text-12px">
+                        <b>Enviado às</b> <span ng-bind="::evento.dataHoraEvento | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Registrado às</b> <span ng-bind="::evento.dataHoraRegistro | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Protocolo:</b> <span ng-bind="::evento.protocolo"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="oobj-options-column-line-height oobj-options-column-text-12px"
+                             ng-repeat="(key, value) in ::evento.det">
+                            <strong ng-bind-html="::key"></strong>:
+                            <span ng-bind-html="::value"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <i class="fa fa-file-pdf-o fa-2x col-md-6 oobj-options-column-cursor
+                                      oobj-options-column-eventos-actions-padding"
+                               ng-click="::vm.downloadPDF()"
+                               uib-tooltip="Baixar PDF"
+                               ng-hide="evento.vigente === false || evento.pdf !== true"></i>
+
+                            <i class="fa fa-file-code-o fa-2x col-md-6 oobj-options-column-cursor
+                                    oobj-options-column-eventos-actions-padding
+                                    {{ evento.pdf !== true ? 'pull-right' : '' }}"
+                               ng-click="::vm.downloadXML()"
+                               uib-tooltip="Baixar XML"
+                               ng-hide="evento.vigente === false"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <hr ng-show="vm.deveExibirEventosEmitente" class="oobj-options-column-eventos-hr"/>
+            </div>
+
+            <div ng-if="vm.deveExibirEventosDestinatario" ng-repeat="evento in vm.eventosDestinatario track by $index">
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn btn-circle pull-right" ng-class="::evento.type">
+                            <i class="fa" ng-class="::evento.icon"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height">
+                        <span ng-bind="::evento.autor" class="oobj-options-column-text-12px"></span><br/>
+                        <strong ng-bind-html="::evento.tipo" class="oobj-options-column-text-15px"></strong>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height oobj-options-column-text-12px">
+                        <b>Enviado às</b> <span ng-bind="::evento.dataHoraEvento | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Registrado às</b> <span ng-bind="::evento.dataHoraRegistro | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Protocolo:</b> <span ng-bind="::evento.protocolo"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="oobj-options-column-line-height oobj-options-column-text-12px"
+                             ng-repeat="(key, value) in ::evento.det">
+                            <strong ng-bind-html="::key"></strong>:
+                            <span ng-bind-html="::value"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <i class="fa fa-file-code-o fa-2x col-md-6 pull-right oobj-options-column-cursor
+                                    oobj-options-column-eventos-actions-padding"
+                               ng-click="::vm.downloadXML()"
+                               uib-tooltip="Baixar XML"
+                               ng-hide="evento.vigente === false"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <hr ng-show="vm.deveExibirEventosDestinatario" class="oobj-options-column-eventos-hr"/>
+            </div>
+
+            <div ng-if="vm.deveExibirEventosSefaz" ng-repeat="evento in vm.eventosSefaz track by $index">
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn btn-circle pull-right" ng-class="::evento.type">
+                            <i class="fa" ng-class="::evento.icon"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height">
+                        <span ng-bind="::evento.autor" class="oobj-options-column-text-12px"></span><br/>
+                        <strong ng-bind-html="::evento.tipo" class="oobj-options-column-text-15px"></strong>
+                    </div>
+                    <div class="col-md-3 oobj-options-column-line-height oobj-options-column-text-12px">
+                        <b>Enviado às</b> <span ng-bind="::evento.dataHoraEvento | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Registrado às</b> <span ng-bind="::evento.dataHoraRegistro | date: 'dd/MM/yyyy HH:mm:ss'"></span>
+                        <br/>
+                        <b>Protocolo:</b> <span ng-bind="::evento.protocolo"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="oobj-options-column-line-height oobj-options-column-text-12px"
+                             ng-repeat="(key, value) in ::evento.det">
+                            <strong ng-bind-html="::key"></strong>:
+                            <span ng-bind-html="::value"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <i class="fa fa-file-code-o fa-2x col-md-6 pull-right oobj-options-column-cursor
+                                    oobj-options-column-eventos-actions-padding"
+                               ng-click="::vm.downloadXML()"
+                               uib-tooltip="Baixar XML"
+                               ng-hide="evento.vigente === false"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <hr ng-show="vm.deveExibirEventosSefaz" class="oobj-options-column-eventos-hr"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center modal-footer">
+    </div>
+</div>

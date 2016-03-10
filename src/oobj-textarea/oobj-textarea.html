@@ -1,0 +1,24 @@
+<div ng-class="::colspan" class="form-group form-group-{{::inputSize}}">
+    <label class="control-label" ng-if="::(showLabel !== false && label !== undefined)" for="{{::id}}">
+        <strong><span ng-bind="::label"></span></strong>
+        <span class="text-danger" ng-show="::ngRequired">*</span>
+        <i uib-tooltip="{{tooltipMessage}}" tooltip-placement="left" class="fa fa-info-circle icon-info-medium-center"
+           ng-if="tooltipMessage"></i>
+    </label>
+
+    <textarea id="{{::id}}"
+              class="form-control"
+              ng-class="::textareaClass"
+              title="{{::title}}"
+              rows="{{::rows}}"
+              ng-model="ngModel"
+              ng-required="::ngRequired"
+              ng-readonly="ngReadonly"
+              ng-maxlength="::ngMaxlength"
+              ng-minlength="::ngMinlength"
+              placeholder="{{::placeholder}}">
+    </textarea>
+    <span class="text-muted filled-chars-fontsize pull-right" ng-hide="show-filled-chars">
+        {{ ngModel.length }} catacteres preenchidos
+    </span>
+</div>

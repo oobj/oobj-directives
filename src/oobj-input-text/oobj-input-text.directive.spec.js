@@ -5,38 +5,32 @@
     'use strict';
 
     describe('Teste de Directiva: oobjInputText', function() {
-
-        // variaveis globais
         var $rootScope,
             $compile,
-            scope, // scope onde nossa directiva esta inserida
-            element, // elemento jqlite
+            scope,
+            element,
             isolatedScope;
 
-
         beforeEach(function() {
-            // carregando modulo q ira ser testado
             module('oobj-directives');
-            // carregando templates
             angular.mock.module('templates');
         });
 
-        // cria um novo scope antes de cada teste
         beforeEach(inject(function(_$compile_, _$rootScope_){
             $rootScope = _$rootScope_;
             scope = $rootScope.$new();
             $compile = _$compile_;
 
-            scope.id = "testeId";
-            scope.colspan = "testecolspan";
-            scope.type = "testetype";
-            scope.label = "testelabel";
-            scope.maxlength = "testemaxlength";
-            scope.max = "testemax";
-            scope.min = "testemin";
-            scope.mask = "testemask";
-            scope.placeholder = "testeplaceholder";
-            scope.inputSize = "testeinputSize";
+            scope.id = 'testeId';
+            scope.colspan = 'testecolspan';
+            scope.type = 'testetype';
+            scope.label = 'testelabel';
+            scope.maxlength = 'testemaxlength';
+            scope.max = 'testemax';
+            scope.min = 'testemin';
+            scope.mask = 'testemask';
+            scope.placeholder = 'testeplaceholder';
+            scope.inputSize = 'testeinputSize';
 
             scope.showLabel = {
                 prop: 'valorScope'
@@ -81,7 +75,22 @@
         function getCompiledElement(xml){
             var $element;
             if (xml == null) {
-                $element = angular.element('<oobj-input-text show-label="showLabel" ng-model="ngModel" ng-required="ngRequired" ng-disabled="ngDisabled" ng-readonly="ngReadonly" remove-mask="removeMask" autofocus="autofocus" currency="currency" to-upper="toUpper" to-lower="toLower" input-size="inputSize" ng-change="ngChange()" ng-keyup="ngKeyup()" ng-keydown="ngKeydown()" ng-blur="ngBlur()"></oobj-input-text>');
+                $element = angular.element('<oobj-input-text ' +
+                    'show-label="showLabel" ' +
+                    'ng-model="ngModel" ' +
+                    'ng-required="ngRequired" ' +
+                    'ng-disabled="ngDisabled" ' +
+                    'ng-readonly="ngReadonly" ' +
+                    'remove-mask="removeMask" ' +
+                    'autofocus="autofocus" ' +
+                    'currency="currency" ' +
+                    'to-upper="toUpper" ' +
+                    'to-lower="toLower" ' +
+                    'input-size="inputSize" ' +
+                    'ng-change="ngChange()" ' +
+                    'ng-keyup="ngKeyup()" ' +
+                    'ng-keydown="ngKeydown()" ' +
+                    'ng-blur="ngBlur()"></oobj-input-text>');
             } else {
                 $element = angular.element(xml);
             }
@@ -93,7 +102,7 @@
         }
 
         it('deve ter a classe oobj-input-text', function () {
-            var elementTemp = angular.element("<p class='oobj-input-text'></p>");
+            var elementTemp = angular.element('<p class=\'oobj-input-text\'></p>');
             $compile(elementTemp);
             scope.$digest();
             expect(elementTemp.hasClass('oobj-input-text')).toBeTruthy();
@@ -124,82 +133,78 @@
         });
 
         it('Teste atributos com scope isolado - one way binding ("@").', function(){
-
             //mesmo modificando o isolateScope ainda permanece o valor atribuido
             expect(scope.id).toEqual('testeId');
-            isolatedScope.id = "isoladoId";
+            isolatedScope.id = 'isoladoId';
             expect(scope.id).toEqual('testeId');
 
             expect(scope.colspan).toEqual('testecolspan');
-            isolatedScope.colspan = "isoladocolspan";
+            isolatedScope.colspan = 'isoladocolspan';
             expect(scope.colspan).toEqual('testecolspan');
 
             expect(scope.type).toEqual('testetype');
-            isolatedScope.type = "isoladotype";
+            isolatedScope.type = 'isoladotype';
             expect(scope.type).toEqual('testetype');
 
             expect(scope.label).toEqual('testelabel');
-            isolatedScope.label = "isoladolabel";
+            isolatedScope.label = 'isoladolabel';
             expect(scope.label).toEqual('testelabel');
 
             expect(scope.maxlength).toEqual('testemaxlength');
-            isolatedScope.maxlength = "isoladomaxlengthl";
+            isolatedScope.maxlength = 'isoladomaxlengthl';
             expect(scope.maxlength).toEqual('testemaxlength');
 
             expect(scope.max).toEqual('testemax');
-            isolatedScope.max = "isoladomax";
+            isolatedScope.max = 'isoladomax';
             expect(scope.max).toEqual('testemax');
 
             expect(scope.min).toEqual('testemin');
-            isolatedScope.min = "isoladomax";
+            isolatedScope.min = 'isoladomax';
             expect(scope.min).toEqual('testemin');
 
             expect(scope.mask).toEqual('testemask');
-            isolatedScope.mask = "isoladomask";
+            isolatedScope.mask = 'isoladomask';
             expect(scope.mask).toEqual('testemask');
 
             expect(scope.placeholder).toEqual('testeplaceholder');
-            isolatedScope.placeholder = "isoladoplaceholder";
+            isolatedScope.placeholder = 'isoladoplaceholder';
             expect(scope.placeholder).toEqual('testeplaceholder');
 
             expect(scope.inputSize).toEqual('testeinputSize');
-            isolatedScope.inputSize = "isoladoinputSize";
+            isolatedScope.inputSize = 'isoladoinputSize';
             expect(scope.inputSize).toEqual('testeinputSize');
         });
 
         it('Teste atributos com scope isolado - two way binding ("=").', function(){
-
-            isolatedScope.showLabel.prop = "valorIsoladoScope";
+            isolatedScope.showLabel.prop = 'valorIsoladoScope';
             expect(scope.showLabel.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.ngModel.prop = "valorIsoladoScope";
+            isolatedScope.ngModel.prop = 'valorIsoladoScope';
             expect(scope.ngModel.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.ngRequired.prop = "valorIsoladoScope";
+            isolatedScope.ngRequired.prop = 'valorIsoladoScope';
             expect(scope.ngRequired.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.ngDisabled.prop = "valorIsoladoScope";
+            isolatedScope.ngDisabled.prop = 'valorIsoladoScope';
             expect(scope.ngDisabled.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.ngReadonly.prop = "valorIsoladoScope";
+            isolatedScope.ngReadonly.prop = 'valorIsoladoScope';
             expect(scope.ngReadonly.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.removeMask.prop = "valorIsoladoScope";
+            isolatedScope.removeMask.prop = 'valorIsoladoScope';
             expect(scope.removeMask.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.autofocus.prop = "valorIsoladoScope";
+            isolatedScope.autofocus.prop = 'valorIsoladoScope';
             expect(scope.autofocus.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.currency.prop = "valorIsoladoScope";
+            isolatedScope.currency.prop = 'valorIsoladoScope';
             expect(scope.currency.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.toUpper.prop = "valorIsoladoScope";
+            isolatedScope.toUpper.prop = 'valorIsoladoScope';
             expect(scope.toUpper.prop).toEqual('valorIsoladoScope');
 
-            isolatedScope.toLower.prop = "valorIsoladoScope";
+            isolatedScope.toLower.prop = 'valorIsoladoScope';
             expect(scope.toLower.prop).toEqual('valorIsoladoScope');
-
-
         });
 
         it('Teste atributos - function ("&").', function(){
@@ -207,9 +212,8 @@
             expect(typeof(isolatedScope.ngKeyup)).toEqual('function');
             expect(typeof(isolatedScope.ngKeydown)).toEqual('function');
             expect(typeof(isolatedScope.ngBlur)).toEqual('function');
-
-
         });
+
         it('Teste atributos com scope isolado - function ("&").', function(){
             isolatedScope.ngChange();
             expect(scope.ngChange).toHaveBeenCalled();
@@ -222,16 +226,15 @@
 
             isolatedScope.ngBlur();
             expect(scope.ngBlur).toHaveBeenCalled();
-
         });
 
         it('Deve limpar o conteudo ngModel - Teste funcao limpar', function () {
-            isolatedScope.ngModel.prop = "valorIsoladoScope";
+            isolatedScope.ngModel.prop = 'valorIsoladoScope';
             expect(scope.ngModel.prop).toEqual('valorIsoladoScope');
             var button = element.find('button');
             button.triggerHandler('click');
             scope.$digest();
-            expect(scope.ngModel).toBeNull;
+            expect(scope.ngModel).toBeNull();
         });
 
         it('Deve inputSize definir valor default sm', function () {
