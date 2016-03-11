@@ -1,5 +1,6 @@
 ## Oobj's AngularJS Directives
 
+[![MIT License][license-image]][license-url]
 [![Bower](https://img.shields.io/bower/v/oobj-directives.svg)](http://bower.io/search/?q=oobj-directives)
 [![Build Status](https://travis-ci.org/oobj/oobj-directives.svg)](https://travis-ci.org/oobj/oobj-directives)
 [![Coverage Status](https://coveralls.io/repos/oobj/oobj-directives/badge.svg?branch=master&service=github)](https://coveralls.io/github/oobj/oobj-directives?branch=master)
@@ -34,3 +35,6 @@ var app = angular.module('myApp', ['oobj-directives']);
 Copyright (c) 2016 [Oobj](http://www.oobj.com.br/) and [other contributors](https://github.com/oobj/oobj-directives/graphs/contributors)
 
 Licensed under the [MIT License](https://github.com/oobj/oobj-directives/blob/master/LICENSE.md)
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE.md
